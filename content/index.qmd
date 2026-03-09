@@ -1,0 +1,112 @@
+---
+title: "Course Content"
+---
+
+Each class session has lecture materials, readings, and videos covering the week's topics. Work through these materials before attempting the assignments and lab exercises.
+
+## How to Use This Section
+
+For each week:
+
+1. **Read the assigned materials** listed on each content page
+2. **Watch the video lectures** (if available) to understand key concepts
+3. **Review the slides and examples** to see how concepts are applied
+4. **Complete the lab exercises** to get hands-on practice
+5. **Start the assignments early** to have time for questions
+6. **Take the quiz for the topic** in [Interactive Quizzes](/quiz/index.qmd) to check understanding
+
+## Course Content by Week
+
+### Module 1: Web Fundamentals (Weeks 1-2)
+
+- [**Week 1-2**: HTML & Introduction](/content/week-01.qmd)
+  - Introduction to Web Designing
+  - History of Web & Internet
+  - HTML Basics & Structure
+  - HTML Grouping, Lists, Images, Tables, Forms
+  - Introduction to CSS
+
+### Module 2: CSS & Styling (Weeks 2-3)
+
+- [**Week 2-3**: HTML Elements & CSS](/content/week-02.qmd)
+  - HTML Lists & Images
+  - HTML Hyperlinks & Tables
+  - HTML Forms & Form Elements
+  - Introduction to CSS
+  - CSS Units, Selectors & Styling
+
+- [**Week 3-5**: CSS Styling & JavaScript](/content/week-03.qmd)
+  - CSS Box Model & Positioning
+  - Bootstrap Framework Basics
+  - JavaScript Introduction & Variables
+  - Data Types, Operators & Control Flow
+  - Functions & Callbacks
+
+### Module 3: JavaScript & DOM (Weeks 4-5)
+
+- [**Week 4**: JavaScript Functions & Events](/content/week-04.qmd)
+  - JavaScript Functions & Scope
+  - Control Flow & Loops
+  - Events & Event Handling
+  - Event Listeners & Callbacks
+
+- [**Week 5**: DOM & ES6+](/content/week-05.qmd)
+  - Document Object Model (DOM)
+  - Selecting & Modifying Elements
+  - Form Validation with JavaScript
+  - ES6+ Features & Modern JavaScript
+
+### Module 4: Server-Side Development (Weeks 8-9)
+
+- [**Week 8-9**: Servlets, JSP & MVC](/content/week-08.qmd)
+  - Servlet Architecture & Life Cycle
+  - HTTP GET & POST Requests
+  - Session Tracking & Cookies
+  - Java Server Pages (JSP) Basics
+  - JSP Implicit Objects & Actions
+
+### Module 5: Spring Framework (Weeks 10-12)
+
+- [**Week 10**: Spring Framework Fundamentals](/content/week-10.qmd)
+  - Spring Core & Dependency Injection
+  - Inversion of Control (IoC) Container
+  - Bean Scopes & Auto-wiring
+  - Aspect-Oriented Programming (AOP)
+
+- [**Week 11**: Spring Boot & Spring Data](/content/week-11.qmd)
+  - Spring Boot Configuration
+  - Spring Data JPA
+  - Spring Security Basics
+  - Building REST APIs
+
+- [**Week 12**: REST APIs & Deployment](/content/week-12.qmd)
+  - RESTful Web Services
+  - REST Best Practices
+  - Testing & Deployment
+  - Final Project
+
+## Tips for Success
+
+::: {.callout-tip}
+### Study Tips
+
+- **Don't just read—practice!** Type out the code examples yourself
+- **Experiment with variations** of the examples to deepen your understanding
+- **Use browser developer tools** to inspect and debug your code
+- **Build something real** - apply what you learn to create actual web pages
+- **Ask questions** if you're stuck—web development has a steep learning curve!
+:::
+
+::: {.callout-warning}
+### Common Pitfalls to Avoid
+
+- Skipping the fundamentals (HTML/CSS) to jump to JavaScript
+- Not testing your code in multiple browsers
+- Forgetting to close tags or use proper syntax
+- Copying code without understanding what it does
+- Not using version control (Git) for your projects
+:::
+
+## Additional Resources
+
+For supplementary materials, tutorials, and reference documentation, visit the [Resources](/resource/index.qmd) section.

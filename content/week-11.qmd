@@ -1,0 +1,356 @@
+---
+title: "Week 11: Apr 6 - Apr 12, 2026"
+subtitle: "Unit IV-V: Spring Data, Security, and Spring Boot"
+---
+
+## Week Overview
+
+This week covers Spring Data JPA, Spring Security, and introduces Spring Boot as a modern way to build Spring applications.
+
+**Course Outcome:** CO-4, CO-5 (K4-K5 - Analysis & Synthesis)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** Spring Boot Application Development
+
+---
+
+## Lecture 33: Spring Data JPA & ORM Integration
+
+### What is ORM?
+- Object-Relational Mapping
+- Maps Java objects to database tables
+- Reduces boilerplate SQL code
+- JPA (Java Persistence API) is the standard
+
+### JPA Entity
+```java
+@Entity
+@Table(name = "users")
+public class User {
+  
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  
+  @Column(name = "username", unique = true, nullable = false)
+  private String username;
+  
+  @Column(name = "email")
+  private String email;
+  
+  @ManyToOne
+  @JoinColumn(name = "role_id")
+  private Role role;
+  
+  // Getters and setters
+}
+```
+
+### Spring Data Repository
+```java
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+  
+  // Custom query methods
+  User findByUsername(String username);
+  List<User> findByEmailContaining(String email);
+  
+  // Custom JPQL query
+  @Query("SELECT u FROM User u WHERE u.role = ?1")
+  List<User> findByRole(Role role);
+}
+```
+
+### Using Repository
+```java
+@Service
+public class UserService {
+  
+  @Autowired
+  private UserRepository userRepository;
+  
+  public User findById(Long id) {
+    return userRepository.findById(id).orElse(null);
+  }
+  
+  public List<User> findAll() {
+    return userRepository.findAll();
+  }
+  
+  public User save(User user) {
+    return userRepository.save(user);
+  }
+  
+  public void delete(Long id) {
+    userRepository.deleteById(id);
+  }
+}
+```
+
+### Relationships
+```java
+// One-to-Many
+@OneToMany(mappedBy = "role")
+private List<User> users;
+
+// Many-to-One
+@ManyToOne
+@JoinColumn(name = "role_id")
+private Role role;
+
+// Many-to-Many
+@ManyToMany
+@JoinTable(name = "user_permissions",
+  joinColumns = @JoinColumn(name = "user_id"),
+  inverseJoinColumns = @JoinColumn(name = "permission_id"))
+private Set<Permission> permissions;
+```
+
+---
+
+## Lecture 34: Spring Security
+
+### Authentication & Authorization
+- **Authentication**: Verify user identity (login)
+- **Authorization**: Check what user can do (permissions)
+
+### Security Configuration
+```java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+  
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http
+      .authorizeRequests()
+        .antMatchers("/public/**").permitAll()
+        .antMatchers("/admin/**").hasRole("ADMIN")
+        .anyRequest().authenticated()
+        .and()
+      .formLogin()
+        .loginPage("/login")
+        .permitAll()
+        .and()
+      .logout()
+        .permitAll();
+  }
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) 
+    throws Exception {
+    auth
+      .inMemoryAuthentication()
+        .withUser("user").password("password").roles("USER")
+        .and()
+        .withUser("admin").password("admin").roles("ADMIN");
+  }
+}
+```
+
+### Securing Methods
+```java
+@Service
+public class UserService {
+  
+  @PreAuthorize("hasRole('ADMIN')")
+  public void deleteUser(Long id) {
+    // Only admin can delete
+  }
+  
+  @PostAuthorize("returnObject.owner == authentication.principal.username")
+  public User getUser(Long id) {
+    // Return only user's own data
+  }
+}
+```
+
+---
+
+## Lecture 35: Introduction to Spring Boot
+
+### Benefits of Spring Boot
+- Eliminates boilerplate configuration
+- Embedded application server
+- Simplified Maven configuration
+- Production-ready out of box
+- Microservices-friendly
+
+### Spring Boot Project Structure
+```
+project/
+├── src/main/java/
+│   └── com/example/
+│       ├── Application.java
+│       ├── controller/
+│       ├── service/
+│       ├── repository/
+│       └── entity/
+├── src/main/resources/
+│   ├── application.properties
+│   └── application.yml
+├── pom.xml
+└── README.md
+```
+
+### Spring Boot Application
+```java
+@SpringBootApplication
+public class Application {
+  
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
+}
+```
+
+### Application Properties
+```properties
+# server configuration
+server.port=8080
+server.servlet.context-path=/api
+
+# database configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=password
+spring.jpa.hibernate.ddl-auto=update
+
+# logging
+logging.level.root=INFO
+logging.level.com.example=DEBUG
+```
+
+### Spring Boot Starters (Dependencies)
+```xml
+<!-- Web support -->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+<!-- Database with JPA -->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<!-- MySQL driver -->
+<dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+</dependency>
+```
+
+---
+
+## Lecture 36: Building REST APIs with Spring Boot
+
+### REST Principles
+- HTTP methods: GET, POST, PUT, DELETE
+- Resources identified by URLs
+- Stateless communication
+- JSON format for data
+
+### REST Controller
+```java
+@RestController
+@RequestMapping("/api/users")
+public class UserRestController {
+  
+  @Autowired
+  private UserService userService;
+  
+  // GET all users
+  @GetMapping
+  public List<User> getAll() {
+    return userService.findAll();
+  }
+  
+  // GET by ID
+  @GetMapping("/{id}")
+  public User getById(@PathVariable Long id) {
+    return userService.findById(id);
+  }
+  
+  // POST create
+  @PostMapping
+  public User create(@RequestBody User user) {
+    return userService.save(user);
+  }
+  
+  // PUT update
+  @PutMapping("/{id}")
+  public User update(@PathVariable Long id, @RequestBody User user) {
+    user.setId(id);
+    return userService.save(user);
+  }
+  
+  // DELETE
+  @DeleteMapping("/{id}")
+  public void delete(@PathVariable Long id) {
+    userService.delete(id);
+  }
+}
+```
+
+### HTTP Status Codes
+```java
+// Return with status
+@PostMapping
+public ResponseEntity<User> create(@RequestBody User user) {
+  User saved = userService.save(user);
+  return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+}
+
+// 404 Not Found
+@GetMapping("/{id}")
+public ResponseEntity<User> getById(@PathVariable Long id) {
+  return userService.findById(id)
+    .map(ResponseEntity::ok)
+    .orElse(ResponseEntity.notFound().build());
+}
+```
+
+---
+
+## Lab 11: Spring Boot Application
+
+### Objectives
+- Create Spring Boot REST API
+- Implement JPA repositories
+- Add security
+- Deploy application
+
+### Activities
+1. Create Spring Boot project
+2. Configure database connection
+3. Create User entity and repository
+4. Build REST API endpoints
+5. Add basic security
+6. Test endpoints with Postman
+
+### Deliverables
+- Working Spring Boot application
+- Complete CRUD REST API
+- Database integration
+- Running on localhost
+
+---
+
+## Key Takeaways
+
+✅ ORM simplifies database operations  
+✅ Spring Data repositories provide CRUD operations  
+✅ Spring Security handles authentication/authorization  
+✅ Spring Boot eliminates boilerplate  
+✅ REST APIs provide standardized web services  
+✅ JSON is the standard data format
+
+---
+
+## Next Week
+
+Unit V final topics:
+- REST API best practices
+- Testing strategies
+- Deployment and production

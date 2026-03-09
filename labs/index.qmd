@@ -1,0 +1,219 @@
+---
+title: "Lab Manuals"
+---
+
+Lab exercises are the heart of hands-on learning in this course. Each lab is designed to give you practical experience with the concepts covered in lectures.
+
+## Lab Structure
+
+Each lab session includes:
+
+- **Pre-lab preparation**: Readings and setup instructions
+- **Lab exercises**: Step-by-step activities with clear objectives
+- **Post-lab activities**: Reflection questions and additional challenges
+- **Submission requirements**: What to turn in and how
+
+## Lab Guidelines
+
+### General Instructions
+
+1. **Come prepared**: Review the lab manual before the session
+2. **Work systematically**: Follow the steps in order
+3. **Experiment**: Try variations to deepen understanding
+4. **Document your work**: Take screenshots and notes
+5. **Ask questions**: Lab time is for getting help!
+
+### Lab Reports
+
+For each lab, you must submit:
+
+- Completed code files
+- Screenshots of working output
+- Answers to lab questions
+- Brief reflection on what you learned
+
+### Submission Format
+
+```
+RollNumber_LabNumber_Name.zip
+
+Example: MCA2345_Lab01_JohnDoe.zip
+
+Contents:
+├── code/
+│   ├── (all your HTML/CSS/JS files)
+├── screenshots/
+│   ├── screenshot1.png
+│   ├── screenshot2.png
+├── answers.pdf (or answers.docx)
+└── README.txt
+```
+
+## Lab Schedule
+
+### Lab 1: Development Environment Setup
+**Week 1 | Due: January 28, 2026**
+
+Set up your development environment and create your first HTML file.
+
+[**View Lab Manual →**](/labs/lab-01.qmd)
+
+---
+
+### Lab 2: Creating Web Pages with HTML
+**Week 2 | Due: February 4, 2026**
+
+Build structured semantic HTML pages with text, images, and links.
+
+[**View Lab Manual →**](/labs/lab-02.qmd)
+
+---
+
+### Lab 3: HTML Forms and Multimedia
+**Week 3 | Due: February 11, 2026**
+
+Create interactive forms and embed multimedia content.
+
+[**View Lab Manual →**](/labs/lab-03.qmd)
+
+---
+
+### Lab 4: Styling with CSS
+**Week 4 | Due: February 18, 2026**
+
+Apply CSS to style HTML pages with colors, fonts, and layouts.
+
+**Lab Manual coming soon...**
+
+---
+
+### Lab 5: Responsive Design
+**Week 5 | Due: February 25, 2026**
+
+Build responsive layouts using Flexbox and CSS Grid.
+
+**Lab Manual coming soon...**
+
+---
+
+### Lab 6: CSS Animations
+**Week 7 | Due: March 11, 2026**
+
+Create smooth transitions and engaging animations.
+
+**Lab Manual coming soon...**
+
+---
+
+### Lab 7: JavaScript Basics
+**Week 8 | Due: March 18, 2026**
+
+Write your first JavaScript programs and manipulate data.
+
+**Lab Manual coming soon...**
+
+---
+
+### Lab 8: DOM Manipulation
+**Week 9 | Due: March 25, 2026**
+
+Use JavaScript to dynamically modify web page content.
+
+**Lab Manual coming soon...**
+
+---
+
+### Lab 9: Event Handling
+**Week 10 | Due: April 1, 2026**
+
+Handle user interactions with event listeners.
+
+**Lab Manual coming soon...**
+
+---
+
+### Lab 10: Server Configuration
+**Week 11 | Due: April 8, 2026**
+
+Set up and configure a local web server.
+
+**Lab Manual coming soon...**
+
+---
+
+## Lab Policies
+
+### Attendance
+
+- Lab attendance is **mandatory**
+- You must attend your assigned lab section
+- If you must miss a lab, email the instructor in advance
+- Make-up labs are offered only for documented emergencies
+
+### Grading
+
+Labs are graded on:
+
+- **Completion**: Did you finish all required tasks? (60%)
+- **Correctness**: Does your code work as expected? (25%)
+- **Documentation**: Did you answer questions thoroughly? (10%)
+- **Code Quality**: Is your code well-organized? (5%)
+
+### Late Policy
+
+- Labs submitted within 24 hours of deadline: 10% penalty
+- Labs submitted after 24 hours: 25% penalty
+- Labs submitted after 1 week: Not accepted
+
+## Common Lab Issues
+
+### Issue: Code Doesn't Work
+
+**Troubleshooting Steps:**
+1. Check the browser console for errors (F12)
+2. Validate your HTML at [W3C Validator](https://validator.w3.org/)
+3. Compare your code with the examples
+4. Ask your lab instructor for help
+
+### Issue: Can't Find Files
+
+**Solution:** Always use relative paths and check that:
+- Files are in the project folder
+- File names match exactly (case-sensitive)
+- Paths use forward slashes (`/`) not backslashes
+
+### Issue: Different Output Than Expected
+
+**Solution:**
+- Clear browser cache (Ctrl+F5)
+- Check for typos in your code
+- Verify you're using the latest version of your browser
+
+## Tips for Success
+
+::: {.callout-tip}
+### Make the Most of Lab Time
+
+- **Review the manual beforehand** so you can use lab time effectively
+- **Work with partners** but write your own code
+- **Try the bonus challenges** to deepen your learning
+- **Save your work frequently** to prevent data loss
+- **Test each step** before moving to the next
+:::
+
+## Additional Practice
+
+Want more practice? Try these resources:
+
+- [FreeCodeCamp](https://www.freecodecamp.org/) - Free interactive coding challenges
+- [Codecademy](https://www.codecademy.com/) - Interactive tutorials
+- [MDN Web Docs](https://developer.mozilla.org/) - Comprehensive reference and tutorials
+
+## Questions?
+
+If you have questions about lab exercises:
+
+- Ask during lab sessions
+- Visit office hours
+- Email [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+- Check the [Resources](/resource/index.qmd) page

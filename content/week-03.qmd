@@ -1,0 +1,256 @@
+---
+title: "Week 3: Feb 9 - Feb 15, 2026"
+subtitle: "Unit I: CSS Styling & Unit II: JavaScript Introduction"
+---
+
+## Week Overview
+
+This week covers CSS fundamentals including selectors, properties, and the Box Model, plus introduces JavaScript basics.
+
+**Course Outcome:** CO-1 & CO-2 (K3 - Application)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** CSS Styling & Responsive Design
+
+---
+
+## Lecture 9: CSS Units, Selectors & Advanced Styling
+
+### CSS Units
+- **Absolute**: `px` (pixels), `pt` (points), `cm`, `mm`
+- **Relative**: `em` (relative to font-size), `rem` (relative to root), `%` (percentage)
+- **Viewport**: `vw` (viewport width), `vh` (viewport height)
+
+### CSS Selectors
+```css
+/* Universal */
+* { margin: 0; }
+
+/* Element */
+p { color: black; }
+
+/* Class */
+.intro { font-size: 18px; }
+
+/* ID */
+#header { background: navy; }
+
+/* Attribute */
+input[type="text"] { width: 100%; }
+
+/* Pseudo-class */
+a:hover { color: red; }
+,a:visited { color: purple; }
+button:focus { outline: 2px solid blue; }
+
+/* Combinators */
+div > p { margin: 10px; }  /* Direct child */
+div p { margin: 10px; }    /* Any descendant */
+h1 + p { margin-top: 0; }  /* Adjacent sibling */
+```
+
+### Text & Font Properties
+```css
+p {
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+```
+
+---
+
+## Lecture 10: CSS Box Model & Positioning
+
+### Box Model
+```
+┌─────────────────────────┐
+│      Margin             │
+│  ┌───────────────────┐  │
+│  │  Border           │  │
+│  │  ┌─────────────┐  │  │
+│  │  │ Padding     │  │  │
+│  │  │ ┌─────────┐ │  │  │
+│  │  │ │ Content │ │  │  │
+│  │  │ └─────────┘ │  │  │
+│  │  └─────────────┘  │  │
+│  └───────────────────┘  │
+└─────────────────────────┘
+```
+
+```css
+div {
+  margin: 20px;      /* Outside space */
+  border: 2px solid black;
+  padding: 15px;     /* Inside space */
+  width: 300px;
+  height: 200px;
+}
+```
+
+### Display Property
+```css
+.block { display: block; }         /* Full width */
+.inline { display: inline; }       /* Inline with text */
+.inline-block { display: inline-block; } /* Hybrid */
+.flex { display: flex; }           /* Flexible layout */
+.grid { display: grid; }           /* Grid layout */
+.none { display: none; }           /* Hidden */
+```
+
+### Positioning
+```css
+.static { position: static; }        /* Default */
+.relative { position: relative; top: 10px; } /* Relative to normal */
+.absolute { position: absolute; }    /* Relative to parent */
+.fixed { position: fixed; }          /* Fixed to viewport */
+.sticky { position: sticky; }        /* Scrolls with page */
+```
+
+---
+
+## Lecture 11: Bootstrap Framework Basics
+
+### What is Bootstrap?
+- Popular CSS framework
+- Responsive grid system
+- Pre-built components
+- Mobile-first approach
+
+### Bootstrap Setup
+```html
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+```
+
+### Grid System
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Half width on medium screens</div>
+    <div class="col-md-6">Half width on medium screens</div>
+  </div>
+</div>
+```
+
+### Common Classes
+- `.container`, `.container-fluid`: Width management
+- `.row`: Horizontal layout
+- `.col-*`: Column sizing
+- `.btn`, `.btn-primary`: Buttons
+- `.alert`: Alerts and notifications
+- `.card`: Content cards
+- `.navbar`: Navigation bar
+
+---
+
+## Lecture 12: JavaScript - Introduction & Variables
+
+### What is JavaScript?
+- Programming language for web browsers
+- Makes web pages interactive
+- Runs on client-side (in browser)
+- Complementary to HTML (structure) and CSS (styling)
+
+### Why JavaScript?
+- Add interactivity to pages
+- Validate form inputs
+- Animate elements
+- Communicate with servers
+
+### JavaScript Syntax
+```javascript
+// Comments
+/* Multi-line comment */
+
+// Variables
+let name = "John";
+const age = 30;
+var city = "New York";
+
+// Data types
+let string = "text";
+let number = 42;
+let boolean = true;
+let object = { name: "John", age: 30 };
+let array = [1, 2, 3, 4, 5];
+let nullValue = null;
+let undefined;
+```
+
+### Operators
+```javascript
+// Arithmetic
+let sum = 10 + 5;
+let product = 10 * 5;
+
+// Comparison
+5 === 5  // true (strict equality)
+5 == "5" // true (loose equality)
+5 !== 4  // true (not equal)
+
+// Logical
+true && false  // false (AND)
+true || false  // true (OR)
+!true          // false (NOT)
+```
+
+### Naming Conventions
+```javascript
+// camelCase for variables and functions
+let firstName = "John";
+function calculateTotal() {}
+
+// PascalCase for classes
+class UserProfile {}
+
+// UPPER_CASE for constants
+const MAX_USERS = 100;
+```
+
+---
+
+## Lab 3: CSS Styling & Responsive Design
+
+### Objectives
+- Apply CSS styling to HTML
+- Create responsive layouts
+- Use Bootstrap or custom CSS
+
+### Activities
+1. Style the form from Week 2
+2. Create a multi-column layout
+3. Add responsive design for mobile
+4. Implement hover effects
+5. Use Bootstrap or CSS Grid
+
+### Deliverables
+- Styled HTML with external CSS
+- Responsive layout (mobile-friendly)
+- commit to GitHub
+
+---
+
+## Key Takeaways
+
+✅ CSS selectors target specific elements  
+✅ Box Model controls spacing (margin, padding, border)  
+✅ Positioning allows precise element placement  
+✅ Bootstrap accelerates responsive design  
+✅ JavaScript adds interactivity to pages  
+✅ Variables store and manage data
+
+---
+
+## Next Week
+
+We'll dive deeper into JavaScript:
+- Functions and events
+- Control flow (if/else, loops)
+- Working with the DOM

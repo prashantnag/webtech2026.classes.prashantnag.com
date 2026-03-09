@@ -1,0 +1,324 @@
+/*-- scss:defaults --*/
+
+// Import fonts
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+// Color palette
+$orange: #e67e22;
+$darkblue: #2c3e50;
+$lightblue: #3498db;
+$green: #27ae60;
+$purple: #9b59b6;
+$red: #e74c3c;
+$yellow: #f39c12;
+$gray: #95a5a6;
+
+// Navbar colors
+$navbar-bg: $darkblue;
+$navbar-fg: #ffffff;
+
+/*-- scss:rules --*/
+
+// Home page styling
+.home {
+  .course-details {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+
+    h3 {
+      color: $darkblue;
+      font-size: 1.4em;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid $orange;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+
+      li {
+        padding: 0.3rem 0;
+      }
+    }
+  }
+}
+
+// Schedule page styling
+.schedule-page {
+  font-size: 1.05em;
+
+  table {
+    margin: 2rem 0;
+    width: 100%;
+
+    thead {
+      background-color: $darkblue;
+      color: white;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+    }
+
+    tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+// Content page styling
+.content-title {
+  color: $orange;
+  font-weight: 700;
+}
+
+// Navbar customization
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    font-weight: 700;
+  }
+}
+
+// Button styling
+.btn-primary {
+  background-color: $orange;
+  border-color: $orange;
+
+  &:hover {
+    background-color: darken($orange, 10%);
+    border-color: darken($orange, 10%);
+  }
+}
+
+// Callout boxes
+.callout {
+  border-left-width: 5px;
+  border-left-style: solid;
+
+  &.callout-tip {
+    border-left-color: $green;
+  }
+
+  &.callout-warning {
+    border-left-color: $yellow;
+  }
+
+  &.callout-important {
+    border-left-color: $red;
+  }
+
+  &.callout-note {
+    border-left-color: $lightblue;
+  }
+}
+
+// Code blocks - ENHANCED FOR VISIBILITY
+code {
+  background-color: #f0f0f0;
+  color: #c7254e;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+// Inline code styling
+p code,
+li code,
+td code,
+th code {
+  background-color: #fff3cd;
+  color: #d9534f;
+  padding: 0.3em 0.6em;
+  border-radius: 3px;
+  border: 1px solid #f0ad4e;
+}
+
+// Code blocks with proper syntax highlighting
+pre {
+  background-color: #1e1e1e !important;
+  border: 2px solid #333 !important;
+  border-radius: 6px !important;
+  padding: 1.2em !important;
+  margin: 1.5em 0 !important;
+  overflow-x: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  line-height: 1.6;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: #e1e4e8 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  display: block;
+  font-size: 0.95em;
+  font-family: "Courier New", Courier, monospace;
+}
+
+// Syntax highlighting colors for different elements
+pre {
+  // Keywords - blue
+  .kn,
+  .kt,
+  .k {
+    color: #569cd6 !important;
+    font-weight: bold;
+  }
+
+  // Strings - red/orange
+  .s,
+  .sb,
+  .sc,
+  .s1,
+  .s2 {
+    color: #ce9178 !important;
+  }
+
+  // Comments - green
+  .c,
+  .cm,
+  .c1 {
+    color: #6a9955 !important;
+    font-style: italic;
+  }
+
+  // Numbers and constants
+  .m,
+  .mf,
+  .mh,
+  .mi,
+  .mo,
+  .il {
+    color: #b5cea8 !important;
+  }
+
+  // Class names - light blue
+  .nc,
+  .ni {
+    color: #4ec9b0 !important;
+  }
+
+  // Function names - yellow/gold
+  .nf,
+  .fn {
+    color: #dcdcaa !important;
+  }
+
+  // Attributes/parameters
+  .na {
+    color: #9cdcfe !important;
+  }
+
+  // Tags (HTML)
+  .nt {
+    color: #569cd6 !important;
+  }
+
+  // Operators
+  .o {
+    color: #d4d4d4 !important;
+  }
+}
+
+// Footer styling
+.nav-footer {
+  background-color: $darkblue;
+  color: white;
+
+  a {
+    color: $orange;
+
+    &:hover {
+      color: lighten($orange, 10%);
+    }
+  }
+}
+
+// Sidebar styling
+.sidebar {
+  nav[role="navigation"] {
+    .sidebar-section {
+      margin-bottom: 1rem;
+
+      .sidebar-link {
+        padding: 0.5rem 1rem;
+
+        &.active {
+          background-color: $orange !important;
+          color: white !important;
+        }
+
+        &:hover {
+          background-color: lighten($orange, 30%);
+        }
+      }
+    }
+  }
+}
+
+// Table styling
+table {
+  font-size: 0.95em;
+
+  thead {
+    background-color: $darkblue;
+    color: white;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+  }
+}
+
+// Lab and assignment pages
+.lab-page,
+.assignment-page {
+  h2 {
+    color: $darkblue;
+    border-bottom: 2px solid $orange;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+  }
+}
+
+// Icons in content
+.fa-book-open-reader {
+  color: $orange;
+}
+
+.fa-flask {
+  color: $green;
+}
+
+.fa-pen-ruler {
+  color: $purple;
+}
+
+.fa-books {
+  color: $lightblue;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .home .course-details {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}

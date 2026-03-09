@@ -1,0 +1,56 @@
+---
+title: "Lecture 1 Quiz: Introduction to Web Designing"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Slides](/presentations/lecture-01.qmd) | [Week 1 Content](/content/week-01.qmd) | [Lab 1](/labs/lab-01.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 1 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. CSS", "B. HTML", "C. JavaScript", "D. SQL"]
+question = "Question 1: Which layer is mainly responsible for page structure?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Graphic designer", "B. QA tester", "C. Backend developer", "D. Content writer"]
+question = "Question 2: Which role usually connects frontend UI with server logic and data?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Only UI color themes", "B. Only database indexing", "C. Only browser rendering engine internals", "D. Both frontend and backend"]
+question = "Question 3: A full-stack developer typically works with:"
+answer = 4
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. It adds behavior and interactivity", "B. It replaces HTML and CSS completely", "C. It is used only for database storage", "D. It is only for image editing"]
+question = "Question 4: Which statement best describes JavaScript in web development?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Publish directly to production", "B. Plan requirements and page structure", "C. Ignore user needs", "D. Skip testing and debugging"]
+question = "Question 5: Which is a good first step in a web project workflow?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```

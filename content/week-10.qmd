@@ -1,0 +1,301 @@
+---
+title: "Week 10: Mar 30 - Apr 5, 2026"
+subtitle: "Unit IV: Spring Framework Fundamentals"
+---
+
+## Week Overview
+
+This week introduces the Spring Framework, covering dependency injection, beans, and application context configuration.
+
+**Course Outcome:** CO-4 (K3-K4 - Application & Analysis)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** Spring Framework Application  
+**Assignment 4 Due:** Apr 8
+
+---
+
+## Lecture 29: Spring Framework & Dependency Injection
+
+### What is Spring?
+- Popular Java framework for enterprise apps
+- Provides DI, AOP, and MVC
+- Lightweight and non-invasive
+- Large ecosystem (Spring Boot, Spring Data, etc.)
+
+### Dependency Injection (DI)
+```java
+// Without DI - tight coupling
+public class UserService {
+  private UserDAO dao = new UserDAO();  // Hard-coded dependency
+}
+
+// With DI - loose coupling
+public class UserService {
+  private UserDAO dao;  // Injected dependency
+  
+  public UserService(UserDAO dao) {
+    this.dao = dao;
+  }
+}
+```
+
+### Spring XML Configuration
+```xml
+<!-- applicationContext.xml -->
+<beans>
+  <!-- Bean definition -->
+  <bean id="userDAO" class="com.example.UserDAO"/>
+  
+  <bean id="userService" class="com.example.UserService">
+    <!-- Constructor injection -->
+    <constructor-arg ref="userDAO"/>
+  </bean>
+</beans>
+```
+
+### Java Annotation Configuration
+```java
+@Configuration
+public class AppConfig {
+  
+  @Bean
+  public UserDAO userDAO() {
+    return new UserDAO();
+  }
+  
+  @Bean
+  public UserService userService(UserDAO dao) {
+    return new UserService(dao);
+  }
+}
+```
+
+### Using Spring
+```java
+// XML-based
+ApplicationContext context = new 
+  ClassPathXmlApplicationContext("applicationContext.xml");
+UserService service = context.getBean("userService", UserService.class);
+
+// Annotation-based
+ApplicationContext context = new 
+  AnnotationConfigApplicationContext(AppConfig.class);
+UserService service = context.getBean(UserService.class);
+```
+
+---
+
+## Lecture 30: Spring Beans & Application Context
+
+### Bean Lifecycle
+```
+1. Instantiation: Create bean instance
+2. Populate Properties: Set bean properties
+3. Initialization: Call init method
+4. Use: Bean is ready to use
+5. Destruction: Call destroy method
+```
+
+### Bean Scopes
+```java
+@Bean
+@Scope("singleton")  // One instance per context
+public UserService userServiceSingleton() {}
+
+@Bean
+@Scope("prototype")  // New instance each time
+public UserService userServicePrototype() {}
+
+@Bean
+@Scope("request")    // One per HTTP request
+public UserService userServiceRequest() {}
+
+@Bean
+@Scope("session")    // One per HTTP session
+public UserService userServiceSession() {}
+```
+
+### Autowiring
+```java
+@Component  // Register as a bean
+public class UserService {
+  
+  @Autowired  // Inject dependency
+  private UserDAO userDAO;
+  
+  @Autowired  // Setter injection
+  public void setUserDAO(UserDAO dao) {
+    this.userDAO = dao;
+  }
+  
+  public User findById(Long id) {
+    return userDAO.findById(id);
+  }
+}
+```
+
+### ApplicationContext
+```java
+// Get bean
+UserService service = context.getBean(UserService.class);
+
+// Check if bean exists
+boolean exists = context.containsBean("userService");
+
+// Get all beans of type
+Map<String, UserService> beans = 
+  context.getBeansOfType(UserService.class);
+
+// Listener support
+context.addApplicationListener(event -> {
+  System.out.println("Event: " + event);
+});
+```
+
+---
+
+## Lecture 31: Aspect-Oriented Programming (AOP)
+
+### What is AOP?
+- Separates cross-cutting concerns
+- Common concerns: logging, security, transactions
+- Advice executes around method calls
+
+### AOP Concepts
+- **Aspect**: Module for cross-cutting concern
+- **Pointcut**: Where advice applies
+- **Advice**: Action taken at pointcut
+- **Join point**: Potential execution point
+
+### AOP Example
+```java
+@Component
+@Aspect
+public class LoggingAspect {
+  
+  // Define pointcut
+  @Pointcut("execution(* com.example..*.*(..))")
+  public void applicationPackagePointcut() {}
+  
+  // Before advice
+  @Before("applicationPackagePointcut()")
+  public void logBefore(JoinPoint jp) {
+    System.out.println("Method: " + jp.getSignature());
+  }
+  
+  // After returning advice
+  @AfterReturning(pointcut = "applicationPackagePointcut()", 
+                  returning = "result")
+  public void logAfter(Object result) {
+    System.out.println("Result: " + result);
+  }
+  
+  // Around advice
+  @Around("applicationPackagePointcut()")
+  public Object around(ProceedingJoinPoint jp) throws Throwable {
+    long start = System.currentTimeMillis();
+    Object result = jp.proceed();
+    long elapsed = System.currentTimeMillis() - start;
+    System.out.println("Time: " + elapsed + "ms");
+    return result;
+  }
+}
+```
+
+---
+
+## Lecture 32: Spring MVC Overview
+
+### MVC in Spring
+```
+Request → DispatcherServlet → Controller → Service → DAO → Database
+Response ← View ← Response Object ← Controller ← Data
+```
+
+### Basic Controller
+```java
+@Controller
+public class UserController {
+  
+  @Autowired
+  private UserService userService;
+  
+  @GetMapping("/users")
+  public String listUsers(Model model) {
+    model.addAttribute("users", userService.findAll());
+    return "users";  // returns users.jsp
+  }
+  
+  @GetMapping("/users/{id}")
+  public String getUser(@PathVariable Long id, Model model) {
+    model.addAttribute("user", userService.findById(id));
+    return "user-detail";
+  }
+  
+  @PostMapping("/users")
+  public String addUser(@ModelAttribute User user) {
+    userService.save(user);
+    return "redirect:/users";
+  }
+}
+```
+
+### View (JSP)
+```jsp
+<%@ page language="java" %>
+<html>
+<body>
+  <h1>Users</h1>
+  <table>
+    <c:forEach var="user" items="${users}">
+      <tr>
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+      </tr>
+    </c:forEach>
+  </table>
+</body>
+</html>
+```
+
+---
+
+## Lab 10: Spring Framework Application
+
+### Objectives
+- Create Spring beans
+- Configure application context
+- Implement dependency injection
+- Build basic Spring MVC app
+
+### Activities
+1. Create beans and wire dependencies
+2. Configure XML/annotation application context
+3. Implement UserService and UserDAO
+4. Create Spring MVC controller
+5. Build view (JSP) for display
+
+### Deliverables
+- Spring application with DI
+- Working controllers and services
+- Basic MVC application
+
+---
+
+## Key Takeaways
+
+✅ DI promotes loose coupling  
+✅ Beans are managed objects in Spring  
+✅ ApplicationContext manages bean lifecycle  
+✅ Autowiring simplifies configuration  
+✅ AOP handles cross-cutting concerns  
+✅ Spring MVC follows separation of concerns
+
+---
+
+## Next Week
+
+Unit IV-V:
+- Spring Data JPA
+- Spring Boot introduction
+- REST APIs

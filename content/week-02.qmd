@@ -1,0 +1,294 @@
+---
+title: "Week 2: Feb 2 - Feb 8, 2026"
+subtitle: "Unit I: Web Page Designing - HTML Elements & CSS Introduction"
+---
+
+## Week Overview
+
+This week covers essential HTML elements (lists, images, tables, forms) and introduces CSS fundamentals for styling web pages.
+
+**Course Outcome:** CO-1 (K3 - Application)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** HTML Forms & Multimedia  
+**Assignment 1 Due:** Feb 11
+
+---
+
+## Lecture 5: HTML Lists & Images
+
+### Learning Objectives
+- Create ordered, unordered, and description lists
+- Insert and optimize images in HTML
+- Understand alt text and accessibility
+
+### HTML Lists
+
+#### Unordered Lists (`<ul>`)
+```html
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+
+#### Ordered Lists (`<ol>`)
+```html
+<ol>
+  <li>First step</li>
+  <li>Second step</li>
+  <li>Third step</li>
+</ol>
+```
+
+#### Description Lists (`<dl>`)
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Language</dd>
+  <dt>CSS</dt>
+  <dd>Cascading Style Sheets</dd>
+</dl>
+```
+
+### HTML Images
+
+#### Image Tag Syntax
+```html
+<img src="image.jpg" alt="Description" width="300" height="200">
+```
+
+#### Image Formats
+- **JPG**: Photographs and complex images
+- **PNG**: Graphics with transparency
+- **GIF**: Animations and simple graphics
+- **WebP**: Modern format with better compression
+- **SVG**: Scalable vector graphics
+
+#### Best Practices
+- Always use descriptive `alt` text
+- Optimize image sizes for web
+- Use appropriate formats
+- Provide multiple resolutions (srcset)
+
+---
+
+## Lecture 6: HTML Hyperlinks & Tables
+
+### Learning Objectives
+- Create and use hyperlinks effectively
+- Build structured data tables
+- Understand link types and attributes
+
+### Hyperlinks (`<a>` tag)
+
+```html
+<!-- External link -->
+<a href="https://www.example.com">Link Text</a>
+
+<!-- Internal link -->
+<a href="/pages/about.html">About</a>
+
+<!-- Link with target -->
+<a href="page.html" target="_blank">Open in new tab</a>
+
+<!-- Email link -->
+<a href="mailto:email@example.com">Send Email</a>
+
+<!-- Anchor/Jump link -->
+<a href="#section1">Jump to Section 1</a>
+```
+
+### HTML Tables
+
+```html
+<table border="1">
+  <thead>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data 1</td>
+      <td>Data 2</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+#### Table Elements
+- `<table>`: Container for table
+- `<thead>`: Table header rows
+- `<tbody>`: Table body rows
+- `<tfoot>`: Table footer rows
+- `<tr>`: Table row
+- `<th>`: Table header cell
+- `<td>`: Table data cell
+
+#### Accessibility & Best Practices
+- Use semantic table structure
+- Provide table captions
+- Use `<thead>`, `<tbody>`, `<tfoot>`
+- Add headers with `scope` attribute
+
+---
+
+## Lecture 7: HTML Forms & Form Elements
+
+### Learning Objectives
+- Create functional HTML forms
+- Use various input types
+- Understand form submission and validation
+
+### Form Structure
+
+```html
+<form action="/submit" method="POST">
+  <!-- Form fields go here -->
+  <button type="submit">Submit</button>
+</form>
+```
+
+### Common Input Types
+```html
+<input type="text" placeholder="Enter text">
+<input type="password">
+<input type="email" required>
+<input type="number" min="1" max="10">
+<input type="date">
+<input type="checkbox">
+<input type="radio">
+<input type="file">
+<textarea rows="4" cols="50"></textarea>
+<select>
+  <option value="">Select option</option>
+  <option value="1">Option 1</option>
+</select>
+```
+
+### Form Attributes
+- `name`: Identifier for the field
+- `value`: Default value
+- `required`: Field must be filled
+- `placeholder`: Hint text
+- `disabled`: Disable the field
+- `readonly`: Cannot be edited
+
+### Labels & Accessibility
+```html
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+```
+
+---
+
+## Lecture 8: Introduction to CSS
+
+### Learning Objectives
+- Understand what CSS does
+- Learn CSS syntax and selectors
+- Apply CSS to HTML elements
+
+### What is CSS?
+- **Cascading Style Sheets**: Controls presentation and layout
+- Separates content (HTML) from styling (CSS)
+- Makes responsive, maintainable designs
+
+### CSS Syntax
+
+```css
+selector {
+  property: value;
+  property: value;
+}
+```
+
+### Ways to Apply CSS
+
+#### 1. Inline Styles
+```html
+<p style="color: blue; font-size: 20px;">Styled text</p>
+```
+
+#### 2. Internal Stylesheet
+```html
+<head>
+  <style>
+    p { color: blue; }
+  </style>
+</head>
+```
+
+#### 3. External Stylesheet (Recommended)
+```html
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+```
+
+### Basic Selectors
+```css
+/* Element selector */
+p { color: blue; }
+
+/* Class selector */
+.highlight { background: yellow; }
+
+/* ID selector */
+#main { width: 100%; }
+
+/* Attribute selector */
+input[type="text"] { border: 1px solid gray; }
+```
+
+### Common Properties
+- **Text**: `color`, `font-size`, `font-family`, `text-align`
+- **Background**: `background-color`, `background-image`
+- **Box**: `margin`, `padding`, `border`, `width`, `height`
+- **Display**: `display`, `position`, `z-index`
+
+---
+
+## Lab 2: HTML Forms & Multimedia
+
+### Objectives
+- Create a functional HTML form
+- Add images and multimedia
+- Practice linking and navigation
+
+### Activities
+1. Create a contact form with all input types
+2. Add form validation attributes
+3. Insert images with proper alt text
+4. Create internal navigation with anchor links
+5. Build a data table with proper structure
+6. Create a navigation menu using lists
+
+### Deliverables
+- index.html with forms, images, and tables
+- styles.css (basic styling)
+- GitHub commit with changes
+
+---
+
+## Key Takeaways
+
+✅ HTML provides semantic elements for all content types  
+✅ Lists organize information hierarchically  
+✅ Images need alt text for accessibility  
+✅ Tables structure tabular data  
+✅ Forms collect user input  
+✅ CSS controls how content looks  
+✅ External CSS files are the professional standard
+
+---
+
+## Next Steps
+
+In the coming weeks, we'll:
+- Master CSS selectors and properties
+- Learn CSS Box Model and positioning
+- Introduction to Bootstrap responsive framework
+- Begin JavaScript for interactivity

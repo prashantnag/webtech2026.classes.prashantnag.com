@@ -1,0 +1,257 @@
+---
+title: "Assignment 1: Basic HTML Website"
+date: "2026-02-02"
+due: "2026-02-11"
+---
+
+## Overview
+
+Create a multi-page website about a topic of your choice using only HTML5. This assignment will help you practice HTML structure, semantic elements, links, images, lists, and tables.
+
+**Due Date**: February 11, 2026, 11:59 PM  
+**Points**: 100  
+**Estimated Time**: 6-8 hours
+
+## Learning Objectives
+
+By completing this assignment, you will:
+
+- Practice writing valid HTML5 documents
+- Use semantic HTML5 elements appropriately  
+- Create multi-page website navigation
+- Work with images, links, lists, and tables
+- Understand proper HTML document structure
+
+## Requirements
+
+### 1. Topic Selection
+
+Choose ONE of the following topics (or propose your own):
+
+- Your hobbies or interests
+- A technology or programming language
+- A  historical figure or event you find interesting
+- A travel destination guide
+- A recipe collection
+- A tutorial on something you're knowledgeable about
+
+### 2. Website Structure
+
+Your website must include **at least 4 pages**:
+
+1. **Home Page** (`index.html`)
+   - Welcome message
+   - Brief introduction to your site
+   - Navigation to all other pages
+   - At least one image
+
+2. **About Page** (`about.html`)
+   - Detailed information about your topic
+   - Multiple sections with headings
+   - At least 2 images
+   - Use of lists (ordered or unordered)
+
+3. **Gallery/Details Page** (`gallery.html` or similar)
+   - Multiple images with captions (using `<figure>` and `<figcaption>`)
+   - Organized layout
+   - Descriptive alt text for all images
+
+4. **Contact/Additional Page** (`contact.html` or similar)
+   - Contact information or additional content
+   - A table displaying relevant information
+   - Links to external resources (if applicable)
+
+### 3. Technical Requirements
+
+Your website MUST include:
+
+- [ ] Valid HTML5 document structure on all pages
+- [ ] Proper use of `<!DOCTYPE html>`
+- [ ] `<meta>` tags for charset and viewport
+- [ ] Descriptive `<title>` for each page
+- [ ] Semantic HTML5 elements:
+  - `<header>`, `<nav>`, `<main>`, `<footer>`
+  - `<article>` and/or `<section>`
+  - `<aside>` (if appropriate)
+- [ ] Navigation menu on all pages linking to other pages
+- [ ] At least 5 different types of HTML elements (headings, paragraphs, lists, images, links)
+- [ ] At least one table with proper structure (`<thead>`, `<tbody>`)
+- [ ] Minimum 6 images with appropriate alt text
+- [ ] Proper heading hierarchy (H1 > H2 > H3)
+- [ ] At least one external link (opening in new tab)
+- [ ] Proper indentation and code organization
+- [ ] HTML comments explaining major sections
+
+## Content Guidelines
+
+### Images
+
+- Use appropriate file names (lowercase, no spaces)
+- All images must have descriptive alt text
+- Create an `images/` folder for organization
+- Use web-appropriate image formats (JPEG, PNG, GIF)
+- Consider image file sizes (keep under 500KB each)
+
+### Text Content
+
+- Write meaningful, relevant content (minimum 500 words total)
+- Use proper grammar and spelling
+- Break content into logical sections
+- Make use of headings to organize content
+
+### Links
+
+- All internal links must work correctly
+- External links should open in a new tab (`target="_blank"`)
+- Include `rel="noopener"` for security on external links
+
+## Example Structure
+
+```
+assignment1/
+│
+├── index.html
+├── about.html
+├── gallery.html
+├── contact.html
+├── images/
+│   ├── logo.png
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+└── README.txt
+```
+
+## Grading Rubric
+
+| Criteria | Points | Description |
+|----------|--------|-------------|
+| **HTML Structure** | 25 | Valid HTML5, proper document structure, semantic elements used correctly |
+| **Content** | 20 | Complete content across all pages, well-written text, appropriate images |
+| **Navigation** | 15 | Working navigation on all pages, proper links, good user experience |
+| **Semantic HTML** | 15 | Appropriate use of HTML5 semantic elements |
+| **Images & Media** | 10 | Proper image usage, alt text, figure/figcaption where appropriate |
+| **Code Quality** | 10 | Clean, organized code with proper indentation and comments |
+| **Validation** | 5 | HTML validates with no errors at W3C Validator |
+| **Creativity** | 5 | Original design, creative use of HTML features |
+| **Total** | **100** | |
+
+## Submission Instructions
+
+1. **Test Your Website**
+   - Open all pages in a web browser
+   - Click all links to verify they work
+   - Check that all images load correctly
+
+2. **Validate Your HTML**
+   - Use [W3C Markup Validation Service](https://validator.w3.org/)
+   - Fix any errors or warnings
+
+3. **Create README.txt**
+   - Include your name and roll number
+   - Brief description of your website
+   - List the pages included
+   - Note any special features
+
+4. **Zip Your Files**
+   - Name: `RollNumber_Assignment1_YourName.zip`
+   - Include all HTML files, images folder, and README.txt
+
+5. **Submit**
+   - Upload to the course portal
+   - Submit before the deadline: **February 11, 2026, 11:59 PM**
+
+## Tips for Success
+
+::: {.callout-tip}
+### Helpful Hints
+
+- Start early! Don't leave this for the last day
+- Plan your content before coding
+- Use proper indentation (2 or 4 spaces consistently)
+- Test in multiple browsers (Chrome, Firefox, Edge)
+- Validate your HTML frequently as you build
+- Ask questions if you're stuck!
+:::
+
+::: {.callout-warning}
+### Common Mistakes to Avoid
+
+- Broken links between pages
+- Missing alt text on images
+- Incorrect file paths
+- Unclosed tags
+- Skipping heading levels (h1 → h3)
+- Not using semantic elements
+- Forgetting to validate HTML
+:::
+
+## Example Code Snippets
+
+### Basic Page Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title - Your Site Name</title>
+</head>
+<body>
+    <header>
+        <h1>Your Site Name</h1>
+        <nav>
+            <!-- Navigation links -->
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Main content -->
+    </main>
+    
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>
+```
+
+### Navigation Menu
+
+```html
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+```
+
+### Image with Caption
+
+```html
+<figure>
+    <img src="images/example.jpg" alt="Description of the image">
+    <figcaption>Caption for the image</figcaption>
+</figure>
+```
+
+## Resources
+
+- [HTML Tutorial - MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML)
+- [HTML Reference - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference)
+- [W3C HTML Validator](https://validator.w3.org/)
+- [HTML Cheat Sheet](https://htmlcheatsheet.com/)
+
+## Questions?
+
+If you have questions about this assignment:
+
+- Check the [Week 2 Content](/content/02-content.qmd) material
+- Attend lab sessions for help
+- Email me at [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+
+Good luck, and have fun building your website! 🚀

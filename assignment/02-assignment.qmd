@@ -1,0 +1,85 @@
+---
+title: "Assignment 2: Styled Web Page"
+date: "2026-02-09"
+due: "2026-02-25"
+---
+
+## Overview
+
+Take your Assignment 1 website and transform it with professional CSS styling.
+
+**Due Date**: February 25, 2026, 11:59 PM  
+**Points**: 100
+
+## Requirements
+
+### 1. CSS File Structure
+
+Create an external CSS file (`styles.css`) and link it to all your HTML pages.
+
+### 2. Required Styling
+
+Apply the following:
+
+- **Typography**
+  - Custom fonts (Google Fonts recommended)
+  - Proper font sizes and line heights
+  - Readable text colors
+
+- **Layout**
+  - Centered content with max-width
+  - Proper spacing and padding
+  - Organized sections
+
+- **Colors**
+  - Cohesive color scheme (3-5 colors)
+  - Proper contrast for readability
+  - Background colors for sections
+
+- **Navigation**
+  - Styled navigation menu
+  - Hover effects on links
+  - Active page indication
+
+- **Images**
+  - Consistent sizing
+  - Borders or shadows
+  - Proper spacing
+
+### 3. Technical Requirements
+
+- [ ] Valid CSS (W3C validated)
+- [ ] External stylesheet (no inline styles)
+- [ ] Consistent styling across all pages
+- [ ] Responsive font sizes
+- [ ] Proper use of classes and IDs
+- [ ] Well-organized CSS code with comments
+
+## Grading Rubric
+
+| Criteria | Points |
+|----------|--------|
+| CSS Structure | 20 |
+| Typography | 15 |
+| Layout & Spacing | 20 |
+| Color Scheme | 15 |
+| Navigation Styling | 15 |
+| Code Quality | 10 |
+| Validation | 5 |
+| **Total** | **100** |
+
+## Submission
+
+Submit ZIP file named: `RollNumber_Assignment2_YourName.zip`
+
+Include:
+- All HTML files
+- CSS file
+- Images folder
+- README.txt
+
+## Resources
+
+- [CSS Tutorial - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Google Fonts](https://fonts.google.com/)
+- [Coolors - Color Scheme Generator](https://coolors.co/)

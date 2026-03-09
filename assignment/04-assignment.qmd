@@ -1,0 +1,36 @@
+---
+title: "Assignment 4: Interactive Web Application"
+date: "2026-03-26"
+due: "2026-04-08"
+---
+
+## Overview
+
+Build an interactive web application using HTML, CSS, and JavaScript.
+
+**Due Date**: April 8, 2026, 11:59 PM  
+**Points**: 150
+
+## Project Options
+
+Choose ONE of the following:
+
+1. **Calculator Application**
+2. **To-Do List Manager**
+3. **Quiz Application**
+4. **Image Gallery with Lightbox**
+5. **Weather Dashboard** (using API)
+
+## Requirements
+
+- Full CRUD functionality (if applicable)
+- DOM manipulation
+- Event handling
+- Form validation
+- Local storage (if applicable)
+- Responsive design
+- Clean, commented code
+
+## Submission
+
+**Due: April 8, 2026**

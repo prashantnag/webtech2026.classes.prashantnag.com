@@ -1,0 +1,141 @@
+---
+title: "Assignments"
+---
+
+Assignments are an essential part of this course, giving you hands-on experience with web development concepts. Each assignment builds on previous knowledge and helps you develop practical skills.
+
+## Assignment Guidelines
+
+### General Instructions
+
+1. **Read the requirements carefully** before starting
+2. **Start early** - Don't wait until the last minute
+3. **Test your code** in multiple browsers
+4. **Validate your HTML and CSS** using W3C validators
+5. **Comment your code** to explain complex sections
+6. **Submit on time** - Late submissions are penalized
+
+### Submission Format
+
+All assignments must be submitted as:
+
+- A ZIP file containing all project files
+- Properly organized folder structure
+- Include a README.txt file with:
+  - Your name and roll number
+  - Assignment number and title
+  - Brief description of your work
+  - Any special instructions for running your code
+
+### Naming Convention
+
+```
+RollNumber_AssignmentNumber_Name.zip
+
+Example: MCA2345_Assignment1_JohnDoe.zip
+```
+
+## Evaluation Criteria
+
+Assignments are graded based on:
+
+| Criteria | Weightage |
+|----------|-----------|
+| Functionality | 40% |
+| Code Quality | 25% |
+| Design/Aesthetics | 20% |
+| Documentation | 10% |
+| Creativity | 5% |
+
+## Assignments
+
+### Assignment 1: Basic HTML Website
+**Due Date: February 11, 2026**
+
+Create a multi-page personal or informational website using HTML5.
+
+[**View Details →**](/assignment/01-assignment.qmd)
+
+---
+
+### Assignment 2: Styled Web Page  
+**Due Date: February 25, 2026**
+
+Take your HTML website from Assignment 1 and add professional styling using CSS3.
+
+[**View Details →**](/assignment/02-assignment.qmd)
+
+---
+
+### Assignment 3: Responsive Website
+**Due Date: March 18, 2026**
+
+Create a fully responsive website that works perfectly on mobile, tablet, and desktop devices.
+
+[**View Details →**](/assignment/03-assignment.qmd)
+
+---
+
+### Assignment 4: Interactive Web Application
+**Due Date: April 8, 2026**
+
+Build an interactive web application using HTML, CSS, and JavaScript with DOM manipulation and event handling.
+
+[**View Details →**](/assignment/04-assignment.qmd)
+
+---
+
+## Academic Integrity
+
+::: {.callout-warning}
+### Important Reminder
+
+- All work must be your own
+- You may discuss concepts with classmates but not share code
+- Cite any external resources you use
+- Plagiarism will result in severe penalties
+
+**Remember**: The goal is to learn, not just to get grades!
+:::
+
+## Getting Help
+
+If you're stuck on an assignment:
+
+1. Review the relevant lecture materials and examples
+2. Check the [Resources](/resource/index.qmd) section
+3. Attend lab sessions for hands-on help
+4. Email the instructor with specific questions
+5. Use office hours for one-on-one assistance
+
+::: {.callout-tip}
+### Tips for Success
+
+- **Break down the problem**: Divide large assignments into smaller tasks
+- **Test incrementally**: Don't wait until you're done to test your code
+- **Use version control**: Save your work frequently
+- **Read error messages**: They often tell you exactly what's wrong
+- **Google is your friend**: Learn to search effectively for solutions
+:::
+
+## Common Issues and Solutions
+
+### Issue: Code Works in One Browser But Not Another
+
+**Solution**: Test in multiple browsers (Chrome, Firefox, Edge). Use browser compatibility resources like [Can I Use](https://caniuse.com/).
+
+### Issue: CSS Not Loading
+
+**Solution**: Check file paths, ensure files are in the correct location, verify link syntax in HTML.
+
+### Issue: JavaScript Not Working
+
+**Solution**: Check browser console for errors (F12), verify script is loaded correctly, check for syntax errors.
+
+## Past Assignment Examples
+
+::: {.callout-note}
+### Coming Soon
+
+Examples of excellent work from previous semesters will be posted here as the course progresses.
+:::

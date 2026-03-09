@@ -1,0 +1,447 @@
+---
+title: "Lecture 8: Introduction to CSS"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 5, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 8]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Introduction to CSS]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 2 | Unit I: HTML Forms & CSS Introduction<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand what CSS is and why it matters
+- Apply CSS using three methods
+- Write CSS selectors and rules
+- Use basic CSS properties for styling
+- Link external stylesheets
+:::
+
+::: {.notes}
+CSS transforms plain HTML into beautifully designed web pages. It's the visual language of the web.
+:::
+
+---
+
+## {data-menu-title="What is CSS?"}
+
+[CSS: Cascading Style Sheets]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+[**CSS**]{.teal-text} separates content from presentation
+:::
+::: {.fragment}
+- HTML provides **structure**
+:::
+::: {.fragment}
+- CSS provides **styling**
+:::
+::: {.fragment}
+- JavaScript provides **behavior**
+:::
+:::
+
+::: {.fragment}
+```
+HTML = Skeleton (structure)
+CSS  = Clothes & appearance
+JS   = Movement & interaction
+```
+:::
+
+---
+
+## {data-menu-title="Three CSS Methods"}
+
+[Three Ways to Apply CSS]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="33%"}
+[**1. Inline CSS**]{.teal-text}
+
+```html
+<p style="color: red;">
+  Red text
+</p>
+```
+
+Least preferred
+:::
+
+::: {.column width="33%"}
+[**2. Internal CSS**]{.teal-text}
+
+```html
+<style>
+  p { color: blue; }
+</style>
+```
+
+In `<head>` tag
+:::
+
+::: {.column width="33%"}
+[**3. External CSS**]{.teal-text}
+
+```html
+<link rel="stylesheet" 
+      href="style.css">
+```
+
+Best practice!
+:::
+:::
+
+---
+
+## {data-menu-title="CSS Syntax"}
+
+[CSS Rule Syntax]{.slide-title}
+
+<hr>
+
+```
+┌─────────────────────────────────────┐
+│ selector { property: value; }       │
+└─────────────────────────────────────┘
+
+        ↓          ↓          ↓
+     What    Which        To what
+    to style  property    value
+```
+
+**Example:**
+
+```css
+p {
+    color: red;
+    font-size: 16px;
+    background-color: yellow;
+}
+```
+
+---
+
+## {data-menu-title="CSS Selectors"}
+
+[Common CSS Selectors]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+[**Element Selector**]{.teal-text} - Select all `<p>` tags
+```css
+p { color: blue; }
+```
+:::
+::: {.fragment}
+[**Class Selector**]{.teal-text} - Select by class attribute (`.` prefix)
+```css
+.highlight { background: yellow; }
+```
+:::
+::: {.fragment}
+[**ID Selector**]{.teal-text} - Select by id attribute (`#` prefix)
+```css
+#header { font-size: 24px; }
+```
+:::
+:::
+
+---
+
+## {data-menu-title="Using Classes & IDs"}
+
+[Classes vs IDs]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1-5|6-10"}
+<!-- Classes (reusable) -->
+<p class="highlight">Important text</p>
+<p class="highlight">More important text</p>
+<span class="highlight">Also important</span>
+
+<!-- IDs (unique) -->
+<div id="header">Page Header</div>
+<h1>Title</h1>
+<!-- There should only be ONE element with id="header" -->
+```
+
+**In CSS:**
+```css
+.highlight { color: red; }    /* Affects all class="highlight" */
+#header { background: blue; } /* Affects id="header" only */
+```
+
+---
+
+## {data-menu-title="Color Properties"}
+
+[CSS Color Properties]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4"}
+color: red;                    /* Text color */
+background-color: #f0f0f0;     /* Background color */
+border: 2px solid blue;        /* Border color */
+opacity: 0.8;                  /* Transparency (0-1) */
+```
+
+**Color formats:**
+
+```css
+color: red;              /* Named color */
+color: #FF0000;          /* Hexadecimal */
+color: rgb(255, 0, 0);   /* RGB values */
+color: rgba(255, 0, 0, 0.5); /* RGB with alpha */
+```
+
+---
+
+## {data-menu-title="Font Properties"}
+
+[CSS Font Styling]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4|5|6"}
+font-family: Arial, sans-serif;  /* Font type */
+font-size: 16px;                 /* Size -->
+font-weight: bold;               /* Bold, 100-900 -->
+font-style: italic;              /* Italic -->
+text-align: center;              /* Alignment -->
+text-decoration: underline;      /* Underline, overline, etc -->
+```
+
+**Safe fonts:**
+```css
+font-family: Arial, Helvetica, sans-serif;
+font-family: Georgia, serif;
+font-family: 'Times New Roman', serif;
+```
+
+---
+
+## {data-menu-title="Box Model"}
+
+[The CSS Box Model]{.slide-title}
+
+<hr>
+
+Every element has padding, border, and margin:
+
+```
+╔════════════════════════════════╗
+║       MARGIN (Outside)         ║
+║  ┌──────────────────────────┐  ║
+║  │ BORDER                   │  ║
+║  │  ┌────────────────────┐  │  ║
+║  │  │ PADDING (Inside)   │  │  ║
+║  │  │  ┌──────────────┐  │  │  ║
+║  │  │  │   CONTENT    │  │  │  ║
+║  │  │  └──────────────┘  │  │  ║
+║  │  └────────────────────┘  │  ║
+║  └──────────────────────────┘  ║
+╚════════════════════════════════╝
+```
+
+---
+
+## {data-menu-title="Spacing Properties"}
+
+[Margin & Padding]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4|5"}
+margin: 10px;              /* Space outside (all sides) -->
+padding: 20px;             /* Space inside (all sides) -->
+margin: 10px 20px;         /* Top/bottom, left/right -->
+padding: 10px 20px 30px 40px; /* Top, right, bottom, left -->
+border: 2px solid red;     /* Width, style, color -->
+```
+
+**Individual sides:**
+```css
+margin-top: 10px;
+margin-right: 20px;
+margin-bottom: 10px;
+margin-left: 20px;
+```
+
+---
+
+## {data-menu-title="Width & Height"}
+
+[Dimensions in CSS]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4|5"}
+width: 300px;           /* Fixed width in pixels -->
+width: 100%;            /* Percentage of parent -->
+width: 100vw;           /* Percentage of viewport -->
+height: auto;           /* Automatic height -->
+max-width: 500px;       <!-- Responsive: max size -->
+```
+
+**Responsive sizing:**
+```css
+width: 100%;           /* Fill parent container */
+max-width: 1200px;     /* But don't exceed 1200px */
+height: auto;          /* Maintain aspect ratio */
+```
+
+---
+
+## {data-menu-title="External Stylesheet"}
+
+[Linking External CSS (Best Practice)]{.slide-title}
+
+<hr>
+
+Create a separate `style.css` file:
+
+```css
+/* style.css */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+```
+
+In your HTML:
+
+```html
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[One CSS file styles all HTML pages!]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="CSS Best Practices"}
+
+[CSS Best Practices]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. **Use external stylesheets** - Separate content and design
+2. **Use meaningful class names** - `.red-button` not `.x123`
+3. **Keep CSS organized** - Group related styles
+4. **Avoid inline styles** - Use classes instead
+5. **Use CSS variables** - For consistent colors/sizes
+6. **Mobile-first approach** - Design for mobile, enhance for desktop
+7. **Validate your CSS** - Check for errors
+:::
+
+---
+
+## {data-menu-title="CSS Variables"}
+
+[CSS Custom Properties (Variables)]{.slide-title}
+
+<hr>
+
+Define and reuse values:
+
+```{.css code-line-numbers="|1-5|6|7|8"}
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #ff9900;
+    --font-size: 16px;
+}
+
+h1 { color: var(--primary-color); }
+p { color: var(--secondary-color); }
+button { font-size: var(--font-size); }
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Change color in one place, updates everywhere!]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [CSS-Tricks](https://css-tricks.com/)
+- [CSS Color Names](https://www.w3schools.com/colors/colors_names.asp)
+- [Font Resources: Google Fonts](https://fonts.google.com/)
+- [Course content: Week 2](/content/week-02.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Week 3 - CSS Styling & JavaScript Introduction
+</div>
+</div>

@@ -1,0 +1,286 @@
+---
+title: "Week 8: Mar 16 - Mar 22, 2026"
+subtitle: "Unit III: Servlets & JSP Introduction"
+---
+
+## Week Overview
+
+This week introduces server-side programming with Servlets and Java Server Pages (JSP), covering architecture, lifecycle, and request/response handling.
+
+**Course Outcome:** CO-3 (K3 - Application)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** Servlet Development  
+**Assignment 3 Due:** Mar 18
+
+---
+
+## Lecture 21: Servlet Architecture & Lifecycle
+
+### What is a Servlet?
+- Java program that runs on web server
+- Receives HTTP requests and sends responses
+- Extends `HttpServlet` class
+- Part of Java EE standard
+
+### Servlet Lifecycle
+```
+1. Loading: Server loads servlet class
+2. Instantiation: Creates servlet object
+3. Initialization: Calls init() method (once)
+4. Service: Calls service() method (each request)
+   - Calls doGet() or doPost() based on HTTP method
+5. Destruction: Calls destroy() method (when unloading)
+```
+
+### Basic Servlet Structure
+```java
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class FirstServlet extends HttpServlet {
+  
+  // Initialization
+  public void init() throws ServletException {
+    System.out.println("Servlet initialized");
+  }
+  
+  // Handle GET requests
+  protected void doGet(HttpServletRequest request, 
+                      HttpServletResponse response)
+    throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    out.println("<h1>Welcome</h1>");
+    out.close();
+  }
+  
+  // Cleanup
+  public void destroy() {
+    System.out.println("Servlet destroyed");
+  }
+}
+```
+
+### Servlet Configuration
+```xml
+<!-- web.xml -->
+<servlet>
+  <servlet-name>FirstServlet</servlet-name>
+  <servlet-class>com.example.FirstServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>FirstServlet</servlet-name>
+  <url-pattern>/hello</url-pattern>
+</servlet-mapping>
+```
+
+---
+
+## Lecture 22: HTTP GET & POST Requests
+
+### Request/Response Cycle
+```
+Client Request → Web Server → Servlet → Database
+Client ← Web Server ← Response ← Servlet ← Data
+```
+
+### GET Requests
+```java
+protected void doGet(HttpServletRequest request, 
+                    HttpServletResponse response) {
+  // Get query parameters
+  String name = request.getParameter("name");
+  String email = request.getParameter("email");
+  
+  // Send response
+  response.getWriter().println("Name: " + name);
+}
+```
+
+**Characteristics:**
+- Data in URL query string
+- Limited data size
+- Bookmarkable
+- Not secure
+- Caching-friendly
+
+### POST Requests
+```java
+protected void doPost(HttpServletRequest request,
+                     HttpServletResponse response) {
+  // Get form parameters
+  String username = request.getParameter("username");
+  String password = request.getParameter("password");
+  
+  // Process and respond
+  response.getWriter().println("Login attempt");
+}
+```
+
+**Characteristics:**
+- Data in request body (hidden)
+- Large data capacity
+- Not bookmarkable
+- More secure
+- No caching
+
+### Request/Response Objects
+```java
+// Request methods
+String method = request.getMethod();           // GET, POST, etc.
+String path = request.getRequestURI();
+String query = request.getQueryString();
+String[] values = request.getParameterValues("item");
+Map<String, String[]> params = request.getParameterMap();
+
+// Response methods
+response.setContentType("text/html; charset=UTF-8");
+response.setStatus(HttpServletResponse.SC_OK);
+PrintWriter out = response.getWriter();
+out.println("Response content");
+```
+
+---
+
+## Lecture 23: Session Tracking & Cookies
+
+### Sessions
+```java
+// Create/Get session
+HttpSession session = request.getSession();
+
+// Store data
+session.setAttribute("userId", "12345");
+session.setAttribute("username", "john");
+
+// Retrieve data
+String userId = (String) session.getAttribute("userId");
+
+// Session management
+session.getCreationTime();
+session.getMaxInactiveInterval();
+session.invalidate();  // Logout
+```
+
+### Cookies
+```java
+// Create cookie
+Cookie cookie = new Cookie("username", "john");
+cookie.setMaxAge(60 * 60 * 24);  // 1 day
+response.addCookie(cookie);
+
+// Read cookie
+Cookie[] cookies = request.getCookies();
+for (Cookie cookie : cookies) {
+  if (cookie.getName().equals("username")) {
+    String value = cookie.getValue();
+  }
+}
+
+// Delete cookie
+Cookie cookie = new Cookie("username", "");
+cookie.setMaxAge(0);
+response.addCookie(cookie);
+```
+
+### Differences
+| Session | Cookie |
+|---------|--------|
+| Server-side | Client-side |
+| Secure | Less secure |
+| Temporary | Persistent |
+| Per user | Per browser |
+| Lost on logout | Survives logout |
+
+---
+
+## Lecture 24: Introduction to JSP
+
+### What is JSP?
+- Java Server Pages
+- Simplified Servlet technology
+- Mixes HTML and Java code
+- Converted to Servlet at runtime
+
+### JSP Page Structure
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My JSP Page</title>
+</head>
+<body>
+  <h1>Welcome</h1>
+  
+  <!-- Expression -->
+  <p>Current time: <%= java.time.LocalDateTime.now() %></p>
+  
+  <!-- Scriptlet -->
+  <% 
+    String name = request.getParameter("name");
+    out.println("Hello, " + name);
+  %>
+  
+  <!-- Declaration -->
+  <%! 
+    public String formatDate(Date date) {
+      return new SimpleDateFormat("yyyy-MM-dd").format(date);
+    }
+  %>
+</body>
+</html>
+```
+
+### JSP Elements
+- **Expression (`<%= %>`)**: Outputs value to page
+- **Scriptlet (`<% %>`)**: Java code execution
+- **Declaration (`<%! %>`)**: Method/variable declaration
+- **Directive (`<%@ %>`)**: Page configuration
+- **Comment (`<%-- --%>`)**: JSP-only comment
+
+---
+
+## Lab 8: Servlet Development
+
+### Objectives
+- Create functional servlets
+- Handle GET/POST requests
+- Manage sessions
+- Basic JSP pages
+
+### Activities
+1. Create login servlet
+2. Implement form processing
+3. Add session management
+4. Create simple JSP page
+5. Deploy to application server
+
+### Deliverables
+- Working servlet application
+- Functional login system
+- Session management
+
+---
+
+## Key Takeaways
+
+✅ Servlets run on server and process requests  
+✅ Lifecycle manages servlet creation/destruction  
+✅ GET for safe, bookmarkable requests  
+✅ POST for secure data submission  
+✅ Sessions track user across requests  
+✅ JSP simplifies server-side programming
+
+---
+
+## Next Week
+
+Unit III continues:
+- JSP implicit objects and directives
+- JSTL (JSP Standard Tag Library)
+- MVC architecture
+- Database connectivity

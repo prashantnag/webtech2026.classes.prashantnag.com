@@ -1,0 +1,180 @@
+---
+title: "Web Technology"
+subtitle: "BMC201 • MCA Semester 2 • 2025-26"
+details: |
+  Prashant Kumar Nag<br>Galgotias College of Engineering & Technology
+sidebar: false
+toc: false
+page-layout: full
+format:
+  html:
+    template-partials:
+      - html/home/title-block.html
+course-logo: /files/favicon-512.png
+---
+
+::: {.home}
+
+::: {.grid .course-details}
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Instructor
+
+- {{< fa user >}} &nbsp; [Dr. Prashant Kumar Nag](https://prashantnag.com)
+- {{< fa university >}} &nbsp; Department of Computer Applications
+- {{< fa envelope >}} &nbsp; <a href="mailto:prashantkumar.nag@galgotiacollege.edu">prashantkumar.nag@galgotiacollege.edu</a>
+:::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Course Details
+
+- {{< fa calendar >}} &nbsp; MCA Semester 2
+- {{< fa calendar-alt >}} &nbsp; 2025-26
+- {{< fa university >}} &nbsp; Galgotias College of Engineering & Technology
+- {{< fa book >}} &nbsp; Course Code: BMC201
+- {{< fa gears >}} &nbsp; Credits: 4 (3-1-0)
+:::
+
+::: {.g-col-12 .g-col-md-4 .contact-policy}
+### Quick Links
+
+- [{{< fa book-open >}}  Syllabus](/syllabus.qmd)
+- [{{< fa calendar-days >}}  Schedule](/schedule.qmd)
+- [{{< fa laptop-code >}}  Lab Manuals](/labs/index.qmd)
+- [{{< fa file-lines >}}  Assignments](/assignment/index.qmd)
+:::
+
+::::
+
+:::
+
+## Welcome to Web Technology! {.mb-5}
+
+This course provides a **comprehensive introduction to web technologies**, covering both front-end and back-end development. You'll learn to create dynamic, interactive websites and web applications using **HTML, CSS, JavaScript, and server-side programming**.
+
+**Course Duration:** January 26 - May 3, 2026 | **Credits:** 4 (3-1-0) | **Code:** BMC201
+
+---
+
+## 📚 What You'll Learn
+
+::: {.grid .mb-4}
+
+::: {.g-col-12 .g-col-md-6}
+### Front-End Development
+
+- **HTML5 & CSS3**: Build modern, responsive web pages with semantic markup
+- **JavaScript**: Add interactivity and dynamic behavior to your websites
+- **User Interface**: Create engaging and functional UI designs
+- **Responsive Design**: Make websites work on all devices
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Back-End Development
+
+- **Server-Side Programming**: JSP, Servlets, Spring Framework, Spring Boot
+- **Databases**: Data management and SQL fundamentals
+- **Web Servers**: Configuration, deployment, and management
+- **APIs**: Build RESTful web services
+
+:::
+
+::: {.g-col-12}
+### Best Practices & Architecture
+
+- **Client-Server Architecture**: Understand how the web works at a fundamental level
+- **Web Standards**: Industry-standard practices and conventions
+- **Security Basics**: Fundamental security concepts for web applications
+- **Performance**: Optimization techniques for web applications
+
+:::
+
+:::
+
+---
+
+## 📅 Course Structure
+
+**12 Weeks with Consistent Weekly Pattern:**
+
+- **4 Classes per week** - Interactive lectures, slides, and reference materials
+- **1 Lab per week** - 3-hour hands-on lab sessions aligned with lecture topics
+- **Self-paced materials** - Additional readings and resources available anytime
+
+### Unit-by-Unit Breakdown
+
+| Unit | Topics | Weeks |
+|------|--------|-------|
+| **Unit I** | Web Page Designing (HTML, CSS, Bootstrap) | 1-2 |
+| **Unit II** | JavaScript & DOM Manipulation | 3-5 |
+| **Unit III** | Web Applications (JSP & Servlets) | 8-9 |
+| **Unit IV** | Spring Framework Basics | 10 |
+| **Unit V** | Spring Boot & RESTful Web Services | 11-12 |
+| **Mid-Semester** | Revision & Examination | 6-7 |
+
+---
+
+## 🎯 Learning Outcomes
+
+By the end of this course, you will be able to:
+
+1. Design and develop static and dynamic web pages using HTML, CSS, and JavaScript
+2. Understand and implement client-server architecture
+3. Configure and manage web servers effectively
+4. Apply industry best practices in web development
+5. Build complete web applications from scratch
+6. Debug and troubleshoot web applications professionally
+
+---
+
+## 📋 Course Materials
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### Schedule & Content
+
+- **[Complete Schedule](/schedule.qmd)** - Week-by-week breakdown with topics and dates
+- **[Lecture Materials](/content/index.qmd)** - Slides, references, and learning materials
+- **[Assignments](/assignment/index.qmd)** - 4 major projects throughout the semester
+- **[Lab Exercises](/labs/index.qmd)** - 9 hands-on labs (one per week)
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Additional Resources
+
+- **[Syllabus](/syllabus.qmd)** - Course policies and guidelines
+- **[Reference Materials](/resource/index.qmd)** - Tools, references, and learning materials
+- **[AKTU Compliance](/AKTU_COMPLIANCE_UPDATES.md)** - Curriculum alignment
+- **[Getting Started](/GETTING_STARTED.md)** - Setup and onboarding guide
+
+:::
+
+:::
+
+---
+
+## Prerequisites
+
+- Basic understanding of computers and the internet
+- Familiarity with any programming language (helpful but not required)
+- Commitment to learning web development
+
+---
+
+## ❓ Getting Help
+
+::: {.callout-note icon=false appearance="simple"}
+### Need Assistance?
+
+**Email:** [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+
+**Office:** Department of Computer Applications, Galgotias College of Engineering & Technology
+
+**Response Time:** 24-48 hours during weekdays
+
+For quick answers, check the [Resources](/resource/index.qmd) page or relevant [Lab Manual](/labs/index.qmd) first.
+:::
+

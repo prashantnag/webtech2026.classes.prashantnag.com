@@ -1,0 +1,345 @@
+---
+title: "Lecture 7: HTML Forms & Form Elements"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 4, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 7]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[HTML Forms & Form Elements]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 2 | Unit I: HTML Forms & CSS Introduction<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand HTML forms and their purpose
+- Use various input types effectively
+- Create labels for accessibility
+- Implement form validation
+- Structure forms semantically
+:::
+
+::: {.notes}
+Forms are how users submit data. They're crucial for user interaction and data collection.
+:::
+
+---
+
+## {data-menu-title="Form Basics"}
+
+[The Form Element]{.slide-title}
+
+<hr>
+
+Forms collect user input:
+
+```{.html code-line-numbers="|1|2-4|5"}
+<form action="/submit" method="POST">
+    <!-- Form inputs here -->
+    <input type="text" name="username">
+    <button type="submit">Submit</button>
+</form>
+```
+
+::: {.body-text-m .topbr}
+**Key attributes:**
+- `action`: Where to send form data
+- `method`: GET or POST
+- `name`: Identifies the form
+:::
+
+---
+
+## {data-menu-title="Form Methods"}
+
+[HTTP Methods: GET vs POST]{.slide-title2}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**GET Method**]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Data in URL
+- Limited length
+- Less secure
+- Use for searches
+:::
+:::
+
+::: {.column width="50%"}
+[**POST Method**]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Data in request body
+- No size limit
+- More secure
+- Use for sensitive data
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="Input Types"}
+
+[HTML5 Input Types - Part 1]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4|5"}
+<input type="text" placeholder="Enter name">        <!-- Text input -->
+<input type="password" name="pwd">                 <!-- Hide as dots -->
+<input type="email" name="email">                  <!-- Email validation -->
+<input type="number" name="age" min="0" max="120"> <!-- Numbers only -->
+<input type="date" name="birthday">                <!-- Date picker -->
+```
+
+::: {.fragment .body-text-m .topbr}
+Each type has built-in validation!
+:::
+
+---
+
+## {data-menu-title="Input Types 2"}
+
+[HTML5 Input Types - Part 2]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4|5"}
+<input type="url" name="website">          <!-- URL validation -->
+<input type="tel" name="phone">            <!-- Telephone input -->
+<input type="color" name="favorite">       <!-- Color picker -->
+<input type="range" min="0" max="10">      <!-- Slider -->
+<input type="search" name="query">         <!-- Search optimized -->
+```
+
+---
+
+## {data-menu-title="Checkboxes & Radio"}
+
+[Checkboxes & Radio Buttons]{.slide-title}
+
+<hr>
+
+**Checkboxes** (multiple selections):
+
+```{.html code-line-numbers="|1-3"}
+<input type="checkbox" name="interests" value="sports"> Sports
+<input type="checkbox" name="interests" value="music"> Music
+<input type="checkbox" name="interests" value="coding"> Coding
+```
+
+**Radio Buttons** (one selection only):
+
+```{.html code-line-numbers="|1-3"}
+<input type="radio" name="gender" value="male"> Male
+<input type="radio" name="gender" value="female"> Female
+<input type="radio" name="gender" value="other"> Other
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Same `name` = grouped together]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Select & Textarea"}
+
+[Dropdowns & Text Areas]{.slide-title}
+
+<hr>
+
+**Dropdown Select:**
+
+```{.html code-line-numbers="|1-5|6"}
+<select name="country">
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+    <option value="in">India</option>
+</select>
+```
+
+**Text Area (Multi-line):**
+
+```html
+<textarea name="message" rows="4" cols="50">
+Type your message here...
+</textarea>
+```
+
+---
+
+## {data-menu-title="Labels"}
+
+[The Label Element]{.slide-title}
+
+<hr>
+
+Labels associate text with inputs for accessibility:
+
+```{.html code-line-numbers="|1-3|4-6"}
+<!-- Bad: User can't click text to focus -->
+<input type="checkbox" id="agree"> I agree
+
+<!-- Good: User can click "I agree" to focus -->
+<label for="agree">
+    <input type="checkbox" id="agree"> I agree
+</label>
+```
+
+::: {.body-text-m .topbr}
+**Or using `for` attribute:**
+
+```html
+<label for="username">Username:</label>
+<input type="text" id="username" name="username">
+```
+:::
+
+---
+
+## {data-menu-title="Form Attributes"}
+
+[Input Attributes for Validation]{.slide-title}
+
+<hr>
+
+HTML5 provides built-in validation:
+
+```{.html code-line-numbers="|1|2|3|4|5|6"}
+<input type="text" required>              <!-- Cannot be empty -->
+<input type="email" required>             <!-- Must be valid email -->
+<input type="text" minlength="3">         <!-- At least 3 chars -->
+<input type="number" min="1" max="100">   <!-- Range limits -->
+<input type="text" pattern="[A-Z]{3}">    <!-- Regex pattern -->
+<input type="text" placeholder="hint..."> <!-- Helper text -->
+```
+
+---
+
+## {data-menu-title="Complete Form Example"}
+
+[Complete Contact Form]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-3|4-5|6-7|8-9|10-11|12"}
+<form action="/contact" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    
+    <button type="submit">Send</button>
+    <button type="reset">Clear</button>
+</form>
+```
+
+---
+
+## {data-menu-title="Form Best Practices"}
+
+[HTML Form Best Practices]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. **Always use labels** - Improves accessibility & UX
+2. **Use semantic structure** - `<fieldset>` and `<legend>`
+3. **Validate on client** - Catch errors before sending
+4. **Provide feedback** - Show which fields are required
+5. **Use correct input types** - `email`, `number`, `date`, etc.
+6. **Name form elements** - Essential for server processing
+7. **Test on mobile** - Forms often used on phones
+:::
+
+---
+
+## {data-menu-title="Fieldset & Legend"}
+
+[Grouping Inputs with Fieldset]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1-2|3-8|9"}
+<form>
+    <fieldset>
+        <legend>Personal Information</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+    </fieldset>
+</form>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[`<fieldset>` groups related fields, `<legend>` labels the group]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: HTML Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+- [MDN: Input Types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- [Form Validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
+- [Course content: Week 2](/content/week-02.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 8 - Introduction to CSS
+</div>
+</div>

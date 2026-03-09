@@ -1,0 +1,404 @@
+---
+title: "Lecture 2: History of Web & Internet"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "January 27, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 2]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[History of Web & Internet]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 1 | Unit I: Web Page Designing<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand the evolution of the internet and web
+- Learn about key internet protocols and technologies
+- Explore how the web works behind the scenes
+:::
+
+::: {.notes}
+Start with the importance of understanding the history to appreciate the current state of web technology.
+:::
+
+---
+
+## {data-menu-title="ARPANET"}
+
+[History of the Internet]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+**1969**: ARPANET - First packet-switching network
+:::
+::: {.fragment}
+**1983**: TCP/IP protocol standardized
+:::
+::: {.fragment}
+**1989**: Tim Berners-Lee proposes World Wide Web
+:::
+::: {.fragment}
+**1991**: First web page goes live
+:::
+::: {.fragment}
+**1993**: Mosaic browser released - made web accessible
+:::
+:::
+
+::: {.notes}
+Explain that ARPANET was funded by DARPA and was designed to survive a nuclear attack by not having a central point of failure.
+:::
+
+---
+
+## {data-menu-title="Web Evolution"}
+
+[Evolution of the Web]{.slide-title2}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**Web 1.0** (1991-2004)]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Static HTML pages
+- Read-only content
+- Limited user interaction
+- Server-side focused
+:::
+:::
+
+::: {.column width="50%"}
+[**Web 2.0** (2004-present)]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Dynamic content
+- User-generated content
+- Social media & collaboration
+- Rich interactive experiences
+:::
+:::
+:::
+
+::: {.notes}
+Web 1.0 was all about publishing information. Web 2.0 introduced social features and the ability for users to interact and share.
+:::
+
+---
+
+## {data-menu-title="Internet Protocols"}
+
+[Key Internet Protocols]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+[**HTTP/HTTPS**]{.teal-text}: HyperText Transfer Protocol (secure)
+:::
+::: {.fragment}
+[**TCP/IP**]{.teal-text}: Transmission Control Protocol / Internet Protocol
+:::
+::: {.fragment}
+[**DNS**]{.teal-text}: Domain Name System (translates domain names to IP addresses)
+:::
+::: {.fragment}
+[**FTP**]{.teal-text}: File Transfer Protocol
+:::
+::: {.fragment}
+[**SMTP**]{.teal-text}: Simple Mail Transfer Protocol
+:::
+:::
+
+---
+
+## {data-menu-title="HTTP Request-Response"}
+
+[How HTTP Works]{.slide-title2}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**HTTP Request**]{.teal-text}
+
+::: {.body-text-m}
+- Method: GET, POST, PUT, DELETE
+- URL of resource
+- Headers with metadata
+- Optional body with data
+:::
+:::
+
+::: {.column width="50%"}
+[**HTTP Response**]{.teal-text}
+
+::: {.body-text-m}
+- Status code: 200, 404, 500, etc.
+- Headers with info
+- Body with content
+- Cache directives
+:::
+:::
+:::
+
+::: {.fragment .body-text-s .center-text .topbr}
+Both encrypted with HTTPS for security
+:::
+
+---
+
+## {data-menu-title="How Web Works"}
+
+[How the Web Works]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. User types URL in browser
+2. DNS resolves domain name to IP address
+3. Browser sends HTTP request to server
+4. Server processes request and database queries
+5. Server sends HTTP response (HTML, CSS, JS)
+6. Browser renders the page on-screen
+7. Browser loads additional resources (images, scripts)
+:::
+
+::: {.notes}
+This is the fundamental workflow. Every interaction on the web follows this basic pattern.
+:::
+
+---
+
+## {data-menu-title="Client-Server Model"}
+
+[Client-Server Architecture]{.slide-title2}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**Client** (Browser)]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Sends HTTP requests
+- Renders HTML/CSS
+- Executes JavaScript
+- Stores cookies & cache
+:::
+:::
+
+::: {.column width="50%"}
+[**Server**]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Listens for requests
+- Processes business logic
+- Queries databases
+- Sends responses
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="DNS Resolution"}
+
+[Domain Name System (DNS)]{.slide-title}
+
+<hr>
+
+```
+User enters: www.example.com
+        ↓
+Browser queries DNS resolver
+        ↓
+Resolver asks Root nameserver
+        ↓
+Root responds with TLD nameserver
+        ↓
+Resolver queries TLD nameserver
+        ↓
+TLD responds with Authoritative nameserver
+        ↓
+Resolver gets IP address
+        ↓
+Browser connects to 93.184.216.34
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[This usually takes milliseconds!]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="Web Technologies Timeline"}
+
+[Web Technologies Timeline]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+**1991**: HTML - Created by Tim Berners-Lee
+:::
+::: {.fragment}
+**1996**: CSS - Added styling capabilities
+:::
+::: {.fragment}
+**1995**: JavaScript - Made web interactive
+:::
+::: {.fragment}
+**1999**: PHP 3 - Server-side scripting
+:::
+::: {.fragment}
+**2006**: jQuery - Simplified JavaScript
+:::
+::: {.fragment}
+**2010**: AngularJS - Web applications framework
+:::
+::: {.fragment}
+**2013**: React - Component-based UI
+:::
+::: {.fragment}
+**2014**: Vue.js - Progressive framework
+:::
+:::
+
+---
+
+## {data-menu-title="Key Milestones"}
+
+[Internet Growth Milestones]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="33%"}
+::: {.fragment}
+[**2000s**]{.slide-title3 .teal-text}
+
+::: {.body-text-m}
+- E-commerce boom
+- Cloud computing
+- Mobile web
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: {.fragment}
+[**2010s**]{.slide-title3 .teal-text}
+
+::: {.body-text-m}
+- Smartphones dominant
+- Real-time apps
+- Machine learning
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: {.fragment}
+[**2020s**]{.slide-title3 .teal-text}
+
+::: {.body-text-m}
+- AI integration
+- Web3/Blockchain
+- Edge computing
+:::
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="Open Standards"}
+
+[Web is Built on Open Standards]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+[**W3C** (World Wide Web Consortium)]{.teal-text}
+
+Standards and guidelines for web technologies
+:::
+::: {.fragment}
+[**IETF** (Internet Engineering Task Force)]{.teal-text}
+
+Internet protocols like HTTP, TCP/IP
+:::
+::: {.fragment}
+[**WHATWG** (Web Hypertext Application Technology Working Group)]{.teal-text}
+
+Living standards for HTML
+:::
+:::
+
+::: {.fragment .body-text-m .center-text .topbr}
+[✓ This openness enabled global web growth]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [Internet Society - History](https://www.internetsociety.org/internet/history-internet/)
+- [MDN: How the Web Works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
+- [W3C History of the Web](https://www.w3.org/standards/history/)
+- [Course content: Week 1](/content/week-01.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 3 - HTML Basics & Structure
+</div>
+</div>

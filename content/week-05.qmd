@@ -1,0 +1,223 @@
+---
+title: "Week 5: Feb 23 - Mar 1, 2026"
+subtitle: "Unit II: DOM Manipulation & Advanced JavaScript"
+---
+
+## Week Overview
+
+This week focuses on DOM (Document Object Model) manipulation, form validation, ES6+ features, and revision before mid-semester exam.
+
+**Course Outcome:** CO-2 (K3 - Application)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Assignment 2 Due:** Feb 25  
+**Lab:** DOM Manipulation & Interactive Pages
+
+---
+
+## Lecture 17: DOM Manipulation & Array Methods
+
+### DOM Selection
+```javascript
+// Get elements
+document.getElementById('id');
+document.querySelector('.class');
+document.querySelectorAll('p');
+document.getElementsByClassName('class');
+```
+
+### DOM Manipulation
+```javascript
+// Get/Set HTML
+element.innerHTML = "<p>New content</p>";
+element.textContent = "Text only";
+
+// Add/Remove classes
+element.classList.add('active');
+element.classList.remove('active');
+element.classList.toggle('active');
+
+// Modify styles
+element.style.color = 'red';
+element.style.fontSize = '20px';
+
+// Create elements
+const newDiv = document.createElement('div');
+parent.appendChild(newDiv);
+parent.removeChild(child);
+```
+
+### Array Methods
+```javascript
+const arr = [1, 2, 3, 4, 5];
+
+arr.map(x => x * 2);           // [2, 4, 6, 8, 10]
+arr.filter(x => x > 2);        // [3, 4, 5]
+arr.reduce((sum, x) => sum + x, 0);  // 15
+arr.find(x => x > 3);          // 4
+arr.includes(3);               // true
+arr.indexOf(3);                // 2
+arr.slice(1, 3);               // [2, 3]
+arr.reverse();                 // [5, 4, 3, 2, 1]
+```
+
+---
+
+## Lecture 18: Form Validation
+
+### HTML5 Validation
+```html
+<input type="email" required>
+<input type="number" min="1" max="100">
+<input type="text" pattern="[A-Za-z]+">
+```
+
+### JavaScript Validation
+```javascript
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+  if (!validateForm()) {
+    e.preventDefault();
+    alert('Please fill all fields correctly');
+  }
+});
+
+function validateForm() {
+  const email = document.getElementById('email').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!emailRegex.test(email)) {
+    return false;
+  }
+  return true;
+}
+```
+
+### Real-time Validation
+```javascript
+const emailInput = document.getElementById('email');
+
+emailInput.addEventListener('blur', function() {
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value);
+  
+  if (!isValid) {
+    this.classList.add('error');
+    this.style.borderColor = 'red';
+  } else {
+    this.classList.remove('error');
+    this.style.borderColor = 'green';
+  }
+});
+```
+
+---
+
+## Lecture 19: ES6+ Features
+
+### Template Literals
+```javascript
+const name = "John";
+const age = 30;
+const message = `Name: ${name}, Age: ${age}`;
+```
+
+### Destructuring
+```javascript
+// Array destructuring
+const [a, b, c] = [1, 2, 3];
+
+// Object destructuring
+const { name, age } = { name: "John", age: 30 };
+```
+
+### Spread Operator
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];  // [1, 2, 3, 4, 5]
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+```
+
+### Default Parameters
+```javascript
+function greet(name = "Guest") {
+  return "Hello, " + name;
+}
+
+greet();        // "Hello, Guest"
+greet("John");  // "Hello, John"
+```
+
+### let and const
+```javascript
+// let: block scoped, reassignable
+let x = 10;
+x = 20; // OK
+
+// const: block scoped, not reassignable
+const y = 10;
+y = 20; // Error
+```
+
+---
+
+## Lecture 20: Revision - Units I & II
+
+### Key Concepts to Review
+- HTML semantic structure
+- CSS selectors and box model
+- JavaScript fundamentals
+- DOM manipulation
+- Event handling
+- Form validation
+
+### Practice Exercises
+1. Build a complete web page with HTML, CSS, JS
+2. Create interactive form with validation
+3. Implement DOM manipulation examples
+4. Review JavaScript control flow
+5. Practice array methods
+
+---
+
+## Lab 5: DOM Manipulation & Interactive Pages
+
+### Objectives
+- Manipulate DOM with JavaScript
+- Create dynamic content
+- Implement form validation
+
+### Activities
+1. Create a todo list app
+2. Add/remove DOM elements dynamically
+3. Implement form validation
+4. Add interactivity with events
+5. Update page without reload
+
+### Deliverables
+- Fully functional interactive page
+- Working form validation
+- Dynamic DOM updates
+
+---
+
+## Key Takeaways
+
+✅ DOM API allows dynamic page manipulation  
+✅ Form validation improves user experience  
+✅ ES6+ features make JavaScript more powerful  
+✅ Array methods enable functional programming  
+✅ Event-driven architecture creates responsiveness
+
+---
+
+## Mid-Semester Exam Preparation
+
+Study these topics:
+- HTML elements and semantics
+- CSS selectors and Box Model
+- JavaScript fundamentals
+- DOM manipulation
+- Event handling
+- Form validation

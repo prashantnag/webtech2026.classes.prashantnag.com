@@ -1,0 +1,34 @@
+---
+title: "Assignment 3: Responsive Website"
+date: "2026-02-19"
+due: "2026-03-18"
+---
+
+## Overview
+
+Create a fully responsive website that works perfectly on mobile, tablet, and desktop devices.
+
+**Due Date**: March 18, 2026, 11:59 PM  
+**Points**: 100
+
+## Requirements
+
+Build a multi-page responsive website using HTML5 and CSS3 with:
+
+- Mobile-first approach
+- Flexbox or CSS Grid layout
+- Media queries for different screen sizes
+- Responsive navigation menu
+- Responsive images
+- Touch-friendly interface
+
+## Testing
+
+Test your website on:
+- Mobile (< 768px)
+- Tablet (768px - 1024px)
+- Desktop (> 1024px)
+
+## Submission
+
+**Due: March 18, 2026**

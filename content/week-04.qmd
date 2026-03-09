@@ -1,0 +1,250 @@
+---
+title: "Week 4: Feb 16 - Feb 22, 2026"
+subtitle: "Unit II: JavaScript Functions, Events & Control Flow"
+---
+
+## Week Overview
+
+This week covers JavaScript functions, event handling, and begins control flow structures for interactive web pages.
+
+**Course Outcome:** CO-2 (K3 - Application)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** JavaScript Functions & Events
+
+---
+
+## Lecture 13: JavaScript Functions & Event Handling
+
+### Functions
+```javascript
+// Function declaration
+function greet(name) {
+  return "Hello, " + name;
+}
+
+// Function expression
+const add = function(a, b) {
+  return a + b;
+};
+
+// Arrow function (ES6)
+const multiply = (a, b) => a * b;
+
+// Anonymous function
+const square = function(x) { return x * x; };
+```
+
+### Events
+```javascript
+// Event listener
+button.addEventListener('click', function() {
+  alert('Button clicked!');
+});
+
+// Common events
+element.addEventListener('click', handleClick);
+element.addEventListener('change', handleChange);
+element.addEventListener('submit', handleSubmit);
+element.addEventListener('mouseover', handleHover);
+element.addEventListener('keypress', handleKeyPress);
+```
+
+### Event Object
+```javascript
+button.addEventListener('click', function(event) {
+  console.log(event.type);        // 'click'
+  console.log(event.target);      // The clicked element
+  event.preventDefault();         // Prevent default action
+  event.stopPropagation();        // Stop event bubbling
+});
+```
+
+---
+
+## Lecture 14: Conditional Statements & Looping
+
+### If/Else Statements
+```javascript
+if (age >= 18) {
+  console.log("Adult");
+} else if (age >= 13) {
+  console.log("Teenager");
+} else {
+  console.log("Child");
+}
+```
+
+### Switch Statement
+```javascript
+switch (day) {
+  case 'Monday':
+    console.log("Start of week");
+    break;
+  case 'Friday':
+    console.log("Almost weekend");
+    break;
+  default:
+    console.log("Regular day");
+}
+```
+
+### Loops
+```javascript
+// For loop
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// While loop
+let count = 0;
+while (count < 5) {
+  console.log(count);
+  count++;
+}
+
+// For...of loop (iterate values)
+for (const item of array) {
+  console.log(item);
+}
+
+// For...in loop (iterate keys/properties)
+for (const key in object) {
+  console.log(key, object[key]);
+}
+```
+
+---
+
+## Lecture 15: Objects & Scope
+
+### Objects
+```javascript
+const person = {
+  name: "John",
+  age: 30,
+  email: "john@example.com",
+  greet: function() {
+    return "Hello, " + this.name;
+  }
+};
+
+// Access properties
+console.log(person.name);
+console.log(person['age']);
+
+// Add/modify properties
+person.city = "New York";
+person.age = 31;
+```
+
+### Block Scope
+```javascript
+let globalVar = 10;
+
+if (true) {
+  let blockVar = 20;      // Only available in block
+  const blockConst = 30;  // Only available in block
+}
+
+function myFunction() {
+  var functionVar = 40;   // Only available in function
+}
+
+console.log(globalVar);     // 10 (accessible)
+console.log(blockVar);      // Error: not defined
+```
+
+### Scope Chain
+- Local scope → Function scope → Global scope
+- Inner scope can access outer scope
+- Outer scope cannot access inner scope
+
+---
+
+## Lecture 16: Arrow Functions & Callbacks
+
+### Arrow Functions
+```javascript
+// Regular vs Arrow
+const regular = function(x) { return x * 2; };
+const arrow = x => x * 2;
+
+// Multiple parameters
+const add = (a, b) => a + b;
+
+// With curly braces (need return)
+const greet = name => {
+  const greeting = "Hello, " + name;
+  return greeting;
+};
+```
+
+### Callbacks
+```javascript
+function processArray(arr, callback) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(callback(arr[i]));
+  }
+  return result;
+}
+
+const doubled = processArray([1, 2, 3], x => x * 2);
+```
+
+### Array Methods with Callbacks
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// Map
+const doubled = numbers.map(x => x * 2);
+
+// Filter
+const evens = numbers.filter(x => x % 2 === 0);
+
+// Reduce
+const sum = numbers.reduce((acc, x) => acc + x, 0);
+
+// forEach
+numbers.forEach(x => console.log(x));
+```
+
+---
+
+## Lab 4: JavaScript Functions & Events
+
+### Objectives
+- Create interactive elements with JavaScript
+- Handle user events
+- Use functions effectively
+
+### Activities
+1. Add click handlers to buttons
+2. Create a simple calculator
+3. Form validation with JavaScript
+4. Change CSS styles with JavaScript
+5. Implement a counter
+
+### Deliverables
+- HTML with event handlers
+- JavaScript functions
+- Working interactive features
+
+---
+
+## Key Takeaways
+
+✅ Functions organize reusable code  
+✅ Events respond to user interactions  
+✅ Control flow structures make decisions  
+✅ Objects group related data and functions  
+✅ Callbacks enable event-driven programming
+
+---
+
+## Next Week
+
+We'll continue with:
+- Advanced DOM manipulation
+- More array methods
+- ES6+ features

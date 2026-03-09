@@ -1,0 +1,162 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - CNAME
+  render:
+    - "*.qmd"
+    - "content/"
+    - "assignment/"
+    - "labs/"
+    - "quiz/"
+    - "resource/"
+    - "presentations/"
+    - "!temp_dataviz_repo/**"
+
+# Add extensions for icons and advanced features
+extensions:
+  - quarto-ext/fontawesome
+
+website:
+  page-navigation: true
+  title: "Web Technology - BMC201"
+  description: "Website for BMC201 Web Technology course (MCA Semester 2) at GCET, following AKTU curriculum"
+  site-url: "https://webtech2025.classes.prashantnag.com"
+
+  repo-url: "https://github.com/prashantnag/webtech2025"
+  repo-actions: [edit, issue]
+
+  open-graph: true
+  twitter-card:
+    creator: "@prashantnag"
+    site: "@prashantnag"
+
+  navbar:
+    background: "#2C3E50"
+    # logo: files/favicon-512.png
+    # logo-alt: "BMC205 Web Technology logo"
+    collapse-below: lg
+    right:
+      - text: "Syllabus"
+        file: syllabus.qmd
+      - text: "Schedule"
+        file: schedule.qmd
+      - text: "Content"
+        file: content/index.qmd
+      - text: "Assignments"
+        file: assignment/index.qmd
+      - text: "Quizzes"
+        file: quiz/index.qmd
+      - text: "Resources"
+        file: resource/index.qmd
+      - text: "Lab Manuals"
+        file: labs/index.qmd
+
+  sidebar:
+    - title: "Schedule & Materials"
+      style: "docked"
+      search: true
+      background: light
+      contents:
+        - section: "Course Schedule"
+          contents:
+            - schedule.qmd
+        - section: "Weekly Content"
+          contents:
+            - text: "Week 1-2: HTML & Introduction"
+              file: content/week-01.qmd
+            - text: "Week 2-3: HTML Elements & CSS"
+              file: content/week-02.qmd
+            - text: "Week 3: CSS & JavaScript Intro"
+              file: content/week-03.qmd
+            - text: "Week 4: JavaScript Functions"
+              file: content/week-04.qmd
+            - text: "Week 5: DOM & ES6+"
+              file: content/week-05.qmd
+            - text: "Week 6-7: Revision & Exam"
+              file: content/week-06.qmd
+            - text: "Week 8: Servlets & JSP Intro"
+              file: content/week-08.qmd
+            - text: "Week 9: JSP Advanced & MVC"
+              file: content/week-09.qmd
+            - text: "Week 10: Spring Framework"
+              file: content/week-10.qmd
+            - text: "Week 11: Spring Boot & Data"
+              file: content/week-11.qmd
+            - text: "Week 12: REST & Final Project"
+              file: content/week-12.qmd
+
+    - title: "Assignments & Labs"
+      contents:
+        - section: "Assignments"
+          contents:
+            - assignment/index.qmd
+            - assignment/01-assignment.qmd
+            - assignment/02-assignment.qmd
+            - assignment/03-assignment.qmd
+            - assignment/04-assignment.qmd
+        - section: "Lab Manuals"
+          contents:
+            - labs/index.qmd
+            - labs/lab-01.qmd
+            - labs/lab-02.qmd
+            - labs/lab-03.qmd
+        - section: "Quizzes"
+          contents:
+            - quiz/index.qmd
+            - quiz/lecture-01-quiz.qmd
+            - quiz/lecture-02-quiz.qmd
+            - quiz/lecture-03-quiz.qmd
+            - quiz/lecture-04-quiz.qmd
+
+    - title: "Resources"
+      contents:
+        - section: "Learning Resources"
+          contents:
+            - resource/index.qmd
+            - resource/tools.qmd
+            - resource/web-servers.qmd
+
+  page-footer:
+    left: |
+      Content © 2026 by [Prashant Kumar Nag](https://prashantnag.com) <br>
+      All content licensed under a [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+    right: |
+      Made with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/)<br>
+      [View the source on GitHub](https://github.com/prashantnag/webtech2025)
+
+format:
+  html:
+    theme:
+      - cosmo
+      - html/custom.scss
+    css:
+      - html/styles.css
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    mainfont: "Atkinson Hyperlegible"
+    highlight-style: monokai
+
+execute:
+  freeze: auto
+
+# Course-specific variables - NESTED (not flattened)
+course:
+  number: "BMC201"
+  title: "Web Technology"
+  semester: "MCA Semester 2"
+  year: "2025-26"
+  credits: "4 (3-1-0)"
+  curriculum: "AKTU MCA Model Curriculum 2020-21"
+  copyright_year: "2026"
+  github: "https://github.com/prashantnag/webtech2025"
+  institution: "Galgotias College of Engineering & Technology"
+
+instructor:
+  name: "Dr. Prashant Kumar Nag"
+  name_no_title: "Prashant Kumar Nag"
+  title: "Assistant Professor"
+  email: "prashantkumar.nag@galgotiacollege.edu"
+  url: "https://prashantnag.com"
+  office: "Department of Computer Applications"

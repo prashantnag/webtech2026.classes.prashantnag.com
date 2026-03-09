@@ -1,0 +1,514 @@
+---
+title: "Lecture 12: JavaScript Variables & Data Types"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 12, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 12]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[JavaScript Variables & Data Types]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 3 | Unit II: CSS Styling & JavaScript<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand JavaScript and its role in web development
+- Declare and use variables properly
+- Work with primitive and complex data types
+- Use operators in expressions
+- Understand variable scope
+- Practice JavaScript fundamentals
+:::
+
+::: {.notes}
+JavaScript is what makes web pages interactive. Variables and data types are the foundation of any programming language.
+:::
+
+---
+
+## {data-menu-title="What is JavaScript?"}}
+
+[JavaScript: The Language of the Web]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+- Programming language that runs in browsers
+:::
+::: {.fragment}
+- Adds **interactivity** to web pages
+:::
+::: {.fragment}
+- Currently the **only language** that runs natively in browsers
+:::
+::: {.fragment}
+- Can also run on servers (Node.js)
+:::
+:::
+
+::: {.fragment}
+**Remember:**
+```
+HTML = Structure
+CSS  = Styling
+JS   = Behavior & Interactivity
+```
+:::
+
+---
+
+## {data-menu-title="JavaScript in HTML"}}
+
+[Including JavaScript in HTML]{.slide-title}
+
+<hr>
+
+**Inline (not recommended):**
+```html
+<button onclick="alert('Clicked!')">Click Me</button>
+```
+
+**Internal script tag:**
+```html
+<script>
+    console.log("Hello from JavaScript!");
+</script>
+```
+
+**External file (best practice):**
+```html
+<script src="script.js"></script>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Always put `<script>` at end of `<body>` tag]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Variables"}}
+
+[Declaring Variables]{.slide-title}
+
+<hr>
+
+Variables store data. Declare with `let`, `const`, or `var`:
+
+```{.javascript code-line-numbers="|1|2|3"}
+let name = "Alice";       /* Can be reassigned */
+const age = 25;           /* Cannot be reassigned */
+var city = "New York";    /* Older way (avoid) */
+```
+
+::: {.body-text-m .topbr}
+**Best practices:**
+- Use `const` by default
+- Use `let` if value changes
+- Avoid `var` (old syntax)
+:::
+
+::: {.fragment}
+```javascript
+const pi = 3.14159;      /* Never changes */
+let count = 0;           /* Will increase */
+```
+:::
+
+---
+
+## {data-menu-title="Naming Rules"}}
+
+[Variable Naming Rules]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Must start with letter, `_`, or `$`
+- Can contain letters, numbers, `_`, `$`
+- Case-sensitive (`name` vs `Name`)
+- Use camelCase: `firstName`, `myVariable`
+- Avoid reserved words: `let`, `const`, `if`, etc.
+- Choose descriptive names
+:::
+
+**Good examples:**
+```javascript
+const firstName = "John";
+let userCount = 5;
+const MAX_USERS = 100;
+```
+
+**Bad examples:**
+```javascript
+const x = 5;              /* Not descriptive */
+const my-name = "John";   /* Hyphen not allowed */
+const 123abc = 10;        /* Can't start with number */
+```
+
+---
+
+## {data-menu-title="Primitive Types"}}
+
+[Primitive Data Types]{.slide-title}
+
+<hr>
+
+Basic types that hold single values:
+
+::: {.body-text-m}
+::: {.fragment}
+[**String**]{.teal-text} - Text
+```javascript
+const name = "Alice";
+const message = 'Hello world';
+```
+:::
+::: {.fragment}
+[**Number**]{.teal-text} - Integers and decimals
+```javascript
+const age = 25;
+const price = 19.99;
+```
+:::
+::: {.fragment}
+[**Boolean**]{.teal-text} - true or false
+```javascript
+const isStudent = true;
+const isLoggedIn = false;
+```
+:::
+:::
+
+---
+
+## {data-menu-title="More Primitives"}}
+
+[More Primitive Types]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+[**undefined**]{.teal-text} - Variable declared but not assigned
+```javascript
+let x;  /* undefined */
+```
+:::
+::: {.fragment}
+[**null**]{.teal-text} - Intentional emptiness
+```javascript
+let data = null;
+```
+:::
+::: {.fragment}
+[**Symbol**]{.teal-text} - Unique identifier (advanced)
+```javascript
+const id = Symbol('unique');
+```
+:::
+:::
+
+---
+
+## {data-menu-title="Arrays"}}
+
+[Arrays (Complex Type)]{.slide-title}
+
+<hr>
+
+Ordered collection of values:
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+const fruits = ["apple", "banana", "orange"];
+const numbers = [1, 2, 3, 4, 5];
+const mixed = [1, "hello", true, null];
+
+console.log(fruits[0]);  /* "apple" */
+console.log(fruits.length); /* 3 */
+```
+
+**Array methods:**
+```javascript
+fruits.push("grape");         /* Add to end */
+fruits.pop();                 /* Remove last */
+let first = fruits[0];        /* Access by index */
+```
+
+---
+
+## {data-menu-title="Objects"}}
+
+[Objects (Complex Type)]{.slide-title}
+
+<hr>
+
+Key-value pairs:
+
+```{.javascript code-line-numbers="|1-6|7|8|9"}
+const person = {
+    name: "Alice",
+    age: 25,
+    city: "New York",
+    isStudent: true
+};
+
+console.log(person.name);      /* "Alice" */
+console.log(person["age"]);    /* 25 */
+person.age = 26;               /* Modify property */
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Objects are key in JavaScript programming!]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="Operators"}}
+
+[JavaScript Operators]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**Arithmetic**]{.teal-text}
+
+```js
+5 + 3    // 8
+5 - 3    // 2
+5 * 3    // 15
+5 / 3    // 1.666...
+5 % 3    // 2 (remainder)
+2 ** 3   // 8 (power)
+```
+:::
+
+::: {.column width="50%"}
+[**Comparison**]{.teal-text}
+
+```js
+5 > 3    // true
+5 < 3    // false
+5 >= 5   // true
+5 == 5   // true
+5 === 5  // true (strict)
+5 != 3   // true
+```
+:::
+:::
+
+---
+
+## {data-menu-title="Logical Operators"}}
+
+[Logical Operators]{.slide-title}
+
+<hr>
+
+Combine boolean values:
+
+```{.javascript code-line-numbers="|1|2|3"}
+true && false   /* AND - both must be true */
+true || false   /* OR - at least one true */
+!true           /* NOT - reverses boolean */
+```
+
+**Practical example:**
+```javascript
+const age = 25;
+const hasLicense = true;
+
+if (age >= 18 && hasLicense) {
+    console.log("Can drive");
+}
+```
+
+---
+
+## {data-menu-title="Type Conversion"}}
+
+[Type Conversion & Coercion]{.slide-title}
+
+<hr>
+
+Converting between types:
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+String(25)           /* "25" - to string */
+Number("25")         /* 25 - to number */
+Boolean(1)           /* true - to boolean */
+parseInt("25")       /* 25 - string to integer */
+parseFloat("25.99")  /* 25.99 - string to float */
+```
+
+**Automatic coercion (watch out!):**
+```javascript
+"5" + 3      /* "53" (concatenation) */
+"5" - 3      /* 2 (subtraction) */
+"5" == 5     /* true (loose equality) */
+"5" === 5    /* false (strict equality) */
+```
+
+---
+
+## {data-menu-title="String Operations"}}
+
+[Working with Strings]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const text = "Hello World";
+
+text.length           /* 11 */
+text.toUpperCase()    /* "HELLO WORLD" */
+text.toLowerCase()    /* "hello world" */
+text.substring(0, 5)  /* "Hello" */
+text.includes("World") /* true */
+text.replace("World", "JS") /* "Hello JS" */
+```
+
+**String concatenation:**
+```javascript
+const first = "John";
+const last = "Doe";
+const full = first + " " + last;  /* "John Doe" */
+
+/* Template literals (easier) */
+const full2 = `${first} ${last}`;
+```
+
+---
+
+## {data-menu-title="Variable Scope"}}
+
+[Variable Scope]{.slide-title}
+
+<hr>
+
+Where variables are accessible:
+
+```{.javascript code-line-numbers="|1|2-5|6|7"}
+const global = "accessible everywhere";
+
+function myFunction() {
+    const local = "only inside function";
+    console.log(global);  /* Works */
+}
+console.log(local);       /* Error - not defined outside */
+```
+
+**Block scope:**
+```javascript
+if (true) {
+    let x = 5;           /* Only inside block */
+}
+console.log(x);          /* Error - not accessible */
+```
+
+---
+
+## {data-menu-title="Console Output"}}
+
+[Console Methods for Debugging]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+console.log("Regular message");      /* Basic output */
+console.error("Error message");      /* Red error text */
+console.warn("Warning message");     /* Yellow warning */
+console.table([1, 2, 3]);           /* Table format */
+console.clear();                     /* Clear console */
+```
+
+**Debugging tip:**
+```javascript
+const person = { name: "Alice", age: 25 };
+console.log(person);
+```
+
+---
+
+## {data-menu-title="Practical Example"}}
+
+[Practical JavaScript Example]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-4|6-10|12-14"}
+// Declare variables
+const student = {
+    name: "Alice",
+    grades: [85, 90, 78, 92]
+};
+
+// Calculate average
+let sum = student.grades[0] + student.grades[1] + 
+          student.grades[2] + student.grades[3];
+let average = sum / student.grades.length;
+
+// Output result
+console.log(`${student.name}'s average: ${average.toFixed(1)}`);
+/* Output: Alice's average: 86.3 */
+```
+
+---
+
+## {data-menu-title="Resources"}}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+- [MDN: Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
+- [MDN: Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+- [Course content: Week 3](/content/week-03.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Week 4 - JavaScript Functions & Events
+</div>
+</div>

@@ -1,0 +1,21 @@
+---
+title: "Interactive Quizzes"
+subtitle: "Practice Quizzes for Lectures 1-4"
+---
+
+Use these quick quizzes after watching slides and reading weekly content. Each quiz gives instant scoring so students can self-check understanding before lab and assignment work.
+
+## Quiz Set (First Four Lectures)
+
+- [Lecture 1 Quiz: Introduction to Web Designing](/quiz/lecture-01-quiz.qmd)
+- [Lecture 2 Quiz: History of Web & Internet](/quiz/lecture-02-quiz.qmd)
+- [Lecture 3 Quiz: HTML Basics & Structure](/quiz/lecture-03-quiz.qmd)
+- [Lecture 4 Quiz: HTML Grouping, Div/Span, Semantic HTML](/quiz/lecture-04-quiz.qmd)
+
+## Study Flow
+
+1. Review slides in [Presentations](/presentations/index.qmd)
+2. Read explanations and examples in [Week 1 Content](/content/week-01.qmd)
+3. Attempt [Lab 1](/labs/lab-01.qmd)
+4. Solve [Assignment 1](/assignment/01-assignment.qmd)
+5. Re-attempt quizzes for revision

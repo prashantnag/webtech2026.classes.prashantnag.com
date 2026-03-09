@@ -1,0 +1,235 @@
+---
+title: "Week 1: Jan 26 - Feb 1, 2026"
+subtitle: "Unit I: Web Page Designing - Introduction to HTML"
+---
+
+## Week Overview
+
+This week introduces you to web development fundamentals, covering the history of the web, internet protocols, and essential HTML elements that form the foundation of all web pages.
+
+**Course Outcome:** CO-1 (K2 - Understanding)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** Development Environment Setup
+
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Lectures 1-4)
+[Lecture 1 Quiz](/quiz/lecture-01-quiz.qmd) | [Lecture 2 Quiz](/quiz/lecture-02-quiz.qmd) | [Lecture 3 Quiz](/quiz/lecture-03-quiz.qmd) | [Lecture 4 Quiz](/quiz/lecture-04-quiz.qmd)
+:::
+
+---
+
+## Lecture 1: Introduction to Web Designing
+
+::: {.callout-note icon=false}
+## 🎯 Lecture Materials
+[{{< fa desktop >}} View Presentation](/presentations/lecture-01.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-01.pdf)
+:::
+
+### Learning Objectives
+- Understand web development and web designing concepts
+- Learn about web development strategies and best practices
+- Explore different roles in web development
+
+### Topics Covered
+- What is Web Designing vs Web Development?
+- Client-side vs Server-side development
+- Frontend, Backend, and Full-stack development
+- Tools and technologies overview
+- Web development process and workflow
+
+### Key Concepts
+- **HTML**: Markup language for structure
+- **CSS**: Styling and layout
+- **JavaScript**: Interactivity and behavior
+- **Backend**: Processing and data management
+
+### Resources
+- [MDN: Getting started with the web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)
+- [W3C Web Standards](https://www.w3.org/standards/webdesign/)
+
+---
+
+## Lecture 2: History of Web & Internet
+
+::: {.callout-note icon=false}
+## 🎯 Lecture Materials
+[{{< fa desktop >}} View Presentation](/presentations/lecture-02.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-02.pdf)
+:::
+
+### Learning Objectives
+- Understand the evolution of the web
+- Learn about key internet protocols
+- Explore how the web works
+
+### Topics Covered
+- History of the Internet (ARPANET to modern web)
+- Tim Berners-Lee and the invention of WWW (1989)
+- Evolution of HTML versions
+- Client-Server architecture
+- HTTP/HTTPS protocols
+- DNS and domain names
+
+### Key Concepts
+- **HTTP**: Hypertext Transfer Protocol (stateless, request-response)
+- **HTTPS**: Secure version with encryption
+- **URL/URI**: Uniform Resource Locator/Identifier
+- **Web Server**: Software that serves web pages
+- **Browser**: Client application that requests pages
+
+### Explained Through Examples
+- How a browser requests a webpage
+- How servers respond with HTML/CSS/JavaScript
+- HTTPS handshake process
+
+### Resources
+- [MDN: How the Web Works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
+- [HTTP Request/Response Cycle](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+
+---
+
+## Lecture 3: HTML Basics & Structure
+
+::: {.callout-note icon=false}
+## 🎯 Lecture Materials
+[{{< fa desktop >}} View Presentation](/presentations/lecture-03.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-03.pdf)
+:::
+
+### Learning Objectives
+- Understand HTML document structure
+- Learn semantic HTML elements
+- Create basic HTML documents
+
+### Topics Covered
+- HTML document structure (DOCTYPE, html, head, body)
+- Meta tags and document metadata
+- Common HTML elements
+- Semantic HTML vs non-semantic
+- Proper nesting and indentation
+- Comments in HTML
+
+### Key Elements
+```html
+<!-- Document structure -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <!-- Content goes here -->
+  </body>
+</html>
+```
+
+### Best Practices
+- Always use semantic HTML (`<header>`, `<nav>`, `<main>`, `<article>`, `<footer>`)
+- Use proper heading hierarchy (h1, h2, h3...)
+- Write clean, readable HTML
+- Use meaningful tag names
+
+### Hands-on Examples
+- Creating your first HTML document
+- Understanding the inspect element tool
+- Viewing page source in browsers
+
+---
+
+## Lecture 4: HTML Grouping - Div & Span, Semantic HTML
+
+::: {.callout-note icon=false}
+## 🎯 Lecture Materials
+[{{< fa desktop >}} View Presentation](/presentations/lecture-04.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-04.pdf)
+:::
+
+### Learning Objectives
+- Understand generic container elements
+- Learn semantic HTML5 elements
+- Apply proper grouping strategies
+
+### Topics Covered
+- **Div** - Block-level generic container
+- **Span** - Inline generic container
+- Semantic elements: `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`
+- When to use generic vs semantic elements
+- Layout planning with containers
+- Class and ID attributes for styling/JavaScript
+
+### Comparison Table
+| Generic | Semantic | Usage |
+|---------|----------|-------|
+| `<div>` | `<section>` | Thematic grouping |
+| `<div>` | `<article>` | Self-contained content |
+| `<div>` | `<header>` | Header section |
+| `<span>` | `<strong>` | Important text |
+| `<span>` | `<em>` | Emphasized text |
+
+### Example Structure
+```html
+<header>
+  <nav>Navigation menu</nav>
+</header>
+<main>
+  <article>
+    <section>Content section 1</section>
+    <section>Content section 2</section>
+  </article>
+</main>
+<footer>Footer content</footer>
+```
+
+### Benefits of Semantic HTML
+- **Accessibility**: Screen readers understand structure
+- **SEO**: Search engines better index content
+- **Maintainability**: Code is more readable
+- **Responsive Design**: Easier to style
+
+---
+
+## Lab 1: Development Environment Setup
+
+### Objectives
+- Set up your development environment
+- Install necessary tools
+- Create your first HTML page
+
+### Tools Setup
+1. **Code Editor**: Visual Studio Code
+2. **Browser**: Chrome DevTools
+3. **Version Control**: Git
+4. **Local Server**: Live Server extension
+
+### Activities
+1. Install VS Code
+2. Create a project folder
+3. Initialize a Git repository
+4. Create index.html with proper structure
+5. Launch with Live Server
+6. Inspect element to understand HTML
+
+### Deliverables
+- GitHub repository link
+- index.html with proper semantic structure
+- Screenshot of page in browser with DevTools
+
+---
+
+## Key Takeaways
+
+✅ Web development consists of HTML (structure), CSS (styling), JavaScript (behavior)  
+✅ HTTP/HTTPS is the protocol for web communication  
+✅ HTML provides semantic structure to content  
+✅ Proper grouping and semantic elements improve accessibility and SEO  
+✅ Development environment setup is the foundation for all future work
+
+---
+
+## Assignment Preparation
+
+By the end of this week, you should be ready to:
+- Write clean, semantic HTML
+- Understand document structure
+- Use appropriate container elements
+- Set up a basic development environment
+
+Next week, we'll add more HTML elements (lists, images, tables, forms) and introduce CSS for styling!

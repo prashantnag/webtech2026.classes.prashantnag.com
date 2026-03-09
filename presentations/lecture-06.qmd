@@ -1,0 +1,422 @@
+---
+title: "Lecture 6: HTML Hyperlinks & Tables"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 3, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 6]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[HTML Hyperlinks & Tables]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 2 | Unit I: HTML Forms & CSS Introduction<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Create different types of hyperlinks
+- Understand internal vs external links
+- Build and format HTML tables
+- Use semantic table elements
+- Implement accessibility best practices
+:::
+
+::: {.notes}
+Links are what make the web interconnected. Tables organize data. Both are essential for web structure.
+:::
+
+---
+
+## {data-menu-title="Hyperlinks Basics"}
+
+[The Anchor Element `<a>`]{.slide-title}
+
+<hr>
+
+Hyperlinks connect web pages and resources:
+
+```{.html code-line-numbers="|1"}
+<a href="https://example.com">Click Here</a>
+```
+
+::: {.body-text-m .topbr}
+**Key attributes:**
+- `href`: URL to navigate to
+- `title`: Tooltip text
+- `target`: Where to open (_blank for new tab)
+- `rel`: Relationship to target
+:::
+
+::: {.fragment .body-text-m .center-text .topbr}
+[The text between `<a>` and `</a>` is what users see]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Types of Links"}
+
+[Four Types of Links]{.slide-title2}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**1. External Links**]{.teal-text}
+
+```html
+<a href="https://google.com">
+  Google
+</a>
+```
+
+Full URL to another website
+:::
+
+::: {.column width="50%"}
+[**2. Internal Links**]{.teal-text}
+
+```html
+<a href="about.html">
+  About
+</a>
+```
+
+Link to page in same site
+:::
+:::
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+[**3. Anchor Links**]{.teal-text}
+
+```html
+<a href="#section2">
+  Jump to Section
+</a>
+```
+
+Link to specific section
+:::
+
+::: {.column width="50%"}
+[**4. Email Links**]{.teal-text}
+
+```html
+<a href="mailto:test@example.com">
+  Email Us
+</a>
+```
+
+Send email directly
+:::
+:::
+
+---
+
+## {data-menu-title="External Links"}
+
+[External Links (Absolute URLs)]{.slide-title}
+
+<hr>
+
+Link to other websites with full URLs:
+
+```{.html code-line-numbers="|1|2"}
+<a href="https://www.example.com">Visit Example</a>
+
+<a href="https://github.com" target="_blank">GitHub (New Tab)</a>
+```
+
+::: {.body-text-m .topbr}
+**Key points:**
+- Must start with `https://` or `http://`
+- Use `target="_blank"` to open in new tab
+- Consider using `rel="noopener noreferrer"` for security
+:::
+
+::: {.fragment}
+```html
+<a href="https://github.com" 
+   target="_blank" 
+   rel="noopener noreferrer">GitHub</a>
+```
+:::
+
+---
+
+## {data-menu-title="Internal Links"}
+
+[Internal Links (Relative URLs)]{.slide-title2}
+
+<hr>
+
+Link to pages within the same website:
+
+```{.html code-line-numbers="|1|2|3"}
+<a href="about.html">About Page</a>
+
+<a href="pages/contact.html">Contact</a>
+
+<a href="../index.html">Home</a>
+```
+
+::: {.body-text-m .topbr}
+- Use relative paths (no `https://`)
+- Goes to other HTML files in project
+- Paths relative to current file location
+:::
+
+---
+
+## {data-menu-title="Anchor Links"}
+
+[Anchor Links (Jump within Page)]{.slide-title2}
+
+<hr>
+
+Link to specific sections on page:
+
+```{.html code-line-numbers="|1-2|3|4-5|6-7"}
+<!-- At the top, create navigation -->
+<nav>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Later on page, create sections -->
+<h2 id="services">Our Services</h2>
+<h2 id="team">Our Team</h2>
+<h2 id="contact">Contact Us</h2>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Clicking "Services" jumps directly to that section]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="Email Links"}
+
+[Email Links]{.slide-title}
+
+<hr>
+
+Allow users to send emails directly:
+
+```{.html code-line-numbers="|1"}
+<a href="mailto:contact@example.com">Email Us</a>
+```
+
+**Advanced email link with subject:**
+
+```html
+<a href="mailto:contact@example.com?subject=Question">
+  Send Question
+</a>
+```
+
+**With subject and body:**
+
+```html
+<a href="mailto:contact@example.com?subject=Support&body=Please help with...">
+  Contact Support
+</a>
+```
+
+---
+
+## {data-menu-title="HTML Tables"}
+
+[Creating Tables]{.slide-title}
+
+<hr>
+
+Tables organize data in rows and columns:
+
+```{.html code-line-numbers="|1|2|3-4|5|6"}
+<table border="1">
+    <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+    </tr>
+</table>
+```
+
+::: {.body-text-m .topbr}
+**Elements:**
+- `<table>`: Container
+- `<tr>`: Table row
+- `<td>`: Table data cell
+- `<th>`: Table header cell
+:::
+
+---
+
+## {data-menu-title="Table Structure"}
+
+[Complete Table Structure]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-4|5-10|11"}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Alice</td>
+            <td>25</td>
+            <td>New York</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+::: {.fragment .body-text-m .topbr}
+- `<thead>`: Header rows
+- `<tbody>`: Data rows
+- `<tfoot>`: Footer rows (optional)
+:::
+
+---
+
+## {data-menu-title="Table Example"}
+
+[Table Example: Student Grades]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|2-6|7-13"}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Math</th>
+            <th>Science</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>85</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Sarah</td>
+            <td>92</td>
+            <td>88</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+---
+
+## {data-menu-title="Table Best Practices"}
+
+[Table Best Practices]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. **Use semantic structure** - `<thead>`, `<tbody>`, `<tfoot>`
+2. **Header cells** - Use `<th>` for headers, not `<td>`
+3. **Captions** - Add `<caption>` above table
+4. **Scope attribute** - Help accessibility: `scope="col"`
+5. **Keep simple** - Avoid super complex nested tables
+6. **CSS for styling** - Don't use `border` attribute, use CSS
+7. **Responsive** - On mobile, consider different layouts
+:::
+
+---
+
+## {data-menu-title="Navigation Example"}
+
+[Building Navigation with Links]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-5|6"}
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+</nav>
+```
+
+::: {.fragment}
+**With styling (later in CSS):**
+```css
+nav a {
+    margin: 10px;
+    text-decoration: none;
+    color: #333;
+}
+```
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: Links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
+- [MDN: Tables](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
+- [Accessible Tables](https://www.w3.org/WAI/tutorials/tables/)
+- [Course content: Week 2](/content/week-02.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 7 - HTML Forms & Form Elements
+</div>
+</div>

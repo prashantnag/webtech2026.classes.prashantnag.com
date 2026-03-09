@@ -1,0 +1,374 @@
+---
+title: "Lecture 5: HTML Lists & Images"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 2, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 5]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[HTML Lists & Images]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 2 | Unit I: HTML Forms & CSS Introduction<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand ordered, unordered, and definition lists
+- Learn when to use each list type
+- Insert and optimize images in web pages
+- Implement responsive image techniques
+:::
+
+::: {.notes}
+Lists are fundamental HTML structures used for navigation, content organization, and data presentation. Images make pages visually engaging but require optimization.
+:::
+
+---
+
+## {data-menu-title="Types of Lists"}
+
+[HTML List Types]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="33%"}
+[**Unordered List**]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Use `<ul>`
+- Bullet points
+- No order
+:::
+:::
+
+::: {.column width="33%"}
+[**Ordered List**]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Use `<ol>`
+- Numbered
+- Sequence matters
+:::
+:::
+
+::: {.column width="33%"}
+[**Description List**]{.teal-text}
+
+::: {.incremental .body-text-m}
+- Use `<dl>`
+- Term + definition
+- Pairs of items
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="Unordered Lists"}
+
+[Unordered Lists `<ul>`]{.slide-title}
+
+<hr>
+
+Best for items with no specific order:
+
+```{.html code-line-numbers="|1|2-5|6"}
+<ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+    <li>Fourth item</li>
+</ul>
+```
+
+**Renders as:**
+- First item
+- Second item
+- Third item
+- Fourth item
+
+::: {.fragment .body-text-m .center-text .topbr}
+Each `<li>` is one bullet point
+:::
+
+---
+
+## {data-menu-title="Ordered Lists"}
+
+[Ordered Lists `<ol>`]{.slide-title}
+
+<hr>
+
+Use when sequence or ranking matters:
+
+```{.html code-line-numbers="|1|2-5|6"}
+<ol>
+    <li>First step</li>
+    <li>Second step</li>
+    <li>Third step</li>
+    <li>Fourth step</li>
+</ol>
+```
+
+**Renders as:**
+1. First step
+2. Second step
+3. Third step
+4. Fourth step
+
+::: {.fragment .body-text-m .center-text .topbr}
+Automatically numbered by browser
+:::
+
+---
+
+## {data-menu-title="Nested Lists"}
+
+[Nested Lists]{.slide-title2}
+
+<hr>
+
+You can put lists inside other lists:
+
+```{.html code-line-numbers="|1|2|3-5|6|7|8"}
+<ul>
+    <li>Frontend Skills
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+        </ul>
+    </li>
+    <li>Backend Skills</li>
+</ul>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Indentation shows hierarchy]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Description Lists"}
+
+[Definition/Description Lists]{.slide-title2}
+
+<hr>
+
+Perfect for term-definition pairs:
+
+```{.html code-line-numbers="|1|2-3|4-5|6"}
+<dl>
+    <dt>HTML</dt>
+    <dd>HyperText Markup Language - structure</dd>
+    <dt>CSS</dt>
+    <dd>Cascading Style Sheets - styling</dd>
+</dl>
+```
+
+::: {.body-text-m .topbr}
+- `<dt>` = term
+- `<dd>` = definition (indented)
+:::
+
+---
+
+## {data-menu-title="The Image Element"}
+
+[Images in HTML]{.slide-title}
+
+<hr>
+
+The `<img>` tag embeds images in web pages:
+
+```{.html code-line-numbers="|1"}
+<img src="logo.png" alt="Company Logo" width="200" height="150">
+```
+
+::: {.body-text-m .topbr}
+**Key attributes:**
+- `src`: Path to image file
+- `alt`: Alternative text (for accessibility)
+- `width`, `height`: Size in pixels
+- `title`: Tooltip on hover
+:::
+
+---
+
+## {data-menu-title="Image Sources"}
+
+[Image File Formats]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+[**PNG**]{.teal-text} - Lossless, supports transparency, good for graphics
+:::
+::: {.fragment}
+[**JPEG**]{.teal-text} - Lossy, smaller file size, best for photos
+:::
+::: {.fragment}
+[**GIF**]{.teal-text} - Animated, limited colors, mostly for simple images
+:::
+::: {.fragment}
+[**WebP**]{.teal-text} - Modern format, smaller files, better quality
+:::
+::: {.fragment}
+[**SVG**]{.teal-text} - Vector format, scales infinitely, perfect for logos
+:::
+:::
+
+---
+
+## {data-menu-title="Image Paths"}
+
+[Image File Paths]{.slide-title2}
+
+<hr>
+
+**Relative paths** (recommended):
+
+```html
+<img src="images/photo.jpg" alt="Description">
+<img src="../images/logo.png" alt="Logo">
+<img src="./images/icon.png" alt="Icon">
+```
+
+**Absolute paths** (not recommended):
+
+```html
+<img src="https://example.com/images/photo.jpg" alt="Photo">
+<img src="C:/Users/Name/Pictures/photo.jpg" alt="Photo">
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Use relative paths - they work when you move files!]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="Responsive Images"}
+
+[Responsive Images]{.slide-title2}
+
+<hr>
+
+Make images adapt to screen size:
+
+```{.html code-line-numbers="|1"}
+<img src="photo.jpg" alt="Description" 
+     style="max-width: 100%; height: auto;">
+```
+
+Or using attributes:
+
+```html
+<img src="photo.jpg" alt="Description"
+     width="100%" height="auto">
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Image shrinks on mobile, stays fixed on desktop]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Image Best Practices"}
+
+[Best Practices for Images]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. **Always use `alt` text** - Helps accessibility & SEO
+2. **Optimize file size** - Use compression tools
+3. **Choose right format** - JPEG for photos, PNG for graphics
+4. **Use relative paths** - Makes sites portable
+5. **Provide dimensions** - Prevents layout shift
+6. **Responsive design** - Use width: 100% where appropriate
+7. **Keep organized** - Store in `images/` folder
+:::
+
+---
+
+## {data-menu-title="Image Example"}
+
+[Complete Image Example]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1-7"}
+<figure>
+    <img src="images/portrait.jpg" 
+         alt="Portrait of John Doe"
+         width="300" 
+         height="400"
+         style="max-width: 100%; height: auto;">
+    <figcaption>John Doe - 2026</figcaption>
+</figure>
+```
+
+::: {.fragment}
+- `<figure>`: Container for image + caption
+- `<figcaption>`: Image description
+- Responsive sizing with max-width
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: Lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
+- [MDN: Images](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
+- [Image Optimization Guide](https://web.dev/image-optimization/)
+- [Course content: Week 2](/content/week-02.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 6 - HTML Hyperlinks & Tables
+</div>
+</div>

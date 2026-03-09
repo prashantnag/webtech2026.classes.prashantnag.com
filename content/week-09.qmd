@@ -1,0 +1,270 @@
+---
+title: "Week 9: Mar 23 - Mar 29, 2026"
+subtitle: "Unit III: JSP Advanced & MVC Architecture"
+---
+
+## Week Overview
+
+This week covers advanced JSP features, JSTL, MVC architecture, and database connectivity with JDBC.
+
+**Course Outcome:** CO-3, CO-4 (K3-K4 - Application & Analysis)  
+**Duration:** 1 week (4 lectures + 1 lab)  
+**Lab:** JSP & Database Integration
+
+---
+
+## Lecture 25: JSP Implicit Objects & Directives
+
+### JSP Directives
+```jsp
+<!-- Page directive -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+         import="java.util.*" errorPage="error.jsp" %>
+
+<!-- Include directive -->
+<%@ include file="header.jsp" %>
+
+<!-- Taglib directive -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+```
+
+### Implicit Objects
+```jsp
+<!-- request: HttpServletRequest -->
+<%= request.getParameter("name") %>
+<%= request.getRequestURI() %>
+
+<!-- response: HttpServletResponse -->
+<% response.sendRedirect("newpage.jsp"); %>
+
+<!-- session: HttpSession -->
+<% session.setAttribute("userId", "123"); %>
+
+<!-- out: PrintWriter (response output) -->
+<% out.println("Output text"); %>
+
+<!-- application: ServletContext - shared data -->
+<% application.setAttribute("appName", "MyApp"); %>
+
+<!-- config: ServletConfig -->
+<%= config.getServletName() %>
+
+<!-- pageContext: PageContext - all JSP objects -->
+<% pageContext.setAttribute("var", "value"); %>
+
+<!-- exception: Throwable (in error pages) -->
+<%= exception.getMessage() %>
+
+<!-- page: Object (reference to current page) -->
+```
+
+---
+
+## Lecture 26: JSP Standard Actions & JSTL
+
+### JSP Standard Actions
+```jsp
+<!-- Include action (dynamic) -->
+<jsp:include page="footer.jsp" flush="true">
+  <jsp:param name="year" value="2026"/>
+</jsp:include>
+
+<!-- Forward action -->
+<jsp:forward page="success.jsp"/>
+
+<!-- Use bean -->
+<jsp:useBean id="user" class="com.example.User"/>
+
+<!-- Set bean property -->
+<jsp:setProperty name="user" property="name" value="John"/>
+
+<!-- Get bean property -->
+<jsp:getProperty name="user" property="email"/>
+```
+
+### JSTL Core Tags
+```jsp
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!-- Variable setting -->
+<c:set var="name" value="John"/>
+<c:out value="${name}"/>
+
+<!-- Conditionals -->
+<c:if test="${age >= 18}">
+  Adult
+</c:if>
+
+<c:choose>
+  <c:when test="${score >= 80}">Grade A</c:when>
+  <c:when test="${score >= 70}">Grade B</c:when>
+  <c:otherwise>Grade C</c:otherwise>
+</c:choose>
+
+<!-- Loop -->
+<c:forEach var="item" items="${list}">
+  <p><c:out value="${item}"/></p>
+</c:forEach>
+
+<!-- URL management -->
+<c:url var="link" value="/page.jsp">
+  <c:param name="id" value="123"/>
+</c:url>
+```
+
+---
+
+## Lecture 27: MVC Architecture
+
+### MVC Pattern
+```
+User Request
+    ↓
+Controller (Servlet) - Process business logic
+    ↓
+Model (JavaBean/Database) - Data and operations
+    ↓
+View (JSP) - Display to user
+    ↓
+Response
+```
+
+### Implementation Example
+```java
+// Controller (LoginController.java)
+public class LoginController extends HttpServlet {
+  protected void doPost(HttpServletRequest request, 
+                       HttpServletResponse response) {
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    
+    // Model - Business logic
+    UserModel user = new UserModel();
+    boolean isValid = user.authenticate(username, password);
+    
+    if (isValid) {
+      request.setAttribute("user", user);
+      // Forward to view
+      request.getRequestDispatcher("dashboard.jsp")
+             .forward(request, response);
+    } else {
+      // Forward to error view
+      request.getRequestDispatcher("login.jsp")
+             .forward(request, response);
+    }
+  }
+}
+```
+
+### Model Layer (JavaBean)
+```java
+public class UserModel {
+  private String username;
+  private String email;
+  private String role;
+  
+  // Getters and setters
+  public String getUsername() { return username; }
+  public void setUsername(String username) { this.username = username; }
+  
+  // Business logic
+  public boolean authenticate(String user, String pass) {
+    // Database query or validation
+    return true;
+  }
+}
+```
+
+### View Layer (JSP)
+```jsp
+<!-- dashboard.jsp -->
+<h1>Welcome ${user.username}!</h1>
+<p>Email: ${user.email}</p>
+<p>Role: ${user.role}</p>
+```
+
+---
+
+## Lecture 28: Database Connectivity with JDBC
+
+### JDBC Connection
+```java
+import java.sql.*;
+
+// Load driver
+Class.forName("com.mysql.cj.jdbc.Driver");
+
+// Create connection
+String url = "jdbc:mysql://localhost:3306/mydb";
+String user = "root";
+String password = "password";
+Connection conn = DriverManager.getConnection(url, user, password);
+```
+
+### Execute Query
+```java
+// PreparedStatement (secure against SQL injection)
+String query = "SELECT * FROM users WHERE id = ?";
+PreparedStatement pstmt = conn.prepareStatement(query);
+pstmt.setInt(1, userId);
+
+ResultSet rs = pstmt.executeQuery();
+while (rs.next()) {
+  String name = rs.getString("name");
+  String email = rs.getString("email");
+}
+
+rs.close();
+pstmt.close();
+conn.close();
+```
+
+### Insert/Update/Delete
+```java
+String insertSQL = "INSERT INTO users (name, email) VALUES (?, ?)";
+PreparedStatement pstmt = conn.prepareStatement(insertSQL);
+pstmt.setString(1, "John");
+pstmt.setString(2, "john@example.com");
+int rows = pstmt.executeUpdate();  // Returns affected rows
+```
+
+---
+
+## Lab 9: JSP Pages & Database Integration
+
+### Objectives
+- Build JSP applications with database
+- Implement MVC pattern
+- Use JSTL for templates
+- JDBC for data access
+
+### Activities
+1. Create user registration form
+2. Store data in database
+3. Display user list from database
+4. Update/delete user functionality
+5. Implement basic MVC structure
+
+### Deliverables
+- JSP application with CRUD operations
+- Database integration
+- Working MVC implementation
+
+---
+
+## Key Takeaways
+
+✅ JSP implicit objects provide access to request/response  
+✅ JSTL reduces need for Java code in JSP  
+✅ MVC separates concerns (controller, model, view)  
+✅ JDBC provides Java API for database access  
+✅ PreparedStatement prevents SQL injection
+
+---
+
+## Next Week
+
+Unit IV begins:
+- Spring Framework fundamentals
+- Dependency Injection
+- Spring Beans and application context

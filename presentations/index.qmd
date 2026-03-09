@@ -1,0 +1,83 @@
+---
+title: "Lecture Presentations"
+subtitle: "BMC201 - Web Technology"
+---
+
+## Course Presentations
+
+This folder contains all lecture presentations for BMC201 - Web Technology course.
+
+### Week 1: Introduction to Web Development
+- [Lecture 1: Introduction to Web Designing](lecture-01.qmd)
+- [Lecture 2: History of Web & Internet](lecture-02.qmd)
+- [Lecture 3: HTML Basics & Structure](lecture-03.qmd)
+- [Lecture 4: HTML Grouping: Div & Span](lecture-04.qmd)
+- [Practice Quiz Set (Lectures 1-4)](/quiz/index.qmd)
+
+### Week 2: HTML Forms & CSS
+- Lecture 5: HTML Lists & Images
+- Lecture 6: HTML Hyperlinks & Tables
+- Lecture 7: HTML Forms & Form Elements
+- Lecture 8: Introduction to CSS
+
+### Week 3: Advanced CSS & JavaScript
+- Lecture 9: CSS Units & Advanced Selectors
+- Lecture 10: CSS Box Model & Positioning
+- Lecture 11: Bootstrap Framework
+- Lecture 12: JavaScript: Variables & Data Types
+
+### Week 4: JavaScript Functions & Events
+- Lecture 13: JavaScript Functions & Events
+- Lecture 14: Conditions & Looping
+- Lecture 15: Block Scope & Objects
+- Lecture 16: Arrow Functions & Callbacks
+
+### Week 5: DOM Manipulation
+- Lecture 17: DOM Manipulation & Array Methods
+- Lecture 18: Form Validation
+- Lecture 19: ES6+ Features
+- Lecture 20: Revision: Units I & II
+
+### Week 8: JSP & Servlets
+- Lecture 21: Servlet Architecture & Lifecycle
+- Lecture 22: HTTP GET & POST Requests
+- Lecture 23: Session Tracking & Cookies
+- Lecture 24: Introduction to JSP
+
+### Week 9: JSP Advanced & MVC
+- Lecture 25: JSP Implicit Objects & Directives
+- Lecture 26: JSP Standard Actions & JSTL
+- Lecture 27: MVC Architecture
+- Lecture 28: Database Connectivity with JDBC
+
+### Week 10: Spring Framework
+- Lecture 29: Spring Framework & Dependency Injection
+- Lecture 30: Spring Beans & Application Context
+- Lecture 31: Aspect-Oriented Programming (AOP)
+- Lecture 32: Spring MVC Overview
+
+### Week 11: Spring Framework & Spring Boot
+- Lecture 33: Spring Data & ORM Integration
+- Lecture 34: Spring Security
+- Lecture 35: Introduction to Spring Boot
+- Lecture 36: Building REST APIs with Spring Boot
+
+### Week 12: Spring Boot & REST Services
+- Lecture 37: REST API Best Practices
+- Lecture 38: Testing in Spring Boot
+- Lecture 39: Deployment & Production
+- Lecture 40: Final Project Discussion & Revision
+
+---
+
+## How to Use These Presentations
+
+1. Click on any lecture link to view the presentation source
+2. To present, render the Quarto file to RevealJS format
+3. Use arrow keys to navigate slides
+4. Press 'S' for speaker notes
+5. Press 'F' for fullscreen
+
+## Styling
+
+All presentations use the custom SCSS theme from [course-slides-styles.scss](../course-slides-styles.scss), which is based on the UCSB-MEDS presentation template.

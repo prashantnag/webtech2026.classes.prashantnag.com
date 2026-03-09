@@ -1,0 +1,9 @@
+---
+title: "Essential Tools"
+---
+
+This page contains information about essential tools for web development.
+
+## Coming Soon
+
+Content for this section is currently being developed.

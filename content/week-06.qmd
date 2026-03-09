@@ -1,0 +1,207 @@
+---
+title: "Weeks 6-7: Mar 2 - Mar 14, 2026"
+subtitle: "Revision & Mid-Semester Examination"
+---
+
+## Week Overview
+
+These are revision weeks focused on consolidating understanding of Units I and II, followed by the mid-semester examination.
+
+**Course Outcome:** CO-1, CO-2 (Review & Assessment)  
+**Duration:** 2 weeks (revision + exam)  
+**Mid-Semester Exam:** Mar 10-14
+
+---
+
+## Week 6: Mar 2 - Mar 8, 2026 - Revision Week
+
+### Revision Topics
+
+#### Unit I: Web Page Designing
+- HTML semantic structure and elements
+- CSS selectors (element, class, ID, pseudo-classes)
+- CSS Box Model (margin, padding, border)
+- Responsive design fundamentals
+- Bootstrap grid system
+- Best practices for accessible HTML
+
+#### Unit II: JavaScript Fundamentals
+- Variables and data types
+- Functions and scope
+- Event handling and listeners
+- Control flow (if/else, loops, switch)
+- Objects and arrays
+- DOM manipulation
+- Form validation
+
+### Revision Activities
+
+#### 1. Concept Review
+- Create summary notes for each topic
+- Make comparison tables (HTML elements, CSS properties, JS syntax)
+- List key definitions and terms
+
+#### 2. Code Review
+```javascript
+// Sample revision: Create a function that validates email
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Review: What does this code do?
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers
+  .filter(x => x > 2)
+  .map(x => x * 2);
+// Output: [6, 8, 10]
+```
+
+#### 3. Hands-on Practice
+- Recreate examples from lectures
+- Solve problem sets
+- Debug broken code
+- Implement mini-projects combining all concepts
+
+#### 4. Practice Questions
+**HTML & CSS:**
+- Difference between semantic and non-semantic elements?
+- What is the CSS Box Model?
+- How do CSS classes differ from IDs?
+- Explain media queries
+
+**JavaScript:**
+- What is hoisting?
+- Difference between let, const, and var?
+- Explain closures
+- What is event delegation?
+- How does the DOM differ from HTML?
+
+---
+
+## Important Dates
+- Mar 2-8: Revision lectures and practice
+- Mar 9: No classes (preparation day)
+- Mar 10-14: Mid-Semester Examination
+
+---
+
+## Week 7: Mar 10 - Mar 14, 2026 - Examination Week
+
+### Mid-Semester Exam Details
+
+**Format:** Written examination  
+**Duration:** 2 hours  
+**Weightage:** 20 marks (Class Test component)  
+**Topics:** Units I & II  
+**Passing Score:** 40%
+
+### Exam Structure
+
+**Section A (20 marks):** Short Answer Questions
+- Define key concepts
+- Explain differences
+- List properties/methods
+
+**Section B (30 marks):** MCQs
+- Identify correct syntax
+- Select best practice
+- Choose appropriate method
+
+**Section C (50 marks):** Practical/Coding
+- Write JavaScript function
+- Create HTML structure
+- Write CSS rules
+- Explain code output
+
+### Preparation Tips
+1. Review lecture notes weekly
+2. Practice code examples
+3. Solve past exam papers
+4. Form study groups
+5. Ask questions during revision
+6. Get adequate sleep before exam
+
+---
+
+## Key Topics Summary
+
+### HTML Elements
+```html
+<!-- Semantic structure -->
+<header>, <nav>, <main>, <articles>, <section>, <aside>, <footer>
+
+<!-- Content -->
+<h1>-<h6>, <p>, <ul>, <ol>, <li>, <dl>, <dt>, <dd>
+
+<!-- Media -->
+<img>, <video>, <audio>
+
+<!-- Forms -->
+<form>, <input>, <textarea>, <select>, <label>, <button>
+
+<!-- Links & Metadata -->
+<a>, <link>, <meta>, <title>, <style>
+```
+
+### CSS Fundamentals
+```css
+/* Selectors */
+element, .class, #id, [attr], ::before, :hover
+
+/* Properties */
+color, background, font-size, margin, padding, border
+display, position, width, height, z-index
+
+/* Values */
+pixels (px), em, rem, %, vh, vw
+colors (hex, rgb, hsl, named)
+```
+
+### JavaScript Basics
+```javascript
+/* Variables */ let, const, var
+/* Types */ string, number, boolean, object, array, null, undefined
+/* Operators */ +, -, *, /, %, ===, !==, &&, ||, !
+/* Control */ if, else, switch, for, while, do...while
+/* Functions */ function, arrow (=>), callback
+/* DOM */ querySelector, getElementById, addEventListener, innerHTML
+```
+
+---
+
+## Post-Exam
+
+After the exam:
+- Teachers will provide feedback
+- Review exam answers
+- Learn from mistakes
+- Prepare for Unit III (Servlets & JSP)
+
+---
+
+## Resources for Revision
+
+**Websites:**
+- MDN Web Docs
+- W3Schools
+- CSS-Tricks
+- JavaScript.info
+
+**Videos:**
+- Recommended course videos from lectures
+- YouTube tutorials (Traversy Media, FreeCodeCamp)
+
+**Practice:**
+- CodePen for interactive practice
+- HackerRank for coding challenges
+- LeetCode for algorithm practice
+
+---
+
+## Contact & Support
+
+Office hours available for:
+- Last-minute questions
+- Concept clarification
+- Exam strategy discussion

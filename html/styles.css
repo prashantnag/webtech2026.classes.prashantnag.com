@@ -1,0 +1,209 @@
+/* Additional custom styles */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* List spacing */
+ul,
+ol {
+  line-height: 1.8;
+}
+
+/* Improve readability */
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Better focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 2px;
+}
+
+/* ======================== */
+/* CODE BLOCK STYLING       */
+/* ======================== */
+
+/* Inline code throughout document */
+code {
+  background-color: #f0f0f0 !important;
+  color: #c7254e !important;
+  padding: 0.3em 0.6em !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
+  font-family: "Courier New", Courier, monospace !important;
+  font-weight: 500 !important;
+  border: 1px solid #e0e0e0;
+}
+
+/* Inline code in paragraphs, lists, tables */
+p code,
+li code,
+td code,
+th code,
+strong code,
+em code {
+  background-color: #fffacd !important;
+  color: #d9534f !important;
+  border: 1px solid #f0ad4e !important;
+  padding: 2px 5px !important;
+}
+
+/* Code blocks (pre elements) */
+pre {
+  background-color: #1e1e1e !important;
+  border: 2px solid #444 !important;
+  border-radius: 6px !important;
+  padding: 15px !important;
+  margin: 1.5em 0 !important;
+  overflow-x: auto !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  line-height: 1.6 !important;
+  display: block !important;
+}
+
+/* Code inside pre */
+pre > code {
+  background-color: transparent !important;
+  color: #e1e4e8 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-family: "Courier New", Courier, monospace !important;
+  font-size: 0.95em !important;
+  display: block !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+}
+
+/* Syntax highlighting for code blocks */
+.hljs {
+  background-color: #1e1e1e !important;
+  color: #d4d4d4 !important;
+}
+
+.hljs-string {
+  color: #ce9178 !important;
+}
+
+.hljs-number {
+  color: #b5cea8 !important;
+}
+
+.hljs-literal {
+  color: #569cd6 !important;
+}
+
+.hljs-attr {
+  color: #9cdcfe !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #569cd6 !important;
+  font-weight: bold !important;
+}
+
+.hljs-builtin-name {
+  color: #9cdcfe !important;
+}
+
+.hljs-name {
+  color: #dcdcaa !important;
+}
+
+.hljs-title {
+  color: #4ec9b0 !important;
+}
+
+.hljs-tag {
+  color: #569cd6 !important;
+}
+
+.hljs-comment {
+  color: #6a9955 !important;
+  font-style: italic !important;
+}
+
+.hljs-function {
+  color: #dcdcaa !important;
+}
+
+.hljs-params {
+  color: #d4d4d4 !important;
+}
+
+.hljs-punctuation {
+  color: #d4d4d4 !important;
+}
+
+/* HTML Tags highlighting */
+.hljs-tag .hljs-name {
+  color: #569cd6 !important;
+}
+
+.hljs-attr {
+  color: #9cdcfe !important;
+}
+
+.hljs-string {
+  color: #ce9178 !important;
+}
+
+/* CSS highlighting */
+.hljs-selector-class {
+  color: #dcdcaa !important;
+}
+
+.hljs-selector-id {
+  color: #dcdcaa !important;
+}
+
+.hljs-attribute {
+  color: #9cdcfe !important;
+}
+
+/* JavaScript highlighting */
+.hljs-variable {
+  color: #9cdcfe !important;
+}
+
+.hljs-literal {
+  color: #4ec9b0 !important;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .sidebar,
+  .nav-footer {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+  }
+
+  pre {
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+  }
+}

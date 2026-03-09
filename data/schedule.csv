@@ -1,0 +1,9 @@
+group,session,title,date,end_date,content,assignment,note,deadline,flag
+Week 1,Lecture 1,Introduction to Web Designing,2026-01-26,,content/week-01,,,NA,FALSE
+Week 1,Lecture 2,History of Web & Internet,2026-01-27,,content/week-01,,,NA,FALSE
+Week 1,Lecture 3,HTML Basics & Structure,2026-01-29,,content/week-01,,,NA,FALSE
+Week 1,Lecture 4,HTML Grouping: Div & Span,2026-01-31,,content/week-01,,,NA,FALSE
+Week 2,Assignment 1,HTML Website with Forms,2026-02-11,,content/week-02,assignment/01-assignment,Submission deadline,23:59:00,FALSE
+Week 3,Assignment 2,Interactive Web Page,2026-02-25,,content/week-03,assignment/02-assignment,Submission deadline,23:59:00,FALSE
+Week 8,Assignment 3,Responsive Website,2026-03-18,,content/week-08,assignment/03-assignment,Submission deadline,23:59:00,FALSE
+Week 10,Assignment 4,Web App with Servlets & JSP,2026-04-08,,content/week-10,assignment/04-assignment,Submission deadline,23:59:00,FALSE

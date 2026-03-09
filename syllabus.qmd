@@ -1,0 +1,325 @@
+---
+title: Syllabus
+sidebar: false
+toc: true
+page-layout: full
+format:
+  html:
+    template-partials:
+      - html/home/title-block.html
+---
+
+## Course Description
+
+Web Technology (BMC201) is a comprehensive course designed for MCA students to master web development concepts and technologies. This course covers the full spectrum of web development, from fundamental HTML and CSS to advanced JavaScript programming and server-side technologies including Servlets, JSP, and Spring Framework.
+
+## Course Code & Credits
+
+- **Course Code:** BMC201
+- **Course Name:** Web Technology
+- **Credits:** 4
+- **Course Structure:** 3 Lectures - 1 Tutorial - 3 Practical per week
+- **Total Teaching Period:** 40 periods per semester
+
+## Course Objectives
+
+1. Apply the knowledge of HTML and CSS to develop web applications and analyze the insights of internet programming
+2. Understand, analyze, and apply the role of JavaScript in web applications  
+3. Understand, analyze, and build dynamic web applications using Servlet and JSP
+4. Develop Spring-based Java applications using Java configuration and best practices
+5. Develop web applications using Spring Boot and RESTful Web Services
+
+## Course Outcomes
+
+Upon successful completion of this course, students will be able to:
+
+| CO# | Learning Outcome | Bloom's Level |
+|-----|------------------|---------------|
+| CO 1 | Apply the knowledge of HTML and CSS to develop web applications and analyze the insights of internet programming to implement complete application over the web. | K3, K6 |
+| CO 2 | Understand, analyze and apply the role of JavaScript in the workings of the web and web applications. | K2, K3 |
+| CO 3 | Understand, analyze and build dynamic web applications using Servlet and JSP. | K2, K3 |
+| CO 4 | Develop Spring-based Java applications using Java configuration, XML configuration, annotation-based configuration, beans and their scopes, and properties. | K2, K4, K6 |
+| CO 5 | Develop web application using Spring Boot and RESTful Web Services. | K3, K6 |
+
+## Detailed Syllabus
+
+### Unit I: Web Page Designing (8 Periods)
+
+**Topics Covered:**
+- Introduction and Web Development Strategies
+- History of Web and Internet
+- Protocols Governing the Web
+- HTML: Introduction, Tags, and Structure
+- HTML Grouping using Div & Span
+- HTML Lists (Ordered, Unordered, Description)
+- HTML Images & Hyperlinks
+- HTML Tables & Iframes
+- HTML Forms & Form Elements
+- Introduction to CSS
+- CSS Syntax and Selectors
+- External Style Sheets and Multiple Style Sheets
+- CSS Box Model
+- Floats and Clear
+- Introduction to Bootstrap
+
+**Related Content:** [Week 1-2: HTML & Introduction](/content/week-01.qmd)
+
+**Related Lab:** [Lab 1-3: HTML & CSS Fundamentals](/labs/index.qmd)
+
+---
+
+### Unit II: Scripting with JavaScript (8 Periods)
+
+**Topics Covered:**
+- Introduction to JavaScript
+- Creating Variables in JavaScript
+- Creating Functions in JavaScript
+- UI Events and Event Handling
+- Returning Data from Functions
+- Working with Conditions
+- Looping in JavaScript
+- Block Scope Variables (let, const)
+- Working with Objects
+- Creating Objects using Object Literals
+- Manipulating DOM Elements with JavaScript
+- Array Methods and Operations
+
+**Related Content:** [Week 3-5: CSS, JavaScript & DOM](/content/week-03.qmd) | [Week 4: JavaScript Functions & Events](/content/week-04.qmd) | [Week 5: DOM & ES6+](/content/week-05.qmd)
+
+**Related Lab:** [Lab 4-6: JavaScript & DOM Manipulation](/labs/index.qmd)
+
+---
+
+### Unit III: Web Application Development using JSP & Servlets (8 Periods)
+
+**Topics Covered:**
+- Servlet Overview and Architecture
+- Interface Servlet and Servlet Life Cycle
+- Handling HTTP GET Requests
+- Handling HTTP POST Requests  
+- Redirecting Requests to Other Resources
+- Session Tracking using Cookies
+- Session Tracking with HttpSession
+- Java Server Pages (JSP): Introduction & Overview
+- JSP Implicit Objects
+- JSP Scripting, Standard Actions, and Directives
+- Custom Tag Libraries
+
+**Related Content:** [Week 8-9: Servlets, JSP & MVC](/content/week-08.qmd) | [Week 9: JSP Advanced & MVC](/content/week-09.qmd)
+
+**Related Lab:** [Lab 7-9: Server-side Programming](/labs/index.qmd)
+
+---
+
+### Unit IV: Spring Framework Basics (8 Periods)
+
+**Topics Covered:**
+- Spring Core Basics
+- Spring Dependency Injection (DI) Concepts
+- Introduction to Design Patterns
+- Factory Design Pattern
+- Strategy Design Pattern
+- Spring Inversion of Control (IoC)
+- Aspect-Oriented Programming (AOP)
+- Bean Scopes: Singleton, Prototype, Request, Session, Application
+- Auto-wiring and Annotations
+- Life Cycle Callbacks
+- Bean Configuration Styles (XML & Annotation-based)
+
+**Related Content:** [Week 10: Spring Framework Fundamentals](/content/week-10.qmd)
+
+**Related Lab:** [Lab 7-8: Spring Framework](/labs/index.qmd)
+
+---
+
+### Unit V: Spring Boot & RESTful Web Services (8 Periods)
+
+**Topics Covered:**
+- Spring Boot Configuration and Setup
+- Spring Boot Annotations
+- Spring Boot Actuator
+- Spring Boot Build Systems (Maven/Gradle)
+- Spring Boot Code Structure & Best Practices
+- Spring Boot Runners
+- Logging in Spring Boot
+- Building RESTful Web Services
+- REST Controller and Request Mapping
+- Request Body, Path Variable, Request Parameter
+- HTTP Methods: GET, POST, PUT, DELETE
+- Building RESTful APIs
+- Building Web Applications with Spring Boot
+
+**Related Content:** [Week 11: Spring Boot & Spring Data](/content/week-11.qmd) | [Week 12: REST APIs & Deployment](/content/week-12.qmd)
+
+**Related Lab:** [Lab 8-9: REST APIs & Spring Boot](/labs/index.qmd)
+
+---
+
+## Assessment and Grading
+
+### Evaluation Scheme (As per AKTU Guidelines)
+
+| Component | Marks |
+|-----------|-------|
+| Class Test (CT) | 20 |
+| Teacher Assessment (TA) | 10 |
+| **Sessional (Internal) Total** | **30** |
+| End-Semester Exam (ESE) | 70 |
+| **Total Marks** | **100** |
+
+### Grade Points (AKTU Grading Scale)
+
+| Grade | Range | Grade Point |
+|-------|-------|------------|
+| A+ | 90-100 | 4.0 |
+| A | 80-89 | 3.6 |
+| B+ | 70-79 | 3.2 |
+| B | 60-69 | 2.8 |
+| C+ | 55-59 | 2.4 |
+| C | 50-54 | 2.0 |
+| F | Below 50 | 0.0 |
+
+### Attendance Requirements
+
+As per AKTU ordinance:
+- Students must maintain **75% attendance** in theory and practical classes
+- Attendance below 75% (with medical grounds: max 85%) can prevent exam eligibility
+- No student will be allowed to appear in end-semester examination with insufficient attendance
+
+### Sessional Evaluation
+
+- **Class Tests (CT):** 20 marks - Typically 2-3 tests during the semester
+- **Teacher Assessment (TA):** 10 marks - Based on assignments, participation, and performance
+
+### End-Semester Examination
+
+- **Duration:** 3 hours
+- **Maximum Marks:** 70
+- **Pattern:** Comprehensive exam covering all units
+
+## Suggested Readings (As per AKTU Curriculum)
+
+### Primary References
+
+1. Burdman J., *Collaborative Web Development – Strategies and Best Practices for Web Teams*, Addison-Wesley
+
+2. Xavier C., *Web Technology & Design*, New Age International Publishers
+
+3. Bayross I., *Web Technologies*, BPB Publications
+
+4. Schieldth H., *The Complete Reference – HTML & CSS*, McGraw Hill
+
+5. Bergsten H., *Java Server Pages*, SPD O'Reilly
+
+6. Walls C., *Spring Boot in Action*, Manning Publications
+
+7. Bakliwal S., *Hands-on Application Development using Spring Boot*, BPB Publications
+
+### Supplementary Resources
+
+- [MDN Web Docs](https://developer.mozilla.org/) - Comprehensive web technology documentation
+- [W3Schools](https://www.w3schools.com/) - Interactive tutorials for HTML, CSS, JavaScript
+- [CSS-Tricks](https://css-tricks.com/) - Advanced CSS techniques
+- [JavaScript.info](https://javascript.info/) - Modern JavaScript guide
+- [Spring Framework Documentation](https://spring.io/projects/spring-framework)
+- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+
+## Lab Work
+
+Lab sessions are an integral part of this course. Students must:
+
+- Attend all scheduled lab sessions
+- Complete lab exercises within the assigned time
+- Submit lab reports as per the given format
+- Maintain a lab portfolio
+
+Refer to the [Lab Manuals](/labs/index.qmd) section for detailed lab exercises.
+
+## Assignments
+
+Regular assignments will be given throughout the semester. Check the [Assignments](/assignment/index.qmd) page for:
+
+- Assignment descriptions and requirements
+- Submission deadlines
+- Evaluation criteria
+
+### Late Submission Policy
+
+- Assignments submitted within 24 hours of the deadline: 10% penalty
+- Assignments submitted within 48 hours: 25% penalty
+- Assignments submitted after 48 hours: 50% penalty
+- No submissions accepted after 7 days
+
+## Required Software Tools
+
+- **Text Editor/IDE:** Visual Studio Code (Recommended)
+- **Web Browsers:** Chrome/Firefox with Developer Tools
+- **Version Control:** Git and GitHub
+- **Local Server:** XAMPP, WAMP, or Docker
+- **Java Development Kit:** JDK 11 or later
+- **Build Tool:** Maven or Gradle
+
+All required software is free and open-source. Installation guides are available in the [Resources](/resource/index.qmd) section.
+
+## Attendance Policy
+
+- Minimum 75% attendance is mandatory (as per AKTU ordinance)
+- Late arrivals (>15 minutes) will be marked as absent
+- Medical certificates must be submitted within 3 days for illness-related absences
+- Participation in class activities is expected and will contribute to teacher assessment
+
+## Academic Integrity
+
+Academic honesty is fundamental to the activities and principles of the university. Students must:
+
+- Complete all assignments independently unless group work is specified
+- Properly cite all sources used in assignments and projects
+- Not plagiarize code from online sources without attribution
+- Not share solutions with other students
+
+Violations of academic integrity will result in:
+- First offense: Zero marks for the assignment
+- Second offense: Failing grade (F) for the course
+- Serious violations: Disciplinary action as per university policy
+
+## Course Policies
+
+### Communications
+
+- Official course communications via email and this website
+- Check your email and course website regularly
+- Response time: Within 48 hours for email queries
+
+### Technical Requirements
+
+- Reliable internet connection for accessing course materials
+- Computer with at least 4GB RAM and 10GB free disk space
+- Updated web browser (Chrome or Firefox recommended)
+- Ability to install required software
+
+### Accommodations
+
+Students requiring accommodations due to disabilities should contact the instructor within the first week of the semester.
+
+## Schedule and Important Dates
+
+For the detailed course schedule, including lecture topics, assignment due dates, and class test dates, please visit the [Schedule](/schedule.qmd) page.
+
+## Course Credit Calculation
+
+- **Total Credits:** 4
+- **Contact Hours:** Approximately 60 hours lecture + 20 hours tutorial
+- **Self-Study:** Approximately 60 hours
+- **Total Workload:** ~140 hours
+
+**SGPA Calculation:** Weighted average of all courses taken in a semester (credits × grade point points / total credits)
+
+## Questions?
+
+If you have questions about the syllabus or course policies, please reach out via email at [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu) or visit during office hours.
+
+---
+
+*This syllabus follows the AKTU MCA Model Curriculum (2020-21) and is subject to change based on university guidelines. Any modifications will be announced in class and updated on the course website.*
+
+*Last updated: February 10, 2026*

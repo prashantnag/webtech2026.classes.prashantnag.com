@@ -1,0 +1,248 @@
+---
+title: "Resources"
+---
+
+This page contains additional learning materials, tools, references, and useful links to help you succeed in Web Technology.
+
+## Official Documentation
+
+### HTML5
+
+- [**MDN HTML Reference**](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference) - Comprehensive HTML documentation
+- [**W3C HTML Specification**](https://html.spec.whatwg.org/) - Official HTML standard
+- [**HTML5 Doctor**](http://html5doctor.com/) - Helping you implement HTML5 today
+
+### CSS3
+
+- [**MDN CSS Reference**](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) - Complete CSS documentation
+- [**CSS-Tricks**](https://css-tricks.com/) - Tips, tricks, and techniques
+- [**Can I Use**](https://caniuse.com/) - Browser compatibility tables
+
+### JavaScript
+
+- [**MDN JavaScript Guide**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) - Comprehensive JavaScript guide
+- [**JavaScript.info**](https://javascript.info/) - Modern JavaScript tutorial
+- [**Eloquent JavaScript**](https://eloquentjavascript.net/) - Free online book
+
+## Online Learning Platforms
+
+### Interactive Tutorials
+
+- [**FreeCodeCamp**](https://www.freecodecamp.org/) - Free coding bootcamp
+- [**Codecademy**](https://www.codecademy.com/learn/introduction-to-javascript) - Interactive coding lessons
+- [**Scrimba**](https://scrimba.com/) - Interactive screencasts
+- [**The Odin Project**](https://www.theodinproject.com/) - Free full-stack curriculum
+- [**W3Schools**](https://www.w3schools.com/) - Web development tutorials and reference
+
+### Video Courses
+
+- [**Traversy Media**](https://www.youtube.com/user/TechGuyWeb) - Free web development tutorials
+- [**Net Ninja**](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg) - YouTube channel with quality tutorials
+- [**Kevin Powell**](https://www.youtube.com/kepowob) - CSS specialist tutorials
+- [**Web Dev Simplified**](https://www.youtube.com/c/WebDevSimplified) - Simplified web development concepts
+
+## Development Tools
+
+### Code Editors
+
+- [**Visual Studio Code**](https://code.visualstudio.com/) - Recommended editor (FREE)
+  - [VS Code Tips and Tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
+  - [Essential Extensions Guide](/resource/tools.qmd#vs-code-extensions)
+- [**Sublime Text**](https://www.sublimetext.com/) - Fast and lightweight
+- [**Atom**](https://atom.io/) - Hackable text editor
+
+### Browser Developer Tools
+
+- [**Chrome DevTools**](https://developers.google.com/web/tools/chrome-devtools) - Comprehensive debugging tools
+- [**Firefox Developer Tools**](https://developer.mozilla.org/en-US/docs/Tools) - Powerful development tools
+- [**Edge DevTools**](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/) - Built on Chrome tools
+
+### Online Code Editors
+
+- [**CodePen**](https://codepen.io/) - Front-end code playground
+- [**JSFiddle**](https://jsfiddle.net/) - Test HTML, CSS, JavaScript
+- [**Repl.it**](https://repl.it/) - Online coding environment
+- [**Glitch**](https://glitch.com/) - Build and deploy web apps
+
+## Validation & Testing Tools
+
+### Validators
+
+- [**W3C Markup Validation Service**](https://validator.w3.org/) - HTML validator
+- [**W3C CSS Validation Service**](https://jigsaw.w3.org/css-validator/) - CSS validator
+- [**JSLint**](https://www.jslint.com/) / [**JSHint**](https://jshint.com/) - JavaScript code quality tools
+
+### Testing Tools
+
+- [**Responsive Design Checker**](https://responsivedesignchecker.com/) - Test responsive designs
+- [**BrowserStack**](https://www.browserstack.com/) - Cross-browser testing
+- [**WebPageTest**](https://www.webpagetest.org/) - Website performance testing
+- [**Google Lighthouse**](https://developers.google.com/web/tools/lighthouse) - Audit tool for web pages
+
+## Design Resources
+
+### Color Tools
+
+- [**Coolors**](https://coolors.co/) - Color scheme generator
+- [**Adobe Color**](https://color.adobe.com/) - Color wheel and schemes
+- [**Color Hunt**](https://colorhunt.co/) - Curated color palettes
+- [**WebAIM Contrast Checker**](https://webaim.org/resources/contrastchecker/) - Accessibility contrast checker
+
+### Fonts
+
+- [**Google Fonts**](https://fonts.google.com/) - Free web fonts
+- [**Font Squirrel**](https://www.fontsquirrel.com/) - Free fonts for commercial use
+- [**Type Scale**](https://type-scale.com/) - Font size hierarchy
+
+### Images & Icons
+
+- [**Unsplash**](https://unsplash.com/) - Free high-quality photos
+- [**Pexels**](https://www.pexels.com/) - Free stock photos and videos
+- [**Font Awesome**](https://fontawesome.com/) - Icon library
+- [**Feather Icons**](https://feathericons.com/) - Simple, beautiful icons
+- [**Heroicons**](https://heroicons.com/) - Beautiful hand-crafted SVG icons
+
+### UI/UX Resources
+
+- [**Dribbble**](https://dribbble.com/) - Design inspiration
+- [**Behance**](https://www.behance.net/) - Creative portfolios
+- [**UI Design Daily**](https://www.uidesigndaily.com/) - Daily UI components
+
+## Reference & Cheat Sheets
+
+### Quick References
+
+- [**HTML Cheat Sheet**](https://htmlcheatsheet.com/) - Quick HTML reference
+- [**CSS Cheat Sheet**](https://htmlcheatsheet.com/css/) - Quick CSS reference
+- [**JavaScript Cheat Sheet**](https://htmlcheatsheet.com/js/) - Quick JS reference
+- [**Emmet Cheat Sheet**](https://docs.emmet.io/cheat-sheet/) - Speed up HTML/CSS coding
+
+### Guides
+
+- [**A Complete Guide to Flexbox**](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - CSS Flexbox guide
+- [**A Complete Guide to Grid**](https://css-tricks.com/snippets/css/complete-guide-grid/) - CSS Grid guide
+- [**ES6 Features**](https://github.com/lukehoban/es6features) - ES6 JavaScript features
+- [**HTTP Status Codes**](https://httpstatuses.com/) - Complete reference
+
+## Books
+
+### Free/Online Books
+
+1. [**Eloquent JavaScript**](https://eloquentjavascript.net/) by Marijn Haverbeke
+2. [**You Don't Know JS**](https://github.com/getify/You-Dont-Know-JS) by Kyle Simpson
+3. [**JavaScript for Cats**](http://jsforcats.com/) - Beginner-friendly JavaScript
+4. [**Learning JavaScript Design Patterns**](https://addyosmani.com/resources/essentialjsdesignpatterns/book/) by Addy Osmani
+
+### Recommended Textbooks
+
+1. **HTML and CSS: Design and Build Websites** by Jon Duckett
+2. **JavaScript and JQuery: Interactive Front-End Web Development** by Jon Duckett
+3. **Learning Web Design** by Jennifer Robbins (5th Edition)
+4. **CSS Secrets** by Lea Verou
+
+## Communities & Help
+
+### Forums & Q&A
+
+- [**Stack Overflow**](https://stackoverflow.com/) - Programming Q&A
+- [**Reddit r/webdev**](https://www.reddit.com/r/webdev/) - Web development community
+- [**Reddit r/learnprogramming**](https://www.reddit.com/r/learnprogramming/) - Learning community
+- [**Dev.to**](https://dev.to/) - Community for developers
+
+### Discord/Slack Communities
+
+- [**FreeCodeCamp Discord**](https://discord.gg/freecodecamp)
+- [**The Odin Project Discord**](https://discord.gg/theodinproject)
+- [**Reactiflux Discord**](https://www.reactiflux.com/) - React and general web dev
+
+## Blogs & Newsletters
+
+- [**CSS-Tricks**](https://css-tricks.com/) - Daily articles and tutorials
+- [**Smashing Magazine**](https://www.smashingmagazine.com/) - Web design and development
+- [**A List Apart**](https://alistapart.com/) - Web standards and best practices
+- [**JavaScript Weekly**](https://javascriptweekly.com/) - Weekly JavaScript newsletter
+- [**CSS Weekly**](https://css-weekly.com/) - Weekly CSS newsletter
+
+## GitHub Repositories
+
+Useful code examples and projects:
+
+- [**30 Days of JavaScript**](https://github.com/Asabeneh/30-Days-Of-JavaScript)
+- [**JavaScript Algorithms**](https://github.com/trekhleb/javascript-algorithms)
+- [**Front-End Checklist**](https://github.com/thedaviddias/Front-End-Checklist)
+- [**Awesome HTML5**](https://github.com/diegocard/awesome-html5)
+- [**Awesome CSS**](https://github.com/awesome-css-group/awesome-css)
+
+## Accessibility
+
+Making websites usable for everyone:
+
+- [**WebAIM**](https://webaim.org/) - Web accessibility resources
+- [**WAVE**](https://wave.webaim.org/) - Web accessibility evaluation tool
+- [**A11Y Project**](https://www.a11y-project.com/) - Community-driven accessibility resources
+- [**Inclusive Components**](https://inclusive-components.design/) - Accessible component patterns
+
+## Performance
+
+- [**Google PageSpeed Insights**](https://pagespeed.web.dev/) - Performance analysis
+- [**GTmetrix**](https://gtmetrix.com/) - Website speed and performance
+- [**Web.dev**](https://web.dev/) - Modern web development guidance
+
+## Course-Specific Resources
+
+### HTML/CSS Quick References
+
+{{< fa file-pdf >}} [HTML Element Cheat Sheet (PDF)](#) - Coming soon  
+{{< fa file-pdf >}} [CSS Properties Guide (PDF)](#) - Coming soon  
+{{< fa file-pdf >}} [Flexbox Visual Guide (PDF)](#) - Coming soon
+
+### JavaScript References
+
+{{< fa file-pdf >}} [JavaScript Basics (PDF)](#) - Coming soon  
+{{< fa file-pdf >}} [DOM Manipulation Guide (PDF)](#) - Coming soon
+
+### Code Examples
+
+Browse the [example code repository](#) for all lecture examples - Coming soon
+
+## Software Installation Guides
+
+Detailed installation instructions:
+
+- [Installing Visual Studio Code](/resource/tools.qmd#visual-studio-code)
+- [Setting up XAMPP/WAMP](/resource/web-servers.qmd)
+- [Git Installation Guide](/resource/tools.qmd#git)
+- [GitHub Setup Tutorial](/resource/tools.qmd#github)
+
+## Tips for Using These Resources
+
+::: {.callout-tip}
+### How to Learn Effectively
+
+1. **Start with official documentation** (MDN) for accurate information
+2. **Practice with interactive tutorials** to learn by doing
+3. **Watch videos** to see concepts in action
+4. **Read articles** to understand best practices
+5. **Join communities** to ask questions and get help
+6. **Build projects** to apply what you learn
+:::
+
+::: {.callout-note}
+### Bookmark These!
+
+Add the most useful resources to your browser bookmarks. You'll reference them constantly throughout your web development journey.
+:::
+
+## Staying Updated
+
+Web development changes rapidly. Stay current with:
+
+- Follow key developers and influencers on Twitter
+- Subscribe to newsletters (JavaScript Weekly, CSS Weekly)
+- Join Discord communities
+- Read blogs regularly
+- Attend local meetups or webinars
+
+---
+
+*Have a great resource to add? Email [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu) with your suggestion!*

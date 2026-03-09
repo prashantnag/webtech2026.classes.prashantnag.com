@@ -1,0 +1,56 @@
+---
+title: "Lecture 3 Quiz: HTML Basics & Structure"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Slides](/presentations/lecture-03.qmd) | [Week 1 Content](/content/week-01.qmd) | [Lab 1](/labs/lab-01.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 3 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <!DOCTYPE html>", "B. <doctype web>", "C. <meta html5>", "D. <head>"]
+question = "Question 1: Which declaration should appear at the top of a modern HTML document?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <body>", "B. <main>", "C. <footer>", "D. <head>"]
+question = "Question 2: Which element usually stores metadata and title information?"
+answer = 4
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. File size randomness", "B. Accessibility and readability", "C. Only animation speed", "D. Hardware overclocking"]
+question = "Question 3: Semantic HTML is useful because it improves:"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <title>", "B. <meta>", "C. <body>", "D. <link>"]
+question = "Question 4: Which element should contain visible page content?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Keep proper nesting and indentation", "B. Place random tags without closing", "C. Use only <div> for everything", "D. Skip headings to save time"]
+question = "Question 5: Which is a good HTML authoring practice?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```

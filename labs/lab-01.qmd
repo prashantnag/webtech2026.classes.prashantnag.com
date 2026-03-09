@@ -1,0 +1,1080 @@
+---
+title: "Lab 1: Development Environment Setup"
+date: "2026-01-20"
+due: "2026-01-28"
+---
+
+# Lab 1: Development Environment Setup {.page-break-before}
+
+Welcome to your first web development lab! This lab will guide you through setting up a professional development environment for web development.
+
+## Lab Objectives {.objectives}
+
+By the end of this lab, you will be able to:
+
+::: {.objectives-list}
+- ✓ Install and configure Visual Studio Code (VS Code)
+- ✓ Set up essential VS Code extensions for web development
+- ✓ Create a proper project folder structure
+- ✓ Write and view your first HTML file
+- ✓ Use browser developer tools effectively
+:::
+
+## Pre-Lab Preparation {.preparation}
+
+### What You Need
+
+::: {.callout-note}
+Before you start, make sure you have the following:
+
+- A computer with **Windows**, **macOS**, or **Linux**
+- **Administrator access** to install software
+- **Internet connection** for downloading software
+- At least **2GB of free disk space**
+:::
+
+### Estimated Time
+
+**60-90 minutes** (depending on download speeds and your familiarity with software installation)
+
+---
+
+## Part 1: Install Visual Studio Code {.part-header}
+
+Visual Studio Code is a lightweight but powerful code editor perfect for web development.
+
+### Step 1: Download VS Code
+
+1. Open your web browser
+2. Visit: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+3. Click the download button for your operating system
+4. Wait for the installer to download (usually 50-100 MB)
+
+### Step 2: Install VS Code
+
+#### **Windows:**
+
+1. Run the downloaded `.exe` file
+2. Accept the User Account Control prompt
+3. Accept the license agreement
+4. Choose installation location (default is fine)
+5. **Important**: Check these options:
+   - ☑ "Add to PATH"
+   - ☑ "Create a desktop icon"
+   - ☑ "Add 'Open with Code' action to context menu"
+6. Click **Install**
+7. Click **Finish**
+
+::: {.callout-tip}
+Adding VS Code to PATH allows you to open directories in VS Code from the command line using `code .`
+:::
+
+#### **macOS:**
+
+1. Open the downloaded `.dmg` file
+2. Drag the **VS Code icon** to the **Applications folder**
+3. Wait for the copy to complete
+4. Open **Applications** folder
+5. Double-click **Visual Studio Code**
+
+#### **Linux:**
+
+Visit the [VS Code website](https://code.visualstudio.com/#alt-downloads) and follow the instructions for your specific distribution.
+
+### Step 3: First Launch
+
+1. Open **Visual Studio Code**
+2. You should see the Welcome tab
+3. Familiarize yourself with the interface:
+
+::: {.layout-columns}
+
+**Activity Bar (Left side):**
+- File Explorer
+- Search
+- Source Control
+- Run and Debug
+- Extensions
+
+**Main Editor Area (Center):**
+- Where your code appears
+- Tabs for multiple files
+- Line numbers on the left
+
+**Side Bar:**
+- File browser
+- Search results
+- Git information
+- Installed extensions
+
+**Status Bar (Bottom):**
+- File info (encoding, language, line count)
+- Current branch
+- Errors and warnings count
+
+:::
+
+---
+
+## Part 2: Install Essential Extensions {.part-header}
+
+Extensions supercharge VS Code by adding features specific to web development. Think of them as plugins!
+
+### Step 1: Open Extensions View
+
+1. Click the **Extensions icon** in the Activity Bar (looks like 4 small squares)
+2. Or press: `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
+3. You'll see a search bar at the top
+
+### Step 2: Install Required Extensions
+
+Search for each extension and click **Install**:
+
+:::: {.extension-list}
+
+::: {.extension-card}
+**🚀 Live Server** *(by Ritwick Dey)*
+
+Creates a local development server with live reload functionality.
+
+**Why you need it:** Instantly see changes in your browser without manual refresh.
+:::
+
+::: {.extension-card}
+**🎨 HTML CSS Support** *(by ecmel)*
+
+Provides HTML and CSS IntelliSense and code completion.
+
+**Why you need it:** Auto-suggests HTML tags and CSS properties as you type.
+:::
+
+::: {.extension-card}
+**🔄 Auto Rename Tag** *(by Jun Han)*
+
+Automatically renames paired HTML tags when you edit one.
+
+**Why you need it:** Prevents mismatched closing tags.
+:::
+
+::: {.extension-card}
+**✨ Prettier - Code formatter** *(by Prettier)*
+
+Automatically formats your code consistently.
+
+**Why you need it:** Makes code readable and follows best practices.
+:::
+
+::: {.extension-card}
+**📂 Path Intellisense** *(by Christian Kohler)*
+
+Auto-completes file paths as you type.
+
+**Why you need it:** Helps link images, stylesheets, and other files correctly.
+:::
+
+::: {.extension-card .optional}
+**🎯 Bracket Pair Colorizer 2** *(by CoenraadS)* - **OPTIONAL**
+
+Colors matching brackets in different colors.
+
+**Why you might want it:** Makes nested code easier to read.
+:::
+
+::::
+
+### Step 3: Configure Prettier (Code Formatter)
+
+After installing Prettier, configure it for automatic formatting:
+
+1. Press `Ctrl+,` (Windows/Linux) or `Cmd+,` (Mac) to open Settings
+2. Search for: **"format on save"**
+3. Check the checkbox for **"Editor: Format On Save"**
+4. Now your code automatically formats when you save!
+
+::: {.callout-success}
+**Pro Tip:** Your code will be automatically formatted to follow best practices every time you save. This is incredibly helpful!
+:::
+
+---
+
+## Part 3: Create Project Structure {.part-header}
+
+Proper file organization is crucial for successful web development. Let's create a well-structured project folder.
+
+### Step 1: Create Main Folder
+
+Create a folder on your computer for this course. Choose an appropriate location like your Documents folder:
+
+**Windows:**
+```
+C:\Users\[YourUsername]\Documents\BMC201-WebTech\
+```
+
+**macOS:**
+```
+/Users/[YourUsername]/Documents/BMC201-WebTech/
+```
+
+**Linux:**
+```
+/home/[username]/Documents/BMC201-WebTech/
+```
+
+### Step 2: Create Subfolders
+
+Inside `BMC201-WebTech`, create these subfolders:
+
+```
+BMC201-WebTech/
+│
+├── Labs/
+│   ├── Lab01/
+│   ├── Lab02/
+│   ├── Lab03/
+│   └── ...
+│
+├── Assignments/
+│   ├── Assignment01/
+│   ├── Assignment02/
+│   └── ...
+│
+└── Practice/
+    └── (for your own practice exercises)
+```
+
+::: {.callout-note}
+**Why this structure?**
+- Keeps course materials organized
+- Prevents files from getting mixed up
+- Makes it easy to find assignments
+- Professional practice for real projects
+:::
+
+### Step 3: Open Folder in VS Code
+
+1. Open **Visual Studio Code**
+2. Go to **File → Open Folder**
+3. Navigate to your `BMC201-WebTech` folder
+4. Click **Select Folder**
+5. The entire folder now appears in your Explorer panel
+6. You'll see all your subfolders on the left
+
+::: {.callout-success}
+Congratulations! You now have VS Code working as your project workspace. All files created here will be accessible from the Explorer.
+:::
+
+---
+
+## Part 4: Create Your First HTML File {.part-header}
+
+Now let's create your first HTML file using VS Code's built-in Emmet tool for rapid HTML generation.
+
+### Step 1: Create the HTML File
+
+1. In VS Code's Explorer panel, right-click on the **`Labs/Lab01/`** folder
+2. Select **"New File"**
+3. Name the file: **`index.html`**
+4. Press Enter
+
+::: {.callout-note}
+**Why `index.html`?**
+This is the default filename web servers look for. Every website folder should have an `index.html` file.
+:::
+
+### Step 2: Generate HTML Structure with Emmet
+
+VS Code includes Emmet, which creates HTML boilerplate instantly!
+
+1. Click inside the empty `index.html` file
+2. Type: `!` (just the exclamation mark)
+3. Press `Tab` or `Enter`
+4. VS Code generates a complete HTML5 template!
+
+You should see:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+```
+
+::: {.callout-success}
+**This is Emmet magic!** Instead of typing all that, one character did it. Emmet has many more shortcuts like this.
+:::
+
+### Step 3: Customize Your HTML Page
+
+Replace "Document" with a descriptive title and add your content:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Web Page - Lab 1</title>
+</head>
+<body>
+    <h1>Welcome to Web Technology!</h1>
+    
+    <h2>About Me</h2>
+    <p>
+        My name is [Your Name] and I am a student in the BMC201 Web Technology 
+        course at Galgotias College of Engineering & Technology.
+    </p>
+    
+    <h2>Course Information</h2>
+    <ul>
+        <li>Course Code: BMC201</li>
+        <li>Course Title: Web Technology</li>
+        <li>Semester: MCA Semester 2</li>
+        <li>Academic Year: 2025-26</li>
+    </ul>
+    
+    <h2>What I Hope to Learn</h2>
+    <ol>
+        <li>HTML5 and semantic markup</li>
+        <li>CSS3 for styling and responsive layouts</li>
+        <li>JavaScript for interactivity and DOM manipulation</li>
+        <li>Web server configuration and deployment</li>
+        <li>Modern web development practices</li>
+    </ol>
+    
+    <h2>Contact Information</h2>
+    <p>
+        Email: <a href="mailto:your.email@galgotiacollege.edu">your.email@galgotiacollege.edu</a><br>
+        Roll Number: [Your Roll Number]<br>
+        College: Galgotias College of Engineering & Technology
+    </p>
+    
+    <footer>
+        <hr>
+        <p>Created on: [Today's Date]</p>
+        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+```
+
+::: {.callout-warning}
+**Before saving:** Replace all items in [square brackets] with your actual information!
+:::
+
+### Step 4: Save Your File
+
+1. Press `Ctrl+S` (Windows/Linux) or `Cmd+S` (Mac)
+2. The white dot next to the filename disappears (indicating it's saved)
+
+---
+
+## Part 5: View Your Web Page {.part-header}
+
+Time to see your HTML rendered in a browser! There are multiple ways to do this.
+
+### Method 1: Using Live Server (Recommended!)
+
+Live Server is the extension you installed. It creates a local web server with live reload.
+
+1. Open your `index.html` file in VS Code
+2. Right-click anywhere in the file
+3. Select **"Open with Live Server"**
+4. Your default browser opens automatically to `http://localhost:5500`
+5. You should see your formatted web page!
+
+::: {.callout-success}
+**Live Reload Magic:** Now try editing your HTML (change some text, add a new paragraph). Your browser automatically reloads as soon as you save! No manual refresh needed.
+:::
+
+**To stop Live Server:**
+- Close the browser tab, or
+- In VS Code, click "Go Live" button in the bottom status bar
+
+### Method 2: Direct File Opening
+
+If Live Server isn't working for some reason:
+
+1. In VS Code, right-click `index.html` in Explorer
+2. Select **"Reveal in File Explorer"** (Windows) or **"Reveal in Finder"** (macOS)
+3. Double-click the `index.html` file
+4. It opens in your default browser
+
+::: {.callout-note}
+**Difference:** Manual file opening doesn't have live reload. You must refresh manually with **F5**.
+:::
+
+### Method 3: Browser Address Bar
+
+You can also manually navigate:
+
+1. Open your browser
+2. Press `Ctrl+L` (Windows) or `Cmd+L` (Mac) to focus the address bar
+3. Type the full path to your file:
+   ```
+   file:///C:/Users/YourName/Documents/BMC201-WebTech/Labs/Lab01/index.html
+   ```
+4. Press Enter
+
+---
+
+## Part 6: Explore Browser Developer Tools {.part-header}
+
+Browser Developer Tools are essential for web development. They let you inspect, debug, and test your code directly in the browser.
+
+### Step 1: Open Developer Tools
+
+Open Developer Tools using one of these methods:
+
+**Google Chrome / Microsoft Edge / Brave:**
+- Press: `F12`, or
+- Press: `Ctrl+Shift+I` (Windows) or `Cmd+Option+I` (Mac), or
+- Right-click anywhere on the page → **"Inspect"**
+
+**Firefox:**
+- Press: `F12`, or
+- Right-click → **"Inspect Element"**
+
+**Safari:**
+- First enable Developer Menu: Preferences → Advanced ✓ "Show Develop menu"
+- Press: `Cmd+Option+I`
+
+### Step 2: Explore the Key Tabs
+
+Developer Tools have several important tabs. Let's explore the main ones:
+
+#### **1. Elements/Inspector Tab** 🔍
+
+This shows the HTML structure of your page.
+
+```html
+<h1>Welcome to Web Technology!</h1>
+```
+
+::: {.lab-action}
+**Try this:**
+1. Click the **Inspector/Elements** tab (should be default)
+2. Find the `<h1>` element in the code
+3. Right-click it and select **"Edit as HTML"**
+4. Change the text to something else
+5. Press Enter
+6. Your page updates! (but not the actual file)
+:::
+
+::: {.callout-warning}
+**Important:** These changes are temporary! They only affect what you see in the browser. Your actual HTML file is unchanged. Refresh the page to see the original again.
+:::
+
+#### **2. Console Tab** 💻
+
+The Console lets you interact with JavaScript (we'll use this more later).
+
+::: {.lab-action}
+**Try this:**
+1. Click the **Console** tab
+2. You should see a `>` prompt
+3. Type: `console.log("Hello from Lab 1!")`
+4. Press Enter
+5. You'll see your message printed!
+
+This is useful for testing JavaScript code.
+:::
+
+#### **3. Network Tab** 🌐
+
+Shows all files downloaded when loading the page (HTML, CSS, images, etc.).
+
+::: {.lab-action}
+**Try this:**
+1. Click the **Network** tab
+2. Refresh the page (`F5` or `Ctrl+R`)
+3. You'll see all files loaded:
+   - `index.html` (main document)
+   - CSS files (styling)
+   - JavaScript files
+   - Images
+4. Click `index.html` to see request/response details
+:::
+
+#### **4. Application / Storage Tab** 💾
+
+Shows local storage, cookies, session data (we'll use this later in the course).
+
+### Step 3: Practice with the Inspector
+
+Let's do some hands-on experiments:
+
+::: {.lab-action}
+**Experiment 1: Edit HTML**
+1. Open Inspector tab
+2. Find your `<h1>` element
+3. Double-click to edit
+4. Change the text and press Enter
+5. Notice on the page: Text changed!
+6. Refresh page: Changes gone (file was never modified)
+:::
+
+::: {.lab-action}
+**Experiment 2: Hide Elements**
+1. Find any element in the Inspector
+2. Right-click → "Hide element"
+3. It disappears from page view
+4. Refresh: It's back!
+:::
+
+::: {.lab-action}
+**Experiment 3: Change Styles (Preview)**
+1. Find any element in Inspector
+2. Look at the "Styles" panel on the right
+3. Try toggling styles on/off
+4. Hover over rules to see effects
+:::
+
+::: {.callout-success}
+**Why this matters:** Developer Tools let you instantly test changes without editing files. Perfect for experimenting and debugging!
+:::
+
+---
+
+## Part 7: Lab Questions {.part-header}
+
+Answer these questions in a document (Word `.docx` or text `.txt`). These answers test your understanding of the concepts covered.
+
+### Questions
+
+::: {.qa-section}
+
+**Q1: HTML Document Declaration**
+
+What is the purpose of the `<!DOCTYPE html>` declaration? Why is it important to include it at the beginning of every HTML5 file?
+
+*Hint: What does the browser do with this information?*
+
+---
+
+**Q2: Language Attribute**
+
+Why is the `lang="en"` attribute important in the `<html>` tag? What are the consequences of omitting it?
+
+*Hint: Think about accessibility and search engines.*
+
+---
+
+**Q3: Character Encoding**
+
+What does the `<meta charset="UTF-8">` tag do? Why should you include UTF-8 encoding in your HTML?
+
+*Hint: What characters does UTF-8 support?*
+
+---
+
+**Q4: HTML Lists**
+
+Explain the difference between `<ul>` (unordered list) and `<ol>` (ordered list). Provide an example of when you would use each one. What HTML element do you use for each list item?
+
+*Hint: ul = bullet points, ol = numbered items*
+
+---
+
+**Q5: Browser Developer Tools Behavior**
+
+When you edited your HTML in the browser's Developer Tools (Inspector), what happened? Did it change your actual HTML file? Why or why not? What happens when you refresh?
+
+*Hint: Developer Tools work on the live page, not the actual file.*
+
+---
+
+**Q6: VS Code Extensions**
+
+Name at least three VS Code extensions you installed and briefly explain what each one does and why it's useful for web development.
+
+*Hint: Think about Live Server, Prettier, HTML CSS Support, etc.*
+
+---
+
+**Q7: Keyboard Shortcuts**
+
+List at least five keyboard shortcuts you learned and used during this lab. Include both VS Code and browser shortcuts.
+
+**Examples:**
+- VS Code shortcuts: File operations, formatting, etc.
+- Browser shortcuts: Opening DevTools, refresh, etc.
+
+---
+
+:::
+
+## Part 8: Bonus Challenges {.part-header}
+
+These optional challenges will deepen your understanding and help you practice HTML:
+
+::: {.challenge-section}
+
+**🌟 Challenge 1: Add a Weekly Schedule Table**
+
+Create an HTML table showing your weekly schedule. Include:
+- Days of the week as headers (Monday, Tuesday, etc.)
+- Time slots
+- Your classes/activities
+- Use proper `<table>`, `<tr>`, `<td>`, `<th>` tags
+
+**Example:**
+```html
+<table border="1">
+    <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+    </tr>
+    <tr>
+        <td>9:00 AM</td>
+        <td>BMC201</td>
+        <td>Lab</td>
+    </tr>
+</table>
+```
+
+---
+
+**🖼️ Challenge 2: Add Images to Your Page**
+
+1. Create an `images/` folder in `Lab01/`
+2. Download 3-5 images from [Unsplash](https://unsplash.com/) or [Pixabay](https://pixabay.com/)
+3. Save them in your `images/` folder
+4. Add them to your HTML using `<img>` tags
+5. Include `alt` text for accessibility
+
+**Tips:**
+- Use relative paths: `<img src="images/photo.jpg">`
+- Add `width="300"` to control size
+- Every image needs `alt="description"`
+
+---
+
+**🔗 Challenge 3: Create a Multi-Page Website**
+
+1. Create a second page: `about.html`
+2. Add content about web development
+3. Create a `portfolio.html` page showing your projects
+4. Add navigation links between pages
+
+**Example:**
+```html
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+</nav>
+```
+
+---
+
+**💬 Challenge 4: Add Comments to Your HTML**
+
+HTML comments help document your code. Add comments explaining each section:
+
+```html
+<!-- Header with title -->
+<h1>Welcome to Web Technology!</h1>
+
+<!-- Information about the course -->
+<h2>Course Information</h2>
+<ul>
+    <li>Course Code: BMC201</li>
+    <!-- ... more content ... -->
+</ul>
+```
+
+Comments don't display on the page but help you and other developers understand the code.
+
+---
+
+**✅ Challenge 5: Validate Your HTML**
+
+Use the W3C HTML Validator to check for errors:
+
+1. Visit [https://validator.w3.org/](https://validator.w3.org/)
+2. Click "Validate by File Upload"
+3. Select your `index.html` file
+4. Fix any errors or warnings
+5. Repeat until you have valid HTML!
+
+**Why validate?**
+- Ensures your HTML follows standards
+- Catches typos and syntax errors
+- Improves compatibility across browsers
+- Better accessibility
+
+---
+
+:::
+
+## Submission Requirements {.submission-header}
+
+### What to Submit
+
+Create a folder structure and include all the following:
+
+```
+[YourRollNumber]_Lab01_[YourName]/
+│
+├── index.html                    # Your HTML file
+├── images/                       # Folder with images (if you used them)
+├── Screenshots/                  # Folder with required screenshots
+│   ├── 01-VSCode-setup.png
+│   ├── 02-webpage-browser.png
+│   ├── 03-devtools-open.png
+│   └── 04-validated.png
+│
+├── Answers.txt                   # Answers to lab questions
+├── BONUS_Challenges.txt          # Bonus challenges (if attempted)
+│
+└── README.txt                    # Project information
+```
+
+### Screenshots Required
+
+Take screenshots showing:
+
+1. **VS Code Setup:** Explorer with folder structure visible
+2. **Webpage in Browser:** Your HTML rendered in browser
+3. **Developer Tools:** DevTools open showing Inspector
+4. **W3C Validation:** Your HTML validation report (if completing Challenge 5)
+
+::: {.callout-note}
+Use the `Print Screen` key or `Shift+Print Screen` to capture screenshots, then paste into Paint or Word.
+:::
+
+### README.txt Template
+
+```
+Lab 1: Development Environment Setup
+=====================================
+
+Student Name: [Your Full Name]
+Roll Number: [Your Roll Number]
+Email: [Your Email]
+
+Date Completed: [MM/DD/2026]
+Time Spent: [X hours Y minutes]
+
+Environment Used:
+- Operating System: [Windows/macOS/Linux]
+- VS Code Version: [Check Help → About]
+- Browser: [Chrome/Firefox/Edge/Safari]
+
+Issues Encountered:
+[Describe any problems and how you solved them]
+
+Additional Notes:
+[Any other relevant information]
+```
+
+### Create ZIP File
+
+1. Compress your entire folder into a ZIP file
+2. Name it: **`[RollNumber]_Lab01_[YourName].zip`**
+   - Example: `MCA12345_Lab01_RahulKumar.zip`
+
+### Submit
+
+::: {.callout-warning}
+**Due Date: January 28, 2026, 11:59 PM**
+
+Submit via: [Classroom Portal/Email] to [instructor-email@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+:::
+
+---
+
+## Grading Rubric {.grading-header}
+
+Your submission will be evaluated on the following criteria:
+
+| # | Criteria | Points | Notes |
+|---|----------|--------|-------|
+| 1 | **Environment Setup** | 15 | VS Code installed and configured properly with correct extensions |
+| 2 | **Extensions Installation** | 10 | All 5+ required extensions installed and working |
+| 3 | **Project Structure** | 10 | Proper folder organization (Labs/, Assignments/, etc.) |
+| 4 | **HTML File Creation** | 20 | Valid HTML5 with all required content sections |
+| 5 | **Screenshots** | 15 | All 4 screenshots clear and showing required elements |
+| 6 | **Lab Questions** | 15 | All 7 questions answered completely and correctly |
+| 7 | **Bonus Challenges** | 10 | Optional: Extra credit for attempting challenges |
+| 8 | **Submission Format** | 5 | Proper ZIP naming and file organization |
+| **TOTAL** | | **100** | |
+
+### Grading Scale
+
+- **90-100:** Excellent - Complete, well-organized, shows deep understanding
+- **80-89:** Good - Complete with minor issues, solid understanding
+- **70-79:** Satisfactory - Mostly complete, some gaps in understanding
+- **60-69:** Needs Improvement - Significant issues or missing content
+- **Below 60:** Incomplete - Missing major components
+
+---
+
+## Troubleshooting Guide {.troubleshooting-header}
+
+Encountering issues? Try these solutions:
+
+### Live Server Issues
+
+::: {.troubleshooting-item}
+
+**Problem:** "Live Server" option doesn't appear in right-click menu
+
+**Solutions:**
+1. Make sure Live Server extension is installed (check Extensions)
+2. Reload VS Code: `Ctrl+Shift+P` → type "reload window" → press Enter
+3. Restart VS Code completely
+4. Make sure you're right-clicking inside an HTML file, not the folder
+
+:::
+
+::: {.troubleshooting-item}
+
+**Problem:** Page doesn't update automatically when I save
+
+**Solutions:**
+1. Verify Live Server shows "Go Live" in status bar (means it's running)
+2. Check that "Format on Save" isn't causing issues (temporarily disable)
+3. Save with `Ctrl+S` explicitly
+4. Hard refresh browser: `Ctrl+F5` (Windows) or `Cmd+Shift+R` (Mac)
+
+:::
+
+::: {.troubleshooting-item}
+
+**Problem:** Can't see changes in the browser even after refresh
+
+**Solutions:**
+1. Make sure you saved the file (check for white dot next to filename)
+2. Hard refresh: `Ctrl+F5` or `Ctrl+Shift+R`
+3. Clear browser cache: Settings → Clear browsing data
+4. Close and reopen Live Server
+
+:::
+
+### Extension Issues
+
+::: {.troubleshooting-item}
+
+**Problem:** Extensions not working after installation
+
+**Solutions:**
+1. Reload VS Code window (`Ctrl+Shift+P` → "reload window")
+2. Check that extension is **Enabled** in Extensions panel
+3. Restart your computer
+4. Uninstall and reinstall the extension
+
+:::
+
+::: {.troubleshooting-item}
+
+**Problem:** Prettier formatting makes code look weird
+
+**Solutions:**
+1. Press `Ctrl+,` to open Settings
+2. Search "editor word wrap"
+3. Set to "on"
+4. Check Prettier settings: Search "prettier"
+
+:::
+
+### Developer Tools Issues
+
+::: {.troubleshooting-item}
+
+**Problem:** Developer Tools won't open
+
+**Solutions:**
+1. Try: `F12` key
+2. Try: `Ctrl+Shift+I` (Windows) or `Cmd+Option+I` (Mac)
+3. Try: Right-click → "Inspect Element"
+4. Restart browser completely
+
+:::
+
+### File Path Issues
+
+::: {.troubleshooting-item}
+
+**Problem:** "File not found" or browser shows blank page
+
+**Solutions:**
+1. Check file path in `<img>` tags uses forward slashes `/`
+2. Use relative paths: `images/photo.jpg` (not `C:/path/...`)
+3. Verify file exists in that location
+4. Check spelling (case-sensitive on Linux/Mac)
+
+:::
+
+### Installation Issues
+
+::: {.troubleshooting-item}
+
+**Problem:** Can't install VS Code (permission denied)
+
+**Solutions:**
+1. Run installer as Administrator (Windows)
+2. On Mac: Drag to Applications folder (not a click and open)
+3. On Linux: Use `sudo apt install code` after adding repository
+
+:::
+
+### Still Having Problems?
+
+::: {.callout-warning}
+
+If none of these solutions work:
+
+1. **Check the Logs:**
+   - VS Code: View → Output → Choose "Log" from dropdown
+   - Look for red error messages
+
+2. **Search Online:**
+   - Copy error message into Google
+   - Try Stack Overflow: https://stackoverflow.com/
+
+3. **Ask for Help:**
+   - Post in course discussion forum
+   - Email: [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+   - Include: Your OS, error message, what you tried
+
+:::
+
+---
+
+## Additional Resources {.resources-header}
+
+Here are excellent resources for learning more:
+
+### Official Documentation
+
+- **[Visual Studio Code Docs](https://code.visualstudio.com/docs)** - Official VS Code documentation and guides
+- **[VS Code Keyboard Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)** - Downloadable PDF of all shortcuts (also for Mac and Linux)
+- **[MDN Learning Resources](https://developer.mozilla.org/en-US/docs/Learn/)** - Comprehensive web development tutorials
+
+### HTML Learning
+
+- **[MDN: HTML Introduction](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)** - Excellent HTML primer
+- **[W3Schools HTML Tutorial](https://www.w3schools.com/html/)** - Interactive HTML learning
+- **[HTML Living Standard](https://html.spec.whatwg.org/)** - Official HTML specification
+
+### Browser Developer Tools
+
+- **[Chrome DevTools Docs](https://developer.chrome.com/docs/devtools/)** - Complete DevTools guide
+- **[Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)** - Firefox DevTools documentation
+
+### Validation & Best Practices
+
+- **[W3C HTML Validator](https://validator.w3.org/)** - Check your HTML for errors
+- **[Can I Use](https://caniuse.com/)** - Browser support for HTML features
+- **[Web Accessibility Guidelines](https://www.w3.org/WAI/)** - Learn about accessible web design
+
+### Course Resources
+
+- **[BMC201 Schedule](/schedule.qmd)** - Course schedule and all materials
+- **[BMC201 Content](/content/index.qmd)** - Lecture notes and materials
+- **[Course Resources](/resource/index.qmd)** - Additional learning materials
+
+---
+
+## Questions & Support {.support-header}
+
+### Getting Help
+
+::: {.callout-note}
+
+**During Lab Sessions:**
+- Ask your lab instructor directly
+- Clarify any part of these instructions
+- Work through issues together
+
+**Outside Lab:**
+- Email your instructor: [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+- Subject line: `[BMC201] Lab 1: [Your Question]`
+- Include: What you're trying to do, error message, what you've tried
+
+**Course Forum:**
+- Check the course discussion forum
+- Others may have had the same issue
+- Instructors monitor and respond
+
+**Office Hours:**
+- Schedule a meeting with your instructor
+- Get personalized help
+- Discuss challenges or advanced topics
+
+:::
+
+### Providing Good Bug Reports
+
+When reporting an issue, include:
+
+1. **Your Environment:** OS, VS Code version, extensions
+2. **What You're Trying to Do:** Clear description
+3. **What Happened:** The error or unexpected behavior
+4. **What You Expected:** What should have happened
+5. **What You've Tried:** Solutions you've already attempted
+6. **Screenshots/Logs:** Error messages or screenshots
+
+**Example:** "On Windows 10, Live Server doesn't launch a browser. I've restarted VS Code and tried re-installing the extension. Error log shows: ..."
+
+---
+
+## Lab Summary {.summary-header}
+
+### What You've Accomplished
+
+Congratulations! In this lab, you've:
+
+✅ Set up a professional development environment
+✅ Installed and configured VS Code
+✅ Added essential web development extensions
+✅ Created proper project structure
+✅ Written your first HTML5 page
+✅ Learned to use browser Developer Tools
+✅ Practiced debugging web pages
+
+### Next Steps
+
+*Lab 2* will build on this foundation:
+- Create more complex HTML pages
+- Use semantic HTML5 elements
+- Add multimedia (images, audio, video)
+- Create multi-page websites
+- Practice form creation
+
+Keep your project folder organized and your code clean. Good habits now make advanced topics easier!
+
+---
+
+## Lab Completion Checklist {.checklist-header}
+
+Before submitting, verify you have:
+
+- [ ] VS Code installed and working
+- [ ] All 5+ extensions installed
+- [ ] Project folder structure created
+- [ ] `index.html` file created with content
+- [ ] Your HTML file displays in browser
+- [ ] Developer Tools working
+- [ ] All lab questions answered
+- [ ] Screenshots taken
+- [ ] README.txt file created
+- [ ] ZIP file created with correct name
+- [ ] Everything ready for submission
+
+---
+
+**Congratulations on completing Lab 1! 🎉**
+
+You're now ready for Lab 2. Keep practicing and experimenting!
+
+

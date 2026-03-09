@@ -1,0 +1,400 @@
+---
+title: "Lecture 3: HTML Basics & Structure"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "January 28, 2026"
+code-annotations: below
+format: 
+  revealjs:
+    slide-number: true
+    code-link: true
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme: 
+      - ../course-slides-styles.scss
+---
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 3]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[HTML Basics & Structure]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 1 | Unit I: Web Page Designing<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand the structure of HTML documents
+- Learn how to use basic HTML elements
+- Create and structure your first HTML page
+:::
+
+::: {.notes}
+HTML is the foundation of all web pages. Understanding its structure is crucial before moving to styling or interactivity.
+:::
+
+---
+
+## {data-menu-title="What is HTML"}
+
+[What is HTML?]{.slide-title}
+
+<hr>
+
+[**HTML** = HyperText Markup Language]{.teal-text}
+
+::: {.body-text-m}
+::: {.fragment}
+- Standard markup language for creating web pages
+:::
+::: {.fragment}
+- Uses tags to describe and structure content
+:::
+::: {.fragment}
+- NOT a programming language (no logic/loops)
+:::
+::: {.fragment}
+- Current version: **HTML5** (since 2014)
+:::
+:::
+
+::: {.notes}
+Clarify that HTML is declarative, not imperative. It describes what things are, not how to do things.
+:::
+
+---
+
+## {data-menu-title="HTML Document Structure"}
+
+[Basic HTML Document Structure]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3-5|6-7|8|9"}
+<!DOCTYPE html>                                          # <1>
+<html lang="en">                                         # <2>
+<head>
+    <meta charset="UTF-8">                              # <3>
+    <title>My First Web Page</title>                    # <4>
+</head>
+<body>
+    <h1>Welcome to Web Technology</h1>                  # <5>
+    <p>This is my first HTML page.</p>
+</body>
+</html>
+```
+1. Declares this is an HTML5 document
+2. Root element with language attribute
+3. Metadata and character encoding
+4. Page title (shown in browser tab)
+5. Visible page content
+
+---
+
+## {data-menu-title="HTML Anatomy"}
+
+[Anatomy of an HTML Element]{.slide-title}
+
+<hr>
+
+```
+┌─────────────────────────────────────┐
+│ <p class="intro">Hello World</p>    │
+└─────────────────────────────────────┘
+
+┌──────────┬─────────┬──────────┬───────────────┐
+│ Opening  │ Attribute│ Content  │ Closing Tag   │
+│  Tag     │          │          │               │
+│ <p       │ class=" │ Hello    │ </p>          │
+│  >       │ intro"  │ World    │               │
+└──────────┴─────────┴──────────┴───────────────┘
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+[Element = Opening Tag + Attributes + Content + Closing Tag]{.magenta-text}
+:::
+
+---
+
+## {data-menu-title="Self-closing Tags"}
+
+[Self-closing (Void) Elements]{.slide-title2}
+
+<hr>
+
+Some HTML elements don't need closing tags:
+
+::: {.body-text-m}
+```html
+<img src="image.jpg" alt="Description" />
+
+<br />    <!--Line break-->
+
+<hr />    <!--Horizontal rule-->
+
+<input type="text" />
+
+<meta charset="UTF-8" />
+```
+:::
+
+::: {.fragment .body-text-m .center-text .topbr}
+[These don't have content, just attributes]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Common HTML Tags"}
+
+[Common HTML Tags]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**Structural**]{.teal-text}
+
+::: {.body-text-m}
+- `<h1>` to `<h6>`: Headings
+- `<p>`: Paragraph
+- `<div>`: Container
+- `<section>`: Section
+:::
+:::
+
+::: {.column width="50%"}
+[**Content**]{.teal-text}
+
+::: {.body-text-m}
+- `<a>`: Hyperlink
+- `<img>`: Image
+- `<ul>`, `<ol>`, `<li>`: Lists
+- `<table>`: Tabular data
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="HTML Attributes"}
+
+[HTML Attributes]{.slide-title}
+
+<hr>
+
+Attributes provide additional information about elements:
+
+```{.html code-line-numbers="|1|2|3"}
+<a href="https://example.com" target="_blank">Link</a>
+
+<img src="logo.png" alt="Company Logo" width="200" height="100">
+
+<div id="header" class="container main-section">Content</div>
+```
+
+::: {.body-text-m .topbr}
+[**Common attributes**: `id`, `class`, `src`, `href`, `alt`, `title`, `style`]{.teal-text}
+:::
+
+---
+
+## {data-menu-title="Heading Tags"}
+
+[Heading Hierarchy]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+```html
+<h1>Page Title</h1>        <!-- Use ONLY once -->
+<h2>Section 1</h2>
+<h3>Subsection 1.1</h3>
+<h4>Subsection 1.1.1</h4>
+<h5>Minor heading</h5>
+<h6>Smallest heading</h6>
+```
+:::
+
+::: {.incremental .body-text-m .topbr}
+✓ Use `<h1>` only once per page
+✓ Follow hierarchical order (no jumping from h1 to h3)
+✓ Improves SEO and accessibility
+:::
+
+::: {.notes}
+Heading hierarchy is important for both search engines and screen readers for people with visual impairments.
+:::
+
+---
+
+## {data-menu-title="Paragraphs and Text"}
+
+[Paragraphs & Text Formatting]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+```html
+<p>This is a paragraph. Text wraps naturally.</p>
+
+<strong>Bold text (important)</strong>
+<b>Also bold (presentation)</b>
+
+<em>Italic text (emphasis)</em>
+<i>Also italic (presentation)</i>
+
+<u>Underlined text</u>
+
+<mark>Highlighted text</mark>
+
+<small>Smaller text</small>
+```
+:::
+
+::: {.fragment .body-text-s .center-text .topbr}
+Prefer semantic tags (`<strong>`, `<em>`) over presentation tags (`<b>`, `<i>`)
+:::
+
+---
+
+## {data-menu-title="HTML Nesting"}
+
+[Proper HTML Nesting]{.slide-title}
+
+<hr>
+
+✅ [**Correct**]{.teal-text}
+
+```html
+<div>
+    <p>This is <strong>correct</strong> nesting.</p>
+</div>
+```
+
+❌ [**Incorrect**]{.magenta-text}
+
+```html
+<div>
+    <p>This is <strong>incorrect nesting.</p>
+    </strong>
+</div>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+Always close tags in reverse order of opening: Last opened, first closed
+:::
+
+---
+
+## {data-menu-title="Creating Your First Page"}
+
+[Creating Your First HTML Page]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. Open a text editor (VS Code, Notepad++)
+2. Type the HTML structure
+3. Save as `.html` file
+4. Open in a web browser
+5. See your creation!
+:::
+
+::: {.fragment}
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Page</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>This is my first webpage.</p>
+</body>
+</html>
+```
+:::
+
+---
+
+## {data-menu-title="Validation"}
+
+[HTML Validation]{.slide-title2}
+
+<hr>
+
+Always validate your HTML:
+
+- **[W3C Validator](https://validator.w3.org/)** - Official HTML validator
+- Check for syntax errors
+- Ensure standards compliance
+- Catch accessibility issues
+
+::: {.fragment .body-text-m .center-text .topbr}
+Validation prevents browsers from having to guess your intentions
+:::
+
+---
+
+## {data-menu-title="Quick Practice"}
+
+[Quick Practice Exercise]{.slide-title}
+
+<hr>
+
+Create an HTML page with:
+
+::: {.incremental .body-text-m}
+1. A main heading with your name
+2. A paragraph about yourself
+3. A `<em>` or `<strong>` somewhere
+4. A subheading "My Interests"
+5. A list of your interests (use `<ul>`)
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: HTML - Hypertext Markup Language](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [W3C: HTML Standard](https://html.spec.whatwg.org/)
+- [W3Schools: HTML Tutorial](https://www.w3schools.com/html/)
+- [Course content: Week 1](/content/week-01.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 4 - HTML Grouping: Div & Span
+</div>
+</div>

@@ -1,0 +1,56 @@
+---
+title: "Lecture 4 Quiz: HTML Grouping and Semantic Elements"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Slides](/presentations/lecture-04.qmd) | [Week 1 Content](/content/week-01.qmd) | [Lab 1](/labs/lab-01.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 4 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <span>", "B. <div>", "C. <em>", "D. <strong>"]
+question = "Question 1: Which element is a generic block-level container?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <span>", "B. <section>", "C. <article>", "D. <main>"]
+question = "Question 2: Which element is an inline generic container?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <div>, <span>, <b>", "B. <font>, <center>, <big>", "C. <u>, <i>, <tt>", "D. <header>, <article>, <footer>"]
+question = "Question 3: Which set contains semantic HTML elements?"
+answer = 4
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Hides page structure", "B. Removes navigation landmarks", "C. Gives meaningful content structure", "D. Disables CSS rules"]
+question = "Question 4: Semantic markup usually helps search engines and assistive tools because it:"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <aside>", "B. <article>", "C. <span>", "D. <br>"]
+question = "Question 5: If content is self-contained and reusable (like a blog post), which semantic tag is often best?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```

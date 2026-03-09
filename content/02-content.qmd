@@ -1,0 +1,1623 @@
+---
+title: "Week 2-3: Advanced HTML Elements & CSS Fundamentals"
+subtitle: "Topics: HTML Tables, Forms & Iframes - CSS Introduction, Selectors, Box Model"
+---
+
+## Unit Overview
+
+This unit advances your HTML skills by exploring tables, forms, and embedded content, then introduces Cascading Style Sheets (CSS) to transform raw HTML markup into visually appealing, professionally designed web pages.
+
+**Course Outcome:** CO-1 (K2 - Understanding)  
+**Bloom's Level:** L3  
+**Duration:** 2 weeks  
+**Credits:** 3 hours theory
+
+---
+
+## Learning Objectives
+
+By the end of this unit, you will be able to:
+
+- Create and structure complex HTML tables with proper semantics
+- Build functional, accessible HTML forms with various input types
+- Embed external content using iframes
+- Understand CSS fundamentals and syntax
+- Apply CSS selectors effectively (element, class, ID, attribute, pseudo-class)
+- Master the CSS box model (margin, padding, border, content)
+- Apply inline, internal, and external stylesheets
+
+---
+
+## {{< fa play-circle >}} Lecture Slides & Videos
+
+### Slide Deck 1: HTML Tables Deep Dive
+- **Duration:** 40 minutes
+- **Topics Covered:**
+  - Table Structure & Semantics
+  - thead, tbody, tfoot Elements
+  - colspan & rowspan
+  - Accessibility in Tables
+
+{{< fa file-pdf >}} [Download Slides (PDF)](coming-soon.pdf) | {{< fa video >}} [Watch Lecture Video](coming-soon)
+
+### Slide Deck 2: HTML Forms Complete Guide
+- **Duration:** 50 minutes
+- **Topics Covered:**
+  - Form Elements & Structure
+  - Input Types (20+ variations)
+  - Validation & Required Attributes
+  - Form Accessibility & Usability
+
+{{< fa file-pdf >}} [Download Slides (PDF)](coming-soon.pdf) | {{< fa video >}} [Watch Lecture Video](coming-soon)
+
+### Slide Deck 3: CSS Fundamentals & Selectors
+- **Duration:** 45 minutes
+- **Topics Covered:**
+  - What is CSS?
+  - Three Ways to Apply CSS
+  - CSS Rules & Syntax
+  - All CSS Selector Types
+
+{{< fa file-pdf >}} [Download Slides (PDF)](coming-soon.pdf) | {{< fa video >}} [Watch Lecture Video](coming-soon)
+
+### Slide Deck 4: CSS Box Model & Layout
+- **Duration:** 40 minutes
+- **Topics Covered:**
+  - Box Model Fundamentals
+  - Margin, Padding, Border
+  - Display Property
+  - Positioning Basics
+
+{{< fa file-pdf >}} [Download Slides (PDF)](coming-soon.pdf) | {{< fa video >}} [Watch Lecture Video](coming-soon)
+
+---
+
+## Class 1: HTML Tables & Data Presentation
+
+### {{< fa book-open >}} Lecture Notes
+
+#### Why Tables Matter
+
+Tables are semantic HTML elements for presenting **structured data** in rows and columns. They should NOT be used for layout.
+
+#### Table Structure & Semantics
+
+```html
+<table>
+    <!-- Table Headers -->
+    <thead>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+    </thead>
+    
+    <!-- Table Body (main content) -->
+    <tbody>
+        <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+        </tr>
+    </tbody>
+    
+    <!-- Table Footer (summaries, totals) -->
+    <tfoot>
+        <tr>
+            <td colspan="2">Total:</td>
+            <td>$500</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+#### Table Attributes
+
+```html
+<!-- Column spanning -->
+<th colspan="2">Spans 2 columns</th>
+
+<!-- Row spanning -->
+<td rowspan="3">Spans 3 rows</td>
+
+<!-- Table with caption -->
+<table>
+    <caption>Table Title/Description</caption>
+    <!-- Content -->
+</table>
+
+<!-- Table with headers scope for accessibility -->
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Column 1</th>
+            <th scope="col">Column 2</th>
+        </tr>
+    </thead>
+</table>
+```
+
+### {{< fa code >}} Professional Table Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Grades</title>
+</head>
+<body>
+    <table border="1" cellpadding="10">
+        <caption>BMC205 - Student Performance Report</caption>
+        
+        <thead>
+            <tr>
+                <th scope="col">Roll No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Midterm</th>
+                <th scope="col">Final</th>
+                <th scope="col">Grade</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td>Raj Kumar</td>
+                <td>45</td>
+                <td>48</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Priya Singh</td>
+                <td>38</td>
+                <td>42</td>
+                <td>C+</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Amit Patel</td>
+                <td>50</td>
+                <td>50</td>
+                <td>A</td>
+            </tr>
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <td colspan="2"><strong>Class Average</strong></td>
+                <td>44.3</td>
+                <td>46.7</td>
+                <td>—</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
+```
+
+#### IFrames: Embedding External Content
+
+```html
+<!-- Embed another webpage -->
+<iframe src="https://www.example.com" 
+        width="100%" height="600px"
+        title="External Content"></iframe>
+
+<!-- Embed YouTube video -->
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="YouTube video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+</iframe>
+
+<!-- Embed Google Map -->
+<iframe src="https://www.google.com/maps/embed?pb=..." 
+        width="600" height="450"
+        style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+
+<!-- Secure sandbox iframe -->
+<iframe src="trusted-content.html"
+        sandbox="allow-scripts allow-same-origin"
+        title="Sandboxed content"></iframe>
+```
+
+---
+
+## Class 2: HTML Forms & User Input
+
+### {{< fa book-open >}} Lecture Notes
+
+#### Form Fundamentals
+
+Forms collect data from users and send it to servers for processing. Every form needs:
+
+```html
+<form action="/process" method="POST">
+    <!-- Form controls here -->
+    <button type="submit">Submit</button>
+</form>
+```
+
+**Key Attributes:**
+- `action` - URL where form data is sent
+- `method` - GET (URL visible) or POST (hidden, secure)
+- `name` - Form identifier
+- `id` - CSS/JavaScript targeting
+
+#### Form Input Types (HTML5)
+
+```html
+<!-- Text Inputs -->
+<input type="text" placeholder="Regular text">
+<input type="email" placeholder="Email address" required>
+<input type="password" placeholder="Secret password">
+<input type="url" placeholder="Website URL">
+<input type="search" placeholder="Search terms">
+
+<!-- Numeric Inputs -->
+<input type="number" min="1" max="100" placeholder="Number">
+<input type="range" min="0" max="100">
+<input type="tel" placeholder="Phone number">
+
+<!-- Date & Time -->
+<input type="date">
+<input type="time">
+<input type="datetime-local">
+<input type="month">
+<input type="week">
+
+<!-- File & Media -->
+<input type="file" accept=".pdf,.doc,.docx">
+<input type="color">
+<input type="checkbox">
+<input type="radio">
+
+<!-- Hidden (for internal use) -->
+<input type="hidden" name="user_id" value="123">
+```
+
+#### Form Controls: Radio Buttons & Checkboxes
+
+```html
+<!-- Select one option (radio buttons) -->
+<fieldset>
+    <legend>Choose one:</legend>
+    <label>
+        <input type="radio" name="choice" value="option1">
+        Option 1
+    </label>
+    <label>
+        <input type="radio" name="choice" value="option2">
+        Option 2
+    </label>
+</fieldset>
+
+<!-- Select multiple (checkboxes) -->
+<fieldset>
+    <legend>Select all that apply:</legend>
+    <label>
+        <input type="checkbox" name="skills" value="html">
+        HTML
+    </label>
+    <label>
+        <input type="checkbox" name="skills" value="css">
+        CSS
+    </label>
+    <label>
+        <input type="checkbox" name="skills" value="js">
+        JavaScript
+    </label>
+</fieldset>
+```
+
+#### Dropdowns & Text Areas
+
+```html
+<!-- Dropdown list -->
+<label for="country">Country:</label>
+<select id="country" name="country">
+    <option value="">-- Select --</option>
+    <option value="in">India</option>
+    <option value="us">USA</option>
+    <option value="uk">UK</option>
+</select>
+
+<!-- Multi-select dropdown -->
+<select name="interests" multiple size="4">
+    <option>Sports</option>
+    <option>Music</option>
+    <option>Reading</option>
+    <option>Coding</option>
+</select>
+
+<!-- Multi-line text input -->
+<label for="message">Message:</label>
+<textarea id="message" name="message" 
+          rows="5" cols="50" 
+          placeholder="Enter your message..."></textarea>
+```
+
+#### Complete Form Example
+
+```html
+<form action="/register" method="POST" id="regForm">
+    <fieldset>
+        <legend>User Registration</legend>
+        
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" name="dob">
+        
+        <label>Gender:</label>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        
+        <label for="skills">Technical Skills:</label>
+        <label><input type="checkbox" name="skills" value="html"> HTML</label>
+        <label><input type="checkbox" name="skills" value="css"> CSS</label>
+        <label><input type="checkbox" name="skills" value="js"> JavaScript</label>
+        
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option>India</option>
+            <option>USA</option>
+            <option>Canada</option>
+        </select>
+        
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4"></textarea>
+        
+        <label>
+            <input type="checkbox" name="agree" required>
+            I agree to Terms & Conditions
+        </label>
+        
+        <button type="submit">Register</button>
+        <button type="reset">Clear</button>
+    </fieldset>
+</form>
+```
+
+---
+
+## Class 3: CSS Introduction & Selectors
+
+### {{< fa book-open >}} Lecture Notes
+
+#### What is CSS?
+
+**CSS (Cascading Style Sheets)** controls presentation and layout of HTML elements. It separates **content** (HTML) from **design** (CSS).
+
+#### Three Ways to Apply CSS
+
+**1. Inline CSS** (Quick but not recommended)
+```html
+<h1 style="color: blue; font-size: 24px;">Styled heading</h1>
+```
+
+**2. Internal CSS** (In `<head>`)
+```html
+<head>
+    <style>
+        h1 { color: blue; font-size: 24px; }
+        p { color: gray; line-height: 1.6; }
+    </style>
+</head>
+```
+
+**3. External CSS** ⭐ (Best practice)
+```html
+<!-- In HTML file -->
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+```
+
+```css
+/* In styles.css */
+h1 { color: blue; font-size: 24px; }
+p { color: gray; line-height: 1.6; }
+```
+
+#### CSS Rule Structure
+
+```css
+selector {
+    property: value;
+    property: value;
+}
+
+/* Example */
+p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+```
+
+#### CSS Selectors Comparison
+
+| Selector | Syntax | Specificity | Usage |
+|----------|--------|-------------|-------|
+| Element | `p` | Low | All paragraph tags |
+| Class | `.highlight` | Medium | Multiple elements |
+| ID | `#header` | High | Unique element (use sparingly) |
+| Attribute | `input[type="text"]` | Medium | Elements with attribute |
+| Pseudo-class | `a:hover` | Medium | Element state |
+| Descendant | `nav a` | Low | Nested elements |
+
+### {{< fa code >}} CSS Selectors Examples
+
+```css
+/* ========== Element Selector ========== */
+p { color: blue; }
+h1 { font-size: 32px; }
+
+/* ========== Class Selector ========== */
+.error { color: red; border: 2px solid red; }
+.success { color: green; }
+
+/* ========== ID Selector ========== */
+#hero { background-color: navy; height: 500px; }
+#footer { background-color: #333; color: white; }
+
+/* ========== Attribute Selector ========== */
+input[type="email"] { border: 1px solid blue; }
+a[href^="https"] { color: green; }
+img[alt*="logo"] { width: 200px; }
+
+/* ========== Pseudo-class Selector ========== */
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: red; text-decoration: underline; }
+a:active { color: orange; }
+
+button:focus { outline: 3px solid blue; }
+input:disabled { opacity: 0.5; }
+
+li:first-child { font-weight: bold; }
+li:last-child { border-bottom: none; }
+li:nth-child(2n) { background-color: #f0f0f0; }
+
+/* ========== Descendant Selector ========== */
+nav a { color: white; text-decoration: none; }
+.container p { font-size: 14px; }
+article strong { color: red; }
+
+/* ========== Group Selector ========== */
+h1, h2, h3 { font-family: Arial, sans-serif; }
+p, li, td { line-height: 1.6; }
+```
+
+---
+
+## Class 4: CSS Box Model & Units
+
+### {{< fa book-open >}} Lecture Notes
+
+#### The Box Model Concept
+
+Every HTML element is a rectangular box with:
+
+```
+┌─────────────────────────────────────────┐
+│              MARGIN                     │
+│  ┌─────────────────────────────────┐   │
+│  │       BORDER                    │   │
+│  │   ┌─────────────────────────┐   │   │
+│  │   │  PADDING                │   │   │
+│  │   │  ┌─────────────────┐    │   │   │
+│  │   │  │  CONTENT        │    │   │   │
+│  │   │  │ (Text, Image)   │    │   │   │
+│  │   │  └─────────────────┘    │   │   │
+│  │   └─────────────────────────┘   │   │
+│  └─────────────────────────────────┘   │
+└─────────────────────────────────────────┘
+```
+
+#### CSS Box Model Properties
+
+```css
+.box {
+    /* Content */
+    width: 300px;
+    height: 200px;
+    
+    /* Padding (inside space) */
+    padding: 20px;  /* All sides */
+    padding: 10px 20px;  /* Vertical Horizontal */
+    padding: 10px 20px 15px 30px;  /* Top Right Bottom Left */
+    padding-top: 10px;
+    
+    /* Border */
+    border: 2px solid #333;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333;
+    border-radius: 8px;  /* Rounded corners */
+    border-top-left-radius: 10px;
+    
+    /* Margin (outside space) */
+    margin: 15px;  /* All sides */
+    margin: 10px 20px;  /* Vertical Horizontal */
+    margin: 10px 20px 15px 30px;  /* Top Right Bottom Left */
+    margin-top: 20px;
+    margin: 0 auto;  /* Center horizontally */
+}
+```
+
+#### CSS Units & Measurements
+
+```css
+/* Absolute Units (fixed size) */
+.absolute {
+    width: 100px;  /* Pixels */
+    height: 5cm;   /* Centimeters */
+    margin: 10mm;  /* Millimeters */
+    padding: 0.5in;  /* Inches */
+}
+
+/* Relative Units (flexible) */
+.relative {
+    font-size: 1.2em;  /* Relative to element's font-size */
+    line-height: 1.6rem;  /* Relative to root font-size */
+    width: 80%;  /* % of parent width */
+    margin: 2vw;  /* % of viewport width */
+    padding: 3vh;  /* % of viewport height */
+}
+```
+
+#### Color Values
+
+```css
+.colors {
+    /* Named colors */
+    color: red;
+    background: blue;
+    
+    /* Hex colors (RGB in hexadecimal) */
+    color: #FF5733;
+    background: #f57;  /* Shorthand */
+    
+    /* RGB values */
+    color: rgb(255, 87, 51);
+    
+    /* RGBA with transparency */
+    background: rgba(255, 87, 51, 0.7);  /* 70% opaque */
+    
+    /* HSL (Hue, Saturation, Lightness) */
+    color: hsl(9, 100%, 60%);
+    
+    /* HSLA with alpha */
+    background: hsla(9, 100%, 60%, 0.5);  /* 50% transparent */
+}
+```
+
+### {{< fa code >}} Practical CSS Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styled Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .card {
+            background: white;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .card button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        
+        .card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Styled Card</h2>
+        <p>This card demonstrates margin, padding, border, and color styling.</p>
+        <button>Click Me</button>
+    </div>
+</body>
+</html>
+```
+
+---
+
+## {{< fa book >}} Required Readings
+
+- MDN: [HTML Tables](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables)
+- MDN: [HTML Forms](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+- MDN: [CSS Introduction](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
+- W3Schools: [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp)
+- W3Schools: [CSS Box Model](https://www.w3schools.com/css/css_boxmodel.asp)
+
+## {{< fa film >}} Supplementary Videos
+
+- YouTube: "HTML Tables Explained" (WebDev Simplified)
+- YouTube: "HTML Forms Complete Tutorial" (Traversy Media)
+- YouTube: "CSS Selectors in 100 Seconds" (Fireship)
+- YouTube: "CSS Box Model" (The Net Ninja)
+
+---
+
+## {{< fa flask >}} Practical Lab Exercises
+
+### Lab 2.1: Create a Data Table
+
+**Objective:** Build a professional data presentation table
+
+**Requirements:**
+1. Table with proper `<thead>`, `<tbody>`, `<tfoot>`
+2. At least 5 rows and 4 columns
+3. Uses `<caption>` for accessibility
+4. Includes `scope` attributes on headers
+5. Uses `colspan` or `rowspan`
+
+**Example Dataset:** Student grades, product inventory, sales data, or employee information
+
+### Lab 2.2: Create a Registration Form
+
+**Objective:** Build a complete functional form
+
+**Requirements:**
+1. At least 10 different input types
+2. Proper labels for all inputs
+3. Radio buttons and checkboxes
+4. Dropdown list
+5. Textarea
+6. Submit/Reset buttons
+7. Form validation (required attributes)
+
+### Lab 2.3: Style with CSS
+
+**Objective:** Apply CSS to HTML elements
+
+**Requirements:**
+1. Use external CSS file
+2. Element selectors for basic styling
+3. Class selectors for variations
+4. ID selector for unique elements
+5. Proper box model usage (margin, padding, border)
+6. Color scheme (at least 5 colors)
+7. Professional appearance
+
+---
+
+## {{< fa lightbulb >}} Best Practices
+
+### HTML Tables ✅
+- Use `<thead>`, `<tbody>`, `<tfoot>` for semantics
+- Add `scope` attribute to headers
+- Include `<caption>` for context
+- Don't use tables for layout
+
+### HTML Forms ✅
+- Always use `<label>` with inputs
+- Use appropriate input `type` for data
+- Add `required` for necessary fields
+- Group related inputs with `<fieldset>`
+- Provide helpful `placeholder` text
+
+### CSS ✅
+- Use external stylesheets for maintainability
+- Prefer classes over IDs (for reusability)
+- Use semantic class names (`.error` not `.red`)
+- Mobile-first approach
+- Avoid inline styles
+- Use consistent units (rem over px mostly)
+
+---
+
+## Summary
+
+| Topic | Key Points |
+|-------|-----------|
+| **HTML Tables** | Semantic structure, thead/tbody/tfoot, accessibility |
+| **HTML Forms** | Various input types, labels, validation, accessibility |
+| **CSS Basics** | Rules, selectors, external stylesheets |
+| **CSS Selectors** | Element, class, ID, attribute, pseudo-class |
+| **Box Model** | Margin, padding, border, content, sizing |
+
+**Next Unit:** We'll explore advanced CSS layouts (Flexbox, Grid), positioning, and responsive design!
+
+---
+
+## 1. HTML Tables & Iframes
+
+### Understanding Tables
+
+HTML tables are used to organize and present data in a structured format with rows and columns.
+
+**Table Structure Elements:**
+- `<table>` - Container for the entire table
+- `<thead>` - Table header section
+- `<tbody>` - Table body section
+- `<tfoot>` - Table footer section
+- `<tr>` - Table row
+- `<th>` - Table header cell
+- `<td>` - Table data cell
+
+### Basic Table Example
+
+```html
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>+91 9876543210</td>
+        </tr>
+        <tr>
+            <td>Jane Smith</td>
+            <td>jane@example.com</td>
+            <td>+91 9876543211</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total: 2 contacts</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+### Table Attributes
+
+```html
+<!-- Column span -->
+<th colspan="2">Combined Header</th>
+
+<!-- Row span -->
+<td rowspan="2">Spanning 2 rows</td>
+
+<!-- Table with caption -->
+<table>
+    <caption>Monthly Sales 2025</caption>
+    <!-- table content -->
+</table>
+
+<!-- Table with id and class for styling -->
+<table id="dataTable" class="styled-table">
+    <!-- table content -->
+</table>
+```
+
+### Table Example: Course Schedule
+
+```html
+<table border="1" cellpadding="10" cellspacing="0">
+    <caption>BMC205 - Web Technology Course Schedule</caption>
+    <thead>
+        <tr>
+            <th>Week</th>
+            <th>Topic</th>
+            <th>Assignments</th>
+            <th>Labs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>HTML Fundamentals</td>
+            <td>Assignment 1</td>
+            <td>Lab 1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>HTML Tables & Forms</td>
+            <td>Assignment 2</td>
+            <td>Lab 2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>CSS Styling</td>
+            <td>Assignment 3</td>
+            <td>Lab 3</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+### IFrames (Inline Frames)
+
+The `<iframe>` element embeds another HTML document within the current page.
+
+```html
+<!-- Simple iframe -->
+<iframe src="https://www.example.com"></iframe>
+
+<!-- IFrame with dimensions -->
+<iframe src="embedded-page.html" width="600" height="400"></iframe>
+
+<!-- IFrame with title and sandbox (security) -->
+<iframe 
+    src="video-player.html" 
+    title="Video Player"
+    sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- Embedding YouTube video using iframe -->
+<iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+    title="YouTube video player"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+</iframe>
+```
+
+**Common Uses:**
+- Embedding maps (Google Maps)
+- Embedding videos (YouTube)
+- Embedding documents (PDFs)
+- Cross-domain content
+- Live demos
+
+---
+
+## 2. HTML Forms & Form Elements
+
+### Understanding Forms
+
+HTML forms allow users to input data that is sent to a server. Forms are essential for:
+- User registration and login
+- Contact forms
+- Search functionality
+- Data collection
+- E-commerce checkout
+
+### Form Structure
+
+```html
+<form action="process.php" method="POST">
+    <!-- Form elements go here -->
+    <button type="submit">Submit</button>
+</form>
+```
+
+**Key Attributes:**
+- **`action`** - URL where form data is sent
+- **`method`** - HTTP method (GET or POST)
+- **`name`** - Form identifier
+- **`id`** - Unique identifier for styling/JavaScript
+
+### Form Input Types
+
+```html
+<!-- Text input -->
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
+
+<!-- Email input -->
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+
+<!-- Password input -->
+<label for="password">Password:</label>
+<input type="password" id="password" name="password">
+
+<!-- Number input -->
+<label for="age">Age:</label>
+<input type="number" id="age" name="age" min="18" max="100">
+
+<!-- Date input -->
+<label for="dob">Date of Birth:</label>
+<input type="date" id="dob" name="dob">
+
+<!-- Time input -->
+<label for="time">Preferred Time:</label>
+<input type="time" id="time" name="time">
+
+<!-- File upload -->
+<label for="resume">Upload Resume:</label>
+<input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+
+<!-- Color picker -->
+<label for="color">Favorite Color:</label>
+<input type="color" id="color" name="color">
+
+<!-- Search field -->
+<input type="search" id="search" name="search" placeholder="Search...">
+
+<!-- URL input -->
+<label for="website">Website:</label>
+<input type="url" id="website" name="website">
+
+<!-- Hidden input (for internal data) -->
+<input type="hidden" name="user_id" value="12345">
+```
+
+### Radio Buttons & Checkboxes
+
+```html
+<!-- Radio buttons (select one) -->
+<fieldset>
+    <legend>Qualification:</legend>
+    <label>
+        <input type="radio" name="qualification" value="btech"> B.Tech
+    </label>
+    <label>
+        <input type="radio" name="qualification" value="mtech"> M.Tech
+    </label>
+    <label>
+        <input type="radio" name="qualification" value="mca"> MCA
+    </label>
+</fieldset>
+
+<!-- Checkboxes (select multiple) -->
+<fieldset>
+    <legend>Select Technologies:</legend>
+    <label>
+        <input type="checkbox" name="tech" value="html"> HTML
+    </label>
+    <label>
+        <input type="checkbox" name="tech" value="css"> CSS
+    </label>
+    <label>
+        <input type="checkbox" name="tech" value="js"> JavaScript
+    </label>
+    <label>
+        <input type="checkbox" name="tech" value="java"> Java
+    </label>
+</fieldset>
+```
+
+### Dropdown List & Text Area
+
+```html
+<!-- Dropdown select -->
+<label for="country">Country:</label>
+<select id="country" name="country">
+    <option value="">-- Select a Country --</option>
+    <option value="india">India</option>
+    <option value="usa">USA</option>
+    <option value="uk">UK</option>
+    <option value="canada">Canada</option>
+</select>
+
+<!-- Multi-select dropdown -->
+<label for="interests">Interests:</label>
+<select id="interests" name="interests" multiple>
+    <option value="sports">Sports</option>
+    <option value="music">Music</option>
+    <option value="reading">Reading</option>
+    <option value="coding">Coding</option>
+</select>
+
+<!-- Textarea for multiple lines of text -->
+<label for="message">Message:</label>
+<textarea id="message" name="message" rows="5" cols="40" placeholder="Enter your message here..."></textarea>
+```
+
+### Form Buttons
+
+```html
+<!-- Submit button -->
+<button type="submit">Submit Form</button>
+
+<!-- Reset button -->
+<button type="reset">Clear Form</button>
+
+<!-- Regular button -->
+<button type="button">Click Me</button>
+
+<!-- Image as button -->
+<input type="image" src="submit-button.jpg" alt="Submit">
+```
+
+### Complete Form Example
+
+```html
+<form action="/register" method="POST" id="registrationForm">
+    <fieldset>
+        <legend>User Registration Form</legend>
+        
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+        
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        
+        <fieldset>
+            <legend>Qualification:</legend>
+            <label><input type="radio" name="qualification" value="btech" required> B.Tech</label>
+            <label><input type="radio" name="qualification" value="mtech"> M.Tech</label>
+            <label><input type="radio" name="qualification" value="mca"> MCA</label>
+        </fieldset>
+        
+        <label for="skills">Technical Skills:</label>
+        <select id="skills" name="skills" multiple>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JavaScript</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+        </select>
+        
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
+        
+        <label>
+            <input type="checkbox" name="terms" required> I agree to Terms & Conditions
+        </label>
+        
+        <button type="submit">Register</button>
+        <button type="reset">Clear</button>
+    </fieldset>
+</form>
+```
+
+---
+
+## 3. CSS (Cascading Style Sheets) Introduction
+
+### What is CSS?
+
+**CSS** is used to style and layout web pages — controlling colors, fonts, spacing, positioning, and more. CSS separates content (HTML) from presentation (styling).
+
+### Three Ways to Apply CSS
+
+#### **1. Inline CSS** (Not recommended)
+
+```html
+<p style="color: blue; font-size: 18px;">This is blue text</p>
+<h1 style="background-color: yellow; padding: 20px;">Yellow heading</h1>
+```
+
+#### **2. Internal CSS** (In `<head>` section)
+
+```html
+<head>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+        
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+```
+
+#### **3. External CSS** (Recommended)
+
+**File: `styles.css`**
+```css
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+}
+```
+
+**Link in HTML:**
+```html
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+```
+
+**Advantages:**
+- Clean separation of content and styling
+- Reusable across multiple pages
+- Faster loading (cached by browser)
+- Easier maintenance
+
+### CSS Syntax and Selectors
+
+#### **Basic CSS Rule Structure**
+
+```css
+selector {
+    property: value;
+    property: value;
+}
+```
+
+**Example:**
+```css
+p {
+    color: red;
+    font-size: 16px;
+    margin: 10px;
+}
+```
+
+#### **CSS Selectors**
+
+##### **1. Element Selector**
+```css
+p {
+    color: blue;
+}
+
+h1 {
+    font-size: 28px;
+}
+```
+
+##### **2. Class Selector** (dot notation)
+```css
+.highlight {
+    background-color: yellow;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+}
+```
+
+```html
+<p class="highlight">This is highlighted</p>
+<button class="button">Click Me</button>
+```
+
+##### **3. ID Selector** (hash notation)
+```css
+#header {
+    background-color: #333;
+    color: white;
+}
+
+#footer {
+    text-align: center;
+    padding: 20px;
+}
+```
+
+```html
+<div id="header">
+    <h1>Welcome</h1>
+</div>
+<div id="footer">
+    <p>&copy; 2025 My Website</p>
+</div>
+```
+
+##### **4. Descendant Selector**
+```css
+/* Targets all <p> inside <div> */
+div p {
+    color: green;
+}
+
+/* Targets all links inside navigation */
+nav a {
+    color: white;
+    text-decoration: none;
+}
+```
+
+##### **5. Attribute Selector**
+```css
+/* All input fields with type="text" */
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Links with href starting with "https" */
+a[href^="https"] {
+    color: green;
+}
+
+/* Images with alt text containing "logo" */
+img[alt*="logo"] {
+    max-width: 200px;
+}
+```
+
+##### **6. Pseudo-class Selector**
+```css
+/* Links that haven't been visited */
+a:link {
+    color: blue;
+}
+
+/* Visited links */
+a:visited {
+    color: purple;
+}
+
+/* Link on hover */
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Active/clicked link */
+a:active {
+    color: orange;
+}
+
+/* First child element */
+li:first-child {
+    font-weight: bold;
+}
+
+/* Last child element */
+li:last-child {
+    border-bottom: none;
+}
+```
+
+---
+
+## 4. CSS Values, Lengths & Units
+
+### Common CSS Properties
+
+```css
+/* Text and Fonts */
+color: #333;                    /* Text color */
+font-family: Arial, sans-serif; /* Font type */
+font-size: 16px;               /* Text size */
+font-weight: bold;             /* Text boldness: bold, normal, 700 */
+font-style: italic;            /* Italic text */
+text-align: center;            /* Alignment: left, right, center, justify */
+text-decoration: underline;    /* underline, overline, line-through */
+line-height: 1.5;              /* Space between lines */
+
+/* Background */
+background-color: #f0f0f0;     /* Background color */
+background-image: url('bg.jpg'); /* Background image */
+
+/* Margin and Padding */
+margin: 20px;                  /* External space */
+padding: 15px;                 /* Internal space */
+border: 1px solid #ccc;        /* Border */
+```
+
+### Length Units
+
+```css
+/* Absolute Units */
+20px      /* Pixels (most common) */
+5cm       /* Centimeters */
+10mm      /* Millimeters */
+0.5in     /* Inches */
+
+/* Relative Units */
+1em       /* Relative to font-size of element */
+1.5rem    /* Relative to font-size of root (html) */
+50%       /* Percentage of parent */
+1vw       /* 1% of viewport width */
+1vh       /* 1% of viewport height */
+```
+
+### Color Values
+
+```css
+/* Named colors */
+color: red;
+background: blue;
+
+/* Hex colors */
+color: #FF5733;    /* RGB in hexadecimal */
+color: #f57;       /* Shorthand (expands to #ff5577) */
+
+/* RGB colors */
+color: rgb(255, 87, 51);
+
+/* RGBA with alpha (transparency) */
+background: rgba(255, 87, 51, 0.8);  /* 80% opacity */
+
+/* HSL (Hue, Saturation, Lightness) */
+color: hsl(9, 100%, 60%);
+
+/* HSLA with alpha */
+color: hsla(9, 100%, 60%, 0.5);
+```
+
+---
+
+## 5. CSS Box Model
+
+All HTML elements can be considered as boxes. The box model explains the spacing around elements.
+
+```
+┌─────────────────────────────────────────┐
+│          Margin (outside)               │
+│  ┌─────────────────────────────────┐   │
+│  │   Border                        │   │
+│  │  ┌─────────────────────────┐    │   │
+│  │  │  Padding                │    │   │
+│  │  │  ┌─────────────────┐    │    │   │
+│  │  │  │  Content        │    │    │   │
+│  │  │  │  (Text, Image)  │    │    │   │
+│  │  │  └─────────────────┘    │    │   │
+│  │  └─────────────────────────┘    │   │
+│  └─────────────────────────────────┘   │
+└─────────────────────────────────────────┘
+```
+
+```css
+.box {
+    /* Content area */
+    width: 300px;
+    height: 200px;
+    
+    /* Padding (inside) */
+    padding: 20px;              /* All sides */
+    padding: 10px 20px;         /* Top/bottom and left/right */
+    padding: 10px 20px 15px 30px; /* Top, right, bottom, left */
+    
+    /* Border */
+    border: 2px solid #333;
+    border-radius: 8px;         /* Rounded corners */
+    
+    /* Margin (outside) */
+    margin: 15px;               /* All sides */
+    margin: 10px 20px;          /* Top/bottom and left/right */
+    margin: 10px 20px 15px 30px; /* Top, right, bottom, left */
+}
+```
+
+---
+
+## 6. CSS Practical Styling Example
+
+### Styled Resume Using HTML & CSS
+
+**HTML (resume.html):**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>John Doe</h1>
+            <p class="tagline">Web Developer | Java Programmer</p>
+        </header>
+        
+        <div class="contact-info">
+            <p><strong>Email:</strong> john@example.com</p>
+            <p><strong>Phone:</strong> +91 9876543210</p>
+            <p><strong>Location:</strong> Delhi, India</p>
+        </div>
+        
+        <section class="section">
+            <h2>Professional Summary</h2>
+            <p>Experienced web developer with expertise in HTML, CSS, JavaScript, and Java. Passionate about creating responsive and user-friendly web applications.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript & DOM Manipulation</li>
+                <li>Java & Spring Boot</li>
+                <li>MySQL & Database Design</li>
+            </ul>
+        </section>
+        
+        <section class="section">
+            <h2>Experience</h2>
+            <div class="job">
+                <h3>Senior Web Developer - Tech Company</h3>
+                <p class="year">2023 - Present</p>
+                <p>Developed responsive web applications using modern frameworks and best practices.</p>
+            </div>
+            <div class="job">
+                <h3>Junior Developer - Startup XYZ</h3>
+                <p class="year">2021 - 2023</p>
+                <p>Created dynamic web pages and contributed to backend development.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+```
+
+**CSS (styles.css):**
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    color: #007bff;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    color: #666;
+    font-size: 16px;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-left: 4px solid #007bff;
+    padding-left: 15px;
+}
+
+.skills-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.skills-list li {
+    background-color: #e7f3ff;
+    padding: 10px;
+    border-radius: 5px;
+    color: #0056b3;
+}
+
+.job {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 3px solid #ddd;
+}
+
+.job h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.year {
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+}
+```
+
+---
+
+## Lab Exercise 2: Create a Contact Form
+
+Create an HTML file with a styled contact form using CSS:
+
+**Requirements:**
+1. Form with fields: Name, Email, Phone, Message, Subject dropdown
+2. Submit and Reset buttons
+3. Professional CSS styling
+4. Proper spacing and colors
+5. Responsive layout
+
+---
+
+## Summary & Key Takeaways
+
+By now you should understand:
+1. ✅ Creating and styling HTML tables
+2. ✅ Embedding content using iframes
+3. ✅ Building functional HTML forms
+4. ✅ CSS fundamentals and three ways to apply CSS
+5. ✅ CSS selectors (element, class, ID, attribute, pseudo-class)
+6. ✅ CSS values, units, and the box model
+7. ✅ Creating styled web pages
+
+**Next Week:** We'll dive deeper into CSS properties, layouts (Flexbox, Grid), and advanced styling techniques!

@@ -1,0 +1,380 @@
+---
+title: "Week 12: Apr 13 - Apr 19, 2026"
+subtitle: "Unit V: REST Services - Best Practices, Testing & Deployment"
+---
+
+## Week Overview
+
+This final week covers REST API best practices, testing strategies, production deployment, and final project guidance. Consolidates all learning from the course.
+
+**Course Outcome:** CO-5 (K5-K6 - Synthesis & Evaluation)  
+**Duration:** 1 week (4 lectures + final project)  
+**Final Project Due:** Apr 19  
+**End-Semester Exam:** Apr 21-May 3
+
+---
+
+## Lecture 37: REST API Best Practices
+
+### API Versioning
+```java
+// URL versioning
+@RestController
+@RequestMapping("/api/v1/users")
+public class UserControllerV1 {}
+
+@RestController
+@RequestMapping("/api/v2/users")
+public class UserControllerV2 {}
+
+// Media type versioning
+@GetMapping(produces = "application/vnd.api.v1+json")
+public User getV1() {}
+
+@GetMapping(produces = "application/vnd.api.v2+json")
+public User getV2() {}
+```
+
+### Error Handling
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+  
+  @ExceptionHandler(ResourceNotFoundException.class)
+  public ResponseEntity<ErrorResponse> handleNotFound(
+    ResourceNotFoundException ex) {
+    ErrorResponse error = new ErrorResponse(
+      "NOT_FOUND", ex.getMessage(), 404
+    );
+    return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+  }
+  
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<ErrorResponse> handleGlobal(Exception ex) {
+    ErrorResponse error = new ErrorResponse(
+      "INTERNAL_ERROR", "Internal server error", 500
+    );
+    return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+}
+```
+
+### Response Format
+```java
+@Data
+public class ApiResponse<T> {
+  private boolean success;
+  private String message;
+  private T data;
+  private long timestamp;
+  
+  public ApiResponse(boolean success, String message, T data) {
+    this.success = success;
+    this.message = message;
+    this.data = data;
+    this.timestamp = System.currentTimeMillis();
+  }
+}
+
+// Usage
+@GetMapping("/{id}")
+public ResponseEntity<ApiResponse<User>> getUser(@PathVariable Long id) {
+  User user = userService.findById(id);
+  return ResponseEntity.ok(new ApiResponse<>(true, "Success", user));
+}
+```
+
+### HATEOAS (Hypermedia)
+```java
+// Add links to responses
+@GetMapping("/{id}")
+public EntityModel<User> getUser(@PathVariable Long id) {
+  User user = userService.findById(id);
+  
+  return EntityModel.of(user,
+    linkTo(methodOn(UserController.class).getUser(id)).withSelfRel(),
+    linkTo(methodOn(UserController.class).getAll()).withRel("users")
+  );
+}
+```
+
+### API Documentation with Swagger
+```java
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+  
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+      .select()
+      .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
+      .paths(PathSelectors.any())
+      .build();
+  }
+}
+
+// Annotate endpoints
+@GetMapping("/{id}")
+@ApiOperation("Get user by ID")
+@ApiResponses({
+  @ApiResponse(code = 200, message = "Success"),
+  @ApiResponse(code = 404, message = "Not Found")
+})
+public User getUser(@ApiParam("User ID") @PathVariable Long id) {}
+```
+
+---
+
+## Lecture 38: Testing in Spring Boot
+
+### Unit Testing
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UserServiceTest {
+  
+  @MockBean
+  private UserRepository userRepository;
+  
+  @Autowired
+  private UserService userService;
+  
+  @Test
+  public void testFindById() {
+    User user = new User("john", "john@example.com");
+    given(userRepository.findById(1L)).willReturn(Optional.of(user));
+    
+    User result = userService.findById(1L);
+    
+    assertThat(result.getUsername()).isEqualTo("john");
+  }
+}
+```
+
+### Integration Testing
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+public class UserControllerIntegrationTest {
+  
+  @Autowired
+  private TestRestTemplate restTemplate;
+  
+  @Test
+  public void testGetAllUsers() {
+    ResponseEntity<User[]> response = restTemplate.getForEntity(
+      "/api/users", User[].class
+    );
+    
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(response.getBody()).isNotEmpty();
+  }
+}
+```
+
+### Mocking
+```java
+// Mock external service
+@Test
+public void testWithMock() {
+  UserRepository mockRepo = mock(UserRepository.class);
+  when(mockRepo.findById(1L)).thenReturn(Optional.of(user));
+  
+  UserService service = new UserService(mockRepo);
+  User result = service.findById(1L);
+  
+  verify(mockRepo).findById(1L);
+  assertEquals("john", result.getUsername());
+}
+```
+
+---
+
+## Lecture 39: Deployment & Production
+
+### Docker Containerization
+```dockerfile
+# Dockerfile for Spring Boot application
+FROM openjdk:11-jre-slim
+COPY target/app.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+```bash
+# Build Docker image
+docker build -t myapp:latest .
+
+# Run container
+docker run -p 8080:8080 myapp:latest
+```
+
+### Cloud Deployment (Heroku Example)
+```yaml
+# Procfile
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/app.jar
+```
+
+```bash
+# Deploy to Heroku
+heroku create myapp
+git push heroku main
+```
+
+### Production Configuration
+```properties
+# application-prod.properties
+server.port=8080
+spring.datasource.url=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
+spring.jpa.hibernate.ddl-auto=validate
+
+logging.level.root=WARN
+logging.level.com.example=INFO
+```
+
+### Monitoring
+```java
+// Add Actuator for monitoring
+// pom.xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+// Endpoints available:
+// /actuator/health
+// /actuator/metrics
+// /actuator/env
+```
+
+---
+
+## Lecture 40: Final Project Discussion & Course Revision
+
+### Final Project Overview
+**Requirement:** Build a complete web application using all learned concepts
+
+**Minimum Features:**
+1. **Frontend (HTML/CSS/JavaScript)**
+   - Responsive, user-friendly interface
+   - Form validation
+   - Dynamic content updates
+
+2. **Backend (Spring Boot)**
+   - RESTful APIs for all operations
+   - Database integration (JPA)
+   - Authentication/Authorization
+
+3. **Database**
+   - Properly normalized schema
+   - Relationships between entities
+   - Data integrity
+
+4. **Deployment**
+   - Runnable on any machine
+   - Documentation
+   - README with setup instructions
+
+### Project Ideas
+- **E-commerce**: Product catalog, shopping cart, orders
+- **Blog Platform**: Post creation, comments, user management
+- **Task Manager**: Create, update, delete tasks with categories
+- **Social Network**: User profiles, posts, messaging
+- **Movie Database**: Search, ratings, recommendations
+
+### Submission Requirements
+- GitHub repository with complete code
+- Documentation (README.md)
+- Database schema
+- API documentation (Swagger)
+- Deployed application link (optional)
+- Presentation slides
+
+### Evaluation Criteria
+- **Functionality (40%)**: Features work as expected
+- **Code Quality (25%)**: Clean, well-structured code
+- **Database Design (15%)**: Proper normalization and relationships
+- **Documentation (10%)**: Clear README and comments
+- **Presentation (10%)**: Clear explanation and demo
+
+---
+
+## Course Revision Summary
+
+### Core Technologies
+1. **HTML/CSS/JavaScript**: Frontend fundamentals
+2. **Bootstrap**: Responsive framework
+3. **Java/Servlets/JSP**: Server-side basics
+4. **Spring Framework**: Enterprise development
+5. **Spring Boot**: Modern application building
+6. **REST APIs**: Modern web services
+7. **Database**: JDBC, JPA, relational databases
+
+### Key Concepts
+✅ HTML semantic structure  
+✅ CSS Box Model and layout  
+✅ JavaScript ES6+ features  
+✅ DOM manipulation and events  
+✅ MVC architecture pattern  
+✅ Dependency injection  
+✅ REST principles and design  
+✅ ORM and database access  
+✅ Security and authentication  
+✅ Testing and quality assurance  
+
+### Skills Developed
+- Frontend web development
+- Backend API development
+- Full-stack application building
+- Database design and SQL
+- Version control (Git)
+- Web security
+- API testing
+- Documentation writing
+
+---
+
+## Final Tips for Success
+
+1. **Start your project early** - Don't wait until the last day
+2. **Test thoroughly** - Test all endpoints and edge cases
+3. **Document well** - Good documentation is important
+4. **Keep it simple** - Don't over-engineer, focus on core features
+5. **Use version control** - Commit regularly to GitHub
+6. **Seek help** - Ask questions if stuck
+7. **Review before submission** - Check all requirements
+
+---
+
+## Resources for Continued Learning
+
+**Books:**
+- Spring in Action
+- Clean Code by Robert C. Martin
+- The Pragmatic Programmer
+
+**Websites:**
+- Spring.io official documentation
+- Baeldung.com tutorials
+- TutorialsPoint.com
+
+**Communities:**
+- Stack Overflow
+- Reddit: r/learnprogramming, r/spring
+- GitHub discussions
+
+---
+
+## Congratulations!
+
+You've completed BMC201 Web Technology course! You now have skills to build modern web applications using industry-standard tools and frameworks.
+
+**Next Steps:**
+- Explore advanced Spring topics (Microservices, Security)
+- Learn cloud platforms (AWS, Azure, Google Cloud)
+- Contribute to open-source projects
+- Build your portfolio with real projects
+
+**Good luck with your final projects!** 🎉

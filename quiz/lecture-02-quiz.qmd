@@ -1,0 +1,56 @@
+---
+title: "Lecture 2 Quiz: History of Web & Internet"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Slides](/presentations/lecture-02.qmd) | [Week 1 Content](/content/week-01.qmd) | [Lab 1](/labs/lab-01.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 2 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Bill Gates", "B. Linus Torvalds", "C. Tim Berners-Lee", "D. Vint Cerf"]
+question = "Question 1: Who is credited with inventing the World Wide Web?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Request-response", "B. Peer-to-peer only", "C. Broadcast only", "D. Offline batch mode"]
+question = "Question 2: HTTP follows which communication style?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. More HTML tags", "B. Faster CPU speed", "C. Larger screen size", "D. Encryption and secure transport"]
+question = "Question 3: HTTPS mainly adds:"
+answer = 4
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. HTML into CSS", "B. Domain names into IP addresses", "C. JavaScript into Java", "D. PDFs into webpages"]
+question = "Question 4: DNS primarily translates:"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Apache HTTP Server", "B. Nginx service", "C. Browser", "D. Database daemon"]
+question = "Question 5: Which one is a web client in client-server architecture?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
