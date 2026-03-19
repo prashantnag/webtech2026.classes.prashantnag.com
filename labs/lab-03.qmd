@@ -1,11 +1,10 @@
----
+﻿---
 title: "Lab 3: CSS Design and JavaScript Validation"
 date: "2026-02-06"
 due: "2026-02-11"
 ---
 
-
-This lab covers workbook experiments 5 and 6.
+This lab covers workbook experiments 5 and 6. You will style a web page using an external CSS file and build a registration form with JavaScript input validation so you can see exactly what happens when a user submits correct or incorrect data.
 
 ## Workbook Alignment
 
@@ -34,7 +33,7 @@ By the end of this lab, you will be able to:
 
 ### Problem Statement
 
-Design a web page using an external CSS file.
+Design a web page using an external CSS file that applies colors, spacing, and a responsive card layout.
 
 ### Folder Structure
 
@@ -48,12 +47,14 @@ Lab03/
 ### Procedure
 
 1. Create the `Lab03` folder.
-2. Add the files `index.html` and `style.css`.
-3. Link the stylesheet using the `<link>` tag.
-4. Apply colors, spacing, cards, and layout rules from the CSS file.
-5. Open the page in a browser and confirm that the styles load correctly.
+2. Add `index.html` and `style.css` inside it.
+3. Link the stylesheet using the `<link>` tag inside `<head>`.
+4. Apply colors, spacing, cards, and layout rules in the CSS file.
+5. Open `index.html` in a browser and confirm that the styles load correctly.
 
 ### `index.html`
+
+The HTML file defines the page structure. The `<link>` tag in `<head>` tells the browser to load `style.css` and apply it before rendering the page.
 
 ```html
 <!DOCTYPE html>
@@ -62,15 +63,21 @@ Lab03/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMC201 Lab 3 - Styled Page</title>
+  <!-- Link to external CSS — href must match the filename exactly -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- .banner will receive the gradient background defined in CSS -->
   <header class="banner">
     <h1>Web Technology Course Portal</h1>
     <p>Styled using an external CSS file</p>
   </header>
 
+  <!-- .container is a CSS Grid wrapper that arranges the cards side by side -->
   <main class="container">
+
+    <!-- Each .card becomes a white rounded box with a soft shadow -->
     <section class="card">
       <h2>Topics Covered</h2>
       <ul>
@@ -84,6 +91,7 @@ Lab03/
       <h2>Why CSS Matters</h2>
       <p>CSS controls color, spacing, alignment, responsive behavior, and overall user experience.</p>
     </section>
+
   </main>
 </body>
 </html>
@@ -91,65 +99,101 @@ Lab03/
 
 ### `style.css`
 
+Each rule is annotated so you can see exactly what every line does:
+
 ```css
+/* Apply to every element: padding is included inside the declared width */
 * {
   box-sizing: border-box;
 }
 
+/* Page defaults: remove browser margin, set font, background, and text color */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f8fafc;
-  color: #1f2937;
+  background: #f8fafc;   /* very light grey page background */
+  color: #1f2937;        /* dark charcoal text */
 }
 
+/* Banner: diagonal gradient sweeping from teal to sky blue */
 .banner {
   background: linear-gradient(135deg, #0f766e, #0ea5e9);
+  /*   135deg = diagonal direction (top-left to bottom-right)
+       #0f766e = teal (left side)
+       #0ea5e9 = sky blue (right side)               */
   color: white;
-  padding: 32px 20px;
+  padding: 32px 20px;   /* 32px top & bottom, 20px left & right */
   text-align: center;
 }
 
+/* Grid layout: columns are at least 260px wide and share remaining space equally */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  max-width: 960px;
-  margin: 24px auto;
+  /*   auto-fit: create as many columns as will fit in the available width
+       minmax(260px, 1fr): each column is at least 260px wide;
+       on a wide screen two columns appear side by side;
+       on a narrow screen they stack into one column automatically   */
+  gap: 20px;            /* space between cards */
+  max-width: 960px;     /* page does not stretch too wide on large screens */
+  margin: 24px auto;    /* center the container horizontally */
   padding: 0 16px;
 }
 
+/* Card: white box with rounded corners and a subtle drop shadow */
 .card {
   background: white;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  /*   x-offset=0, y-offset=8px, blur=24px
+       color = dark navy at 8% opacity — a soft, realistic shadow   */
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 8px;   /* breathing room between list items */
 }
 ```
 
-### Expected Result
+### Expected Browser Output
 
-The browser should display a styled course portal with a gradient banner, responsive card layout, and clean spacing loaded from an external CSS file.
+When you open `index.html` in a browser, you should see:
+
+::: {.callout-note appearance="simple"}
+**What the page should look like:**
+
+- A wide **gradient banner** sweeping from teal on the left to blue on the right, with "Web Technology Course Portal" in white text centered on it
+- Below the banner, **two white cards** appear side by side on a wide screen, or stacked vertically when the window is narrow
+- Card 1 shows "Topics Covered" with three bullet points
+- Card 2 shows "Why CSS Matters" with a paragraph
+- The page background is a pale grey — not plain white
+:::
+
+::: {.callout-tip}
+## How to Verify the Stylesheet Is Linked
+
+Right-click anywhere on the page and choose **Inspect** (or press F12). In the **Elements** panel, click on `<header class="banner">`. In the **Styles** panel on the right you should see the `.banner` CSS rules listed and attributed to `style.css`. If the page looks completely unstyled, check that:
+
+1. `style.css` is in the **same folder** as `index.html`
+2. The `href` in `<link>` is spelled exactly `style.css` — it is case-sensitive
+:::
 
 ## Experiment 6: JavaScript Form Validation
 
 ### Problem Statement
 
-Design a dynamic web page with validation using JavaScript.
+Design a dynamic web page with a student registration form. Use JavaScript to validate each input field and display a red error message directly below any field that fails, or a green success message when all fields pass.
 
 ### Procedure
 
 1. Create a new file named `validation.html` in the `Lab03` folder.
-2. Add a form containing name, email, and password fields.
-3. Add error containers below each input.
-4. Use JavaScript to validate user input on form submission.
-5. Test the page with both valid and invalid values.
+2. Add a form with three fields: Full Name, Email, and Password.
+3. Add an empty `<div class="error">` below each input — these will receive error text from JavaScript.
+4. Add `novalidate` to the `<form>` tag to disable the browser's built-in popup validation so your JavaScript handles everything.
+5. Write a `submit` event listener that checks each field and sets error messages.
+6. Test with invalid values first, then with valid values, and compare with the expected output in the table below.
 
-### Solution Code
+### Solution Code (`validation.html`)
 
 ```html
 <!DOCTYPE html>
@@ -171,7 +215,7 @@ Design a dynamic web page with validation using JavaScript.
     }
 
     label {
-      display: block;
+      display: block;        /* label sits on its own line above the input */
       font-weight: bold;
       margin-bottom: 6px;
     }
@@ -184,13 +228,13 @@ Design a dynamic web page with validation using JavaScript.
     }
 
     .error {
-      color: #dc2626;
+      color: #dc2626;        /* red text for validation errors */
       font-size: 0.9rem;
       margin-top: 4px;
     }
 
     .success {
-      color: #047857;
+      color: #047857;        /* green text when all fields are valid */
       font-weight: bold;
     }
   </style>
@@ -198,67 +242,85 @@ Design a dynamic web page with validation using JavaScript.
 <body>
   <h1>Student Registration Form</h1>
 
+  <!-- novalidate prevents the browser from showing its own popup messages;
+       our JavaScript handles all validation instead                       -->
   <form id="registrationForm" novalidate>
+
     <div class="field">
       <label for="name">Full Name</label>
-      <input id="name" type="text">
+      <input id="name" type="text" placeholder="e.g. Ravi Kumar">
+      <!-- This empty div will receive an error message from JavaScript if needed -->
       <div class="error" id="nameError"></div>
     </div>
 
     <div class="field">
       <label for="email">Email</label>
-      <input id="email" type="email">
+      <input id="email" type="email" placeholder="e.g. ravi@gcet.ac.in">
       <div class="error" id="emailError"></div>
     </div>
 
     <div class="field">
       <label for="password">Password</label>
-      <input id="password" type="password">
+      <input id="password" type="password" placeholder="minimum 6 characters">
       <div class="error" id="passwordError"></div>
     </div>
 
     <button type="submit">Submit</button>
   </form>
 
+  <!-- Shows the final success message, or stays empty if there are errors -->
   <p id="message"></p>
 
   <script>
-    const form = document.getElementById("registrationForm");
+    const form    = document.getElementById("registrationForm");
     const message = document.getElementById("message");
 
+    // Run this function every time the Submit button is clicked
     form.addEventListener("submit", function (event) {
+
+      // Stop the form from sending data to a server and reloading the page
       event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
+      // Read each field's value and remove extra whitespace with trim()
+      const name     = document.getElementById("name").value.trim();
+      const email    = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
 
+      // Assume the form is valid until a rule fails
       let isValid = true;
 
-      document.getElementById("nameError").textContent = "";
-      document.getElementById("emailError").textContent = "";
+      // Clear any error messages left from the previous submit attempt
+      document.getElementById("nameError").textContent     = "";
+      document.getElementById("emailError").textContent    = "";
       document.getElementById("passwordError").textContent = "";
       message.textContent = "";
-      message.className = "";
+      message.className   = "";
 
+      // Rule 1: Full Name must be at least 3 characters
       if (name.length < 3) {
-        document.getElementById("nameError").textContent = "Name must be at least 3 characters long.";
+        document.getElementById("nameError").textContent =
+          "Name must be at least 3 characters long.";
         isValid = false;
       }
 
+      // Rule 2: Email must contain both @ and a dot
       if (!email.includes("@") || !email.includes(".")) {
-        document.getElementById("emailError").textContent = "Enter a valid email address.";
+        document.getElementById("emailError").textContent =
+          "Enter a valid email address.";
         isValid = false;
       }
 
+      // Rule 3: Password must be at least 6 characters
       if (password.length < 6) {
-        document.getElementById("passwordError").textContent = "Password must be at least 6 characters long.";
+        document.getElementById("passwordError").textContent =
+          "Password must be at least 6 characters long.";
         isValid = false;
       }
 
+      // Only show the success message when all three rules passed
       if (isValid) {
         message.textContent = "Form submitted successfully.";
-        message.className = "success";
+        message.className   = "success";
       }
     });
   </script>
@@ -266,32 +328,67 @@ Design a dynamic web page with validation using JavaScript.
 </html>
 ```
 
-### Expected Result
+### Test Cases and Expected Output
 
-The form should display inline error messages for invalid input and show a success message only when all fields satisfy the validation rules.
+Enter these inputs and verify that your page behaves exactly as shown:
+
+| Test case | Name | Email | Password | What you should see |
+|-----------|------|-------|----------|---------------------|
+| All invalid | `Al` | `notanemail` | `abc` | Three red error messages appear below the fields |
+| Name too short | `Al` | `ravi@gcet.ac.in` | `pass123` | Red error below **Name** only |
+| Invalid email | `Ravi Kumar` | `ravigcet` | `pass123` | Red error below **Email** only |
+| Password too short | `Ravi Kumar` | `ravi@gcet.ac.in` | `abc` | Red error below **Password** only |
+| All valid | `Ravi Kumar` | `ravi@gcet.ac.in` | `pass123` | Green success message |
+
+**When all three fields are invalid** (e.g. Name = `Al`, Email = `notanemail`, Password = `abc`) you should see three red messages:
+
+```text
+Name must be at least 3 characters long.
+Enter a valid email address.
+Password must be at least 6 characters long.
+```
+
+**When all three fields are valid** (e.g. Name = `Ravi Kumar`, Email = `ravi@gcet.ac.in`, Password = `pass123`) you should see one green message:
+
+```text
+Form submitted successfully.
+```
+
+::: {.callout-tip}
+## Key JavaScript Concepts Used in This Experiment
+
+| Concept | Example from the code | What it does |
+|---------|-----------------------|-------------|
+| `getElementById()` | `document.getElementById("name")` | Finds an HTML element by its `id` attribute |
+| `.value.trim()` | `email.value.trim()` | Reads the text typed into a field and removes any leading or trailing spaces |
+| `.textContent` | `nameError.textContent = "..."` | Sets the visible text inside a `<div>` without adding HTML tags |
+| `event.preventDefault()` | In the submit listener | Stops the browser from sending the form data and refreshing the page |
+| `includes()` | `email.includes("@")` | Returns `true` if the string contains the given substring |
+| `isValid` flag | `let isValid = true` | Tracks whether every rule passed; set to `false` on first failure, checked at the end |
+:::
 
 ## Observation Questions
 
 1. What is the difference between internal CSS and external CSS?
 2. Why is an external stylesheet useful when multiple pages share the same design?
-3. Why is `event.preventDefault()` used in form validation?
-4. What is the purpose of `trim()` in JavaScript?
+3. Why is `event.preventDefault()` used in the form's submit listener?
+4. What is the purpose of `trim()` when reading form input?
 
 ## Viva Questions
 
-1. Why should validation be done both on the client and the server?
+1. Why should validation be done on both the client side and the server side?
 2. What is the purpose of the `<link rel="stylesheet">` tag?
-3. What is the difference between a class selector and an element selector?
-4. How does JavaScript improve static HTML pages?
+3. What is the difference between a class selector and an element selector in CSS?
+4. What does `novalidate` on a `<form>` element do?
 
 ## Submission Checklist
 
 - `index.html`
 - `style.css`
 - `validation.html`
-- screenshots of styled page and validated form
+- screenshots: styled page; form with at least one error message showing; form with success message showing
 - short answer file for observation and viva questions
 
 ## Extension Task
 
-Add mobile number validation, move the JavaScript into a separate `script.js` file, and add a reset button for the form.
+Add a mobile number field that accepts exactly 10 digits. Move all JavaScript into a separate `script.js` file and link it with `<script src="script.js">`. Add a Reset button that clears all fields and removes all error messages without reloading the page.

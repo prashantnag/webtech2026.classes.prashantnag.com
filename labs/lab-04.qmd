@@ -1,11 +1,10 @@
----
+﻿---
 title: "Lab 4: JavaScript Array Methods and Nested Functions"
 date: "2026-02-13"
 due: "2026-02-18"
 ---
 
-
-This lab covers workbook experiments 7 and 8.
+This lab covers workbook experiments 7 and 8. You will practice JavaScript array manipulation methods and learn how nested functions share variables through closure, with the exact expected output shown for every experiment so you can verify your work.
 
 ## Workbook Alignment
 
@@ -17,7 +16,7 @@ This lab covers workbook experiments 7 and 8.
 By the end of this lab, you will be able to:
 
 - use common JavaScript array methods
-- transform, search, and summarize array data
+- predict the output of `map()`, `filter()`, `reduce()`, `find()`, `includes()`, and `indexOf()`
 - understand function scope and closures
 - write nested functions for reusable logic
 - display JavaScript output clearly in the browser
@@ -26,7 +25,7 @@ By the end of this lab, you will be able to:
 
 - completion of Lab 3
 - VS Code or any text editor
-- a modern browser with developer tools
+- a modern browser with developer tools (press F12)
 - a folder named `Lab04`
 - files named `array-methods.html` and `nested-functions.html`
 
@@ -34,7 +33,20 @@ By the end of this lab, you will be able to:
 
 ### Problem Statement
 
-Create a JavaScript program that demonstrates built-in array methods such as `map()`, `filter()`, `reduce()`, `find()`, `includes()`, and `indexOf()`.
+Create a JavaScript program that demonstrates built-in array methods: `map()`, `filter()`, `reduce()`, `find()`, `includes()`, and `indexOf()`.
+
+### Array Methods — Quick Reference
+
+Study this table before writing the code so you know what result to expect from each method:
+
+| Method | What it does | Returns |
+|--------|-------------|---------|
+| `map(fn)` | Creates a **new array** by applying `fn` to every element | New array, **same length** as original |
+| `filter(fn)` | Creates a **new array** keeping only elements where `fn` returns `true` | New array, **shorter or equal** length |
+| `reduce(fn, start)` | Collapses the array into **one value** by accumulating results | A **single value** (number, string, etc.) |
+| `find(fn)` | Returns the **first element** where `fn` returns `true` | One element, or `undefined` if nothing matches |
+| `includes(val)` | Checks whether `val` exists anywhere in the array | `true` or `false` |
+| `indexOf(val)` | Finds the **index (position)** of `val` in the array | A number (0-based), or `−1` if not found |
 
 ### Folder Structure
 
@@ -48,11 +60,12 @@ Lab04/
 
 1. Create the `Lab04` folder.
 2. Add a new file named `array-methods.html`.
-3. Declare an array of numeric values.
-4. Apply built-in array methods and store their results.
-5. Display the results inside the page and verify them in the browser.
+3. Declare the array `const numbers = [10, 15, 20, 25, 30]`.
+4. Apply each of the six array methods and store the results in variables.
+5. Build a text report and display it inside a `<pre>` element so newlines are preserved.
+6. Open in a browser and compare your output with the expected output below.
 
-### Solution Code
+### Solution Code (`array-methods.html`)
 
 ```html
 <!DOCTYPE html>
@@ -64,24 +77,40 @@ Lab04/
 </head>
 <body>
   <h1>Array Methods Demo</h1>
+  <!-- <pre> preserves newlines so each result appears on its own line -->
   <pre id="output"></pre>
 
   <script>
-    const output = document.getElementById("output");
+    const output  = document.getElementById("output");
+
+    // Starting array — five numbers in ascending order
     const numbers = [10, 15, 20, 25, 30];
 
-    const doubled = numbers.map(number => number * 2);
+    // map(): create a new array by multiplying every element by 2
+    //   10*2=20  15*2=30  20*2=40  25*2=50  30*2=60
+    const doubled  = numbers.map(number => number * 2);
+
+    // filter(): keep only elements that are >= 20
+    //   10 fails  15 fails  20 passes  25 passes  30 passes
     const filtered = numbers.filter(number => number >= 20);
-    const sum = numbers.reduce((total, number) => total + number, 0);
+
+    // reduce(): add all elements together, starting at 0
+    //   0 + 10 + 15 + 20 + 25 + 30 = 100
+    const sum      = numbers.reduce((total, number) => total + number, 0);
 
     const report = [
-      "Original: " + numbers.join(", "),
-      "map(): " + doubled.join(", "),
-      "filter(): " + filtered.join(", "),
-      "reduce(): " + sum,
-      "find(): " + numbers.find(number => number > 20),
-      "includes(25): " + numbers.includes(25),
-      "indexOf(20): " + numbers.indexOf(20)
+      "Original  : " + numbers.join(", "),
+      "map()     : " + doubled.join(", "),
+      "filter()  : " + filtered.join(", "),
+      "reduce()  : " + sum,
+      // find(): return the FIRST element that is greater than 20
+      //   10 fails  15 fails  20 fails  25 passes — stops here, returns 25
+      "find()    : " + numbers.find(number => number > 20),
+      // includes(): is the value 25 present in the array? → true
+      "includes(): " + numbers.includes(25),
+      // indexOf(): at which index is the value 20?
+      //   index 0=10  index 1=15  index 2=20 — found at position 2
+      "indexOf() : " + numbers.indexOf(20)
     ];
 
     output.textContent = report.join("\n");
@@ -90,25 +119,74 @@ Lab04/
 </html>
 ```
 
-### Expected Result
+### Expected Browser Output
 
-The page should display the original array and the output of each array method in a readable report.
+After opening `array-methods.html` in a browser, the `<pre>` block should display exactly:
+
+```text
+Original  : 10, 15, 20, 25, 30
+map()     : 20, 30, 40, 50, 60
+filter()  : 20, 25, 30
+reduce()  : 100
+find()    : 25
+includes(): true
+indexOf() : 2
+```
+
+::: {.callout-note}
+## Step-by-Step Trace
+
+| Method call | Step-by-step calculation | Result |
+|-------------|--------------------------|--------|
+| `map(n => n * 2)` | 10×2, 15×2, 20×2, 25×2, 30×2 | `[20, 30, 40, 50, 60]` |
+| `filter(n => n >= 20)` | 10 ✗  15 ✗  20 ✓  25 ✓  30 ✓ | `[20, 25, 30]` |
+| `reduce((t,n) => t+n, 0)` | 0+10+15+20+25+30 | `100` |
+| `find(n => n > 20)` | 10 ✗  15 ✗  20 ✗  **25 ✓** (stops here) | `25` |
+| `includes(25)` | Is 25 in [10,15,20,25,30]? | `true` |
+| `indexOf(20)` | 10 is at 0  15 at 1  **20 at 2** | `2` |
+:::
+
+::: {.callout-warning}
+## Common Mistakes to Avoid
+
+- `map()`, `filter()`, and `reduce()` **do not change the original array**. After all six operations, `numbers` is still `[10, 15, 20, 25, 30]`.
+- `indexOf()` returns **`-1`** — not `false` or `null` — when the value is not found.
+- `find()` returns **`undefined`** — not `[]` or `null` — when no element matches the condition.
+- `filter()` always returns an **array** even if only one element passes. `find()` returns a **single element**, not an array.
+:::
 
 ## Experiment 8: Nested Functions
 
 ### Problem Statement
 
-Write a JavaScript program using nested functions to generate a student report with calculated grade information.
+Write a JavaScript program using nested functions to generate student reports that show names, marks, and calculated grade letters.
+
+### Understanding Nested Functions
+
+A **nested function** is a function defined inside another function. The key rule is:
+
+> An inner function can read and use variables from the outer function that contains it. This access to an outer function's variables is called **closure**.
+
+```text
+studentReport(name, marks)        ← outer function  —  defines: name, marks
+    ├── calculateGrade()          ← inner function  —  can read: marks
+    └── buildMessage()            ← inner function  —  can read: name
+            └── calls calculateGrade()
+```
+
+Both inner functions share the outer function's `name` and `marks` without needing them passed as arguments again.
 
 ### Procedure
 
 1. Create a new file named `nested-functions.html`.
-2. Write an outer function that accepts student name and marks.
-3. Add inner functions for grade calculation and message formatting.
-4. Return the final report string from the outer function.
-5. Display the result in the browser.
+2. Write an outer function `studentReport(name, marks)`.
+3. Inside it, write an inner function `calculateGrade()` that reads `marks` from the outer scope and returns a letter grade.
+4. Write another inner function `buildMessage()` that reads `name` from the outer scope and calls `calculateGrade()`.
+5. Return the result of `buildMessage()` from the outer function.
+6. Call `studentReport()` three times with different names and marks.
+7. Display all three reports and compare with the expected output.
 
-### Solution Code
+### Solution Code (`nested-functions.html`)
 
 ```html
 <!DOCTYPE html>
@@ -123,52 +201,92 @@ Write a JavaScript program using nested functions to generate a student report w
   <pre id="result"></pre>
 
   <script>
+    // Outer function: receives a student's name and marks as parameters
     function studentReport(name, marks) {
+
+      // Inner function 1: reads 'marks' from the outer function's scope
       function calculateGrade() {
-        if (marks >= 90) return "A";
-        if (marks >= 75) return "B";
-        if (marks >= 60) return "C";
-        return "D";
+        if (marks >= 90) return "A";   // 90 and above
+        if (marks >= 75) return "B";   // 75 to 89
+        if (marks >= 60) return "C";   // 60 to 74
+        return "D";                    // below 60
       }
 
+      // Inner function 2: reads 'name' from the outer scope
+      //                    and calls calculateGrade() defined above
       function buildMessage() {
-        return name + " scored " + marks + " and received grade " + calculateGrade();
+        const grade = calculateGrade();
+        return name + " scored " + marks + " and received grade " + grade;
       }
 
+      // The outer function returns the string built by buildMessage()
       return buildMessage();
     }
 
-    document.getElementById("result").textContent = studentReport("Ravi", 82);
+    // Call the function three times with different students
+    const report1 = studentReport("Ravi",  82);   // 75–89 → Grade B
+    const report2 = studentReport("Priya", 91);   // ≥ 90  → Grade A
+    const report3 = studentReport("Arjun", 58);   // < 60  → Grade D
+
+    document.getElementById("result").textContent =
+      report1 + "\n" + report2 + "\n" + report3;
   </script>
 </body>
 </html>
 ```
 
-### Expected Result
+### Expected Browser Output
 
-The page should display a complete student report message generated through nested function calls.
+After opening `nested-functions.html`, the `<pre>` block should display exactly:
+
+```text
+Ravi scored 82 and received grade B
+Priya scored 91 and received grade A
+Arjun scored 58 and received grade D
+```
+
+::: {.callout-note}
+## Trace Through `studentReport("Ravi", 82)`
+
+| Step | What happens |
+|------|-------------|
+| 1 | `studentReport("Ravi", 82)` is called. Inside, `name = "Ravi"` and `marks = 82`. |
+| 2 | `buildMessage()` is called from inside the outer function. |
+| 3 | Inside `buildMessage()`, `calculateGrade()` is called. |
+| 4 | `calculateGrade()` reads `marks` (82) from the outer scope. Checks: `82 >= 90`? No. `82 >= 75`? **Yes** → returns `"B"`. |
+| 5 | `buildMessage()` builds: `"Ravi" + " scored " + 82 + " and received grade " + "B"` → returns `"Ravi scored 82 and received grade B"`. |
+| 6 | The outer function returns this string. It is stored in `report1`. |
+:::
+
+::: {.callout-tip}
+## Why Use Nested Functions?
+
+- `calculateGrade()` and `buildMessage()` are helpers that only make sense inside `studentReport()`. Keeping them inside hides them from the rest of the script and prevents naming conflicts.
+- Because all three functions share the same outer scope, `calculateGrade()` can read `marks` and `buildMessage()` can read `name` without those values being passed again as separate arguments.
+- This pattern is called **encapsulation** — grouping related logic so it stays together and does not interfere with other parts of the program.
+:::
 
 ## Observation Questions
 
-1. What is the difference between `map()` and `forEach()`?
-2. What does `reduce()` return?
-3. Why can an inner function access variables from the outer function?
-4. What is a closure in JavaScript?
+1. What is the difference between `map()` and `filter()`?
+2. What does `reduce()` return when the initial value is `0` and the array is `[1, 2, 3]`?
+3. What would `find()` return if no element in the array satisfies the condition?
+4. In Experiment 8, which variables can `calculateGrade()` access, and why?
 
 ## Viva Questions
 
-1. What is the difference between `filter()` and `find()`?
-2. Why are nested functions useful?
-3. What happens if an array method is called on an empty array?
-4. How can browser developer tools help while testing JavaScript?
+1. What is a closure in JavaScript?
+2. What is the difference between `find()` and `filter()`?
+3. What does `indexOf()` return when the element is not found in the array?
+4. Can an inner function access variables of the outer function? Explain using an example from this lab.
 
 ## Submission Checklist
 
 - `array-methods.html`
 - `nested-functions.html`
-- screenshots of both pages
+- screenshots showing the exact output matching the expected output above for both experiments
 - short answer file for observation and viva questions
 
 ## Extension Task
 
-Add examples for `slice()`, `splice()`, and `sort()`, and display all output inside an HTML table instead of a `pre` tag.
+Modify `array-methods.html` to let the user type comma-separated numbers into an `<input>` text field. Add a **Run** button that reads the numbers, converts them to an array using `split()` and `map(Number)`, runs all six methods, and displays the results dynamically without reloading the page.

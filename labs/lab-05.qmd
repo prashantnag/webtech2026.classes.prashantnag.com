@@ -1,11 +1,10 @@
----
+﻿---
 title: "Lab 5: Browser Information, Objects, and Script Reuse"
 date: "2026-02-20"
 due: "2026-02-25"
 ---
 
-
-This lab covers workbook experiments 9, 10, and 11.
+This lab covers workbook experiments 9, 10, and 11. You will read live browser data using the `navigator` object, merge JavaScript objects using the spread operator, and split reusable code into separate `.js` files — with the exact expected output shown for every experiment.
 
 ## Workbook Alignment
 
@@ -17,8 +16,8 @@ This lab covers workbook experiments 9, 10, and 11.
 
 By the end of this lab, you will be able to:
 
-- read browser details using the `navigator` object
-- create and merge JavaScript objects
+- read browser details using the built-in `navigator` object
+- create and merge JavaScript objects using the spread operator
 - organize reusable code across multiple JavaScript files
 - control script loading order in HTML
 - display dynamic output inside the page
@@ -27,17 +26,11 @@ By the end of this lab, you will be able to:
 
 - completion of Lab 4
 - VS Code or any text editor
-- a modern browser with developer tools
+- a modern browser with developer tools (F12)
 - a folder named `Lab05`
 - files named `browser-info.html`, `merge-objects.html`, `index.html`, `math-utils.js`, and `app.js`
 
-## Experiment 9: Display Browser Information
-
-### Problem Statement
-
-Create a web page that displays browser details using JavaScript.
-
-### Folder Structure
+## Folder Structure
 
 ```text
 Lab05/
@@ -48,15 +41,33 @@ Lab05/
   app.js
 ```
 
+## Experiment 9: Display Browser Information
+
+### Problem Statement
+
+Create a web page that reads and displays browser details using the JavaScript `navigator` object.
+
+### What is `navigator`?
+
+`navigator` is a built-in JavaScript object provided automatically by every browser. It is always available — you do not need to import or create it. Its properties describe the browser and device currently running your page:
+
+| Property | What it contains |
+|----------|-----------------|
+| `navigator.appName` | Generic application name (usually `"Netscape"` for all modern browsers) |
+| `navigator.appVersion` | Browser engine version string |
+| `navigator.platform` | Operating system / hardware platform (e.g. `"Win32"`) |
+| `navigator.language` | Language code set in the browser (e.g. `"en-US"`) |
+| `navigator.userAgent` | Full user-agent string — the most detailed description of the browser |
+
 ### Procedure
 
 1. Create the `Lab05` folder.
 2. Add a new file named `browser-info.html`.
-3. Access the `navigator` object using JavaScript.
-4. Store key browser properties in an object.
-5. Display the properties as list items in the browser.
+3. Create a JavaScript object whose values are read from `navigator` properties.
+4. Use `Object.entries()` to loop over the object and build a list.
+5. Open in a browser and compare with the expected output format below.
 
-### Solution Code
+### Solution Code (`browser-info.html`)
 
 ```html
 <!DOCTYPE html>
@@ -68,47 +79,85 @@ Lab05/
 </head>
 <body>
   <h1>Browser Information</h1>
+  <!-- An empty <ul> — list items will be added by JavaScript -->
   <ul id="browserInfo"></ul>
 
   <script>
+    // Collect five properties from the navigator object into a plain object
     const info = {
-      appName: navigator.appName,
+      appName:    navigator.appName,
       appVersion: navigator.appVersion,
-      platform: navigator.platform,
-      language: navigator.language,
-      userAgent: navigator.userAgent
+      platform:   navigator.platform,
+      language:   navigator.language,
+      userAgent:  navigator.userAgent
     };
 
     const list = document.getElementById("browserInfo");
+
+    // Object.entries(info) converts the object into an array of [key, value] pairs:
+    //   [ ["appName","Netscape"], ["appVersion","5.0 ..."], ... ]
+    // forEach destructures each pair into key and value
     Object.entries(info).forEach(([key, value]) => {
-      const item = document.createElement("li");
-      item.textContent = key + ": " + value;
-      list.appendChild(item);
+      const item = document.createElement("li");  // create a new <li> element
+      item.textContent = key + ": " + value;       // set its text
+      list.appendChild(item);                      // add it to the <ul>
     });
   </script>
 </body>
 </html>
 ```
 
-### Expected Result
+### Expected Browser Output
 
-The page should display browser name, version, platform, language, and user agent information as a list.
+Because `navigator` reads real browser data, your exact values will differ. The page should display **five list items** in this format:
+
+```text
+appName: Netscape
+appVersion: 5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ...
+platform: Win32
+language: en-US
+userAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ...
+```
+
+::: {.callout-note}
+## Why Does `appName` Show "Netscape"?
+
+All modern browsers (Chrome, Firefox, Edge, Safari) return `"Netscape"` for `appName` for historical compatibility. The `userAgent` string is the reliable way to identify the actual browser. For example, Chrome's user-agent contains `"Chrome/..."` while Firefox contains `"Firefox/..."`.
+:::
+
+::: {.callout-tip}
+## How to Verify This in the Browser Console
+
+Open F12 → Console and type `navigator.language` then press Enter. The console will return the same value that appears in your page — this is a quick way to check any `navigator` property before writing the code.
+:::
 
 ## Experiment 10: Merge Properties of Two Objects
 
 ### Problem Statement
 
-Write a JavaScript program to merge the properties of two objects and display the combined result.
+Write a JavaScript program that merges the properties of two separate objects into one combined object and displays the result.
+
+### What is the Spread Operator `...`?
+
+The spread operator (`...`) was introduced in ES2018 for objects. When used inside `{}`, it copies all own properties from the source object into the new object:
+
+```js
+const merged = { ...objectA, ...objectB };
+//               ^ copies all properties from objectA
+//                             ^ then copies all properties from objectB
+```
+
+If both objects have a property with the same name, the **second object wins** and overwrites the first.
 
 ### Procedure
 
 1. Create a file named `merge-objects.html`.
-2. Define two objects with related data.
-3. Merge them using the spread operator.
-4. Display the merged object using formatted JSON output.
-5. Test the page in the browser.
+2. Define two objects with related but separate data (`student` and `academic`).
+3. Merge them into a third object using the spread operator.
+4. Display the merged object using `JSON.stringify()` for readable, formatted output.
+5. Verify all six properties are present in the output.
 
-### Solution Code
+### Solution Code (`merge-objects.html`)
 
 ```html
 <!DOCTYPE html>
@@ -120,51 +169,95 @@ Write a JavaScript program to merge the properties of two objects and display th
 </head>
 <body>
   <h1>Merge Two Objects</h1>
+  <!-- <pre> keeps the indented JSON formatting intact on screen -->
   <pre id="mergedOutput"></pre>
 
   <script>
+    // Object 1: personal details of the student
     const student = {
-      name: "Neha",
+      name:       "Neha",
       rollNumber: "MCA24012"
     };
 
+    // Object 2: academic details stored separately
     const academic = {
-      course: "BMC201",
+      course:   "BMC201",
       semester: 2
     };
 
+    // Merge: copy all properties from student, then all from academic
+    //        into a brand-new object called merged
     const merged = { ...student, ...academic };
-    document.getElementById("mergedOutput").textContent = JSON.stringify(merged, null, 2);
+
+    // JSON.stringify(value, replacer, indent)
+    //   value    = merged object to convert to text
+    //   replacer = null  means include all properties
+    //   indent   = 2     means use 2-space indentation
+    document.getElementById("mergedOutput").textContent =
+      JSON.stringify(merged, null, 2);
   </script>
 </body>
 </html>
 ```
 
-### Expected Result
+### Expected Browser Output
 
-The page should display a single object containing all properties from both source objects.
+The `<pre>` element should display all four properties in formatted JSON:
+
+```json
+{
+  "name": "Neha",
+  "rollNumber": "MCA24012",
+  "course": "BMC201",
+  "semester": 2
+}
+```
+
+::: {.callout-note}
+## What Happens When Two Objects Share a Property Name?
+
+Try adding `course: "OLD"` to the `student` object and re-run the page. The output will show `"course": "BMC201"` — the value from `academic` — because the second spread overwrites the first. The rule is: **the rightmost object wins** when property names conflict.
+:::
+
+::: {.callout-tip}
+## Why `JSON.stringify()` Instead of Direct Display?
+
+If you wrote `output.textContent = merged`, JavaScript would convert the object to the string `"[object Object]"` — not useful. `JSON.stringify()` converts each key-value pair into readable text. The third argument `2` adds two-space indentation so the output is easy to read.
+:::
 
 ## Experiment 11: Include One JavaScript File into Another Page
 
 ### Problem Statement
 
-Create an HTML page that uses functions defined in a separate JavaScript file.
+Create an HTML page that loads utility functions from a separate `math-utils.js` file and calls them from `app.js`.
+
+### Why Separate JavaScript Files?
+
+Keeping code in separate `.js` files offers several advantages:
+
+- The same utility functions can be used in multiple HTML pages without copying code
+- Each file has a single responsibility — easier to read, test, and fix
+- The browser caches `.js` files after the first load, so subsequent pages are faster
 
 ### Procedure
 
-1. Create the files `math-utils.js`, `app.js`, and `index.html`.
-2. Define reusable functions in `math-utils.js`.
-3. Write page logic in `app.js`.
-4. Load both files in the correct order from `index.html`.
-5. Open the page and verify that both functions are available.
+1. Create `math-utils.js` and declare the utility functions `add()` and `multiply()`.
+2. Create `app.js` and write the page logic that calls those functions.
+3. Create `index.html` and load both scripts using `<script src="...">` tags.
+4. `math-utils.js` **must** appear before `app.js` in the HTML — the browser runs scripts top to bottom, so `add()` and `multiply()` must already be defined before `app.js` tries to use them.
+5. Open in a browser and check the output.
 
 ### `math-utils.js`
 
+This file only defines functions — it does not run anything itself. It is loaded first so its functions are available to `app.js`.
+
 ```javascript
+// Utility function 1: returns the sum of two numbers
 function add(a, b) {
   return a + b;
 }
 
+// Utility function 2: returns the product of two numbers
 function multiply(a, b) {
   return a * b;
 }
@@ -172,14 +265,25 @@ function multiply(a, b) {
 
 ### `app.js`
 
+This file calls the functions defined in `math-utils.js`. The `DOMContentLoaded` listener ensures the script waits until the `<p id="scriptOutput">` element exists in the page before trying to find it.
+
 ```javascript
+// DOMContentLoaded fires when the browser has finished parsing the HTML
+// and all elements are available in the DOM
 window.addEventListener("DOMContentLoaded", function () {
   const output = document.getElementById("scriptOutput");
-  output.textContent = "Sum: " + add(10, 20) + " | Product: " + multiply(10, 20);
+
+  // add() and multiply() are defined in math-utils.js which is loaded first
+  const sum     = add(10, 20);      // 10 + 20 = 30
+  const product = multiply(10, 20); // 10 × 20 = 200
+
+  output.textContent = "Sum: " + sum + " | Product: " + product;
 });
 ```
 
 ### `index.html`
+
+The two `<script>` tags at the bottom of `<body>` load the files in the correct order:
 
 ```html
 <!DOCTYPE html>
@@ -191,31 +295,63 @@ window.addEventListener("DOMContentLoaded", function () {
 </head>
 <body>
   <h1>Including JavaScript Files</h1>
+  <!-- The paragraph that app.js will write its result into -->
   <p id="scriptOutput"></p>
 
+  <!-- math-utils.js MUST come first — it defines add() and multiply()  -->
   <script src="math-utils.js"></script>
+  <!-- app.js comes second — it calls add() and multiply() from above   -->
   <script src="app.js"></script>
 </body>
 </html>
 ```
 
-### Expected Result
+### Expected Browser Output
 
-The page should display the calculated sum and product, proving that functions defined in one script file can be reused in another page script.
+The page should display the following line of text inside the `<p>` element:
+
+```text
+Sum: 30 | Product: 200
+```
+
+::: {.callout-note}
+## Step-by-Step Execution Order
+
+| Order | What happens |
+|-------|-------------|
+| 1 | Browser loads `index.html` and parses the HTML top to bottom |
+| 2 | Reaches `<script src="math-utils.js">` — downloads and runs it; `add()` and `multiply()` are now defined |
+| 3 | Reaches `<script src="app.js">` — downloads and runs it; registers the `DOMContentLoaded` listener |
+| 4 | Browser finishes parsing HTML; `DOMContentLoaded` fires |
+| 5 | The listener function runs: finds `#scriptOutput`, calls `add(10,20)` → 30, calls `multiply(10,20)` → 200 |
+| 6 | Sets the paragraph text to `"Sum: 30 | Product: 200"` — visible on screen |
+:::
+
+::: {.callout-warning}
+## What Happens If You Swap the Script Order?
+
+If you put `<script src="app.js">` before `<script src="math-utils.js">`, the browser will try to run `app.js` before `add()` and `multiply()` are defined. You will get an error in the browser console:
+
+```text
+Uncaught ReferenceError: add is not defined
+```
+
+Always load utility/library scripts before the scripts that depend on them.
+:::
 
 ## Observation Questions
 
-1. What is the purpose of the `navigator` object?
-2. What happens when two merged objects have the same property name?
-3. Why should utility scripts be loaded before dependent scripts?
-4. What is the difference between `DOMContentLoaded` and `load`?
+1. What is the purpose of the `navigator` object in JavaScript?
+2. What happens when two merged objects have a property with the same name?
+3. Why must `math-utils.js` be loaded before `app.js` in `index.html`?
+4. What is the difference between `DOMContentLoaded` and the `load` event?
 
 ## Viva Questions
 
-1. What is the advantage of separating utility code into another file?
-2. What is the role of `JSON.stringify()` in this lab?
-3. Why is script order important in HTML?
-4. How can browser developer tools help debug JavaScript loading issues?
+1. What is the advantage of placing reusable functions in a separate `.js` file?
+2. What does `JSON.stringify()` do, and why is the third argument useful?
+3. Why does `Object.entries()` return an array of arrays?
+4. How can the browser developer tools (F12 → Network tab) help you verify that both `.js` files were loaded?
 
 ## Submission Checklist
 
@@ -224,9 +360,9 @@ The page should display the calculated sum and product, proving that functions d
 - `index.html`
 - `math-utils.js`
 - `app.js`
-- screenshots of all three pages
+- screenshots of all three pages showing the expected output
 - short answer file for observation and viva questions
 
 ## Extension Task
 
-Add another utility function, such as `subtract()` or `divide()`, and update the page so it displays all available calculations.
+Add two more functions — `subtract(a, b)` and `divide(a, b)` — to `math-utils.js`. Update `app.js` to display all four calculations. For `divide()`, add a guard that returns `"Cannot divide by zero"` when `b` is `0`.
