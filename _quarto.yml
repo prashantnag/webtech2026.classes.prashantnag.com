@@ -40,7 +40,7 @@ website:
 
   navbar:
     background: "#2C3E50"
-    # logo: files/favicon-512.png
+    logo: files/favicon.svg
     # logo-alt: "BMC201 Web Technology logo"
     collapse-below: lg
     left:
