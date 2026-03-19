@@ -3,14 +3,36 @@ title: "Course Schedule"
 subtitle: "BMC201 - Web Technology"
 sidebar: false
 toc: false
-page-layout: full
+format:
+  html:
+    page-layout: full
+    toc: false
 ---
 
-::: {.schedule-page}
+```{r packages-data, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+if (requireNamespace("targets", quietly = TRUE)) {
+	withr::with_dir(here::here(), {
+		schedule_nested <- targets::tar_read(schedule_page_data)
+		targets::tar_load(schedule_ical_file)
+	})
+} else {
+	source(here::here("R", "tar_calendar.R"))
+	schedule_nested <- build_schedule_for_page(here::here("data", "schedule.csv"))
+
+	schedule_ical_file <- "files/schedule.ics"
+}
+
+base_url <- yaml::read_yaml(here::here("_quarto.yml"))$website$`site-url`
+ical_url_absolute <- paste0(base_url, "/", schedule_ical_file)
+```
 
 Here's your roadmap for the semester!
 
-- [**Presentations**](/presentations/index.qmd) ({{< fa desktop >}}): Lecture slides and presentations for each class session.
+- [**Lectures**](/lectures/index.qmd) ({{< fa desktop >}}): Lecture materials for each class session.
 
 - [**Content**](/content/index.qmd) ({{< fa book-open-reader >}}): This page contains lecture materials, readings, and videos for each topic. Read and watch these.
 
@@ -22,247 +44,41 @@ Here's your roadmap for the semester!
 
 - [**Resources**](/resource/index.qmd) ({{< fa books >}}): Additional learning materials and references.
 
----
+::: {.callout-tip}
+## Subscribe
 
-## Course Overview
+You can subscribe to this calendar URL in Outlook, Google Calendar, or Apple Calendar.
 
-**Course Code:** BMC201  
-**Course Name:** Web Technology  
-**Semester:** II  
-**Credits:** 4 (3 Lectures - 1 Tutorial - 0 Practical)  
-**Teaching Structure:** 4 Classes/Week + 1 Lab Session (3 hours)/Week  
-**Academic Year:** 2025-26  
-**Duration:** January 26 - May 3, 2026
+::: {.grid .align-items-center}
 
----
+::: {.g-col-12 .g-col-md-3}
+<p class="download-btn"><a class="btn btn-danger" href="/`r schedule_ical_file`" role="button">{{< fa calendar-alt >}} Download ICS</a></p>
+:::
 
-## Assessment Structure (AKTU Format)
-
-| Component | Marks |
-|-----------|-------|
-| Class Test (CT) | 20 |
-| Teacher Assessment (TA) | 10 |
-| **Sessional Subtotal** | **30** |
-| End-Semester Exam (ESE) | 70 |
-| **Total** | **100** |
-
----
-
-### Week 1: Jan 26 - Feb 1, 2026 {.unlisted}
-
-**Unit I: Web Page Designing - Introduction**
-
-|  | Topic | Slides | Content | Pre-Class Quiz | Labs | Assignments | Due |
-|--|-------|--------|---------|----------------|------|-------------|-----|
-| *Lecture 1* | Introduction to Web Designing | [{{< fa desktop >}}](/presentations/lecture-01.qmd) | [{{< fa book-open-reader >}}](/content/week-01.qmd) | [{{< fa list-check >}}](/quiz/lecture-01-quiz.qmd) | | | |
-| *Lecture 2* | History of Web & Internet | [{{< fa desktop >}}](/presentations/lecture-02.qmd) | [{{< fa book-open-reader >}}](/content/week-01.qmd) | [{{< fa list-check >}}](/quiz/lecture-02-quiz.qmd) | | | |
-| *Lecture 3* | HTML Basics & Structure | [{{< fa desktop >}}](/presentations/lecture-03.qmd) | [{{< fa book-open-reader >}}](/content/week-01.qmd) | [{{< fa list-check >}}](/quiz/lecture-03-quiz.qmd) | | | |
-| *Lecture 4* | HTML Grouping: Div & Span | [{{< fa desktop >}}](/presentations/lecture-04.qmd) | [{{< fa book-open-reader >}}](/content/week-01.qmd) | [{{< fa list-check >}}](/quiz/lecture-04-quiz.qmd) | | | |
-| *Lab 1* | Development Environment Setup | | | | [{{< fa flask >}}](/labs/lab-01.qmd) | | **Jan 28** |
-
-: {tbl-colwidths="[12,28,9,11,12,8,10,10]"}
-
----
-
-### Week 2: Feb 2 - Feb 8, 2026 {.unlisted}
-
-**Unit I: HTML Forms & CSS Introduction**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 5* | HTML Lists & Images | [{{< fa desktop >}}](/presentations/lecture-05.qmd) | [{{< fa book-open-reader >}}](/content/week-02.qmd) | | | |
-| *Lecture 6* | HTML Hyperlinks & Tables | [{{< fa desktop >}}](/presentations/lecture-06.qmd) | [{{< fa book-open-reader >}}](/content/week-02.qmd) | | | |
-| *Lecture 7* | HTML Forms & Form Elements | [{{< fa desktop >}}](/presentations/lecture-07.qmd) | [{{< fa book-open-reader >}}](/content/week-02.qmd) | | | |
-| *Lecture 8* | Introduction to CSS | [{{< fa desktop >}}](/presentations/lecture-08.qmd) | [{{< fa book-open-reader >}}](/content/week-02.qmd) | | | |
-| *Lab 2* | HTML Forms & Multimedia | | | [{{< fa flask >}}](/labs/lab-02.qmd) | | **Feb 11** |
-| *Assignment 1* | HTML Website with Forms | | | | [{{< fa pen-ruler >}}](/assignment/01-assignment.qmd) | **Feb 11** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 3: Feb 9 - Feb 15, 2026 {.unlisted}
-
-**Unit I: CSS Styling & Unit II: JavaScript**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 9* | CSS Units & Advanced Selectors | [{{< fa desktop >}}](/presentations/lecture-09.qmd) | [{{< fa book-open-reader >}}](/content/week-03.qmd) | | | |
-| *Lecture 10* | CSS Box Model & Positioning | [{{< fa desktop >}}](/presentations/lecture-10.qmd) | [{{< fa book-open-reader >}}](/content/week-03.qmd) | | | |
-| *Lecture 11* | Bootstrap Framework | [{{< fa desktop >}}](/presentations/lecture-11.qmd) | [{{< fa book-open-reader >}}](/content/week-03.qmd) | | | |
-| *Lecture 12* | JavaScript: Variables & Data Types | [{{< fa desktop >}}](/presentations/lecture-12.qmd) | [{{< fa book-open-reader >}}](/content/week-03.qmd) | | | |
-| *Lab 3* | CSS Styling & Responsive Design | | | [{{< fa flask >}}](/labs/lab-03.qmd) | | **Feb 26** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 4: Feb 16 - Feb 22, 2026 {.unlisted}
-
-**Unit II: JavaScript Functions & Events**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 13* | JavaScript Functions & Events | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-04.qmd) | | | |
-| *Lecture 14* | Conditions & Looping | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-04.qmd) | | | |
-| *Lecture 15* | Block Scope & Objects | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-04.qmd) | | | |
-| *Lecture 16* | Arrow Functions & Callbacks | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-04.qmd) | | | |
-| *Lab 4* | JavaScript Functions & Events | | | [{{< fa flask >}}](/labs/index.qmd) | | **Feb 18** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 5: Feb 23 - Mar 1, 2026 {.unlisted}
-
-**Unit II: DOM Manipulation**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 17* | DOM Manipulation & Array Methods | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-05.qmd) | | | |
-| *Lecture 18* | Form Validation | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-05.qmd) | | | |
-| *Lecture 19* | ES6+ Features | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-05.qmd) | | | |
-| *Lecture 20* | Revision: Units I & II | [{{< fa desktop >}}](/presentations/index.qmd) | | | | |
-| *Lab 5* | DOM Manipulation & Interactive Pages | | | [{{< fa flask >}}](/labs/index.qmd) | | **Feb 25** |
-| *Assignment 2* | Interactive Web Page | | | | [{{< fa pen-ruler >}}](/assignment/02-assignment.qmd) | **Feb 25** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Weeks 6-7: Mar 2 - Mar 14, 2026 {.unlisted}
-
-**Mid-Semester Examination**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Revision* | Unit I: Web Page Designing | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-06.qmd) | | | |
-| *Revision* | Unit II: JavaScript | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-06.qmd) | | | |
-| *Mid-Sem Exam* | Written Test on Units I & II | | | | | **Mar 10-14** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 8: Mar 16 - Mar 22, 2026 {.unlisted}
-
-**Unit III: JSP & Servlets Introduction**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 21* | Servlet Architecture & Lifecycle | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-08.qmd) | | | |
-| *Lecture 22* | HTTP GET & POST Requests | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-08.qmd) | | | |
-| *Lecture 23* | Session Tracking & Cookies | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-08.qmd) | | | |
-| *Lecture 24* | Introduction to JSP | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-08.qmd) | | | |
-| *Lab 6* | Servlet Development | | | [{{< fa flask >}}](/labs/index.qmd) | | **Mar 18** |
-| *Assignment 3* | Responsive Website | | | | [{{< fa pen-ruler >}}](/assignment/03-assignment.qmd) | **Mar 18** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 9: Mar 23 - Mar 29, 2026 {.unlisted}
-
-**Unit III: JSP Advanced & MVC**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 25* | JSP Implicit Objects & Directives | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-09.qmd) | | | |
-| *Lecture 26* | JSP Standard Actions & JSTL | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-09.qmd) | | | |
-| *Lecture 27* | MVC Architecture | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-09.qmd) | | | |
-| *Lecture 28* | Database Connectivity with JDBC | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-09.qmd) | | | |
-| *Lab 7* | JSP Pages & Database Integration | | | [{{< fa flask >}}](/labs/index.qmd) | | **Mar 25** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 10: Mar 30 - Apr 5, 2026 {.unlisted}
-
-**Unit IV: Spring Framework**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 29* | Spring Framework & Dependency Injection | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-10.qmd) | | | |
-| *Lecture 30* | Spring Beans & Application Context | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-10.qmd) | | | |
-| *Lecture 31* | Aspect-Oriented Programming (AOP) | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-10.qmd) | | | |
-| *Lecture 32* | Spring MVC Overview | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-10.qmd) | | | |
-| *Lab 8* | Spring Framework Application | | | [{{< fa flask >}}](/labs/index.qmd) | | **Apr 1** |
-| *Assignment 4* | Web App with Servlets & JSP | | | | [{{< fa pen-ruler >}}](/assignment/04-assignment.qmd) | **Apr 8** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 11: Apr 6 - Apr 12, 2026 {.unlisted}
-
-**Unit IV-V: Spring Framework & Spring Boot**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 33* | Spring Data & ORM Integration | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-11.qmd) | | | |
-| *Lecture 34* | Spring Security | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-11.qmd) | | | |
-| *Lecture 35* | Introduction to Spring Boot | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-11.qmd) | | | |
-| *Lecture 36* | Building REST APIs with Spring Boot | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-11.qmd) | | | |
-| *Lab 9* | Spring Boot Application | | | [{{< fa flask >}}](/labs/index.qmd) | | **Apr 8** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-### Week 12: Apr 13 - Apr 19, 2026 {.unlisted}
-
-**Unit V: Spring Boot & REST Services**
-
-|  | Topic | Slides | Content | Labs | Assignments | Due |
-|--|-------|--------|---------|------|-------------|-----|
-| *Lecture 37* | REST API Best Practices | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-12.qmd) | | | |
-| *Lecture 38* | Testing in Spring Boot | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-12.qmd) | | | |
-| *Lecture 39* | Deployment & Production | [{{< fa desktop >}}](/presentations/index.qmd) | [{{< fa book-open-reader >}}](/content/week-12.qmd) | | | |
-| *Lecture 40* | Final Project Discussion & Revision | [{{< fa desktop >}}](/presentations/index.qmd) | | | | |
-| *Final Project* | Complete Web Application | | | | [{{< fa pen-ruler >}}](/assignment/index.qmd) | **Apr 19** |
-
-: {tbl-colwidths="[12,30,10,10,8,15,15]"}
-
----
-
-## Important Dates Summary
-
-| Date | Event |
-|------|-------|
-| January 26, 2026 | Semester Begins |
-| January 28, 2026 | Lab 1 Due |
-| February 4, 2026 | Lab 2 Due |
-| February 11, 2026 | Lab 3 & **Assignment 1 Due** |
-| February 18, 2026 | Lab 4 Due |
-| February 25, 2026 | Lab 5 & **Assignment 2 Due** |
-| March 10-14, 2026 | **Mid-Semester Examination** |
-| March 18, 2026 | Lab 6 & **Assignment 3 Due** |
-| March 25, 2026 | Lab 7 Due |
-| April 1, 2026 | Lab 8 Due |
-| April 8, 2026 | Lab 9 & **Assignment 4 Due** |
-| April 19, 2026 | **Final Project Due** |
-| April 21 - May 3, 2026 | **End-Semester Examination** |
-
----
-
-## How to Use This Schedule
-
-**Weekly Structure:**
-
-- **4 Classes per week**: View presentation slides ({{< fa desktop >}}) and review content pages ({{< fa book-open-reader >}}) for lecture materials
-- **Pre-class quiz checks**: Use quiz links ({{< fa list-check >}}) from the schedule table before presenting each topic
-- **1 Lab per week**: Attend 3-hour hands-on lab sessions ({{< fa flask >}})
-- **Assignments**: Complete assignments ({{< fa pen-ruler >}}) by checking content and referencing materials
-- **Advanced post-class quiz**: Will be published as a separate evaluation set after class activities
-
-**Process for each topic:**
-
-1. View the presentation slides ({{< fa desktop >}})
-2. Run the pre-class quiz check ({{< fa list-check >}})
-3. Read the content page ({{< fa book-open-reader >}})
-4. Complete lab exercises ({{< fa flask >}})
-5. Work on assignments ({{< fa pen-ruler >}}) using references from content
-6. Use advanced post-class quiz once published
+::: {.g-col-12 .g-col-md-9 .subscribe-url}
+<p><input class="form-control" type="text" value="`r ical_url_absolute`" onclick="this.select()" readonly></p>
+:::
 
 :::
+:::
+
+```{r build-table, include=FALSE}
+show_table <- function(group_id) {
+	cat(glue::glue("\n\n<div class=\"schedule-group\"><div class=\"schedule-group-title\"><h3>{schedule_nested$group[[group_id]]}</h3></div>\n"))
+
+	tbl <- schedule_nested$data[[group_id]] |>
+		kbl(escape = FALSE, align = "rlccccc", table.attr = 'class="schedule-table"') |>
+		kable_styling() |>
+		column_spec(1, width = "18%", extra_css = "padding-right: 20px; white-space: nowrap;") |>
+		column_spec(2, width = "42%") |>
+		column_spec(3:7, width = "8%")
+
+	cat(tbl)
+	cat("</div>")
+}
+```
+
+```{r show-table, echo=FALSE, results="asis"}
+walk(seq_len(nrow(schedule_nested)), ~show_table(.x))
+```
+

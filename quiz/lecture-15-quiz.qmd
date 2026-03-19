@@ -1,0 +1,56 @@
+---
+title: "Lecture 15 Quiz: Objects & Scope"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-15.qmd) | [Week 4 Content](/content/week-04.qmd) | [Lab 4](/labs/lab-04.qmd) | [Assignment 2](/assignment/02-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 15 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Ordered list of values", "B. Key-value data structure", "C. CSS selector", "D. HTML attribute"]
+question = "Question 1: In JavaScript, an object is best described as a:"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `user-name`", "B. `user.name`", "C. `user:name`", "D. `user=name`"]
+question = "Question 2: Which syntax correctly accesses a property named `name` from object `user`?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `var` has block scope", "B. `let` has block scope", "C. `const` can be redeclared", "D. `var` is always local"]
+question = "Question 3: Which statement about scope is correct?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Outer scope can access inner local variables", "B. Inner scope can access outer variables", "C. Scopes do not interact", "D. Scope exists only in loops"]
+question = "Question 4: Which statement describes scope chain behavior?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `const`", "B. `let`", "C. `var`", "D. `scope`"]
+question = "Question 5: Which keyword is generally preferred for values that should not be reassigned?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```

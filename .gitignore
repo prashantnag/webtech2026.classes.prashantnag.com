@@ -1,21 +1,42 @@
+# Quarto
 /.quarto/
 /_site/
-/.vscode/
-/.Rproj.user/
-*.Rproj
-/.Rhistory
-/.RData
-/.Ruserdata
+_freeze/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
 Thumbs.db
-*.log
-node_modules/
-.env
-renv/library/
-renv/staging/
-renv/python/
-renv/cache/
-/.targets/
-/.tarchetypes/
 
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.local
+*.key
+*.pem
+
+# Archive
+archive_scripts/
+
+# Local files
+local/
+
+# Quarto notebooks
 **/*.quarto_ipynb

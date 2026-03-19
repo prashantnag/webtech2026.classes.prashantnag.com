@@ -250,7 +250,7 @@ assignment1/
 
 If you have questions about this assignment:
 
-- Check the [Week 2 Content](/content/02-content.qmd) material
+- Check the [Week 2 Content](../content/week-02.qmd) material
 - Attend lab sessions for help
 - Email me at [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
 

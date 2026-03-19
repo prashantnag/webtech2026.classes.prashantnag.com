@@ -1,0 +1,13 @@
+format:
+  revealjs:
+    slide-number: true
+    code-link: true
+    code-copy: false
+    highlight-style: a11y
+    chalkboard: true
+    transition: slide
+    transition-speed: default
+    code-line-numbers: true
+    code-overflow: wrap
+    theme:
+      - ../course-slides-styles.scss

@@ -10,8 +10,7 @@ project:
     - "labs/"
     - "quiz/"
     - "resource/"
-    - "presentations/"
-    - "!temp_dataviz_repo/**"
+    - "lectures/"
 
 # Add extensions for icons and advanced features
 extensions:
@@ -19,11 +18,12 @@ extensions:
 
 website:
   page-navigation: true
+  bread-crumbs: false
   title: "Web Technology - BMC201"
   description: "Website for BMC201 Web Technology course (MCA Semester 2) at GCET, following AKTU curriculum"
   site-url: "https://webtech2025.classes.prashantnag.com"
 
-  repo-url: "https://github.com/prashantnag/webtech2025"
+  repo-url: "https://github.com/prashantnag/webtech2025.classes.prashantnag.com"
   repo-actions: [edit, issue]
 
   open-graph: true
@@ -34,23 +34,61 @@ website:
   navbar:
     background: "#2C3E50"
     # logo: files/favicon-512.png
-    # logo-alt: "BMC205 Web Technology logo"
+    # logo-alt: "BMC201 Web Technology logo"
     collapse-below: lg
-    right:
+    left:
       - text: "Home"
         file: index.qmd
       - text: "Syllabus"
         file: syllabus.qmd
       - text: "Schedule"
-        file: schedule.qmd
+        menu:
+          - text: "Course Schedule Overview"
+            file: schedule.qmd
+          - text: "Week 01"
+            file: content/week-01.qmd
+          - text: "Week 02"
+            file: content/week-02.qmd
+          - text: "Week 03"
+            file: content/week-03.qmd
+          - text: "Week 04"
+            file: content/week-04.qmd
+          - text: "Week 05"
+            file: content/week-05.qmd
+          - text: "Week 06-07 (Mid-Sem)"
+            file: content/week-06.qmd
+          - text: "Week 08"
+            file: content/week-08.qmd
+          - text: "Week 09"
+            file: content/week-09.qmd
+          - text: "Week 10"
+            file: content/week-10.qmd
+          - text: "Week 11"
+            file: content/week-11.qmd
+          - text: "Week 12"
+            file: content/week-12.qmd
       - text: "Materials"
         menu:
-          - text: "Weekly Content"
-            file: content/index.qmd
-          - text: "Presentations"
-            file: presentations/index.qmd
-          - text: "Lab Manuals"
+          - text: "Labs Overview"
             file: labs/index.qmd
+          - text: "Lab 01"
+            file: labs/lab-01.qmd
+          - text: "Lab 02"
+            file: labs/lab-02.qmd
+          - text: "Lab 03"
+            file: labs/lab-03.qmd
+          - text: "Lab 04"
+            file: labs/lab-04.qmd
+          - text: "Lab 05"
+            file: labs/lab-05.qmd
+          - text: "Lab 06"
+            file: labs/lab-06.qmd
+          - text: "Lab 07"
+            file: labs/lab-07.qmd
+          - text: "Lab 08"
+            file: labs/lab-08.qmd
+          - text: "Lab 09"
+            file: labs/lab-09.qmd
           - text: "Quizzes"
             file: quiz/index.qmd
           - text: "Resources"
@@ -59,56 +97,6 @@ website:
         menu:
           - text: "Assignments"
             file: assignment/index.qmd
-          - text: "Assessment Calendar"
-            file: schedule.qmd
-
-  sidebar:
-    - title: "Course Navigation"
-      style: "docked"
-      search: true
-      background: light
-      contents:
-        - section: "Start Here"
-          contents:
-            - index.qmd
-            - schedule.qmd
-            - syllabus.qmd
-        - section: "Weekly Materials"
-          contents:
-            - content/index.qmd
-            - text: "Week 1-2: HTML & Introduction"
-              file: content/week-01.qmd
-            - text: "Week 2-3: HTML Elements & CSS"
-              file: content/week-02.qmd
-            - text: "Week 3: CSS & JavaScript Intro"
-              file: content/week-03.qmd
-            - text: "Week 4: JavaScript Functions"
-              file: content/week-04.qmd
-            - text: "Week 5: DOM & ES6+"
-              file: content/week-05.qmd
-            - text: "Week 6-7: Revision & Exam"
-              file: content/week-06.qmd
-            - text: "Week 8: Servlets & JSP Intro"
-              file: content/week-08.qmd
-            - text: "Week 9: JSP Advanced & MVC"
-              file: content/week-09.qmd
-            - text: "Week 10: Spring Framework"
-              file: content/week-10.qmd
-            - text: "Week 11: Spring Boot & Data"
-              file: content/week-11.qmd
-            - text: "Week 12: REST & Final Project"
-              file: content/week-12.qmd
-        - section: "Practice & Evaluation"
-          contents:
-            - presentations/index.qmd
-            - labs/index.qmd
-            - assignment/index.qmd
-            - quiz/index.qmd
-        - section: "Resources"
-          contents:
-            - resource/index.qmd
-            - resource/tools.qmd
-            - resource/web-servers.qmd
 
   page-footer:
     left: |
@@ -116,19 +104,23 @@ website:
       All content licensed under a [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
     right: |
       Made with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/)<br>
-      [View the source on GitHub](https://github.com/prashantnag/webtech2025)
+      [View the source on GitHub](https://github.com/prashantnag/webtech2025.classes.prashantnag.com)
 
 format:
   html:
     theme:
-      - cosmo
-      - html/custom.scss
+      light:
+        - cosmo
+        - html/custom.scss
+      dark:
+        - darkly
+        - html/custom-dark.scss
     css:
       - html/styles.css
     toc: true
     code-copy: true
     code-overflow: wrap
-    mainfont: "Atkinson Hyperlegible"
+    # mainfont: "Atkinson Hyperlegible"
     highlight-style: monokai
 
 execute:
@@ -143,11 +135,11 @@ course:
   credits: "4 (3-1-0)"
   curriculum: "AKTU MCA Model Curriculum 2020-21"
   copyright_year: "2026"
-  github: "https://github.com/prashantnag/webtech2025"
+  github: "https://github.com/prashantnag/webtech2025.classes.prashantnag.com"
   institution: "Galgotias College of Engineering & Technology"
 
 instructor:
-  name: "Dr. Prashant Kumar Nag"
+  name: "Mr. Prashant Kumar Nag"
   name_no_title: "Prashant Kumar Nag"
   title: "Assistant Professor"
   email: "prashantkumar.nag@galgotiacollege.edu"

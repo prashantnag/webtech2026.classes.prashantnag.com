@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 4: Feb 16 - Feb 22, 2026"
 subtitle: "Unit II: JavaScript Functions, Events & Control Flow"
 ---
@@ -13,7 +13,16 @@ This week covers JavaScript functions, event handling, and begins control flow s
 
 ---
 
-## Lecture 13: JavaScript Functions & Event Handling
+## Lecture 13: JavaScript Functions & Event Handling {#lecture-13}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-13-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-13.qmd)
+[{{< fa flask >}} Open Demo](/html/demos/lecture-13-demo.html)
+[{{< fa code >}} Demo JS (app.js)](/html/demos/lecture-13/app.js)
+:::
+
 
 ### Functions
 ```javascript
@@ -61,7 +70,14 @@ button.addEventListener('click', function(event) {
 
 ---
 
-## Lecture 14: Conditional Statements & Looping
+## Lecture 14: Conditional Statements & Looping {#lecture-14}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-14-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-14.qmd)
+:::
+
 
 ### If/Else Statements
 ```javascript
@@ -115,7 +131,14 @@ for (const key in object) {
 
 ---
 
-## Lecture 15: Objects & Scope
+## Lecture 15: Objects & Scope {#lecture-15}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-15-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-15.qmd)
+:::
+
 
 ### Objects
 ```javascript
@@ -161,7 +184,14 @@ console.log(blockVar);      // Error: not defined
 
 ---
 
-## Lecture 16: Arrow Functions & Callbacks
+## Lecture 16: Arrow Functions & Callbacks {#lecture-16}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-16-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-16.qmd)
+:::
+
 
 ### Arrow Functions
 ```javascript
@@ -248,3 +278,4 @@ We'll continue with:
 - Advanced DOM manipulation
 - More array methods
 - ES6+ features
+

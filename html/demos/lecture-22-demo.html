@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 22 Demo - HTTP GET & POST Requests</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --ink: #13233a;
+        --accent: #0d6efd;
+        --ok: #198754;
+        --warn: #ffc107;
+        --danger: #dc3545;
+        --border: #d9e2ef;
+        --get-color: #17a2b8;
+        --post-color: #28a745;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #f4f7fb 0%, #e8f1ff 100%);
+        color: var(--ink);
+        padding: 24px;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin-bottom: 6px;
+        color: #053660;
+      }
+
+      .subtitle {
+        margin-top: 0;
+        color: #35557a;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+        box-shadow: 0 8px 18px rgba(17, 58, 94, 0.08);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #b9cce5;
+        font-size: 14px;
+      }
+
+      textarea {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+
+      button:hover {
+        background: #0b5ed7;
+      }
+
+      button.get-btn {
+        background: var(--get-color);
+      }
+
+      button.get-btn:hover {
+        background: #138496;
+      }
+
+      button.post-btn {
+        background: var(--post-color);
+      }
+
+      button.post-btn:hover {
+        background: #218838;
+      }
+
+      button.secondary {
+        background: #6c757d;
+      }
+
+      button.secondary:hover {
+        background: #5a6268;
+      }
+
+      pre {
+        margin: 0;
+        background: #0e1a2b;
+        color: #d7e6ff;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+        min-height: 100px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .pill {
+        display: inline-block;
+        background: #e6f4ea;
+        color: var(--ok);
+        border: 1px solid #b8e3c3;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        margin-right: 8px;
+        margin-bottom: 6px;
+      }
+
+      .info-box {
+        padding: 12px;
+        background: #e7f3ff;
+        border-left: 4px solid var(--accent);
+        border-radius: 4px;
+        margin: 12px 0;
+        font-size: 14px;
+      }
+
+      .info-box.get-info {
+        background: #d1ecf1;
+        border-left-color: var(--get-color);
+      }
+
+      .info-box.post-info {
+        background: #d4edda;
+        border-left-color: var(--post-color);
+      }
+
+      .method-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 12px;
+        margin-right: 8px;
+      }
+
+      .badge-get {
+        background: var(--get-color);
+        color: white;
+      }
+
+      .badge-post {
+        background: var(--post-color);
+        color: white;
+      }
+
+      .url-display {
+        background: #f8f9fa;
+        padding: 12px;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 13px;
+        word-break: break-all;
+        margin: 12px 0;
+        border: 1px solid #dee2e6;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #dee2e6;
+      }
+
+      .comparison-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      h3 {
+        margin-top: 0;
+        color: #053660;
+      }
+
+      .response-box {
+        background: #fff;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 12px 0;
+        min-height: 120px;
+      }
+
+      .response-header {
+        font-weight: 600;
+        color: #053660;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #dee2e6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Lecture 22 Demo</h1>
+      <p class="subtitle">
+        HTTP GET & POST Requests - Interactive Demonstration
+      </p>
+
+      <div class="card">
+        <p>
+          <strong>Classroom tip:</strong> Use this demo to understand GET vs
+          POST, visualize request/response flow, and see how data is
+          transmitted. Open browser DevTools console for request details.
+        </p>
+        <p>
+          <span class="pill">GET Requests</span>
+          <span class="pill">POST Requests</span>
+          <span class="pill">Request Parameters</span>
+          <span class="pill">Form Handling</span>
+        </p>
+      </div>
+
+      <!-- GET Request Demo -->
+      <div class="card">
+        <h3>
+          <span class="method-badge badge-get">GET</span> Request Demonstration
+        </h3>
+        <div class="info-box get-info">
+          GET requests send data in the URL query string. Data is visible and
+          limited in size.
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="getQuery">Search Query</label>
+            <input id="getQuery" type="text" value="java programming" />
+          </div>
+          <div>
+            <label for="getCategory">Category</label>
+            <select id="getCategory">
+              <option value="books">Books</option>
+              <option value="videos">Videos</option>
+              <option value="articles">Articles</option>
+            </select>
+          </div>
+          <div>
+            <label for="getPage">Page Number</label>
+            <input id="getPage" type="number" value="1" min="1" />
+          </div>
+          <div>
+            <label for="getLimit">Results Per Page</label>
+            <input id="getLimit" type="number" value="10" min="1" max="100" />
+          </div>
+        </div>
+
+        <button id="sendGet" class="get-btn">Send GET Request</button>
+
+        <div class="url-display" id="getUrl">URL will appear here...</div>
+      </div>
+
+      <!-- POST Request Demo -->
+      <div class="card">
+        <h3>
+          <span class="method-badge badge-post">POST</span> Request
+          Demonstration
+        </h3>
+        <div class="info-box post-info">
+          POST requests send data in the request body. Data is hidden and can be
+          large.
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="postUsername">Username</label>
+            <input id="postUsername" type="text" value="john_doe" />
+          </div>
+          <div>
+            <label for="postEmail">Email</label>
+            <input id="postEmail" type="email" value="john@example.com" />
+          </div>
+          <div>
+            <label for="postPassword">Password</label>
+            <input id="postPassword" type="password" value="secret123" />
+          </div>
+          <div>
+            <label for="postAge">Age</label>
+            <input id="postAge" type="number" value="25" />
+          </div>
+        </div>
+
+        <div>
+          <label for="postBio">Bio</label>
+          <textarea id="postBio" placeholder="Enter bio...">
+Software developer passionate about web technologies.</textarea
+          >
+        </div>
+
+        <button id="sendPost" class="post-btn">Send POST Request</button>
+
+        <div class="url-display" id="postUrl">
+          URL: http://localhost:8080/app/register
+        </div>
+      </div>
+
+      <!-- Request/Response Visualization -->
+      <div class="card">
+        <h3>Request & Response Details</h3>
+
+        <div class="grid">
+          <div class="response-box">
+            <div class="response-header">Request Information</div>
+            <pre id="requestInfo">No request sent yet</pre>
+          </div>
+
+          <div class="response-box">
+            <div class="response-header">Response from Servlet</div>
+            <pre id="responseInfo">No response yet</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="card">
+        <h3>GET vs POST Comparison</h3>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>GET</th>
+              <th>POST</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Data Location</strong></td>
+              <td>URL query string</td>
+              <td>Request body</td>
+            </tr>
+            <tr>
+              <td><strong>Visibility</strong></td>
+              <td>Visible in URL</td>
+              <td>Hidden</td>
+            </tr>
+            <tr>
+              <td><strong>Data Size</strong></td>
+              <td>Limited (~2KB)</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td><strong>Security</strong></td>
+              <td>Less secure</td>
+              <td>More secure</td>
+            </tr>
+            <tr>
+              <td><strong>Bookmarking</strong></td>
+              <td>Can bookmark</td>
+              <td>Cannot bookmark</td>
+            </tr>
+            <tr>
+              <td><strong>Caching</strong></td>
+              <td>Can be cached</td>
+              <td>Not cached</td>
+            </tr>
+            <tr>
+              <td><strong>Use Case</strong></td>
+              <td>Retrieve/search data</td>
+              <td>Submit/update data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Calculator Demo -->
+      <div class="card">
+        <h3>Calculator: GET vs POST</h3>
+        <div class="info-box">
+          Try the same operation with both GET and POST to see the difference.
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="calcNum1">Number 1</label>
+            <input id="calcNum1" type="number" value="15" />
+          </div>
+          <div>
+            <label for="calcNum2">Number 2</label>
+            <input id="calcNum2" type="number" value="5" />
+          </div>
+          <div>
+            <label for="calcOperation">Operation</label>
+            <select id="calcOperation">
+              <option value="add">Add (+)</option>
+              <option value="subtract">Subtract (-)</option>
+              <option value="multiply">Multiply (×)</option>
+              <option value="divide">Divide (÷)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <button id="calcGet" class="get-btn">Calculate with GET</button>
+          <button id="calcPost" class="post-btn">Calculate with POST</button>
+        </div>
+
+        <div class="response-box">
+          <div class="response-header">Calculator Result</div>
+          <pre id="calcResult">No calculation yet</pre>
+        </div>
+      </div>
+
+      <!-- Console Logs -->
+      <div class="card">
+        <h3>Request/Response Logs</h3>
+        <pre id="output"></pre>
+      </div>
+    </div>
+
+    <script src="./lecture-22/app.js"></script>
+  </body>
+</html>

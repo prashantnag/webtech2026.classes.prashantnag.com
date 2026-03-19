@@ -4,7 +4,6 @@ date: "2026-01-20"
 due: "2026-01-28"
 ---
 
-# Lab 1: Development Environment Setup {.page-break-before}
 
 Welcome to your first web development lab! This lab will guide you through setting up a professional development environment for web development.
 
@@ -37,167 +36,102 @@ Before you start, make sure you have the following:
 
 **60-90 minutes** (depending on download speeds and your familiarity with software installation)
 
----
+### Editor Preparation
 
-## Part 1: Install Visual Studio Code {.part-header}
+::: {.panel-tabset}
 
-Visual Studio Code is a lightweight but powerful code editor perfect for web development.
+## VS Code
 
-### Step 1: Download VS Code
+**Recommended editor for this course**
 
-1. Open your web browser
-2. Visit: [https://code.visualstudio.com/](https://code.visualstudio.com/)
-3. Click the download button for your operating system
-4. Wait for the installer to download (usually 50-100 MB)
+Use VS Code if you want a professional coding environment with extensions, live preview, formatting, and better file management.
 
-### Step 2: Install VS Code
+### Installation and Setup
 
-#### **Windows:**
+1. Visit [https://code.visualstudio.com/](https://code.visualstudio.com/).
+2. Download the installer for your operating system.
+3. Install VS Code using the OS-specific instructions below.
 
-1. Run the downloaded `.exe` file
-2. Accept the User Account Control prompt
-3. Accept the license agreement
-4. Choose installation location (default is fine)
-5. **Important**: Check these options:
-   - ☑ "Add to PATH"
-   - ☑ "Create a desktop icon"
-   - ☑ "Add 'Open with Code' action to context menu"
-6. Click **Install**
-7. Click **Finish**
+#### Windows
+
+1. Run the downloaded `.exe` file.
+2. Accept the User Account Control prompt.
+3. Accept the license agreement.
+4. Choose installation location (default is fine).
+5. Check these options:
+    - Add to PATH
+    - Create a desktop icon
+    - Add "Open with Code" to context menu
+6. Click **Install**, then **Finish**.
+
+#### macOS
+
+1. Open the downloaded `.dmg` file.
+2. Drag the VS Code icon into the **Applications** folder.
+3. Open VS Code from **Applications**.
+
+#### Linux
+
+Use the instructions from [VS Code alternate downloads](https://code.visualstudio.com/#alt-downloads) for your distribution.
+
+### Why VS Code Is Preferred
+
+- supports HTML editing with syntax highlighting
+- works well with Live Server for browser preview
+- helps manage multiple files and folders easily
+- useful for future labs involving CSS, JavaScript, and backend files
 
 ::: {.callout-tip}
-Adding VS Code to PATH allows you to open directories in VS Code from the command line using `code .`
+If possible, use VS Code for all lab work because the remaining lab instructions are primarily demonstrated with it.
 :::
 
-#### **macOS:**
+## Notepad (Windows)
 
-1. Open the downloaded `.dmg` file
-2. Drag the **VS Code icon** to the **Applications folder**
-3. Wait for the copy to complete
-4. Open **Applications** folder
-5. Double-click **Visual Studio Code**
+**Alternative for basic HTML practice**
 
-#### **Linux:**
+Notepad is pre-installed on Windows, so no separate installation is usually needed.
 
-Visit the [VS Code website](https://code.visualstudio.com/#alt-downloads) and follow the instructions for your specific distribution.
+### Setup Steps
 
-### Step 3: First Launch
+1. Open **Notepad** from the Start menu.
+2. Click **File -> Save As**.
+3. Change **Save as type** to **All Files**.
+4. Save the file as `index.html` instead of `index.txt`.
+5. Choose UTF-8 encoding if that option is available.
+6. Open the saved file in your browser by double-clicking it.
 
-1. Open **Visual Studio Code**
-2. You should see the Welcome tab
-3. Familiarize yourself with the interface:
+## TextEdit (macOS)
 
-::: {.layout-columns}
+**Alternative for basic HTML practice**
 
-**Activity Bar (Left side):**
-- File Explorer
-- Search
-- Source Control
-- Run and Debug
-- Extensions
+TextEdit is pre-installed on macOS, so no separate installation is usually needed.
 
-**Main Editor Area (Center):**
-- Where your code appears
-- Tabs for multiple files
-- Line numbers on the left
+### Setup Steps
 
-**Side Bar:**
-- File browser
-- Search results
-- Git information
-- Installed extensions
+1. Open **TextEdit**.
+2. Go to **Format -> Make Plain Text**.
+3. Type your HTML code.
+4. Click **File -> Save**.
+5. Save the file as `index.html`.
+6. If TextEdit tries to add `.txt`, choose the option to keep `.html`.
+7. Open the file in your browser.
 
-**Status Bar (Bottom):**
-- File info (encoding, language, line count)
-- Current branch
-- Errors and warnings count
+### Important Notes for Basic Editors
 
+- these editors do not provide Live Server support
+- you must refresh the browser manually after each save
+- managing multiple files is harder than in VS Code
+- extensions and advanced coding help are not available
+
+::: {.callout-note}
+Notepad and TextEdit are acceptable for simple HTML exercises, but you should move to VS Code as early as possible for the rest of the course.
 :::
 
----
-
-## Part 2: Install Essential Extensions {.part-header}
-
-Extensions supercharge VS Code by adding features specific to web development. Think of them as plugins!
-
-### Step 1: Open Extensions View
-
-1. Click the **Extensions icon** in the Activity Bar (looks like 4 small squares)
-2. Or press: `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
-3. You'll see a search bar at the top
-
-### Step 2: Install Required Extensions
-
-Search for each extension and click **Install**:
-
-:::: {.extension-list}
-
-::: {.extension-card}
-**🚀 Live Server** *(by Ritwick Dey)*
-
-Creates a local development server with live reload functionality.
-
-**Why you need it:** Instantly see changes in your browser without manual refresh.
-:::
-
-::: {.extension-card}
-**🎨 HTML CSS Support** *(by ecmel)*
-
-Provides HTML and CSS IntelliSense and code completion.
-
-**Why you need it:** Auto-suggests HTML tags and CSS properties as you type.
-:::
-
-::: {.extension-card}
-**🔄 Auto Rename Tag** *(by Jun Han)*
-
-Automatically renames paired HTML tags when you edit one.
-
-**Why you need it:** Prevents mismatched closing tags.
-:::
-
-::: {.extension-card}
-**✨ Prettier - Code formatter** *(by Prettier)*
-
-Automatically formats your code consistently.
-
-**Why you need it:** Makes code readable and follows best practices.
-:::
-
-::: {.extension-card}
-**📂 Path Intellisense** *(by Christian Kohler)*
-
-Auto-completes file paths as you type.
-
-**Why you need it:** Helps link images, stylesheets, and other files correctly.
-:::
-
-::: {.extension-card .optional}
-**🎯 Bracket Pair Colorizer 2** *(by CoenraadS)* - **OPTIONAL**
-
-Colors matching brackets in different colors.
-
-**Why you might want it:** Makes nested code easier to read.
-:::
-
-::::
-
-### Step 3: Configure Prettier (Code Formatter)
-
-After installing Prettier, configure it for automatic formatting:
-
-1. Press `Ctrl+,` (Windows/Linux) or `Cmd+,` (Mac) to open Settings
-2. Search for: **"format on save"**
-3. Check the checkbox for **"Editor: Format On Save"**
-4. Now your code automatically formats when you save!
-
-::: {.callout-success}
-**Pro Tip:** Your code will be automatically formatted to follow best practices every time you save. This is incredibly helpful!
 :::
 
 ---
 
-## Part 3: Create Project Structure {.part-header}
+## Create Project Structure {.part-header}
 
 Proper file organization is crucial for successful web development. Let's create a well-structured project folder.
 
@@ -265,54 +199,28 @@ Congratulations! You now have VS Code working as your project workspace. All fil
 
 ---
 
-## Part 4: Create Your First HTML File {.part-header}
+## Experiment 1: Create a Simple HTML Page {.part-header}
 
-Now let's create your first HTML file using VS Code's built-in Emmet tool for rapid HTML generation.
+### Objective
 
-### Step 1: Create the HTML File
+Create a simple HTML page that displays student and course details using standard HTML elements.
 
-1. In VS Code's Explorer panel, right-click on the **`Labs/Lab01/`** folder
-2. Select **"New File"**
-3. Name the file: **`index.html`**
-4. Press Enter
+### Files Required
 
-::: {.callout-note}
-**Why `index.html`?**
-This is the default filename web servers look for. Every website folder should have an `index.html` file.
-:::
+- `Lab01/index.html`
 
-### Step 2: Generate HTML Structure with Emmet
+### Step-by-Step Tutorial
 
-VS Code includes Emmet, which creates HTML boilerplate instantly!
+1. Open `Labs/Lab01/` in VS Code.
+2. Create a new file named `index.html`.
+3. In `index.html`, type `!` and press `Tab` to generate the basic HTML5 template.
+4. Replace the `<title>` text with `My First Web Page - Lab 1`.
+5. Inside `<body>`, add one main heading (`<h1>`), sections (`<h2>`), one paragraph (`<p>`), one unordered list (`<ul>`), and one ordered list (`<ol>`).
+6. Save the file with `Ctrl+S`.
+7. Right-click `index.html` and choose **Open with Live Server**.
+8. Verify that all headings, paragraphs, and list items are visible in the browser.
 
-1. Click inside the empty `index.html` file
-2. Type: `!` (just the exclamation mark)
-3. Press `Tab` or `Enter`
-4. VS Code generates a complete HTML5 template!
-
-You should see:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-```
-
-::: {.callout-success}
-**This is Emmet magic!** Instead of typing all that, one character did it. Emmet has many more shortcuts like this.
-:::
-
-### Step 3: Customize Your HTML Page
-
-Replace "Document" with a descriptive title and add your content:
+### Final Code (Reference)
 
 ```html
 <!DOCTYPE html>
@@ -324,13 +232,13 @@ Replace "Document" with a descriptive title and add your content:
 </head>
 <body>
     <h1>Welcome to Web Technology!</h1>
-    
+
     <h2>About Me</h2>
     <p>
-        My name is [Your Name] and I am a student in the BMC201 Web Technology 
+        My name is [Your Name] and I am a student in the BMC201 Web Technology
         course at Galgotias College of Engineering & Technology.
     </p>
-    
+
     <h2>Course Information</h2>
     <ul>
         <li>Course Code: BMC201</li>
@@ -338,23 +246,23 @@ Replace "Document" with a descriptive title and add your content:
         <li>Semester: MCA Semester 2</li>
         <li>Academic Year: 2025-26</li>
     </ul>
-    
+
     <h2>What I Hope to Learn</h2>
     <ol>
         <li>HTML5 and semantic markup</li>
-        <li>CSS3 for styling and responsive layouts</li>
+        <li>Building clean page structure using headings and lists</li>
         <li>JavaScript for interactivity and DOM manipulation</li>
         <li>Web server configuration and deployment</li>
         <li>Modern web development practices</li>
     </ol>
-    
+
     <h2>Contact Information</h2>
     <p>
         Email: <a href="mailto:your.email@galgotiacollege.edu">your.email@galgotiacollege.edu</a><br>
         Roll Number: [Your Roll Number]<br>
         College: Galgotias College of Engineering & Technology
     </p>
-    
+
     <footer>
         <hr>
         <p>Created on: [Today's Date]</p>
@@ -364,356 +272,244 @@ Replace "Document" with a descriptive title and add your content:
 </html>
 ```
 
-::: {.callout-warning}
-**Before saving:** Replace all items in [square brackets] with your actual information!
-:::
+### Expected Result
 
-### Step 4: Save Your File
+The page should display your heading, profile details, course information, and ordered/unordered lists with proper formatting.
 
-1. Press `Ctrl+S` (Windows/Linux) or `Cmd+S` (Mac)
-2. The white dot next to the filename disappears (indicating it's saved)
+### Experiment Challenge
 
----
-
-## Part 5: View Your Web Page {.part-header}
-
-Time to see your HTML rendered in a browser! There are multiple ways to do this.
-
-### Method 1: Using Live Server (Recommended!)
-
-Live Server is the extension you installed. It creates a local web server with live reload.
-
-1. Open your `index.html` file in VS Code
-2. Right-click anywhere in the file
-3. Select **"Open with Live Server"**
-4. Your default browser opens automatically to `http://localhost:5500`
-5. You should see your formatted web page!
-
-::: {.callout-success}
-**Live Reload Magic:** Now try editing your HTML (change some text, add a new paragraph). Your browser automatically reloads as soon as you save! No manual refresh needed.
-:::
-
-**To stop Live Server:**
-- Close the browser tab, or
-- In VS Code, click "Go Live" button in the bottom status bar
-
-### Method 2: Direct File Opening
-
-If Live Server isn't working for some reason:
-
-1. In VS Code, right-click `index.html` in Explorer
-2. Select **"Reveal in File Explorer"** (Windows) or **"Reveal in Finder"** (macOS)
-3. Double-click the `index.html` file
-4. It opens in your default browser
-
-::: {.callout-note}
-**Difference:** Manual file opening doesn't have live reload. You must refresh manually with **F5**.
-:::
-
-### Method 3: Browser Address Bar
-
-You can also manually navigate:
-
-1. Open your browser
-2. Press `Ctrl+L` (Windows) or `Cmd+L` (Mac) to focus the address bar
-3. Type the full path to your file:
-   ```
-   file:///C:/Users/YourName/Documents/BMC201-WebTech/Labs/Lab01/index.html
-   ```
-4. Press Enter
+Add one more section titled `My Learning Goals This Semester` with at least three bullet points.
 
 ---
 
-## Part 6: Explore Browser Developer Tools {.part-header}
+## Experiment 2: Paragraph Alignment and Image Placement {.part-header}
 
-Browser Developer Tools are essential for web development. They let you inspect, debug, and test your code directly in the browser.
+### Objective
 
-### Step 1: Open Developer Tools
+Create a second HTML page that demonstrates different paragraph alignments and image placement using HTML only.
 
-Open Developer Tools using one of these methods:
+### Files Required
 
-**Google Chrome / Microsoft Edge / Brave:**
-- Press: `F12`, or
-- Press: `Ctrl+Shift+I` (Windows) or `Cmd+Option+I` (Mac), or
-- Right-click anywhere on the page → **"Inspect"**
+- `Lab01/alignment.html`
+- `Lab01/images/profile.jpg`
 
-**Firefox:**
-- Press: `F12`, or
-- Right-click → **"Inspect Element"**
+### Step-by-Step Tutorial
 
-**Safari:**
-- First enable Developer Menu: Preferences → Advanced ✓ "Show Develop menu"
-- Press: `Cmd+Option+I`
+1. Inside `Lab01`, create a folder named `images`.
+2. Place one image file in it and name it `profile.jpg`.
+3. Create a new file named `alignment.html` in `Lab01`.
+4. Type `!` and press `Tab` to create the HTML5 boilerplate.
+5. Set the page title to `Paragraph Alignment - Lab 1`.
+6. Add one heading using `<h1>`.
+7. Add the image using `<img src="images/profile.jpg" alt="Profile image" width="220" align="right">`.
+8. Add four paragraphs and use the `align` attribute values `left`, `center`, `right`, and `justify`.
+9. Save the file and open it with Live Server.
+10. Confirm all four alignment styles are visible and the image appears on the right side.
 
-### Step 2: Explore the Key Tabs
-
-Developer Tools have several important tabs. Let's explore the main ones:
-
-#### **1. Elements/Inspector Tab** 🔍
-
-This shows the HTML structure of your page.
+### Final Code (Reference)
 
 ```html
-<h1>Welcome to Web Technology!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Alignment - Lab 1</title>
+</head>
+<body>
+    <h1>Paragraph Alignment Demonstration</h1>
+
+    <img src="images/profile.jpg" alt="Profile image" width="220" align="right">
+
+    <p align="left">This paragraph is left aligned and is the default alignment used in most web pages.</p>
+    <p align="center">This paragraph is center aligned and is useful for titles and announcements.</p>
+    <p align="right">This paragraph is right aligned and can be used for emphasis in specific layouts.</p>
+    <p align="justify">This paragraph is justified so text stretches evenly between both margins, which gives a formal document-like appearance.</p>
+</body>
+</html>
 ```
 
-::: {.lab-action}
-**Try this:**
-1. Click the **Inspector/Elements** tab (should be default)
-2. Find the `<h1>` element in the code
-3. Right-click it and select **"Edit as HTML"**
-4. Change the text to something else
-5. Press Enter
-6. Your page updates! (but not the actual file)
-:::
+### Expected Result
 
-::: {.callout-warning}
-**Important:** These changes are temporary! They only affect what you see in the browser. Your actual HTML file is unchanged. Refresh the page to see the original again.
-:::
+The browser should show an image and four paragraphs with distinct alignments: left, center, right, and justified.
 
-#### **2. Console Tab** 💻
+### Experiment Challenge
 
-The Console lets you interact with JavaScript (we'll use this more later).
-
-::: {.lab-action}
-**Try this:**
-1. Click the **Console** tab
-2. You should see a `>` prompt
-3. Type: `console.log("Hello from Lab 1!")`
-4. Press Enter
-5. You'll see your message printed!
-
-This is useful for testing JavaScript code.
-:::
-
-#### **3. Network Tab** 🌐
-
-Shows all files downloaded when loading the page (HTML, CSS, images, etc.).
-
-::: {.lab-action}
-**Try this:**
-1. Click the **Network** tab
-2. Refresh the page (`F5` or `Ctrl+R`)
-3. You'll see all files loaded:
-   - `index.html` (main document)
-   - CSS files (styling)
-   - JavaScript files
-   - Images
-4. Click `index.html` to see request/response details
-:::
-
-#### **4. Application / Storage Tab** 💾
-
-Shows local storage, cookies, session data (we'll use this later in the course).
-
-### Step 3: Practice with the Inspector
-
-Let's do some hands-on experiments:
-
-::: {.lab-action}
-**Experiment 1: Edit HTML**
-1. Open Inspector tab
-2. Find your `<h1>` element
-3. Double-click to edit
-4. Change the text and press Enter
-5. Notice on the page: Text changed!
-6. Refresh page: Changes gone (file was never modified)
-:::
-
-::: {.lab-action}
-**Experiment 2: Hide Elements**
-1. Find any element in the Inspector
-2. Right-click → "Hide element"
-3. It disappears from page view
-4. Refresh: It's back!
-:::
-
-::: {.lab-action}
-**Experiment 3: Change Styles (Preview)**
-1. Find any element in Inspector
-2. Look at the "Styles" panel on the right
-3. Try toggling styles on/off
-4. Hover over rules to see effects
-:::
-
-::: {.callout-success}
-**Why this matters:** Developer Tools let you instantly test changes without editing files. Perfect for experimenting and debugging!
-:::
+Create a third page named `about.html` and add navigation links between `index.html`, `alignment.html`, and `about.html`.
 
 ---
 
-## Part 7: Lab Questions {.part-header}
+## Code Documentation Standards {.documentation-header}
 
-Answer these questions in a document (Word `.docx` or text `.txt`). These answers test your understanding of the concepts covered.
+Writing clear documentation helps both you and others understand code later. Always include file headers and inline comments for major logic blocks.
 
-### Questions
+### File Header Template
 
-::: {.qa-section}
+Every HTML file should start with a comment header explaining its purpose. Place this as the first line in your file:
 
-**Q1: HTML Document Declaration**
-
-What is the purpose of the `<!DOCTYPE html>` declaration? Why is it important to include it at the beginning of every HTML5 file?
-
-*Hint: What does the browser do with this information?*
-
----
-
-**Q2: Language Attribute**
-
-Why is the `lang="en"` attribute important in the `<html>` tag? What are the consequences of omitting it?
-
-*Hint: Think about accessibility and search engines.*
-
----
-
-**Q3: Character Encoding**
-
-What does the `<meta charset="UTF-8">` tag do? Why should you include UTF-8 encoding in your HTML?
-
-*Hint: What characters does UTF-8 support?*
-
----
-
-**Q4: HTML Lists**
-
-Explain the difference between `<ul>` (unordered list) and `<ol>` (ordered list). Provide an example of when you would use each one. What HTML element do you use for each list item?
-
-*Hint: ul = bullet points, ol = numbered items*
-
----
-
-**Q5: Browser Developer Tools Behavior**
-
-When you edited your HTML in the browser's Developer Tools (Inspector), what happened? Did it change your actual HTML file? Why or why not? What happens when you refresh?
-
-*Hint: Developer Tools work on the live page, not the actual file.*
-
----
-
-**Q6: VS Code Extensions**
-
-Name at least three VS Code extensions you installed and briefly explain what each one does and why it's useful for web development.
-
-*Hint: Think about Live Server, Prettier, HTML CSS Support, etc.*
-
----
-
-**Q7: Keyboard Shortcuts**
-
-List at least five keyboard shortcuts you learned and used during this lab. Include both VS Code and browser shortcuts.
-
-**Examples:**
-- VS Code shortcuts: File operations, formatting, etc.
-- Browser shortcuts: Opening DevTools, refresh, etc.
-
----
-
-:::
-
-## Part 8: Bonus Challenges {.part-header}
-
-These optional challenges will deepen your understanding and help you practice HTML:
-
-::: {.challenge-section}
-
-**🌟 Challenge 1: Add a Weekly Schedule Table**
-
-Create an HTML table showing your weekly schedule. Include:
-- Days of the week as headers (Monday, Tuesday, etc.)
-- Time slots
-- Your classes/activities
-- Use proper `<table>`, `<tr>`, `<td>`, `<th>` tags
-
-**Example:**
 ```html
-<table border="1">
-    <tr>
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-    </tr>
-    <tr>
-        <td>9:00 AM</td>
-        <td>BMC201</td>
-        <td>Lab</td>
-    </tr>
-</table>
+<!--
+  File: index.html
+  Author: [Your Name]
+  Date: [Today's Date]
+  Description: This is the main page for Lab 1, displaying student and course information
+  using HTML headings, paragraphs, lists, and basic HTML5 structure.
+-->
+
+<!DOCTYPE html>
+```
+
+### File Header Explanation
+
+- **File:** The name of the file and its purpose
+- **Author:** Your name (so future readers know who wrote it)
+- **Date:** When you created or last modified the file
+- **Description:** What the page does and what HTML concepts it demonstrates
+
+### Example: Complete Documented HTML File
+
+```html
+<!--
+  File: alignment.html
+  Author: John Doe
+  Date: January 20, 2026
+  Description: Demonstrates paragraph alignment (left, center, right, justified) and
+  image placement in HTML. No CSS is used; only HTML attributes control layout.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Alignment - Lab 1</title>
+</head>
+<body>
+    <!-- Main page heading -->
+    <h1>Paragraph Alignment Demonstration</h1>
+
+    <!-- Profile image placed on the right side of the page -->
+    <img src="images/profile.jpg" alt="Profile image" width="220" align="right">
+
+    <!-- Section showing different paragraph alignment styles -->
+    <p align="left">This paragraph is left aligned and is the default alignment used in most web pages.</p>
+    <p align="center">This paragraph is center aligned and is useful for titles and announcements.</p>
+    <p align="right">This paragraph is right aligned and can be used for emphasis in specific layouts.</p>
+    <p align="justify">This paragraph is justified so text stretches evenly between both margins, which gives a formal document-like appearance.</p>
+</body>
+</html>
+```
+
+### Inline Comments for Major Sections
+
+When code has distinct sections or performs specific tasks, add comments above each section:
+
+```html
+<!-- Section 1: Header with navigation -->
+<header>
+    <h1>Welcome to Web Technology!</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+
+<!-- Section 2: Student information and course details -->
+<main>
+    <section>
+        <h2>Student Details</h2>
+        <p>Name: John Doe</p>
+        <p>Roll Number: MCA24001</p>
+    </section>
+
+    <!-- Section 3: Learning goals and outcomes -->
+    <section>
+        <h2>Learning Outcomes</h2>
+        <ol>
+            <li>Understand basic HTML structure</li>
+            <li>Use semantic HTML elements properly</li>
+            <li>Create valid HTML5 documents</li>
+        </ol>
+    </section>
+</main>
+
+<!-- Section 4: Footer with contact information -->
+<footer>
+    <p>Contact: student@galgotiacollege.edu</p>
+</footer>
+```
+
+### Best Practices for Comments
+
+✓ **Do:**
+- Use comments for "why" the code is there, not just "what" it does
+- Keep comments short and clear
+- Update comments if you change the code
+- Comment complex or unusual HTML structures
+- Add file headers to every file
+
+✗ **Don't:**
+- Over-comment obvious code: `<p>This is a paragraph</p> <!-- This is a paragraph -->`
+- Leave outdated comments: they confuse readers
+- Use comments to disable code; delete it instead if you don't need it
+
+### Example: Well-Documented File
+
+Copy this template for your next HTML file:
+
+```html
+<!--
+  File: my-page.html
+  Author: [Your Name]
+  Date: [MM/DD/2026]
+  Description: [Brief explanation of what this page does and what HTML concepts it uses]
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Page Title Here]</title>
+</head>
+<body>
+
+    <!-- Major section: Header -->
+    <header>
+        [Header content here]
+    </header>
+
+    <!-- Major section: Main content -->
+    <main>
+        [Main page content here]
+    </main>
+
+    <!-- Major section: Footer -->
+    <footer>
+        [Footer content here]
+    </footer>
+
+</body>
+</html>
 ```
 
 ---
 
-**🖼️ Challenge 2: Add Images to Your Page**
+## Observation Questions {.part-header}
 
-1. Create an `images/` folder in `Lab01/`
-2. Download 3-5 images from [Unsplash](https://unsplash.com/) or [Pixabay](https://pixabay.com/)
-3. Save them in your `images/` folder
-4. Add them to your HTML using `<img>` tags
-5. Include `alt` text for accessibility
+1. Why is `<!DOCTYPE html>` required at the beginning of an HTML document?
+2. What is the difference between `<ul>` and `<ol>`?
+3. Why should every image include the `alt` attribute?
+4. Which text alignment is generally best for long-form content and why?
+5. What is the role of the `meta viewport` tag in modern web pages?
 
-**Tips:**
-- Use relative paths: `<img src="images/photo.jpg">`
-- Add `width="300"` to control size
-- Every image needs `alt="description"`
+## Viva Questions {.part-header}
 
----
-
-**🔗 Challenge 3: Create a Multi-Page Website**
-
-1. Create a second page: `about.html`
-2. Add content about web development
-3. Create a `portfolio.html` page showing your projects
-4. Add navigation links between pages
-
-**Example:**
-```html
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-</nav>
-```
-
----
-
-**💬 Challenge 4: Add Comments to Your HTML**
-
-HTML comments help document your code. Add comments explaining each section:
-
-```html
-<!-- Header with title -->
-<h1>Welcome to Web Technology!</h1>
-
-<!-- Information about the course -->
-<h2>Course Information</h2>
-<ul>
-    <li>Course Code: BMC201</li>
-    <!-- ... more content ... -->
-</ul>
-```
-
-Comments don't display on the page but help you and other developers understand the code.
-
----
-
-**✅ Challenge 5: Validate Your HTML**
-
-Use the W3C HTML Validator to check for errors:
-
-1. Visit [https://validator.w3.org/](https://validator.w3.org/)
-2. Click "Validate by File Upload"
-3. Select your `index.html` file
-4. Fix any errors or warnings
-5. Repeat until you have valid HTML!
-
-**Why validate?**
-- Ensures your HTML follows standards
-- Catches typos and syntax errors
-- Improves compatibility across browsers
-- Better accessibility
-
----
-
-:::
+1. What is the purpose of the `<head>` section in HTML?
+2. What is the difference between semantic and non-semantic HTML tags?
+3. What does Live Server do in the development workflow?
+4. Why is UTF-8 character encoding commonly used?
+5. What is the advantage of using relative file paths?
 
 ## Submission Requirements {.submission-header}
 
@@ -787,7 +583,7 @@ Additional Notes:
 ::: {.callout-warning}
 **Due Date: January 28, 2026, 11:59 PM**
 
-Submit via: [Classroom Portal/Email] to [instructor-email@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+Submit via: [Classroom Portal/Email] to [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
 :::
 
 ---

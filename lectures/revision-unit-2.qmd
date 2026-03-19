@@ -1,0 +1,1001 @@
+---
+title: "Revision: Unit II - JavaScript"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "March 5, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Revision Session]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Unit II: JavaScript]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Weeks 6-7 | Mid-Semester Exam Preparation<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Unit II Coverage"}
+
+[Unit II: Complete Coverage]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**Topics Include:**
+
+1. JavaScript Variables & Data Types
+2. Functions & Events
+3. Conditional Statements & Looping
+4. Objects & Scope
+5. Arrow Functions & Callbacks
+6. DOM Manipulation & Array Methods
+7. Form Validation
+8. ES6+ Features (Template Literals, Destructuring, Spread)
+:::
+
+---
+
+## {data-menu-title="JS Introduction"}
+
+[What is JavaScript?]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- **Client-side** programming language
+- Runs in the **browser**
+- Makes web pages **interactive**
+- Can manipulate **HTML and CSS**
+- Handles **events** (clicks, input, etc.)
+- **Dynamically typed** language
+:::
+
+---
+
+## {data-menu-title="Including JS"}
+
+[Including JavaScript in HTML]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1-5|7-9|11"}
+<!-- Inline -->
+<button onclick="alert('Clicked!')">Click Me</button>
+
+<!-- Internal -->
+<script>
+  console.log("Hello World");
+</script>
+
+<!-- External (Recommended) -->
+<script src="script.js"></script>
+```
+
+::: {.body-text-m}
+Place `<script>` tag before closing `</body>` tag
+:::
+
+---
+
+## {data-menu-title="Variables"}
+
+[JavaScript Variables]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|5-6"}
+let age = 25;           // Reassignable, block-scoped
+const pi = 3.14;        // Not reassignable, block-scoped
+var old = "avoid";      // Function-scoped (old style)
+
+age = 26;               // OK
+pi = 3.15;              // Error!
+```
+
+::: {.body-text-m}
+**Best Practice:** Use `const` by default, `let` when needed
+:::
+
+---
+
+## {data-menu-title="Data Types"}
+
+[JavaScript Data Types]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6|7|8"}
+const name = "Amit";           // String
+const age = 22;                // Number
+const isActive = true;         // Boolean
+const items = [1, 2, 3];       // Array
+const user = {name: "Amit"};   // Object
+let nothing = null;            // Null
+let notDefined;                // Undefined
+const id = Symbol("id");       // Symbol (ES6)
+```
+
+---
+
+## {data-menu-title="Type Checking"}
+
+[Checking Data Types]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-5"}
+typeof "hello"        // "string"
+typeof 42             // "number"
+typeof true           // "boolean"
+typeof []             // "object" (arrays are objects)
+typeof null           // "object" (quirk in JS)
+```
+
+---
+
+## {data-menu-title="Strings"}
+
+[String Operations]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|4-7|9-12"}
+const str = "Hello World";
+const str2 = 'Single quotes work too';
+
+// Methods
+str.length              // 11
+str.toUpperCase()       // "HELLO WORLD"
+str.substring(0, 5)     // "Hello"
+
+// Concatenation
+const greeting = "Hello" + " " + "World";
+const name = "Amit";
+const message = `Hello, ${name}!`;  // Template literal
+```
+
+---
+
+## {data-menu-title="Numbers"}
+
+[Number Operations]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-5|7-11"}
+// Arithmetic
+const sum = 10 + 5;       // 15
+const diff = 10 - 5;      // 5
+const product = 10 * 5;   // 50
+const quotient = 10 / 5;  // 2
+const remainder = 10 % 3; // 1
+
+// Methods
+Math.round(4.7);    // 5
+Math.floor(4.7);    // 4
+Math.random();      // 0 to 1
+```
+
+---
+
+## {data-menu-title="Arrays Basics"}
+
+[Arrays: Basics]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|4-7"}
+const nums = [1, 2, 3, 4, 5];
+const mixed = [1, "two", true, [3, 4]];
+
+nums[0];              // 1 (access)
+nums.length;          // 5
+nums.push(6);         // Add to end: [1,2,3,4,5,6]
+nums.pop();           // Remove from end: [1,2,3,4,5]
+```
+
+---
+
+## {data-menu-title="Array Methods"}
+
+[Array Methods]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6|7"}
+const arr = [1, 2, 3, 4, 5];
+arr.map(x => x * 2);              // [2, 4, 6, 8, 10]
+arr.filter(x => x > 2);           // [3, 4, 5]
+arr.reduce((sum, x) => sum + x, 0); // 15
+arr.find(x => x > 3);             // 4
+arr.includes(3);                  // true
+arr.forEach(x => console.log(x)); // Print each
+```
+
+---
+
+## {data-menu-title="Functions"}
+
+[Functions]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-7|9"}
+// Function declaration
+function greet(name) {
+  return `Hello, ${name}`;
+}
+
+// Function expression
+const greetExpr = function(name) {
+  return `Hello, ${name}`;
+};
+
+// Calling
+greet("Priya");  // "Hello, Priya"
+```
+
+---
+
+## {data-menu-title="Arrow Functions"}
+
+[Arrow Functions]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4-6"}
+const add = (a, b) => a + b;
+const square = x => x * x;
+const greet = () => "Hello";
+const fullName = (first, last) => {
+  return `${first} ${last}`;
+};
+```
+
+::: {.body-text-m}
+- If one parameter, parentheses optional
+- If single expression, `return` and `{}` optional
+:::
+
+---
+
+## {data-menu-title="Default Parameters"}
+
+[Default Parameters]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-6"}
+function greet(name = "Guest") {
+  return `Hello, ${name}`;
+}
+
+greet();           // "Hello, Guest"
+greet("Neha");     // "Hello, Neha"
+```
+
+---
+
+## {data-menu-title="Conditionals"}
+
+[Conditional Statements]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-7|9-10"}
+const marks = 85;
+
+if (marks >= 90) {
+  console.log("Grade A");
+} else if (marks >= 60) {
+  console.log("Grade B");
+} else {
+  console.log("Grade C");
+}
+
+// Ternary operator
+const result = marks >= 60 ? "Pass" : "Fail";
+```
+
+---
+
+## {data-menu-title="Comparison"}
+
+[Comparison Operators]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|4-5|7-10"}
+5 == "5"    // true (type coercion)
+5 === "5"   // false (strict equality)
+
+10 != 5     // true
+10 !== 5    // true (strict inequality)
+
+10 > 5      // true
+10 < 5      // false
+10 >= 10    // true
+10 <= 9     // false
+```
+
+::: {.body-text-m}
+**Always use `===` and `!==`** for strict comparison
+:::
+
+---
+
+## {data-menu-title="Logical Operators"}
+
+[Logical Operators]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|5-6"}
+true && true     // true (AND)
+true || false    // true (OR)
+!true            // false (NOT)
+
+const canVote = age >= 18 && isCitizen;
+const hasAccess = isAdmin || isModerator;
+```
+
+---
+
+## {data-menu-title="Switch"}
+
+[Switch Statement]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-4|5-7|8-10"}
+const day = "Monday";
+switch (day) {
+  case "Monday":
+    console.log("Start of week");
+    break;
+  case "Friday":
+    console.log("Weekend soon");
+    break;
+  default:
+    console.log("Regular day");
+}
+```
+
+---
+
+## {data-menu-title="For Loop"}
+
+[For Loop]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-7"}
+for (let i = 0; i < 5; i++) {
+  console.log(i);  // 0, 1, 2, 3, 4
+}
+
+for (let i = 10; i > 0; i--) {
+  console.log(i);  // 10, 9, 8, ..., 1
+}
+```
+
+---
+
+## {data-menu-title="While Loop"}
+
+[While & Do-While Loops]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-4|6-9"}
+let count = 0;
+while (count < 3) {
+  console.log(count++);  // 0, 1, 2
+}
+
+let n = 0;
+do {
+  console.log(n++);  // 0, 1, 2
+} while (n < 3);
+```
+
+::: {.body-text-m}
+`do...while` runs **at least once**
+:::
+
+---
+
+## {data-menu-title="For Of In"}
+
+[for...of and for...in]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-4|6-9"}
+// for...of (arrays)
+const nums = [10, 20, 30];
+for (const num of nums) {
+  console.log(num);  // 10, 20, 30
+}
+
+// for...in (objects)
+const user = {name: "Amit", age: 22};
+for (const key in user) {
+  console.log(key, user[key]);  // name Amit, age 22
+}
+```
+
+---
+
+## {data-menu-title="Break Continue"}
+
+[break and continue]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-5"}
+for (let i = 1; i <= 10; i++) {
+  if (i === 4) continue;  // Skip 4
+  if (i === 8) break;     // Stop at 8
+  console.log(i);         // 1, 2, 3, 5, 6, 7
+}
+```
+
+---
+
+## {data-menu-title="Objects"}
+
+[JavaScript Objects]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-5|7-9"}
+const student = {
+  name: "Neha",
+  age: 21,
+  course: "CSE",
+  greet: function() { return `Hi, ${this.name}`; }
+};
+
+console.log(student.name);     // "Neha"
+console.log(student["age"]);   // 21
+student.greet();               // "Hi, Neha"
+```
+
+---
+
+## {data-menu-title="Object Operations"}
+
+[Object Operations]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|4-5|7-8|10-11"}
+// Add property
+student.email = "neha@example.com";
+
+// Update property
+student.age = 22;
+
+// Delete property
+delete student.course;
+
+// Check property
+"name" in student;  // true
+```
+
+---
+
+## {data-menu-title="Scope"}
+
+[Variable Scope]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|4-7|9-10"}
+// Global scope
+const globalVar = "accessible everywhere";
+
+// Function scope
+function myFunc() {
+  const localVar = "only inside function";
+}
+
+// Block scope (let/const)
+if (true) {
+  let blockVar = "only inside block";
+}
+```
+
+---
+
+## {data-menu-title="DOM Introduction"}
+
+[Document Object Model (DOM)]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+- Tree-like representation of HTML
+- JavaScript can read and modify DOM
+- Changes update the page in real-time
+
+**Root:** `document` object
+
+**Common methods:**
+- Select elements
+- Modify content
+- Change styles
+- Add/remove elements
+:::
+
+---
+
+## {data-menu-title="DOM Selection"}
+
+[Selecting DOM Elements]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+document.getElementById('header');
+document.querySelector('.navbar');
+document.querySelectorAll('p');
+document.getElementsByClassName('item');
+```
+
+::: {.body-text-m}
+- `querySelector`: returns **first** match
+- `querySelectorAll`: returns **all** matches (NodeList)
+:::
+
+---
+
+## {data-menu-title="DOM Content"}
+
+[Modifying Content]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-4|6-7"}
+const para = document.querySelector('p');
+
+para.textContent = "New text";
+para.innerHTML = "<strong>Bold text</strong>";
+
+console.log(para.textContent);  // Plain text
+console.log(para.innerHTML);    // HTML markup
+```
+
+---
+
+## {data-menu-title="DOM Attributes"}
+
+[Modifying Attributes]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-5"}
+const img = document.querySelector('img');
+
+img.src = 'photo.jpg';
+img.alt = 'Description';
+img.setAttribute('width', '300');
+```
+
+---
+
+## {data-menu-title="DOM Styles"}
+
+[Modifying Styles]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-5"}
+const box = document.querySelector('.box');
+
+box.style.color = 'blue';
+box.style.backgroundColor = 'lightgray';
+box.style.fontSize = '18px';
+```
+
+::: {.body-text-m}
+CSS properties become **camelCase** in JavaScript
+:::
+
+---
+
+## {data-menu-title="classList"}
+
+[Working with Classes]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-6"}
+const btn = document.querySelector('button');
+
+btn.classList.add('active');
+btn.classList.remove('disabled');
+btn.classList.toggle('highlight');
+btn.classList.contains('active');  // true/false
+```
+
+---
+
+## {data-menu-title="Creating Elements"}
+
+[Creating & Removing Elements]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-6|8-9"}
+const newDiv = document.createElement('div');
+newDiv.textContent = 'Hello!';
+newDiv.classList.add('message');
+
+const parent = document.querySelector('#container');
+parent.appendChild(newDiv);
+
+// Remove
+newDiv.remove();
+```
+
+---
+
+## {data-menu-title="Events"}
+
+[Event Handling]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-4"}
+const btn = document.querySelector('button');
+btn.addEventListener('click', function() {
+  alert('Button clicked!');
+});
+```
+
+::: {.body-text-m}
+**Common events:**
+- `click`, `dblclick`
+- `submit`, `change`, `input`
+- `keydown`, `keyup`
+- `mouseenter`, `mouseleave`
+- `load`, `DOMContentLoaded`
+:::
+
+---
+
+## {data-menu-title="Event Object"}
+
+[Event Object]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+btn.addEventListener('click', function(event) {
+  console.log(event.target);     // Element clicked
+  console.log(event.type);       // "click"
+  event.preventDefault();        // Prevent default action
+});
+```
+
+---
+
+## {data-menu-title="Form Validation"}
+
+[Form Validation]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-8"}
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (validateForm()) {
+    console.log("Form is valid");
+  }
+});
+```
+
+---
+
+## {data-menu-title="Regex Validation"}
+
+[Regular Expression Validation]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-7|9-11"}
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPhone(phone) {
+  return /^[0-9]{10}$/.test(phone);
+}
+
+if (isValidEmail("user@example.com")) {
+  console.log("Valid email");
+}
+```
+
+---
+
+## {data-menu-title="Template Literals"}
+
+[Template Literals (ES6)]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|3|5-8"}
+const name = "Priya";
+const age = 22;
+const message = `Hello, ${name}! You are ${age} years old.`;
+
+// Multi-line strings
+const html = `
+  <div>${name}</div>
+  <p>Age: ${age}</p>
+`;
+```
+
+---
+
+## {data-menu-title="Destructuring"}
+
+[Destructuring (ES6)]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|4-5|7-8"}
+// Array destructuring
+const [a, b, c] = [1, 2, 3];
+
+// Object destructuring
+const {name, age} = {name: "Amit", age: 22};
+
+// With renaming
+const {name: userName, age: userAge} = user;
+```
+
+---
+
+## {data-menu-title="Spread Operator"}
+
+[Spread Operator (ES6)]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-2|4-5|7-8"}
+// Arrays
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];  // [1, 2, 3, 4, 5]
+
+// Objects
+const user = {name: "Raj", age: 25};
+const updated = {...user, age: 26};
+
+// Function arguments
+Math.max(...[1, 5, 3, 9, 2]);  // 9
+```
+
+---
+
+## {data-menu-title="Sample Question 1"}
+
+[Practice Question 1]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Write a function `calculateGrade(marks)` that:
+- Takes marks (0-100)
+- Returns "A" for ≥90, "B" for ≥60, "C" for <60
+- Validates input (must be number between 0-100)
+
+```javascript
+console.log(calculateGrade(85));   // "B"
+console.log(calculateGrade(95));   // "A"
+console.log(calculateGrade(150));  // "Invalid"
+```
+:::
+
+---
+
+## {data-menu-title="Sample Question 2"}
+
+[Practice Question 2]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Given an array of student objects:
+
+```javascript
+const students = [
+  {name: "Amit", marks: 85},
+  {name: "Neha", marks: 92},
+  {name: "Raj", marks: 78}
+];
+```
+
+1. Filter students with marks > 80
+2. Get array of their names
+3. Display names as comma-separated string
+
+Expected output: "Amit, Neha"
+:::
+
+---
+
+## {data-menu-title="Sample Question 3"}
+
+[Practice Question 3]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Create a webpage with:
+- Button with id "changeBtn"
+- Paragraph with id "text"
+
+Write JavaScript to:
+1. When button is clicked, change paragraph text to "Text Changed!"
+2. Change button background color to green
+3. Add class "active" to button
+4. Show alert with current time
+:::
+
+---
+
+## {data-menu-title="Sample Question 4"}
+
+[Practice Question 4]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Create a form validator that checks:
+- Email format (must contain @ and .)
+- Phone (exactly 10 digits)
+- Password (minimum 8 characters)
+
+Show specific error message for each invalid field in red text below the input.
+
+Prevent form submission if any field is invalid.
+:::
+
+---
+
+## {data-menu-title="Common Mistakes"}
+
+[Common JavaScript Mistakes]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Using `=` instead of `===` for comparison
+- Forgetting `const`/`let` keyword
+- Not preventing default form submission
+- Modifying array while iterating
+- Incorrect arrow function syntax
+- Missing `return` in functions
+- Wrong event handler syntax
+- Not checking for `null`/`undefined`
+:::
+
+---
+
+## {data-menu-title="Debugging Tips"}
+
+[Debugging Tips]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+console.log(variable);           // Print value
+console.error("Error message");  // Show error
+console.table(arrayOfObjects);   // Table format
+debugger;                        // Pause execution
+```
+
+::: {.body-text-m}
+**Browser DevTools:**
+- F12 to open
+- Console tab for errors
+- Elements tab for DOM inspection
+:::
+
+---
+
+## {data-menu-title="Key Exam Topics"}
+
+[Key Exam Topics - Unit II]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. Variables (let, const) and data types
+2. Functions (regular, arrow, default params)
+3. Conditionals (if/else, switch, ternary)
+4. Loops (for, while, forEach)
+5. Arrays and array methods
+6. Objects and object operations
+7. DOM selection and manipulation
+8. Event handling
+9. Form validation with regex
+10. ES6 features (template literals, destructuring, spread)
+:::
+
+---
+
+## {data-menu-title="Study Checklist"}
+
+[Study Checklist]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+✓ Can declare variables with let/const  
+✓ Know all data types and typeof  
+✓ Can write functions (both regular and arrow)  
+✓ Understand if/else and switch statements  
+✓ Can write all loop types  
+✓ Know array methods (map, filter, reduce)  
+✓ Can create and manipulate objects  
+✓ Can select and modify DOM elements  
+✓ Know how to handle events  
+✓ Can validate forms with JavaScript and regex  
+✓ Understand template literals and destructuring
+:::
+
+---
+
+## {data-menu-title="Practice Tips"}
+
+[Final Practice Tips]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. **Write code daily** - Practice typing, not just reading
+2. **Use browser console** - Test small code snippets
+3. **Debug errors** - Learn to read error messages
+4. **Build small projects** - Todo list, calculator, form
+5. **Review labs** - Go through all lab exercises again
+6. **Time yourself** - Practice under exam conditions
+7. **Explain concepts** - Teach someone else
+8. **Test edge cases** - Empty inputs, 0, negative numbers
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[You're Ready for the Exam!]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Mid-Semester Examination: March 10-14, 2026
+</div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,412 @@
+﻿---
+title: "Lecture 1: Introduction to Web Designing"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "January 26, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 1]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Introduction to Web Designing]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 1 | Unit I: Web Page Designing<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand web development and web designing concepts
+- Learn about web development strategies
+- Explore different roles in web development
+:::
+
+::: {.notes}
+Start by explaining the importance of understanding the difference between design and development.
+:::
+
+---
+
+## {data-menu-title="Web Designing vs Web Development"}
+
+[What is Web Designing vs Web Development?]{.slide-title2}
+
+<hr>
+
+[**Web Designing**]{.teal-text}
+
+::: {.body-text-m}
+::: {.fragment}
+- Visual appearance & UX
+:::
+::: {.fragment}
+- Layout, colors, typography
+:::
+::: {.fragment}
+- Tools: Figma, Adobe XD
+:::
+:::
+
+. . .
+
+[**Web Development**]{.teal-text}
+
+::: {.body-text-m}
+::: {.fragment}
+- Implementation & functionality
+:::
+::: {.fragment}
+- Coding the design
+:::
+::: {.fragment}
+- Tools: HTML, CSS, JS
+:::
+:::
+
+---
+
+## {data-menu-title="Client-side vs Server-side"}
+
+[Client-side vs Server-side Development]{.slide-title2}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+[**Client-side**]{.teal-text}
+
+::: {.fragment .body-text-m}
+- Runs in the browser
+- HTML, CSS, JavaScript
+- User interface
+- [✓ Immediate feedback]{.magenta-text}
+:::
+:::
+
+::: {.column width="50%"}
+[**Server-side**]{.teal-text}
+
+::: {.fragment .body-text-m}
+- Runs on the server
+- PHP, Python, Java, Node.js
+- Database operations
+- [✓ Business logic]{.magenta-text}
+:::
+:::
+:::
+
+::: {.notes}
+Emphasize that modern web applications need both client-side and server-side development. Give examples like Gmail (client-side for UI, server-side for email storage).
+:::
+
+---
+
+## {data-menu-title="Development Roles"}
+
+[Development Roles]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="33%"}
+::: {.fragment}
+[**Frontend**]{.slide-title3 .teal-text}
+
+::: {.body-text-m}
+- UI & UX
+- HTML, CSS, JS
+- React, Vue
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: {.fragment}
+[**Backend**]{.slide-title3 .teal-text}
+
+::: {.body-text-m}
+- Server & APIs
+- Java, Python, Node
+- SQL, MongoDB
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: {.fragment}
+[**Full-stack**]{.slide-title3 .teal-text}
+
+::: {.body-text-m}
+- Front & back
+- End-to-end
+- Most in-demand
+:::
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="Key Concepts" auto-animate=true}
+
+[Key Web Technologies]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="33%"}
+::: {.body-text-xl .center-text}
+HTML
+:::
+::: {.body-text-m .center-text}
+Structure
+:::
+:::
+
+::: {.column width="33%"}
+::: {.body-text-xl .center-text}
+CSS
+:::
+::: {.body-text-m .center-text}
+Style
+:::
+:::
+
+::: {.column width="33%"}
+::: {.body-text-xl .center-text}
+JavaScript
+:::
+::: {.body-text-m .center-text}
+Behavior
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="HTML Example"}
+
+[HTML: The Structure]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3,4,5|6,7,8|7"}
+<!DOCTYPE html>                           <!-- <1> -->
+<html lang="en">                          <!-- <2> -->
+<head>                                    <!-- <3> -->
+  <title>My First Page</title>          <!-- <4> -->
+</head>
+<body>                                    <!-- <5> -->
+  <h1>Hello World!</h1>                 <!-- <6> -->
+</body>
+</html>
+```
+1. Declares this is an HTML5 document
+2. Root element with language attribute
+3. Contains metadata (not visible on page)
+4. Page title shown in browser tab
+5. Contains all visible page content
+6. Main heading, displayed as large text
+
+::: {.fragment .body-text-m .center-text .topbr}
+👆 Foundation of every web page
+:::
+
+---
+
+## {data-menu-title="CSS Example" auto-animate=true}
+
+[CSS: Adding Style]{.slide-title}
+
+<hr>
+
+```html
+<h1>Hello World!</h1>
+```
+
+---
+
+## {data-menu-title="CSS Styling" auto-animate=true}
+
+[CSS: Adding Style]{.slide-title}
+
+<hr>
+
+```html
+<head>
+  <style>
+    h1 {
+      color: blue;
+    }
+  </style>
+</head>
+<h1>Hello World!</h1>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+✨ CSS transforms plain HTML into beautiful web pages
+:::
+
+---
+
+## {data-menu-title="JavaScript Example" auto-animate=true}
+
+[JavaScript: Adding Interactivity]{.slide-title}
+
+<hr>
+
+```html
+<button>Click Me</button>
+```
+
+---
+
+## {data-menu-title="JavaScript Interaction" auto-animate=true}
+
+[JavaScript: Adding Interactivity]{.slide-title}
+
+<hr>
+
+```html
+<button id="btn">Click Me</button>
+
+<script>
+  document.getElementById('btn')
+    .addEventListener('click', function() {
+      alert('Button clicked!');
+    });
+</script>
+```
+
+::: {.fragment .body-text-m .center-text .topbr}
+🎯 JavaScript brings interactivity and dynamic behavior
+:::
+
+---
+
+[Web Development Workflow]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. Planning & Requirements
+2. Design & Prototyping
+3. [Development]{.teal-text}
+4. Testing & Debugging
+5. Deployment
+6. Maintenance
+:::
+
+::: {.fragment .body-text-s .center-text .topbr}
+⚡ We'll focus on **Development** in this course
+:::
+
+---
+
+## {data-menu-title="Tools & Technologies"}
+
+[Essential Tools]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment .fade-up}
+**Code Editor**: VS Code
+:::
+::: {.fragment .fade-up}
+**Version Control**: Git & GitHub
+:::
+::: {.fragment .fade-up}
+**Browser DevTools**: Chrome, Firefox
+:::
+::: {.fragment .fade-up}
+**Frameworks**: Bootstrap, React, Vue
+:::
+:::
+
+---
+
+## {data-menu-title="Why Learn Web Development?"}
+
+[Why Learn Web Development?]{.slide-title}
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+::: {.body-text-m}
+::: {.fragment}
+📈 High demand
+:::
+::: {.fragment}
+💰 Great salaries
+:::
+::: {.fragment}
+🌍 Work remotely
+:::
+:::
+:::
+
+::: {.column width="50%"}
+::: {.body-text-m}
+::: {.fragment}
+🎨 Creative outlet
+:::
+::: {.fragment}
+🚀 Build your ideas
+:::
+::: {.fragment}
+📚 Constant learning
+:::
+:::
+:::
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [MDN: Getting started](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)
+- [W3C Standards](https://www.w3.org/standards/webdesign/)
+- [Week 1 Content](/content/week-01.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 2 - History of Web & Internet
+</div>
+</div>
+
+
+
+
+
+

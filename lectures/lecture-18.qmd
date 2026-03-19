@@ -1,0 +1,376 @@
+---
+title: "Lecture 18: Form Validation"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 24, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 18]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Form Validation]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 5 | Unit II: DOM Manipulation<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Validate user input with HTML5 attributes
+- Implement client-side validation with JavaScript
+- Use regular expressions for pattern matching
+- Provide real-time validation feedback
+- Prevent form submission with invalid data
+:::
+
+---
+
+## {data-menu-title="Why Validation"}
+
+[Why Validate Forms?]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Ensure correct data format
+- Improve user experience with instant feedback
+- Prevent invalid data from reaching server
+- Reduce errors and security risks
+- Guide users to complete forms correctly
+:::
+
+---
+
+## {data-menu-title="HTML5 Validation"}
+
+[HTML5 Built-in Validation]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4"}
+<input type="email" required>
+<input type="number" min="1" max="100">
+<input type="text" pattern="[A-Za-z]+" placeholder="Letters only">
+<input type="url" placeholder="https://example.com">
+```
+
+::: {.body-text-m}
+Browsers provide automatic validation for these types.
+:::
+
+---
+
+## {data-menu-title="Required Fields"}
+
+[Required Fields]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4"}
+<form>
+  <input type="text" name="username" required>
+  <input type="email" name="email" required>
+  <button type="submit">Submit</button>
+</form>
+```
+
+The `required` attribute prevents submission if field is empty.
+
+---
+
+## {data-menu-title="Pattern Matching"}
+
+[Pattern Attribute]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3"}
+<input type="text" pattern="[0-9]{10}" 
+       placeholder="10-digit phone"
+       title="Enter exactly 10 digits">
+```
+
+::: {.body-text-m}
+- `pattern` uses regular expressions
+- `title` shows hint on validation failure
+:::
+
+---
+
+## {data-menu-title="JS Validation Basics"}
+
+[JavaScript Validation: Basics]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-6|4|5"}
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  validateForm();
+});
+```
+
+`preventDefault()` stops form submission until validation passes.
+
+---
+
+## {data-menu-title="Validate Function"}
+
+[Validation Function]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3-5|6-8|9"}
+function validateForm() {
+  const email = document.getElementById('email').value;
+  if (email === '') {
+    alert('Email is required');
+    return false;
+  }
+  if (!isValidEmail(email)) {
+    alert('Enter valid email');
+    return false;
+  }
+  return true;
+}
+```
+
+---
+
+## {data-menu-title="Email Regex"}
+
+[Email Validation with Regex]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+```
+
+::: {.body-text-m}
+- `^` start of string
+- `[^\s@]+` one or more non-space, non-@ chars
+- `@` literal @
+- `\.` literal dot
+- `$` end of string
+:::
+
+---
+
+## {data-menu-title="Phone Regex"}
+
+[Phone Number Validation]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+function isValidPhone(phone) {
+  const regex = /^[0-9]{10}$/;
+  return regex.test(phone);
+}
+```
+
+::: {.body-text-m}
+This pattern requires exactly 10 digits.
+:::
+
+---
+
+## {data-menu-title="Real-time Validation"}
+
+[Real-time Validation]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-9|5-6|7-8"}
+const emailInput = document.getElementById('email');
+
+emailInput.addEventListener('blur', function() {
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value);
+  if (!isValid) {
+    this.style.borderColor = 'red';
+  } else {
+    this.style.borderColor = 'green';
+  }
+});
+```
+
+`blur` event fires when user leaves the input field.
+
+---
+
+## {data-menu-title="Display Errors"}
+
+[Displaying Error Messages]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-5|6-9"}
+const errorDiv = document.querySelector('.error-message');
+if (!isValid) {
+  errorDiv.textContent = 'Invalid email format';
+  errorDiv.style.display = 'block';
+}
+else {
+  errorDiv.textContent = '';
+  errorDiv.style.display = 'none';
+}
+```
+
+---
+
+## {data-menu-title="Password Match"}
+
+[Password Matching]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4-6|7"}
+function validatePassword() {
+  const pwd = document.getElementById('password').value;
+  const confirm = document.getElementById('confirm-password').value;
+  if (pwd !== confirm) {
+    alert('Passwords do not match');
+    return false;
+  }
+  return true;
+}
+```
+
+---
+
+## {data-menu-title="Length Check"}
+
+[Password Length Check]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-4|5"}
+function checkPasswordStrength(pwd) {
+  if (pwd.length < 8) {
+    return 'Password must be at least 8 characters';
+  }
+  return 'Valid';
+}
+```
+
+---
+
+## {data-menu-title="classList for Errors"}
+
+[Using classList for Error States]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-4|5-7"}
+const input = document.getElementById('username');
+if (!isValid) {
+  input.classList.add('error');
+  input.classList.remove('success');
+} else {
+  input.classList.add('success');
+  input.classList.remove('error');
+}
+```
+
+---
+
+## {data-menu-title="Complete Example"}
+
+[Complete Validation Example]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-11|13-17"}
+const form = document.querySelector('#signup-form');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  
+  if (isValidEmail(email) && isValidPhone(phone)) {
+    alert('Form submitted successfully!');
+  } else {
+    alert('Please fix errors');
+  }
+});
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+```
+
+---
+
+## {data-menu-title="Best Practices"}
+
+[Best Practices]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Validate on both client and server
+- Provide clear error messages
+- Highlight invalid fields visually
+- Use HTML5 validation when possible
+- Test with edge cases (empty, special chars)
+:::
+
+---
+
+## {data-menu-title="Practice"}
+
+[Practice Task]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+Create a registration form with:
+
+1. Email validation
+2. Phone number (10 digits)
+3. Password matching
+4. Display error messages in red
+5. Prevent submission until all valid
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 19 - ES6+ Features
+</div>
+</div>
+
+
+
+
+
+

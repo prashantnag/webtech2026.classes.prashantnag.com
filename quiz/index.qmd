@@ -1,21 +1,42 @@
 ---
 title: "Interactive Quizzes"
-subtitle: "Practice Quizzes for Lectures 1-4"
+subtitle: "Practice Quizzes for Lectures 1-16"
 ---
 
 Use these quick quizzes after watching slides and reading weekly content. Each quiz gives instant scoring so students can self-check understanding before lab and assignment work.
 
-## Quiz Set (First Four Lectures)
+## Quiz Set (Week 1)
 
 - [Lecture 1 Quiz: Introduction to Web Designing](/quiz/lecture-01-quiz.qmd)
 - [Lecture 2 Quiz: History of Web & Internet](/quiz/lecture-02-quiz.qmd)
 - [Lecture 3 Quiz: HTML Basics & Structure](/quiz/lecture-03-quiz.qmd)
 - [Lecture 4 Quiz: HTML Grouping, Div/Span, Semantic HTML](/quiz/lecture-04-quiz.qmd)
 
+## Quiz Set (Week 2)
+
+- [Lecture 5 Quiz: HTML Lists & Images](/quiz/lecture-05-quiz.qmd)
+- [Lecture 6 Quiz: HTML Hyperlinks & Tables](/quiz/lecture-06-quiz.qmd)
+- [Lecture 7 Quiz: HTML Forms & Form Elements](/quiz/lecture-07-quiz.qmd)
+- [Lecture 8 Quiz: Introduction to CSS](/quiz/lecture-08-quiz.qmd)
+
+## Quiz Set (Week 3)
+
+- [Lecture 9 Quiz: CSS Units & Advanced Selectors](/quiz/lecture-09-quiz.qmd)
+- [Lecture 10 Quiz: CSS Box Model & Positioning](/quiz/lecture-10-quiz.qmd)
+- [Lecture 11 Quiz: Bootstrap Framework](/quiz/lecture-11-quiz.qmd)
+- [Lecture 12 Quiz: JavaScript Variables & Data Types](/quiz/lecture-12-quiz.qmd)
+
+## Quiz Set (Week 4)
+
+- [Lecture 13 Quiz: JavaScript Functions & Event Handling](/quiz/lecture-13-quiz.qmd)
+- [Lecture 14 Quiz: Conditional Statements & Looping](/quiz/lecture-14-quiz.qmd)
+- [Lecture 15 Quiz: Objects & Scope](/quiz/lecture-15-quiz.qmd)
+- [Lecture 16 Quiz: Arrow Functions & Callbacks](/quiz/lecture-16-quiz.qmd)
+
 ## Study Flow
 
-1. Review slides in [Presentations](/presentations/index.qmd)
-2. Read explanations and examples in [Week 1 Content](/content/week-01.qmd)
-3. Attempt [Lab 1](/labs/lab-01.qmd)
-4. Solve [Assignment 1](/assignment/01-assignment.qmd)
+1. Review slides in [Lectures](/lectures/index.qmd)
+2. Read explanations and examples in [Week 1 Content](/content/week-01.qmd), [Week 2 Content](/content/week-02.qmd), [Week 3 Content](/content/week-03.qmd), and [Week 4 Content](/content/week-04.qmd)
+3. Attempt [Lab 1](/labs/lab-01.qmd), [Lab 2](/labs/lab-02.qmd), [Lab 3](/labs/lab-03.qmd), and [Lab 4](/labs/lab-04.qmd)
+4. Solve [Assignment 1](/assignment/01-assignment.qmd), [Assignment 2](/assignment/02-assignment.qmd), and [Assignment 3](/assignment/03-assignment.qmd)
 5. Re-attempt quizzes for revision

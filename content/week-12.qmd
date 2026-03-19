@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 12: Apr 13 - Apr 19, 2026"
 subtitle: "Unit V: REST Services - Best Practices, Testing & Deployment"
 ---
@@ -12,9 +12,25 @@ This final week covers REST API best practices, testing strategies, production d
 **Final Project Due:** Apr 19  
 **End-Semester Exam:** Apr 21-May 3
 
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Lectures 37-40)
+Planned for this week. Use the [Quiz Hub](/quiz/index.qmd) for currently available quizzes.
+:::
+
+::: {.callout-note icon=false}
+## Lecture Materials
+This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.qmd) for all available slides.
+:::
+
 ---
 
-## Lecture 37: REST API Best Practices
+## Lecture 37: REST API Best Practices {#lecture-37}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### API Versioning
 ```java
@@ -126,7 +142,13 @@ public User getUser(@ApiParam("User ID") @PathVariable Long id) {}
 
 ---
 
-## Lecture 38: Testing in Spring Boot
+## Lecture 38: Testing in Spring Boot {#lecture-38}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Unit Testing
 ```java
@@ -191,7 +213,13 @@ public void testWithMock() {
 
 ---
 
-## Lecture 39: Deployment & Production
+## Lecture 39: Deployment & Production {#lecture-39}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Docker Containerization
 ```dockerfile
@@ -251,7 +279,13 @@ logging.level.com.example=INFO
 
 ---
 
-## Lecture 40: Final Project Discussion & Course Revision
+## Lecture 40: Final Project Discussion & Course Revision {#lecture-40}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Final Project Overview
 **Requirement:** Build a complete web application using all learned concepts
@@ -290,7 +324,7 @@ logging.level.com.example=INFO
 - Database schema
 - API documentation (Swagger)
 - Deployed application link (optional)
-- Presentation slides
+- lectures
 
 ### Evaluation Criteria
 - **Functionality (40%)**: Features work as expected
@@ -313,16 +347,16 @@ logging.level.com.example=INFO
 7. **Database**: JDBC, JPA, relational databases
 
 ### Key Concepts
-✅ HTML semantic structure  
-✅ CSS Box Model and layout  
-✅ JavaScript ES6+ features  
-✅ DOM manipulation and events  
-✅ MVC architecture pattern  
-✅ Dependency injection  
-✅ REST principles and design  
-✅ ORM and database access  
-✅ Security and authentication  
-✅ Testing and quality assurance  
+- HTML semantic structure  
+- CSS Box Model and layout  
+- JavaScript ES6+ features  
+- DOM manipulation and events  
+- MVC architecture pattern  
+- Dependency injection  
+- REST principles and design  
+- ORM and database access  
+- Security and authentication  
+- Testing and quality assurance  
 
 ### Skills Developed
 - Frontend web development
@@ -377,4 +411,4 @@ You've completed BMC201 Web Technology course! You now have skills to build mode
 - Contribute to open-source projects
 - Build your portfolio with real projects
 
-**Good luck with your final projects!** 🎉
+**Good luck with your final projects!**

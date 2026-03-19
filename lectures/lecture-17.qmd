@@ -1,0 +1,321 @@
+---
+title: "Lecture 17: DOM Manipulation & Array Methods"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 23, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 17]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[DOM Manipulation & Array Methods]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 5 | Unit II: DOM Manipulation<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Select DOM elements with modern selectors
+- Modify element content, attributes, and styles
+- Create and remove elements dynamically
+- Use array methods to transform data
+- Combine DOM manipulation with array operations
+:::
+
+---
+
+## {data-menu-title="What is DOM"}
+
+[What is the DOM?]{.slide-title}
+
+<hr>
+
+The **Document Object Model** is a tree-like representation of HTML.
+
+::: {.body-text-m}
+- Every HTML tag becomes a **node**
+- JavaScript can read and modify nodes
+- Changes to DOM update the page live
+:::
+
+```javascript
+document // root object
+  └─ document.body
+      └─ child elements
+```
+
+---
+
+## {data-menu-title="Selecting Elements"}
+
+[Selecting Elements]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+document.getElementById('header');
+document.querySelector('.navbar');
+document.querySelectorAll('p');
+document.getElementsByClassName('item');
+```
+
+::: {.body-text-m}
+- `querySelector` returns first match
+- `querySelectorAll` returns all matches (NodeList)
+:::
+
+---
+
+## {data-menu-title="Reading Content"}
+
+[Reading and Modifying Content]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const para = document.querySelector('p');
+
+console.log(para.textContent);  // text only
+console.log(para.innerHTML);    // HTML markup
+para.innerHTML = "<strong>Updated!</strong>";
+```
+
+- `textContent`: plain text
+- `innerHTML`: HTML tags included
+
+---
+
+## {data-menu-title="Modifying Attributes"}
+
+[Modifying Attributes]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const img = document.querySelector('img');
+
+img.setAttribute('src', 'photo.jpg');
+img.alt = 'Profile picture';
+console.log(img.getAttribute('src'));
+```
+
+Attributes control element behavior and display.
+
+---
+
+## {data-menu-title="Styles"}
+
+[Modifying Styles]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const box = document.querySelector('.box');
+
+box.style.color = 'blue';
+box.style.backgroundColor = 'lightgray';
+box.style.fontSize = '18px';
+```
+
+::: {.body-text-m}
+CSS property names become camelCase in JavaScript.
+:::
+
+---
+
+## {data-menu-title="classList"}
+
+[Working with Classes]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6"}
+const btn = document.querySelector('button');
+
+btn.classList.add('active');
+btn.classList.remove('disabled');
+btn.classList.toggle('highlight');
+console.log(btn.classList.contains('active'));
+```
+
+`classList` is cleaner than manipulating `className` directly.
+
+---
+
+## {data-menu-title="Creating Elements"}
+
+[Creating New Elements]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6"}
+const newDiv = document.createElement('div');
+newDiv.textContent = 'Hello from JS!';
+newDiv.classList.add('message');
+
+const parent = document.querySelector('#container');
+parent.appendChild(newDiv);
+```
+
+Dynamically build UI from JavaScript.
+
+---
+
+## {data-menu-title="Removing Elements"}
+
+[Removing Elements]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const item = document.querySelector('.old-item');
+item.remove();
+
+// OR using parent
+parent.removeChild(item);
+```
+
+Use `.remove()` for simpler code.
+
+---
+
+## {data-menu-title="Array map"}
+
+[Array Method: map()]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+const nums = [1, 2, 3, 4];
+const doubled = nums.map(x => x * 2);
+console.log(doubled); // [2, 4, 6, 8]
+```
+
+::: {.body-text-m}
+`map()` transforms each element and returns a new array.
+:::
+
+---
+
+## {data-menu-title="Array filter"}
+
+[Array Method: filter()]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+const numbers = [5, 12, 8, 130, 44];
+const large = numbers.filter(n => n > 10);
+console.log(large); // [12, 130, 44]
+```
+
+::: {.body-text-m}
+`filter()` selects elements that pass a test.
+:::
+
+---
+
+## {data-menu-title="Array reduce"}
+
+[Array Method: reduce()]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+const values = [10, 20, 30];
+const sum = values.reduce((acc, val) => acc + val, 0);
+console.log(sum); // 60
+```
+
+::: {.body-text-m}
+`reduce()` combines all elements into a single value.
+:::
+
+---
+
+## {data-menu-title="Array find"}
+
+[Array Methods: find() & includes()]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const users = [{id: 1}, {id: 2}, {id: 3}];
+const user = users.find(u => u.id === 2);
+
+const fruits = ['apple', 'banana', 'mango'];
+console.log(fruits.includes('banana')); // true
+```
+
+---
+
+## {data-menu-title="Combining"}
+
+[Combining DOM & Arrays]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6|7"}
+const students = ['Asha', 'Vikram', 'Neha'];
+const list = document.querySelector('#student-list');
+
+students.forEach(name => {
+  const li = document.createElement('li');
+  li.textContent = name;
+  list.appendChild(li);
+});
+```
+
+---
+
+## {data-menu-title="Practice"}
+
+[Practice Task]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+Given an array of product prices, create a `<ul>` with one `<li>` per product showing: "Price: ₹X"
+
+Use `map()` or `forEach()` to build the list dynamically.
+:::
+
+```javascript
+const prices = [100, 250, 450];
+```
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 18 - Form Validation
+</div>
+</div>
+
+
+
+
+
+

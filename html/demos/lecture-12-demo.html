@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 12 Demo - Variables and Data Types</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --ink: #13233a;
+        --accent: #0d6efd;
+        --ok: #198754;
+        --border: #d9e2ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #f4f7fb 0%, #e8f1ff 100%);
+        color: var(--ink);
+        padding: 24px;
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin-bottom: 6px;
+        color: #053660;
+      }
+
+      .subtitle {
+        margin-top: 0;
+        color: #35557a;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 16px 0;
+        box-shadow: 0 8px 18px rgba(17, 58, 94, 0.08);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 12px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #b9cce5;
+        font-size: 14px;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+
+      button:hover {
+        background: #0b5ed7;
+      }
+
+      pre {
+        margin: 0;
+        background: #0e1a2b;
+        color: #d7e6ff;
+        padding: 12px;
+        border-radius: 8px;
+        overflow-x: auto;
+        min-height: 160px;
+      }
+
+      .pill {
+        display: inline-block;
+        background: #e6f4ea;
+        color: var(--ok);
+        border: 1px solid #b8e3c3;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        margin-right: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Lecture 12 Demo</h1>
+      <p class="subtitle">
+        JavaScript Variables, Data Types, Conversion, Arrays, Objects, and
+        Operators
+      </p>
+
+      <div class="card">
+        <p>
+          <strong>Classroom tip:</strong> Open browser DevTools console, click
+          <strong>Run Full Demo</strong>, and edit values below to re-run live.
+        </p>
+        <p>
+          Console syntax to show live:
+          <code>demo.showScore()</code>, <code>demo.setScore(80)</code>,
+          <code>demo.incrementScore(10)</code>
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="grid">
+          <div>
+            <label for="name">Student Name (string)</label>
+            <input id="name" type="text" value="Aditi" />
+          </div>
+          <div>
+            <label for="age">Age (number-like input)</label>
+            <input id="age" type="text" value="20" />
+          </div>
+          <div>
+            <label for="student">Is Student (boolean)</label>
+            <select id="student">
+              <option value="true" selected>true</option>
+              <option value="false">false</option>
+            </select>
+          </div>
+          <div>
+            <label for="hobbies">Hobbies (comma separated for array)</label>
+            <input id="hobbies" type="text" value="coding, music, cricket" />
+          </div>
+          <div>
+            <label for="numA">Number A (operators)</label>
+            <input id="numA" type="number" value="12" />
+          </div>
+          <div>
+            <label for="numB">Number B (operators)</label>
+            <input id="numB" type="number" value="5" />
+          </div>
+          <div>
+            <label for="rawValue">Raw Value (conversion tests)</label>
+            <input id="rawValue" type="text" value="25.75" />
+          </div>
+          <div>
+            <label for="initialScore">Initial Score (variables)</label>
+            <input id="initialScore" type="number" value="50" />
+          </div>
+          <div>
+            <label for="scoreDelta">Increment By</label>
+            <input id="scoreDelta" type="number" value="10" />
+          </div>
+        </div>
+        <button id="runDemo">Run Full Demo</button>
+        <p>
+          <span class="pill">Variables</span>
+          <span class="pill">Data Types</span>
+          <span class="pill">Conversion</span>
+          <span class="pill">Arrays</span>
+          <span class="pill">Objects</span>
+          <span class="pill">Operators</span>
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Console-style Output</h3>
+        <pre id="output"></pre>
+      </div>
+    </div>
+
+    <script src="./lecture-12/app.js"></script>
+  </body>
+</html>

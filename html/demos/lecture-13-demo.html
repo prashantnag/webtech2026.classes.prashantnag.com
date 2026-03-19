@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 13 Demo - Functions and Event Handling</title>
+    <style>
+      :root {
+        --bg: #f7f9f3;
+        --panel: #ffffff;
+        --ink: #1f2f1f;
+        --accent: #2f7d32;
+        --accent-dark: #1f5a22;
+        --border: #d8e3d3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        background: radial-gradient(
+          circle at top right,
+          #eef8ea 0%,
+          #f7f9f3 45%,
+          #eef3ea 100%
+        );
+        color: var(--ink);
+        padding: 24px;
+      }
+
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        color: #255c2a;
+      }
+      p {
+        margin-top: 0;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 8px 16px rgba(37, 92, 42, 0.08);
+        margin: 12px 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #b9cbb4;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      button {
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 6px;
+      }
+
+      button:hover {
+        background: var(--accent-dark);
+      }
+
+      .counter {
+        font-size: 38px;
+        font-weight: 700;
+        margin: 6px 0 10px;
+        color: #255c2a;
+        text-align: center;
+      }
+
+      .live {
+        font-family: Consolas, monospace;
+        background: #0f2111;
+        color: #d7ffd9;
+        border-radius: 8px;
+        padding: 10px;
+        min-height: 125px;
+        white-space: pre-wrap;
+      }
+
+      .note {
+        font-size: 13px;
+        color: #405540;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lecture 13 Demo</h1>
+      <p>
+        Function declaration, parameters/arguments, event listeners, and
+        preventDefault.
+      </p>
+
+      <section class="panel">
+        <p>
+          <strong>Classroom tip:</strong> Open DevTools console and run these
+          commands live:
+        </p>
+        <p>
+          <code>eventsDemo.showCount()</code>,
+          <code>eventsDemo.setCount(5)</code>,
+          <code>eventsDemo.incrementBy(3)</code>,
+          <code>eventsDemo.previewBill(1000, 0.18)</code>,
+          <code>eventsDemo.applyGreeting("Aman")</code>
+        </p>
+      </section>
+
+      <div class="row">
+        <section class="panel">
+          <h3>1) Function + Click Event</h3>
+          <p class="counter" id="counterValue">0</p>
+          <button id="incBtn">Increase Counter</button>
+          <p class="note">Each click calls a function and updates the DOM.</p>
+        </section>
+
+        <section class="panel">
+          <h3>2) Input Event</h3>
+          <label for="nameInput">Type your name</label>
+          <input id="nameInput" type="text" placeholder="Enter name" />
+          <p id="greeting">Hello, Guest</p>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h3>3) Submit Event + preventDefault()</h3>
+        <form id="billForm">
+          <div class="row">
+            <div>
+              <label for="price">Price</label>
+              <input
+                id="price"
+                type="number"
+                min="0"
+                step="0.01"
+                value="1000"
+              />
+            </div>
+            <div>
+              <label for="taxRate">Tax Rate (example: 0.18)</label>
+              <input
+                id="taxRate"
+                type="number"
+                min="0"
+                step="0.01"
+                value="0.18"
+              />
+            </div>
+          </div>
+          <button type="submit">Calculate Total</button>
+        </form>
+        <p id="totalResult"><strong>Total:</strong> Not calculated</p>
+        <div class="live" id="eventLog"></div>
+      </section>
+    </div>
+
+    <script src="./lecture-13/app.js"></script>
+  </body>
+</html>

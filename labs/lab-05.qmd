@@ -1,0 +1,232 @@
+---
+title: "Lab 5: Browser Information, Objects, and Script Reuse"
+date: "2026-02-20"
+due: "2026-02-25"
+---
+
+
+This lab covers workbook experiments 9, 10, and 11.
+
+## Workbook Alignment
+
+- Experiment 9: Display browser information
+- Experiment 10: Merge properties of two objects
+- Experiment 11: Include one JavaScript file into another
+
+## Learning Objectives
+
+By the end of this lab, you will be able to:
+
+- read browser details using the `navigator` object
+- create and merge JavaScript objects
+- organize reusable code across multiple JavaScript files
+- control script loading order in HTML
+- display dynamic output inside the page
+
+## Software and Files Required
+
+- completion of Lab 4
+- VS Code or any text editor
+- a modern browser with developer tools
+- a folder named `Lab05`
+- files named `browser-info.html`, `merge-objects.html`, `index.html`, `math-utils.js`, and `app.js`
+
+## Experiment 9: Display Browser Information
+
+### Problem Statement
+
+Create a web page that displays browser details using JavaScript.
+
+### Folder Structure
+
+```text
+Lab05/
+  browser-info.html
+  merge-objects.html
+  index.html
+  math-utils.js
+  app.js
+```
+
+### Procedure
+
+1. Create the `Lab05` folder.
+2. Add a new file named `browser-info.html`.
+3. Access the `navigator` object using JavaScript.
+4. Store key browser properties in an object.
+5. Display the properties as list items in the browser.
+
+### Solution Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Information</title>
+</head>
+<body>
+  <h1>Browser Information</h1>
+  <ul id="browserInfo"></ul>
+
+  <script>
+    const info = {
+      appName: navigator.appName,
+      appVersion: navigator.appVersion,
+      platform: navigator.platform,
+      language: navigator.language,
+      userAgent: navigator.userAgent
+    };
+
+    const list = document.getElementById("browserInfo");
+    Object.entries(info).forEach(([key, value]) => {
+      const item = document.createElement("li");
+      item.textContent = key + ": " + value;
+      list.appendChild(item);
+    });
+  </script>
+</body>
+</html>
+```
+
+### Expected Result
+
+The page should display browser name, version, platform, language, and user agent information as a list.
+
+## Experiment 10: Merge Properties of Two Objects
+
+### Problem Statement
+
+Write a JavaScript program to merge the properties of two objects and display the combined result.
+
+### Procedure
+
+1. Create a file named `merge-objects.html`.
+2. Define two objects with related data.
+3. Merge them using the spread operator.
+4. Display the merged object using formatted JSON output.
+5. Test the page in the browser.
+
+### Solution Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Objects</title>
+</head>
+<body>
+  <h1>Merge Two Objects</h1>
+  <pre id="mergedOutput"></pre>
+
+  <script>
+    const student = {
+      name: "Neha",
+      rollNumber: "MCA24012"
+    };
+
+    const academic = {
+      course: "BMC201",
+      semester: 2
+    };
+
+    const merged = { ...student, ...academic };
+    document.getElementById("mergedOutput").textContent = JSON.stringify(merged, null, 2);
+  </script>
+</body>
+</html>
+```
+
+### Expected Result
+
+The page should display a single object containing all properties from both source objects.
+
+## Experiment 11: Include One JavaScript File into Another Page
+
+### Problem Statement
+
+Create an HTML page that uses functions defined in a separate JavaScript file.
+
+### Procedure
+
+1. Create the files `math-utils.js`, `app.js`, and `index.html`.
+2. Define reusable functions in `math-utils.js`.
+3. Write page logic in `app.js`.
+4. Load both files in the correct order from `index.html`.
+5. Open the page and verify that both functions are available.
+
+### `math-utils.js`
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+```
+
+### `app.js`
+
+```javascript
+window.addEventListener("DOMContentLoaded", function () {
+  const output = document.getElementById("scriptOutput");
+  output.textContent = "Sum: " + add(10, 20) + " | Product: " + multiply(10, 20);
+});
+```
+
+### `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Script Reuse</title>
+</head>
+<body>
+  <h1>Including JavaScript Files</h1>
+  <p id="scriptOutput"></p>
+
+  <script src="math-utils.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+```
+
+### Expected Result
+
+The page should display the calculated sum and product, proving that functions defined in one script file can be reused in another page script.
+
+## Observation Questions
+
+1. What is the purpose of the `navigator` object?
+2. What happens when two merged objects have the same property name?
+3. Why should utility scripts be loaded before dependent scripts?
+4. What is the difference between `DOMContentLoaded` and `load`?
+
+## Viva Questions
+
+1. What is the advantage of separating utility code into another file?
+2. What is the role of `JSON.stringify()` in this lab?
+3. Why is script order important in HTML?
+4. How can browser developer tools help debug JavaScript loading issues?
+
+## Submission Checklist
+
+- `browser-info.html`
+- `merge-objects.html`
+- `index.html`
+- `math-utils.js`
+- `app.js`
+- screenshots of all three pages
+- short answer file for observation and viva questions
+
+## Extension Task
+
+Add another utility function, such as `subtract()` or `divide()`, and update the page so it displays all available calculations.

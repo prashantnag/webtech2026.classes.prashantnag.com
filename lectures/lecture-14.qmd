@@ -1,0 +1,217 @@
+﻿---
+title: "Lecture 14: Conditional Statements & Looping"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 17, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 14]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Conditional Statements & Looping]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 4 | Unit II: JavaScript Functions & Events<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Make decisions with `if` and `switch`
+- Repeat tasks using loops
+- Compare `for`, `while`, and `do...while`
+- Use `break` and `continue` correctly
+- Avoid common infinite-loop mistakes
+:::
+
+---
+
+## {data-menu-title="Conditionals"}
+
+[If / Else Logic]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6|7"}
+const marks = 72;
+
+if (marks >= 90) {
+  console.log("Grade A");
+} else if (marks >= 60) {
+  console.log("Grade B");
+} else {
+  console.log("Grade C");
+}
+```
+
+---
+
+## {data-menu-title="Comparison Ops"}
+
+[Comparison and Logical Operators]{.slide-title2}
+
+<hr>
+
+```javascript
+age >= 18
+score === 100
+userRole === "admin" && isActive
+isGuest || hasAccess
+```
+
+- Use `===` for strict checks
+- Combine conditions with `&&` and `||`
+
+---
+
+## {data-menu-title="Switch"}
+
+[Switch Statement]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-3|4-6|7-9|10-11"}
+const day = "Friday";
+
+switch (day) {
+  case "Monday":
+    console.log("Start of week");
+    break;
+  case "Friday":
+    console.log("Almost weekend");
+    break;
+  default:
+    console.log("Regular day");
+}
+```
+
+---
+
+## {data-menu-title="For Loop"}
+
+[For Loop]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+for (let i = 1; i <= 5; i++) {
+  console.log("Iteration:", i);
+}
+```
+
+Best when iteration count is known.
+
+---
+
+## {data-menu-title="While Loops"}
+
+[While and Do...While]{.slide-title2}
+
+<hr>
+
+```javascript
+let count = 0;
+while (count < 3) {
+  console.log(count);
+  count++;
+}
+```
+
+```javascript
+let n = 0;
+do {
+  console.log(n);
+  n++;
+} while (n < 3);
+```
+
+- `while`: condition first
+- `do...while`: runs at least once
+
+---
+
+## {data-menu-title="For Of In"}
+
+[for...of vs for...in]{.slide-title}
+
+<hr>
+
+```javascript
+const nums = [10, 20, 30];
+for (const value of nums) {
+  console.log(value);
+}
+
+const user = { name: "Aman", age: 21 };
+for (const key in user) {
+  console.log(key, user[key]);
+}
+```
+
+---
+
+## {data-menu-title="Break Continue"}
+
+[break and continue]{.slide-title}
+
+<hr>
+
+```javascript
+for (let i = 1; i <= 10; i++) {
+  if (i === 4) continue;
+  if (i === 8) break;
+  console.log(i);
+}
+```
+
+- `continue`: skip current iteration
+- `break`: exit loop completely
+
+---
+
+## {data-menu-title="Pitfalls"}
+
+[Common Loop Pitfalls]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Forgetting to update loop variable
+- Wrong boundary (`<=` vs `<`)
+- Modifying array while iterating carelessly
+- Nesting too many loops unnecessarily
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 15 - Objects & Scope
+</div>
+</div>
+
+
+
+
+
+

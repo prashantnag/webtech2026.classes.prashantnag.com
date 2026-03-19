@@ -1,0 +1,56 @@
+---
+title: "Lecture 9 Quiz: CSS Units & Advanced Selectors"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-09.qmd) | [Week 3 Content](/content/week-03.qmd) | [Lab 3](/labs/lab-03.qmd) | [Assignment 3](/assignment/03-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 9 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. px and pt", "B. em and rem", "C. cm and mm", "D. in and pc"]
+question = "Question 1: Which CSS units are relative and preferred for scalable typography?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Relative to current element's font size", "B. Relative to root html font size", "C. Relative to viewport width", "D. Relative to parent width"]
+question = "Question 2: `rem` units are calculated relative to what?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. #header", "B. .header", "C. header", "D. *header"]
+question = "Question 3: Which selector targets an element with class name `header`?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. div p", "B. div + p", "C. div > p", "D. div ~ p"]
+question = "Question 4: Which selector matches only direct child paragraph elements of a `div`?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. a:visited", "B. a:hover", "C. a:active", "D. a:focus"]
+question = "Question 5: Which pseudo-class applies style when the mouse pointer is over a link?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```

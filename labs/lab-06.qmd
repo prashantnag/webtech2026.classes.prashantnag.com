@@ -1,0 +1,210 @@
+---
+title: "Lab 6: Servlet Authentication with Database Validation"
+date: "2026-03-10"
+due: "2026-03-18"
+---
+
+
+This lab covers workbook experiment 12.
+
+## Workbook Alignment
+
+- Experiment 12: Develop a Servlet to validate username and password stored in a database
+
+## Learning Objectives
+
+By the end of this lab, you will be able to:
+
+- create a Java web application structure
+- connect a servlet to a relational database using JDBC
+- validate user credentials securely with `PreparedStatement`
+- deploy and test a web application on Tomcat
+- distinguish between authorized and unauthorized user flows
+
+## Software and Files Required
+
+- completion of Lab 5
+- Java 17 or later
+- Apache Tomcat 10 or later
+- MySQL 8 or later
+- Maven
+- a folder named `Lab06-ServletLogin`
+
+## Experiment 12: Servlet Authentication with Database Validation
+
+### Problem Statement
+
+Develop a servlet that validates username and password values stored in a database and displays an authorization result.
+
+### Folder Structure
+
+```text
+Lab06-ServletLogin/
+  pom.xml
+  src/main/java/com/gcet/LoginServlet.java
+  src/main/webapp/index.jsp
+```
+
+### Procedure
+
+1. Create a Maven web application project named `Lab06-ServletLogin`.
+2. Add servlet and MySQL connector dependencies in `pom.xml`.
+3. Create the database and insert sample user records.
+4. Create the login form in `index.jsp`.
+5. Write a servlet that reads form data, queries the database, and prints the result.
+6. Deploy the project on Tomcat and test with valid and invalid credentials.
+
+### Database Setup
+
+```sql
+CREATE DATABASE bmc201_lab;
+
+USE bmc201_lab;
+
+CREATE TABLE users (
+  username VARCHAR(50) PRIMARY KEY,
+  password VARCHAR(100) NOT NULL
+);
+
+INSERT INTO users (username, password)
+VALUES ('admin', 'admin123'), ('student1', 'wtlab2026');
+```
+
+### `pom.xml`
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gcet</groupId>
+  <artifactId>Lab06-ServletLogin</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.4.0</version>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+### `LoginServlet.java`
+
+```java
+package com.gcet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/bmc201_lab", "root", "root");
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM users WHERE username = ? AND password = ?");
+            statement.setString(1, username);
+            statement.setString(2, password);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                out.println("<h2>Authorized user</h2>");
+            } else {
+                out.println("<h2>Unauthorized user</h2>");
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (Exception exception) {
+            out.println("<p>Error: " + exception.getMessage() + "</p>");
+        }
+    }
+}
+```
+
+### `index.jsp`
+
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Servlet Login</title>
+</head>
+<body>
+  <h1>Login Form</h1>
+  <form action="login" method="post">
+    <label>Username</label>
+    <input type="text" name="username" required>
+    <br><br>
+    <label>Password</label>
+    <input type="password" name="password" required>
+    <br><br>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>
+```
+
+### Expected Result
+
+When valid credentials are submitted, the application should display `Authorized user`. For invalid credentials, it should display `Unauthorized user`.
+
+## Observation Questions
+
+1. Why is `PreparedStatement` preferred over string concatenation?
+2. What is the purpose of the JDBC driver loading step?
+3. Why should passwords be hashed in a real application?
+4. What information is sent to the servlet when the form is submitted?
+
+## Viva Questions
+
+1. What is the role of the servlet container?
+2. What is the difference between `doGet()` and `doPost()`?
+3. Why is Tomcat required in this lab?
+4. What will happen if the database connection fails?
+
+## Submission Checklist
+
+- `pom.xml`
+- `LoginServlet.java`
+- `index.jsp`
+- SQL commands used for database setup
+- screenshots of successful and failed login attempts
+- short answer file for observation and viva questions
+
+## Extension Task
+
+Add password hashing and redirect the authorized user to a welcome page instead of printing plain HTML from the servlet.

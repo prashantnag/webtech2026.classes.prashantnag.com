@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 9: Mar 23 - Mar 29, 2026"
 subtitle: "Unit III: JSP Advanced & MVC Architecture"
 ---
@@ -11,9 +11,25 @@ This week covers advanced JSP features, JSTL, MVC architecture, and database con
 **Duration:** 1 week (4 lectures + 1 lab)  
 **Lab:** JSP & Database Integration
 
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Lectures 25-28)
+Planned for this week. Use the [Quiz Hub](/quiz/index.qmd) for currently available quizzes.
+:::
+
+::: {.callout-note icon=false}
+## Lecture Materials
+This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.qmd) for all available slides.
+:::
+
 ---
 
-## Lecture 25: JSP Implicit Objects & Directives
+## Lecture 25: JSP Implicit Objects & Directives {#lecture-25}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### JSP Directives
 ```jsp
@@ -60,7 +76,13 @@ This week covers advanced JSP features, JSTL, MVC architecture, and database con
 
 ---
 
-## Lecture 26: JSP Standard Actions & JSTL
+## Lecture 26: JSP Standard Actions & JSTL {#lecture-26}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### JSP Standard Actions
 ```jsp
@@ -114,7 +136,13 @@ This week covers advanced JSP features, JSTL, MVC architecture, and database con
 
 ---
 
-## Lecture 27: MVC Architecture
+## Lecture 27: MVC Architecture {#lecture-27}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### MVC Pattern
 ```
@@ -185,7 +213,13 @@ public class UserModel {
 
 ---
 
-## Lecture 28: Database Connectivity with JDBC
+## Lecture 28: Database Connectivity with JDBC {#lecture-28}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### JDBC Connection
 ```java
@@ -268,3 +302,4 @@ Unit IV begins:
 - Spring Framework fundamentals
 - Dependency Injection
 - Spring Beans and application context
+

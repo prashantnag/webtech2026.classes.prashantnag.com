@@ -1,0 +1,785 @@
+---
+title: "Lecture 21: Servlet Architecture & Lifecycle"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "March 16, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 21]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Servlet Architecture & Lifecycle]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 8 | Unit III: JSP & Servlets Introduction<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Understand what servlets are and their role
+- Explain servlet architecture components
+- Describe the servlet lifecycle phases
+- Write basic servlet classes
+- Configure servlets using web.xml and annotations
+:::
+
+---
+
+## {data-menu-title="What is Servlet"}
+
+[What is a Servlet?]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Servlet** is a Java program that runs on a web server to handle HTTP requests and generate dynamic responses.
+
+**Key Features:**
+
+- Server-side technology
+- Platform-independent
+- Part of Java EE (Jakarta EE)
+- Extends `HttpServlet` class
+- Handles multiple requests concurrently
+:::
+
+---
+
+## {data-menu-title="Why Servlets"}
+
+[Why Use Servlets?]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- **Dynamic Content**: Generate HTML based on user input
+- **Database Integration**: Connect to databases for data operations
+- **Session Management**: Track user state across requests
+- **Platform Independent**: Write once, run anywhere
+- **Powerful**: Full access to Java APIs
+- **Scalable**: Handle multiple concurrent requests
+:::
+
+---
+
+## {data-menu-title="Servlet Architecture"}
+
+[Servlet Architecture]{.slide-title}
+
+<hr>
+
+```{mermaid}
+flowchart LR
+    A[Client Browser] -->|HTTP Request| B[Web Server]
+    B -->|Delegate| C[Servlet Container]
+    C -->|Call| D[Servlet]
+    D -->|Query| E[Database]
+    E -->|Data| D
+    D -->|Response| C
+    C -->|HTTP Response| B
+    B -->|Display| A
+```
+
+---
+
+## {data-menu-title="Architecture Components"}
+
+[Architecture Components]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**1. Web Server**
+
+- Receives HTTP requests (Apache Tomcat, Jetty)
+
+**2. Servlet Container (Servlet Engine)**
+
+- Manages servlet lifecycle
+- Creates request/response objects
+
+**3. Servlet**
+
+- Processes request and generates response
+
+**4. web.xml (Deployment Descriptor)**
+
+- Maps URL patterns to servlets
+:::
+
+---
+
+## {data-menu-title="Servlet Container"}
+
+[Servlet Container Role]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- **Load & Instantiate**: Creates servlet instances
+- **Initialize**: Calls `init()` method
+- **Request Handling**: Calls `service()` method
+- **Destroy**: Calls `destroy()` when shutting down
+- **Thread Management**: Creates threads for concurrent requests
+- **Security**: Manages authentication & authorization
+:::
+
+---
+
+## {data-menu-title="Servlet Lifecycle"}
+
+[Servlet Lifecycle]{.slide-title}
+
+<hr>
+
+```{mermaid}
+stateDiagram-v2
+    direction LR
+    [*] --> Loading
+    Loading --> Instantiation
+    Instantiation --> Init: init()
+    Init --> Service: doGet/doPost
+    Service --> Service: Requests
+    Service --> Destroy: destroy()
+    Destroy --> [*]
+```
+
+---
+
+## {data-menu-title="Lifecycle Phases"}
+
+[Lifecycle Phases Explained]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**1. Loading & Instantiation**
+
+- Container loads servlet class
+- Creates single servlet instance
+
+**2. Initialization (`init()`)**
+
+- Called once after instantiation
+- Initialize resources (database connections)
+
+**3. Request Handling (`service()`)**
+
+- Called for each client request
+- Delegates to `doGet()` or `doPost()`
+:::
+
+---
+
+## {data-menu-title="Lifecycle Phases 2"}
+
+[Lifecycle Phases Explained (cont.)]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**4. Destruction (`destroy()`)**
+
+- Called once before servlet removal
+- Cleanup resources (close connections)
+
+**Key Points:**
+
+- `init()` and `destroy()` called **once**
+- `service()` called **multiple times** (one per request)
+- Single servlet instance serves all requests (multithreaded)
+:::
+
+---
+
+## {data-menu-title="Basic Servlet"}
+
+[Basic Servlet Structure]{.slide-title}
+
+<hr>
+
+```{.java code-line-numbers="|1-2|4-5|8-11|14-20|23-26"}
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class HelloServlet extends HttpServlet {
+  
+  // Called once during initialization
+  public void init() throws ServletException {
+    System.out.println("Servlet initialized");
+    // Initialize resources here
+  }
+  
+  // Handle GET requests
+  protected void doGet(HttpServletRequest request, 
+                      HttpServletResponse response)
+    throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    out.println("<h1>Hello from Servlet!</h1>");
+  }
+  
+  // Called once before destruction
+  public void destroy() {
+    System.out.println("Servlet destroyed");
+    // Cleanup resources here
+  }
+}
+```
+
+---
+
+## {data-menu-title="HttpServlet Class"}
+
+[HttpServlet Class Hierarchy]{.slide-title2}
+
+<hr>
+
+```{mermaid}
+%%| fig-height: 3
+
+classDiagram
+    direction LR
+    class Servlet {
+        <<interface>>
+        +init()
+        +service()
+        +destroy()
+    }
+    
+    class GenericServlet {
+        <<abstract>>
+        +init()
+        +destroy()
+        +service()
+    }
+    
+    class HttpServlet {
+        <<abstract>>
+        +doGet()
+        +doPost()
+        +doPut()
+        +doDelete()
+    }
+    
+    class HelloServlet {
+        +doGet()
+        +doPost()
+    }
+    
+    Servlet <|-- GenericServlet
+    GenericServlet <|-- HttpServlet
+    HttpServlet <|-- HelloServlet
+```
+
+---
+
+## {data-menu-title="Service Method"}
+
+[service() Method Flow]{.slide-title}
+
+<hr>
+
+```{.java code-line-numbers="|1-3|4-10"}
+// Container calls service() for every request
+protected void service(HttpServletRequest request,
+                      HttpServletResponse response) {
+  String method = request.getMethod();
+  if (method.equals("GET")) {
+    doGet(request, response);
+  } else if (method.equals("POST")) {
+    doPost(request, response);
+  }
+  // ... and so on for PUT, DELETE, etc.
+}
+```
+
+::: {.body-text-m}
+Usually, you override `doGet()` or `doPost()` instead of `service()`.
+:::
+
+---
+
+## {data-menu-title="Request Response"}
+
+[Request & Response Objects]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**HttpServletRequest**
+
+- Contains client request data
+- Methods: `getParameter()`, `getHeader()`, `getSession()`
+
+**HttpServletResponse**
+
+- Sends response to client
+- Methods: `setContentType()`, `getWriter()`, `sendRedirect()`
+:::
+
+```{.java code-line-numbers="|1|2|5|6"}
+// Get parameter from request
+String name = request.getParameter("username");
+
+// Set response type and send output
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+out.println("<p>Welcome, " + name + "</p>");
+```
+
+---
+
+## {data-menu-title="Servlet with Init"}
+
+[Servlet with Initialization Parameters]{.slide-title2}
+
+<hr>
+
+```{.java code-line-numbers="|1-2|4-7|10-15"}
+public class ConfigServlet extends HttpServlet {
+  private String adminEmail;
+  
+  public void init() throws ServletException {
+    // Get init parameter from web.xml
+    adminEmail = getServletConfig().getInitParameter("email");
+  }
+  
+  protected void doGet(HttpServletRequest request,
+                      HttpServletResponse response) 
+    throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    out.println("<p>Contact: " + adminEmail + "</p>");
+  }
+}
+```
+
+---
+
+## {data-menu-title="Web XML Config"}
+
+[Servlet Configuration: web.xml]{.slide-title2}
+
+<hr>
+
+```{.xml code-line-numbers="|1-4|6-9|11-14"}
+<!-- Define servlet -->
+<servlet>
+  <servlet-name>HelloServlet</servlet-name>
+  <servlet-class>com.example.HelloServlet</servlet-class>
+  
+  <!-- Optional: init parameters -->
+  <init-param>
+    <param-name>email</param-name>
+    <param-value>admin@example.com</param-value>
+  </init-param>
+  
+  <!-- Optional: load on startup -->
+  <load-on-startup>1</load-on-startup>
+</servlet>
+
+<!-- Map servlet to URL -->
+<servlet-mapping>
+  <servlet-name>HelloServlet</servlet-name>
+  <url-pattern>/hello</url-pattern>
+</servlet-mapping>
+```
+
+---
+
+## {data-menu-title="Annotation Config"}
+
+[Servlet Configuration: Annotations]{.slide-title2}
+
+<hr>
+
+```{.java code-line-numbers="|1-5|7"}
+@WebServlet(
+  name = "HelloServlet",
+  urlPatterns = {"/hello", "/greet"},
+  loadOnStartup = 1
+)
+public class HelloServlet extends HttpServlet {
+  // ... servlet code
+}
+```
+
+::: {.body-text-m}
+**Annotations** (Servlet 3.0+) eliminate need for web.xml configuration.
+
+Commonly used: `@WebServlet`, `@WebFilter`, `@WebListener`
+:::
+
+---
+
+## {data-menu-title="Annotation Params"}
+
+[Annotation with Init Parameters]{.slide-title2}
+
+<hr>
+
+```{.java code-line-numbers="|2-8|10-13"}
+@WebServlet(
+  urlPatterns = "/config",
+  initParams = {
+    @WebInitParam(name = "email", value = "admin@example.com"),
+    @WebInitParam(name = "phone", value = "123-456-7890")
+  },
+  loadOnStartup = 1
+)
+public class ConfigServlet extends HttpServlet {
+  public void init() {
+    String email = getInitParameter("email");
+    System.out.println("Email: " + email);
+  }
+}
+```
+
+---
+
+## {data-menu-title="URL Patterns"}
+
+[URL Pattern Mapping]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Exact Match**
+```xml
+<url-pattern>/hello</url-pattern>
+```
+Matches: `http://localhost:8080/app/hello`
+
+**Path Match**
+```xml
+<url-pattern>/admin/*</url-pattern>
+```
+Matches: `http://localhost:8080/app/admin/users`
+
+**Extension Match**
+```xml
+<url-pattern>*.do</url-pattern>
+```
+Matches: `http://localhost:8080/app/login.do`
+:::
+
+---
+
+## {data-menu-title="Load on Startup"}
+
+[Load-on-Startup]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Default Behavior**: Servlet loaded on first request
+
+**load-on-startup**: Load servlet when application starts
+
+```xml
+<load-on-startup>1</load-on-startup>
+```
+
+- Positive number: Load order (1, 2, 3...)
+- Lower numbers loaded first
+- Use for servlets that initialize resources
+:::
+
+---
+
+## {data-menu-title="Complete Example"}
+
+[Complete Servlet Example]{.slide-title}
+
+<hr>
+
+```{.java code-line-numbers="|1|2-6|8-12|14-22|24-27"}
+@WebServlet(urlPatterns = "/welcome", loadOnStartup = 1)
+public class WelcomeServlet extends HttpServlet {
+  private int visitCount = 0;
+  
+  public void init() {
+    System.out.println("WelcomeServlet initialized");
+  }
+  
+  protected void doGet(HttpServletRequest request,
+                      HttpServletResponse response)
+    throws ServletException, IOException {
+    visitCount++;
+    
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    out.println("<html><body>");
+    out.println("<h1>Welcome!</h1>");
+    out.println("<p>Visit count: " + visitCount + "</p>");
+    out.println("</body></html>");
+    out.close();
+  }
+  
+  public void destroy() {
+    System.out.println("Total visits: " + visitCount);
+    System.out.println("WelcomeServlet destroyed");
+  }
+}
+```
+
+---
+
+## {data-menu-title="Thread Safety"}
+
+[Thread Safety Considerations]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**Problem**: Single servlet instance serves multiple requests
+
+- Instance variables shared across requests
+- Multiple threads access same servlet object
+
+**Solution**: Avoid instance variables for request-specific data
+
+```java
+// BAD - instance variable
+private String username; // Shared across all requests!
+
+// GOOD - local variable
+protected void doGet(...) {
+  String username = request.getParameter("name"); // Thread-safe
+}
+```
+:::
+
+---
+
+## {data-menu-title="Lifecycle Example"}
+
+[Lifecycle Demonstration]{.slide-title}
+
+<hr>
+
+```{.java code-line-numbers="|4-7|9-14|16-19"}
+@WebServlet("/lifecycle")
+public class LifecycleServlet extends HttpServlet {
+  
+  public void init() {
+    System.out.println("1. init() - Servlet initialized");
+    System.out.println("   Thread: " + Thread.currentThread().getName());
+  }
+  
+  protected void doGet(HttpServletRequest request,
+                      HttpServletResponse response) 
+    throws ServletException, IOException {
+    System.out.println("2. doGet() - Handling request");
+    System.out.println("   Thread: " + Thread.currentThread().getName());
+  }
+  
+  public void destroy() {
+    System.out.println("3. destroy() - Servlet destroyed");
+    System.out.println("   Thread: " + Thread.currentThread().getName());
+  }
+}
+```
+
+---
+
+## {data-menu-title="Common Methods"}
+
+[Common Servlet Methods]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Request Methods**
+```java
+request.getParameter("name")
+request.getRequestURI()
+request.getMethod()
+request.getSession()
+request.getHeader("User-Agent")
+```
+
+**Response Methods**
+```java
+response.setContentType("text/html")
+response.getWriter()
+response.sendRedirect("login.html")
+response.setStatus(200)
+```
+:::
+
+---
+
+## {data-menu-title="ServletConfig"}
+
+[ServletConfig & ServletContext]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**ServletConfig**
+
+- One per servlet
+- Access init parameters
+- `getServletConfig().getInitParameter("param")`
+
+**ServletContext**
+
+- One per web application
+- Shared across all servlets
+- `getServletContext().getAttribute("data")`
+
+```java
+ServletContext ctx = getServletContext();
+ctx.setAttribute("appName", "MyApp");
+```
+:::
+
+---
+
+## {data-menu-title="Best Practices"}
+
+[Servlet Best Practices]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Use annotations instead of web.xml (Servlet 3.0+)
+- Don't store request-specific data in instance variables
+- Close resources in `destroy()` method
+- Set appropriate content type before writing response
+- Use `PrintWriter.close()` after writing output
+- Handle exceptions properly
+- Use thread-safe code practices
+:::
+
+---
+
+## {data-menu-title="Common Mistakes"}
+
+[Common Mistakes to Avoid]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Forgetting to extend `HttpServlet`
+- Not calling `super.init()` when overriding
+- Using instance variables for request data
+- Not setting content type
+- Forgetting servlet mapping in web.xml/annotation
+- Calling `doGet()` from `doPost()` without proper handling
+:::
+
+---
+
+## {data-menu-title="Live Demo"}
+
+[Live Classroom Demo: Servlet Lifecycle]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+Use this interactive page during class to demonstrate:
+
+- Servlet lifecycle phases visualization
+- Init, service, and destroy method calls
+- Request counter simulation
+- Thread safety concepts
+- Configuration parameters
+:::
+
+::: {.body-text-l .center-text .topbr}
+[Open Demo: Servlet Lifecycle](../html/demos/lecture-21-demo.html){target="_blank"}
+:::
+
+::: {.fragment .body-text-s .center-text .topbr}
+Alternative site path: `/html/demos/lecture-21-demo.html`
+:::
+
+::: {.fragment .body-text-s .center-text}
+[Open app.js Source](../html/demos/lecture-21/app.js){target="_blank"}
+:::
+
+---
+
+## {data-menu-title="Summary"}
+
+[Summary]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Servlets are Java programs running on web servers
+- Servlet container manages the lifecycle
+- Lifecycle: Load → Instantiate → Init → Service → Destroy
+- `init()` and `destroy()` called once
+- `service()` calls `doGet()` or `doPost()` per request
+- Configure using web.xml or annotations
+- Single servlet instance handles multiple requests (multithreaded)
+:::
+
+---
+
+## {data-menu-title="Practice"}
+
+[Practice Exercise]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+Create a servlet that:
+
+1. Uses `@WebServlet` annotation with URL pattern `/counter`
+2. Maintains a visit counter in `init()` parameter
+3. Displays the current count in `doGet()`
+4. Prints lifecycle messages to console
+5. Logs total visits in `destroy()`
+
+**Bonus**: Add initialization parameter for starting count value
+:::
+
+---
+
+## {data-menu-title="Resources"}
+
+[Resources & References]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+- [Jakarta Servlet Documentation](https://jakarta.ee/specifications/servlet/)
+- [Apache Tomcat Servlet Tutorial](https://tomcat.apache.org/tomcat-10.0-doc/servletapi/)
+- [Oracle Java EE Tutorial - Servlets](https://docs.oracle.com/javaee/7/tutorial/servlets.htm)
+- [Course content: Week 8](/content/week-08.qmd)
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 22 - HTTP GET & POST Requests
+</div>
+</div>

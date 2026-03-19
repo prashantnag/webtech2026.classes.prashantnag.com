@@ -1,8 +1,5 @@
 /*-- scss:defaults --*/
 
-// Import fonts
-@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
 // Color palette
 $orange: #e67e22;
 $darkblue: #2c3e50;
@@ -17,56 +14,105 @@ $gray: #95a5a6;
 $navbar-bg: $darkblue;
 $navbar-fg: #ffffff;
 
+// Typography – Litera Bootswatch theme
+$font-size-base: 1.1rem;
+$headings-font-weight: 700;
+$font-family-sans-serif:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+  Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
+
 /*-- scss:rules --*/
+
+body {
+  line-height: 1.65;
+}
+
+p {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar,
+.nav-footer,
+.sidebar,
+.quarto-title-meta,
+.listing-category,
+.quarto-category,
+.btn,
+.dropdown-menu,
+.lead {
+  font-family: $font-family-sans-serif;
+}
+
+.navbar,
+.nav-footer,
+footer,
+table,
+.table,
+.nav,
+.breadcrumb,
+.pagination,
+.dropdown-menu,
+.list-group {
+  font-size: 0.9625rem;
+}
 
 // Home page styling
 .home {
+  .landing-hero {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: #edf1f4;
+    border-radius: 10px;
+  }
+
+  .profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .profile-photo {
+    max-width: 220px;
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid rgba(44, 62, 80, 0.2);
+  }
+
+  .profile-details h2 {
+    color: $darkblue;
+    border-bottom: 2px solid $orange;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
   .course-details {
     margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-
-    h3 {
-      color: $darkblue;
-      font-size: 1.4em;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid $orange;
-      padding-bottom: 0.5rem;
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-
-      li {
-        padding: 0.3rem 0;
-      }
-    }
   }
 }
 
 // Schedule page styling
-.schedule-page {
-  font-size: 1.05em;
+.schedule-group {
+  margin-top: 1.8rem;
+}
 
-  table {
-    margin: 2rem 0;
-    width: 100%;
-
-    thead {
-      background-color: $darkblue;
-      color: white;
-    }
-
-    th,
-    td {
-      padding: 0.75rem;
-    }
-
-    tbody tr:hover {
-      background-color: #f8f9fa;
-    }
+.schedule-group-title {
+  margin: 1rem 0 0.8rem 0;
+  
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 }
 
@@ -78,10 +124,34 @@ $navbar-fg: #ffffff;
 
 // Navbar customization
 .navbar {
+  min-height: 3.25rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .navbar-brand {
+    font-size: 1rem;
+    line-height: 1.25;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-weight: 700;
+  }
+
+  .nav-link {
+    font-size: 0.9625rem;
+    line-height: 1.25;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .dropdown-menu {
+    font-size: 0.9625rem;
+  }
+
+  .dropdown-item {
+    line-height: 1.25;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
   }
 }
 
@@ -243,6 +313,56 @@ pre {
   }
 }
 
+.lab-page main.content,
+.assignment-page main.content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.lab-page main.content p,
+.lab-page main.content li,
+.assignment-page main.content p,
+.assignment-page main.content li {
+  margin-bottom: 0.7rem;
+}
+
+.lab-page main.content h1,
+.assignment-page main.content h1 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.lab-page main.content h2,
+.lab-page main.content h3,
+.lab-page main.content h4,
+.assignment-page main.content h2,
+.assignment-page main.content h3,
+.assignment-page main.content h4 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.lab-page main.content .callout,
+.lab-page main.content .panel-tabset .tab-content,
+.assignment-page main.content .callout,
+.assignment-page main.content .panel-tabset .tab-content {
+  margin: 1rem 0;
+}
+
+.lab-page main.content .callout .callout-body,
+.lab-page main.content .panel-tabset .tab-content,
+.assignment-page main.content .callout .callout-body,
+.assignment-page main.content .panel-tabset .tab-content {
+  padding: 0.9rem 1rem;
+}
+
+.lab-page main.content pre,
+.lab-page main.content div.sourceCode,
+.assignment-page main.content pre,
+.assignment-page main.content div.sourceCode {
+  margin: 1rem 0 !important;
+}
+
 // Sidebar styling
 .sidebar {
   nav[role="navigation"] {
@@ -276,17 +396,6 @@ table {
 
   tbody tr:nth-child(odd) {
     background-color: #f8f9fa;
-  }
-}
-
-// Lab and assignment pages
-.lab-page,
-.assignment-page {
-  h2 {
-    color: $darkblue;
-    border-bottom: 2px solid $orange;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
   }
 }
 

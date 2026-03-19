@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 21 Demo - Servlet Architecture & Lifecycle</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --ink: #13233a;
+        --accent: #0d6efd;
+        --ok: #198754;
+        --warn: #ffc107;
+        --danger: #dc3545;
+        --border: #d9e2ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #f4f7fb 0%, #e8f1ff 100%);
+        color: var(--ink);
+        padding: 24px;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin-bottom: 6px;
+        color: #053660;
+      }
+
+      .subtitle {
+        margin-top: 0;
+        color: #35557a;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+        box-shadow: 0 8px 18px rgba(17, 58, 94, 0.08);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #b9cce5;
+        font-size: 14px;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+
+      button:hover {
+        background: #0b5ed7;
+      }
+
+      button.secondary {
+        background: #6c757d;
+      }
+
+      button.secondary:hover {
+        background: #5a6268;
+      }
+
+      button.danger {
+        background: var(--danger);
+      }
+
+      button.danger:hover {
+        background: #c82333;
+      }
+
+      button.success {
+        background: var(--ok);
+      }
+
+      button.success:hover {
+        background: #157347;
+      }
+
+      pre {
+        margin: 0;
+        background: #0e1a2b;
+        color: #d7e6ff;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+        min-height: 120px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .pill {
+        display: inline-block;
+        background: #e6f4ea;
+        color: var(--ok);
+        border: 1px solid #b8e3c3;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        margin-right: 8px;
+        margin-bottom: 6px;
+      }
+
+      .lifecycle-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .step {
+        padding: 16px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        background: #f9f9f9;
+        transition: all 0.3s ease;
+      }
+
+      .step.active {
+        border-color: var(--accent);
+        background: #e7f3ff;
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+      }
+
+      .step.completed {
+        border-color: var(--ok);
+        background: #e6f4ea;
+      }
+
+      .step.destroyed {
+        border-color: var(--danger);
+        background: #ffe6e6;
+      }
+
+      .step-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .step-title {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .step-badge {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .badge-pending {
+        background: #e0e0e0;
+        color: #666;
+      }
+
+      .badge-active {
+        background: var(--accent);
+        color: white;
+      }
+
+      .badge-completed {
+        background: var(--ok);
+        color: white;
+      }
+
+      .badge-destroyed {
+        background: var(--danger);
+        color: white;
+      }
+
+      .counter-display {
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        color: var(--accent);
+        margin: 20px 0;
+      }
+
+      .info-box {
+        padding: 12px;
+        background: #e7f3ff;
+        border-left: 4px solid var(--accent);
+        border-radius: 4px;
+        margin: 12px 0;
+        font-size: 14px;
+      }
+
+      .config-display {
+        background: #f8f9fa;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 12px 0;
+        font-family: monospace;
+        font-size: 13px;
+      }
+
+      h3 {
+        margin-top: 0;
+        color: #053660;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Lecture 21 Demo</h1>
+      <p class="subtitle">
+        Servlet Architecture & Lifecycle - Interactive Demonstration
+      </p>
+
+      <div class="card">
+        <p>
+          <strong>Classroom tip:</strong> Use this demo to visualize servlet
+          lifecycle phases, simulate requests, and understand servlet behavior.
+          Open browser DevTools console for detailed logs.
+        </p>
+        <p>
+          <span class="pill">Lifecycle Simulation</span>
+          <span class="pill">Request Handling</span>
+          <span class="pill">Thread Safety</span>
+          <span class="pill">Configuration</span>
+        </p>
+      </div>
+
+      <!-- Lifecycle Visualization -->
+      <div class="card">
+        <h3>Servlet Lifecycle Visualization</h3>
+        <div class="info-box">
+          Click the buttons to step through the servlet lifecycle. Watch how
+          each phase is triggered.
+        </div>
+
+        <div class="lifecycle-steps" id="lifecycleSteps">
+          <div class="step" data-phase="loading">
+            <div class="step-header">
+              <span class="step-title">1. Loading & Instantiation</span>
+              <span class="step-badge badge-pending">Pending</span>
+            </div>
+            <div class="step-desc">
+              Container loads servlet class and creates instance
+            </div>
+          </div>
+
+          <div class="step" data-phase="init">
+            <div class="step-header">
+              <span class="step-title">2. Initialization (init)</span>
+              <span class="step-badge badge-pending">Pending</span>
+            </div>
+            <div class="step-desc">
+              Called once - Initialize resources and configuration
+            </div>
+          </div>
+
+          <div class="step" data-phase="service">
+            <div class="step-header">
+              <span class="step-title">3. Service (doGet/doPost)</span>
+              <span class="step-badge badge-pending">Pending</span>
+            </div>
+            <div class="step-desc">
+              Called for each request - Handles client requests
+            </div>
+          </div>
+
+          <div class="step" data-phase="destroy">
+            <div class="step-header">
+              <span class="step-title">4. Destruction (destroy)</span>
+              <span class="step-badge badge-pending">Pending</span>
+            </div>
+            <div class="step-desc">
+              Called once - Cleanup resources before shutdown
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <button id="startLifecycle" class="success">
+            Start Servlet (Load & Init)
+          </button>
+          <button id="resetLifecycle" class="secondary">Reset</button>
+        </div>
+      </div>
+
+      <!-- Request Simulation -->
+      <div class="card">
+        <h3>Request Simulation</h3>
+        <div class="info-box">
+          Simulate client requests to the servlet. The servlet must be
+          initialized before handling requests.
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="requestMethod">HTTP Method</label>
+            <select id="requestMethod">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+            </select>
+          </div>
+          <div>
+            <label for="requestParam">Parameter (name=value)</label>
+            <input
+              id="requestParam"
+              type="text"
+              value="user=John"
+              placeholder="key=value"
+            />
+          </div>
+        </div>
+
+        <button id="sendRequest">Send Request</button>
+
+        <div class="counter-display" id="requestCounter">0</div>
+        <div style="text-align: center; color: #666; margin-top: -10px">
+          Total Requests Processed
+        </div>
+      </div>
+
+      <!-- Configuration -->
+      <div class="card">
+        <h3>Servlet Configuration</h3>
+        <div class="grid">
+          <div>
+            <label for="servletName">Servlet Name</label>
+            <input id="servletName" type="text" value="HelloServlet" />
+          </div>
+          <div>
+            <label for="urlPattern">URL Pattern</label>
+            <input id="urlPattern" type="text" value="/hello" />
+          </div>
+          <div>
+            <label for="initParamKey">Init Param (Key)</label>
+            <input id="initParamKey" type="text" value="email" />
+          </div>
+          <div>
+            <label for="initParamValue">Init Param (Value)</label>
+            <input id="initParamValue" type="text" value="admin@example.com" />
+          </div>
+        </div>
+
+        <button id="applyConfig">Apply Configuration</button>
+
+        <div class="config-display" id="configDisplay">
+          <strong>Current Configuration:</strong><br />
+          Servlet Name: HelloServlet<br />
+          URL Pattern: /hello<br />
+          Init Param: email = admin@example.com
+        </div>
+      </div>
+
+      <!-- Thread Safety Demo -->
+      <div class="card">
+        <h3>Thread Safety Demonstration</h3>
+        <div class="info-box">
+          Single servlet instance serves multiple requests concurrently.
+          Instance variables are shared across all threads!
+        </div>
+
+        <div class="grid-2">
+          <button id="simulateConcurrent" class="success">
+            Simulate 5 Concurrent Requests
+          </button>
+          <button id="destroyServlet" class="danger">Destroy Servlet</button>
+        </div>
+      </div>
+
+      <!-- Console Output -->
+      <div class="card">
+        <h3>Lifecycle & Request Logs</h3>
+        <pre id="output"></pre>
+      </div>
+    </div>
+
+    <script src="./lecture-21/app.js"></script>
+  </body>
+</html>

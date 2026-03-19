@@ -1,0 +1,612 @@
+---
+title: "Lecture 20: Revision - Units I & II"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 26, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 20]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Revision: Units I & II]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 5 | Mid-Semester Preparation<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Exam Coverage"}
+
+[Mid-Semester Exam Coverage]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- **Unit I:** Web Page Designing (HTML & CSS)
+- **Unit II:** JavaScript Fundamentals
+- Lectures 1-19
+- All lab exercises and assignments
+- Hands-on coding questions expected
+:::
+
+---
+
+## {data-menu-title="Unit I Overview"}
+
+[Unit I: Web Page Designing]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. Introduction to Web & Internet
+2. HTML Structure & Syntax
+3. HTML Grouping: Div & Span
+4. Lists, Images, Hyperlinks & Tables
+5. HTML Forms & Form Elements
+6. CSS Selectors, Box Model & Positioning
+7. Bootstrap Framework
+:::
+
+---
+
+## {data-menu-title="HTML Basics Recap"}
+
+[HTML Basics Recap]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-5|6-8|9"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Page</title>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <p>This is a paragraph.</p>
+</body>
+</html>
+```
+
+---
+
+## {data-menu-title="HTML Forms"}
+
+[HTML Forms Recap]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4|5"}
+<form action="/submit" method="POST">
+  <input type="text" name="username" required>
+  <input type="email" name="email" required>
+  <button type="submit">Submit</button>
+</form>
+```
+
+::: {.body-text-m}
+Key attributes: `action`, `method`, `name`, `type`, `required`
+:::
+
+---
+
+## {data-menu-title="CSS Selectors"}
+
+[CSS Selectors Recap]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4|5"}
+p { color: blue; }              /* element */
+.highlight { background: yellow; } /* class */
+#header { font-size: 24px; }    /* id */
+div > p { margin: 10px; }       /* child */
+a:hover { color: red; }         /* pseudo-class */
+```
+
+---
+
+## {data-menu-title="Box Model"}
+
+[CSS Box Model Recap]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1-5"}
+.box {
+  margin: 20px;      /* space outside */
+  padding: 15px;     /* space inside */
+  border: 2px solid black;
+  width: 200px;
+}
+```
+
+::: {.body-text-m}
+**Total width** = margin + border + padding + content
+:::
+
+---
+
+## {data-menu-title="CSS Positioning"}
+
+[CSS Positioning Recap]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4|5"}
+position: static;    /* default */
+position: relative;  /* relative to normal position */
+position: absolute;  /* relative to positioned ancestor */
+position: fixed;     /* relative to viewport */
+position: sticky;    /* hybrid */
+```
+
+---
+
+## {data-menu-title="Bootstrap"}
+
+[Bootstrap Recap]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4|5-7"}
+<link href="bootstrap.min.css" rel="stylesheet">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Column 1</div>
+    <div class="col-md-6">Column 2</div>
+  </div>
+</div>
+```
+
+::: {.body-text-m}
+Grid system: 12-column layout
+:::
+
+---
+
+## {data-menu-title="Unit II Overview"}
+
+[Unit II: JavaScript]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. Variables & Data Types
+2. Functions & Events
+3. Conditional Statements & Loops
+4. Objects & Scope
+5. Arrow Functions & Callbacks
+6. DOM Manipulation
+7. Form Validation
+8. ES6+ Features
+:::
+
+---
+
+## {data-menu-title="JS Variables"}
+
+[JavaScript Variables Recap]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+let age = 25;         // reassignable
+const pi = 3.14;      // not reassignable
+var old = "avoid";    // function-scoped (old style)
+```
+
+::: {.body-text-m}
+Use `let` for variables, `const` for constants.
+:::
+
+---
+
+## {data-menu-title="Data Types"}
+
+[Data Types Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5|6|7"}
+const name = "Amit";        // string
+const age = 22;             // number
+const isActive = true;      // boolean
+const items = [1, 2, 3];    // array
+const user = { name: "A" }; // object
+let nothing = null;         // null
+let notDefined;             // undefined
+```
+
+---
+
+## {data-menu-title="Functions"}
+
+[Functions Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5|7-8"}
+function greet(name) {
+  return `Hello, ${name}`;
+}
+
+const greetArrow = (name) => `Hello, ${name}`;
+
+greet("Priya");
+greetArrow("Raj");
+```
+
+---
+
+## {data-menu-title="Conditionals"}
+
+[Conditionals Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-7|9-10"}
+const marks = 85;
+
+if (marks >= 90) {
+  console.log("Grade A");
+} else if (marks >= 60) {
+  console.log("Grade B");
+}
+
+const status = marks >= 60 ? "Pass" : "Fail";
+console.log(status);
+```
+
+---
+
+## {data-menu-title="Loops"}
+
+[Loops Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-8|10-12"}
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+let count = 0;
+while (count < 3) {
+  console.log(count++);
+}
+
+const arr = [10, 20, 30];
+arr.forEach(val => console.log(val));
+```
+
+---
+
+## {data-menu-title="Objects"}
+
+[Objects Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-4|6|7"}
+const student = {
+  name: "Neha",
+  age: 21,
+  greet: function() { return `Hi, ${this.name}`; }
+};
+
+console.log(student.name);
+console.log(student.greet());
+```
+
+---
+
+## {data-menu-title="Array Methods"}
+
+[Array Methods Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+const nums = [1, 2, 3, 4, 5];
+nums.map(x => x * 2);           // [2, 4, 6, 8, 10]
+nums.filter(x => x > 2);        // [3, 4, 5]
+nums.reduce((sum, x) => sum + x, 0); // 15
+```
+
+---
+
+## {data-menu-title="DOM Selection"}
+
+[DOM Selection Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3"}
+document.getElementById('id');
+document.querySelector('.class');
+document.querySelectorAll('p');
+```
+
+::: {.body-text-m}
+`querySelector` returns first match, `querySelectorAll` returns all.
+:::
+
+---
+
+## {data-menu-title="DOM Manipulation"}
+
+[DOM Manipulation Recap]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4|5"}
+const elem = document.querySelector('.box');
+elem.textContent = "New text";
+elem.innerHTML = "<strong>Bold</strong>";
+elem.style.color = "red";
+elem.classList.add('active');
+```
+
+---
+
+## {data-menu-title="Event Handling"}
+
+[Event Handling Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-4"}
+const btn = document.querySelector('button');
+btn.addEventListener('click', function() {
+  alert('Button clicked!');
+});
+```
+
+::: {.body-text-m}
+Common events: `click`, `submit`, `blur`, `change`, `keyup`
+:::
+
+---
+
+## {data-menu-title="Form Validation"}
+
+[Form Validation Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3-8|4|5-7"}
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (validateForm()) {
+    console.log("Form is valid");
+  }
+});
+```
+
+---
+
+## {data-menu-title="ES6 Features"}
+
+[ES6+ Features Recap]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|3|5|7|9"}
+const msg = `Hello, ${name}`;  // template literals
+
+const [a, b] = [1, 2];         // array destructuring
+
+const { name, age } = user;    // object destructuring
+
+const arr2 = [...arr1, 4, 5];  // spread operator
+
+const greet = (name = "Guest") => `Hi, ${name}`; // default params
+```
+
+---
+
+## {data-menu-title="Common Exam Topics"}
+
+[Common Exam Question Topics]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. Write HTML form with validation
+2. Style page with CSS (box model, positioning)
+3. Create responsive layout with Bootstrap
+4. Write JavaScript functions
+5. DOM manipulation (select, modify, create)
+6. Event handling and form validation
+7. Array methods (map, filter, reduce)
+8. ES6 syntax (arrow functions, destructuring)
+:::
+
+---
+
+## {data-menu-title="Sample Question 1"}
+
+[Sample Question 1]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Create a registration form with:
+- Name (text, required)
+- Email (email, required)
+- Age (number, min=18)
+- Submit button
+
+Add CSS to style the form with proper spacing and colors.
+:::
+
+---
+
+## {data-menu-title="Sample Question 2"}
+
+[Sample Question 2]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Write JavaScript to:
+1. Select all paragraphs on a page
+2. Change their color to blue
+3. Add a click event that shows an alert with the paragraph text
+:::
+
+```javascript
+const paras = document.querySelectorAll('p');
+paras.forEach(p => {
+  p.style.color = 'blue';
+  p.addEventListener('click', () => alert(p.textContent));
+});
+```
+
+---
+
+## {data-menu-title="Sample Question 3"}
+
+[Sample Question 3]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Given an array of student objects with `name` and `marks`, filter students with marks > 80 and display their names.
+
+```javascript
+const students = [
+  { name: "Amit", marks: 85 },
+  { name: "Neha", marks: 92 },
+  { name: "Raj", marks: 78 }
+];
+
+const toppers = students.filter(s => s.marks > 80);
+const names = toppers.map(s => s.name);
+console.log(names); // ["Amit", "Neha"]
+```
+:::
+
+---
+
+## {data-menu-title="Study Tips"}
+
+[Study Tips]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. **Practice coding**: Don't just read, write code
+2. **Review labs**: Go through all lab exercises
+3. **Understand concepts**: Don't memorize syntax
+4. **Test edge cases**: Empty inputs, special characters
+5. **Time management**: Practice within time limits
+6. **Debugging**: Learn to read and fix errors
+:::
+
+---
+
+## {data-menu-title="Key Resources"}
+
+[Key Resources for Revision]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+- **Lecture Slides:** All lectures 1-19
+- **Labs:** Lab 1-5 exercises
+- **Assignments:** Assignments 1-2
+- **Quizzes:** Pre-class quizzes for practice
+- **Content Pages:** Week 1-5 content
+- **MDN Web Docs:** Reference for HTML, CSS, JS
+:::
+
+---
+
+## {data-menu-title="Important Concepts"}
+
+[Most Important Concepts]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+**HTML:** Forms, semantic tags, attributes  
+**CSS:** Selectors, box model, positioning, flexbox  
+**Bootstrap:** Grid system, components  
+**JavaScript:** Variables, functions, loops, conditionals  
+**DOM:** Selection, manipulation, events  
+**Arrays:** map, filter, reduce, forEach  
+**ES6:** Arrow functions, template literals, destructuring  
+**Validation:** HTML5 & JavaScript validation
+:::
+
+---
+
+## {data-menu-title="Common Mistakes"}
+
+[Common Mistakes to Avoid]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Missing closing tags in HTML
+- Incorrect CSS selector syntax
+- Forgetting `const`/`let` declarations
+- Using `=` instead of `===` for comparison
+- Not preventing default form submission
+- Incorrect array method usage
+- Forgetting to return values from functions
+- Syntax errors in arrow functions
+:::
+
+---
+
+## {data-menu-title="Final Checklist"}
+
+[Final Exam Preparation Checklist]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+✓ Reviewed all lecture slides  
+✓ Completed all lab exercises  
+✓ Practiced coding problems  
+✓ Tested code in browser console  
+✓ Understood error messages  
+✓ Reviewed assignment solutions  
+✓ Can write HTML/CSS/JS without references  
+✓ Confident with debugging
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Good Luck with Your Exam!]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Mid-Semester Examination (Units I & II)
+</div>
+</div>
+
+
+
+
+
+

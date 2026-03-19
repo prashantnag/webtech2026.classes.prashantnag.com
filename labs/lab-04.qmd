@@ -1,0 +1,174 @@
+---
+title: "Lab 4: JavaScript Array Methods and Nested Functions"
+date: "2026-02-13"
+due: "2026-02-18"
+---
+
+
+This lab covers workbook experiments 7 and 8.
+
+## Workbook Alignment
+
+- Experiment 7: Demonstrate built-in array methods
+- Experiment 8: Demonstrate nested functions
+
+## Learning Objectives
+
+By the end of this lab, you will be able to:
+
+- use common JavaScript array methods
+- transform, search, and summarize array data
+- understand function scope and closures
+- write nested functions for reusable logic
+- display JavaScript output clearly in the browser
+
+## Software and Files Required
+
+- completion of Lab 3
+- VS Code or any text editor
+- a modern browser with developer tools
+- a folder named `Lab04`
+- files named `array-methods.html` and `nested-functions.html`
+
+## Experiment 7: Built-in Array Methods
+
+### Problem Statement
+
+Create a JavaScript program that demonstrates built-in array methods such as `map()`, `filter()`, `reduce()`, `find()`, `includes()`, and `indexOf()`.
+
+### Folder Structure
+
+```text
+Lab04/
+  array-methods.html
+  nested-functions.html
+```
+
+### Procedure
+
+1. Create the `Lab04` folder.
+2. Add a new file named `array-methods.html`.
+3. Declare an array of numeric values.
+4. Apply built-in array methods and store their results.
+5. Display the results inside the page and verify them in the browser.
+
+### Solution Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 4 - Array Methods</title>
+</head>
+<body>
+  <h1>Array Methods Demo</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const output = document.getElementById("output");
+    const numbers = [10, 15, 20, 25, 30];
+
+    const doubled = numbers.map(number => number * 2);
+    const filtered = numbers.filter(number => number >= 20);
+    const sum = numbers.reduce((total, number) => total + number, 0);
+
+    const report = [
+      "Original: " + numbers.join(", "),
+      "map(): " + doubled.join(", "),
+      "filter(): " + filtered.join(", "),
+      "reduce(): " + sum,
+      "find(): " + numbers.find(number => number > 20),
+      "includes(25): " + numbers.includes(25),
+      "indexOf(20): " + numbers.indexOf(20)
+    ];
+
+    output.textContent = report.join("\n");
+  </script>
+</body>
+</html>
+```
+
+### Expected Result
+
+The page should display the original array and the output of each array method in a readable report.
+
+## Experiment 8: Nested Functions
+
+### Problem Statement
+
+Write a JavaScript program using nested functions to generate a student report with calculated grade information.
+
+### Procedure
+
+1. Create a new file named `nested-functions.html`.
+2. Write an outer function that accepts student name and marks.
+3. Add inner functions for grade calculation and message formatting.
+4. Return the final report string from the outer function.
+5. Display the result in the browser.
+
+### Solution Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 4 - Nested Functions</title>
+</head>
+<body>
+  <h1>Nested Functions Demo</h1>
+  <pre id="result"></pre>
+
+  <script>
+    function studentReport(name, marks) {
+      function calculateGrade() {
+        if (marks >= 90) return "A";
+        if (marks >= 75) return "B";
+        if (marks >= 60) return "C";
+        return "D";
+      }
+
+      function buildMessage() {
+        return name + " scored " + marks + " and received grade " + calculateGrade();
+      }
+
+      return buildMessage();
+    }
+
+    document.getElementById("result").textContent = studentReport("Ravi", 82);
+  </script>
+</body>
+</html>
+```
+
+### Expected Result
+
+The page should display a complete student report message generated through nested function calls.
+
+## Observation Questions
+
+1. What is the difference between `map()` and `forEach()`?
+2. What does `reduce()` return?
+3. Why can an inner function access variables from the outer function?
+4. What is a closure in JavaScript?
+
+## Viva Questions
+
+1. What is the difference between `filter()` and `find()`?
+2. Why are nested functions useful?
+3. What happens if an array method is called on an empty array?
+4. How can browser developer tools help while testing JavaScript?
+
+## Submission Checklist
+
+- `array-methods.html`
+- `nested-functions.html`
+- screenshots of both pages
+- short answer file for observation and viva questions
+
+## Extension Task
+
+Add examples for `slice()`, `splice()`, and `sort()`, and display all output inside an HTML table instead of a `pre` tag.

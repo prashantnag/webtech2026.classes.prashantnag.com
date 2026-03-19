@@ -5,7 +5,7 @@ jupyter: julia-1.12
 
 ::: {.callout-note}
 Review before quiz:
-[Slides](/presentations/lecture-04.qmd) | [Week 1 Content](/content/week-01.qmd) | [Lab 1](/labs/lab-01.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+[Lectures](/lectures/lecture-04.qmd) | [Week 1 Content](/content/week-01.qmd) | [Lab 1](/labs/lab-01.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
 :::
 
 ```{julia cache=true}

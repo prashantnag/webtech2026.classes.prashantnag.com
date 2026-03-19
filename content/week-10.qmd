@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 10: Mar 30 - Apr 5, 2026"
 subtitle: "Unit IV: Spring Framework Fundamentals"
 ---
@@ -12,9 +12,25 @@ This week introduces the Spring Framework, covering dependency injection, beans,
 **Lab:** Spring Framework Application  
 **Assignment 4 Due:** Apr 8
 
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Lectures 29-32)
+Planned for this week. Use the [Quiz Hub](/quiz/index.qmd) for currently available quizzes.
+:::
+
+::: {.callout-note icon=false}
+## Lecture Materials
+This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.qmd) for all available slides.
+:::
+
 ---
 
-## Lecture 29: Spring Framework & Dependency Injection
+## Lecture 29: Spring Framework & Dependency Injection {#lecture-29}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### What is Spring?
 - Popular Java framework for enterprise apps
@@ -85,7 +101,13 @@ UserService service = context.getBean(UserService.class);
 
 ---
 
-## Lecture 30: Spring Beans & Application Context
+## Lecture 30: Spring Beans & Application Context {#lecture-30}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Bean Lifecycle
 ```
@@ -154,7 +176,13 @@ context.addApplicationListener(event -> {
 
 ---
 
-## Lecture 31: Aspect-Oriented Programming (AOP)
+## Lecture 31: Aspect-Oriented Programming (AOP) {#lecture-31}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### What is AOP?
 - Separates cross-cutting concerns
@@ -204,7 +232,13 @@ public class LoggingAspect {
 
 ---
 
-## Lecture 32: Spring MVC Overview
+## Lecture 32: Spring MVC Overview {#lecture-32}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### MVC in Spring
 ```
@@ -299,3 +333,4 @@ Unit IV-V:
 - Spring Data JPA
 - Spring Boot introduction
 - REST APIs
+

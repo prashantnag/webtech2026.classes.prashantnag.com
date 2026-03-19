@@ -1,0 +1,89 @@
+---
+title: "Lectures"
+subtitle: "BMC201 - Web Technology"
+---
+
+## Course Lectures
+
+This folder contains all lectures for BMC201 - Web Technology course.
+
+### Week 1: Introduction to Web Development
+- [Lecture 1: Introduction to Web Designing](lecture-01.qmd)
+- [Lecture 2: History of Web & Internet](lecture-02.qmd)
+- [Lecture 3: HTML Basics & Structure](lecture-03.qmd)
+- [Lecture 4: HTML Grouping: Div & Span](lecture-04.qmd)
+- [Practice Quiz Set (Lectures 1-4)](/quiz/index.qmd)
+
+### Week 2: HTML Forms & CSS
+- Lecture 5: HTML Lists & Images
+- Lecture 6: HTML Hyperlinks & Tables
+- Lecture 7: HTML Forms & Form Elements
+- Lecture 8: Introduction to CSS
+
+### Week 3: Advanced CSS & JavaScript
+- Lecture 9: CSS Units & Advanced Selectors
+- Lecture 10: CSS Box Model & Positioning
+- Lecture 11: Bootstrap Framework
+- Lecture 12: JavaScript: Variables & Data Types
+
+### Week 4: JavaScript Functions & Events
+- [Lecture 13: JavaScript Functions & Events](lecture-13.qmd)
+- [Lecture 14: Conditions & Looping](lecture-14.qmd)
+- [Lecture 15: Block Scope & Objects](lecture-15.qmd)
+- [Lecture 16: Arrow Functions & Callbacks](lecture-16.qmd)
+- [Practice Quiz Set (Lectures 13-16)](/quiz/index.qmd)
+
+### Week 5: DOM Manipulation
+- [Lecture 17: DOM Manipulation & Array Methods](lecture-17.qmd)
+- [Lecture 18: Form Validation](lecture-18.qmd)
+- [Lecture 19: ES6+ Features](lecture-19.qmd)
+- [Lecture 20: Revision: Units I & II](lecture-20.qmd)
+- [Practice Quiz Set (Lectures 17-20)](/quiz/index.qmd)
+
+### Weeks 6-7: Mid-Semester Exam Preparation
+- [Revision: Unit I - Web Page Designing](revision-unit-1.qmd)
+- [Revision: Unit II - JavaScript](revision-unit-2.qmd)
+
+### Week 8: JSP & Servlets
+- Lecture 21: Servlet Architecture & Lifecycle
+- Lecture 22: HTTP GET & POST Requests
+- Lecture 23: Session Tracking & Cookies
+- Lecture 24: Introduction to JSP
+
+### Week 9: JSP Advanced & MVC
+- Lecture 25: JSP Implicit Objects & Directives
+- Lecture 26: JSP Standard Actions & JSTL
+- Lecture 27: MVC Architecture
+- Lecture 28: Database Connectivity with JDBC
+
+### Week 10: Spring Framework
+- Lecture 29: Spring Framework & Dependency Injection
+- Lecture 30: Spring Beans & Application Context
+- Lecture 31: Aspect-Oriented Programming (AOP)
+- Lecture 32: Spring MVC Overview
+
+### Week 11: Spring Framework & Spring Boot
+- Lecture 33: Spring Data & ORM Integration
+- Lecture 34: Spring Security
+- Lecture 35: Introduction to Spring Boot
+- Lecture 36: Building REST APIs with Spring Boot
+
+### Week 12: Spring Boot & REST Services
+- Lecture 37: REST API Best Practices
+- Lecture 38: Testing in Spring Boot
+- Lecture 39: Deployment & Production
+- Lecture 40: Final Project Discussion & Revision
+
+---
+
+## How to Use These Lectures
+
+1. Click on any lecture link to view the lecture source
+2. To present, render the Quarto file to RevealJS format
+3. Use arrow keys to navigate slides
+4. Press 'S' for speaker notes
+5. Press 'F' for fullscreen
+
+## Styling
+
+All lectures use the custom SCSS theme from [course-slides-styles.scss](../course-slides-styles.scss), which is based on the UCSB-MEDS presentation template.

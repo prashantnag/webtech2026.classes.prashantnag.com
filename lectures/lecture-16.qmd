@@ -1,0 +1,201 @@
+﻿---
+title: "Lecture 16: Arrow Functions & Callbacks"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 19, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 16]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Arrow Functions & Callbacks]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 4 | Unit II: JavaScript Functions & Events<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Write concise arrow functions
+- Understand callback fundamentals
+- Use callbacks with array methods
+- Recognize synchronous flow with callbacks
+- Practice cleaner modern JavaScript
+:::
+
+---
+
+## {data-menu-title="Arrow Basics"}
+
+[Arrow Function Syntax]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+const add = (a, b) => a + b;
+const square = x => x * x;
+const greet = () => "Hello";
+const full = (first, last) => `${first} ${last}`;
+```
+
+Arrow functions are compact and readable for small logic.
+
+---
+
+## {data-menu-title="Regular vs Arrow"}
+
+[Regular Function vs Arrow]{.slide-title2}
+
+<hr>
+
+```javascript
+function multiply(a, b) {
+  return a * b;
+}
+
+const multiplyArrow = (a, b) => a * b;
+```
+
+Both work; arrow syntax is shorter in many cases.
+
+---
+
+## {data-menu-title="Callback Concept"}
+
+[What Is a Callback?]{.slide-title}
+
+<hr>
+
+A callback is a function passed into another function.
+
+```javascript
+function greetUser(name, callback) {
+  const msg = `Hello, ${name}`;
+  callback(msg);
+}
+
+greetUser("Anu", message => console.log(message));
+```
+
+---
+
+## {data-menu-title="Array Callbacks"}
+
+[Array Methods with Callbacks]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2|3|4"}
+const nums = [1, 2, 3, 4, 5];
+const doubled = nums.map(n => n * 2);
+const evens = nums.filter(n => n % 2 === 0);
+const total = nums.reduce((acc, n) => acc + n, 0);
+```
+
+- `map`: transform
+- `filter`: select
+- `reduce`: combine
+
+---
+
+## {data-menu-title="forEach"}
+
+[forEach with Arrow Function]{.slide-title}
+
+<hr>
+
+```javascript
+const students = ["Asha", "Vikram", "Neha"];
+students.forEach((name, index) => {
+  console.log(index, name);
+});
+```
+
+Useful for side effects like logging or UI updates.
+
+---
+
+## {data-menu-title="Callback Flow"}
+
+[Callback Flow Pattern]{.slide-title2}
+
+<hr>
+
+```javascript
+function process(data, callback) {
+  const result = data.trim().toUpperCase();
+  callback(result);
+}
+
+process("  web tech  ", output => {
+  console.log(output); // WEB TECH
+});
+```
+
+---
+
+## {data-menu-title="Common Mistakes"}
+
+[Common Mistakes]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Forgetting to return value from block-body arrow function
+- Passing `callback()` instead of `callback`
+- Overusing nested callbacks without structure
+- Using arrow functions when `this` from method context is needed
+:::
+
+---
+
+## {data-menu-title="Practice"}
+
+[Practice Task]{.slide-title}
+
+<hr>
+
+Write a function `transformNumbers(arr, callback)` that:
+
+1. accepts an array of numbers
+2. applies callback to each number
+3. returns transformed array
+
+```javascript
+const result = transformNumbers([2, 4, 6], x => x / 2);
+```
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Week 5 - DOM Manipulation
+</div>
+</div>
+
+
+
+
+
+

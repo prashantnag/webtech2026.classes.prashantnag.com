@@ -1,0 +1,261 @@
+﻿---
+title: "Lecture 13: JavaScript Functions & Event Handling"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "February 16, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Lecture 13]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[JavaScript Functions & Event Handling]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Week 4 | Unit II: JavaScript Functions & Events<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Learning Objectives"}
+
+[Learning Objectives]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Write reusable JavaScript functions
+- Distinguish parameters and arguments
+- Understand function return values
+- Handle browser events with listeners
+- Use the event object in interactions
+:::
+
+---
+
+## {data-menu-title="Why Functions"}
+
+[Why Functions Matter]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+::: {.fragment}
+Functions help avoid repeated code
+:::
+::: {.fragment}
+Functions make code easier to test and debug
+:::
+::: {.fragment}
+Functions improve readability and maintenance
+:::
+:::
+
+```javascript
+function greet(name) {
+  return `Hello, ${name}`;
+}
+```
+
+---
+
+## {data-menu-title="Function Syntax"}
+
+[Function Declaration vs Expression]{.slide-title2}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-3|5-7|9"}
+function add(a, b) {
+  return a + b;
+}
+
+const multiply = function(a, b) {
+  return a * b;
+};
+
+const square = x => x * x;
+```
+
+::: {.fragment .body-text-m .topbr}
+`add` is declared; `multiply` is stored in a variable; `square` uses arrow syntax.
+:::
+
+---
+
+## {data-menu-title="Parameters"}
+
+[Parameters, Arguments, Return]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1|2-4|6"}
+function calculateTotal(price, taxRate) {
+  const tax = price * taxRate;
+  const total = price + tax;
+  return total;
+}
+
+const bill = calculateTotal(1000, 0.18);
+```
+
+- Parameters: `price`, `taxRate`
+- Arguments: `1000`, `0.18`
+- Return value: final result from function
+
+---
+
+## {data-menu-title="Events Intro"}
+
+[What Are Events?]{.slide-title}
+
+<hr>
+
+An event is an action in the browser:
+
+::: {.incremental .body-text-m}
+- user clicks a button
+- user types in an input
+- page is loaded
+- form is submitted
+:::
+
+```javascript
+button.addEventListener("click", () => {
+  console.log("Clicked");
+});
+```
+
+---
+
+## {data-menu-title="Common Events"}
+
+[Common DOM Events]{.slide-title2}
+
+<hr>
+
+```javascript
+element.addEventListener("click", handleClick);
+element.addEventListener("change", handleChange);
+element.addEventListener("input", handleInput);
+form.addEventListener("submit", handleSubmit);
+window.addEventListener("load", initPage);
+```
+
+::: {.fragment .body-text-m .topbr}
+Pick event type based on user interaction you want to capture.
+:::
+
+---
+
+## {data-menu-title="Event Object"}
+
+[Using the Event Object]{.slide-title}
+
+<hr>
+
+```{.javascript code-line-numbers="|1-6"}
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  console.log(event.type);
+  console.log(event.target);
+  console.log("Form submission intercepted");
+});
+```
+
+- `preventDefault()` stops default behavior
+- `target` gives the source element
+
+---
+
+## {data-menu-title="Mini Demo"}
+
+[Interactive Counter Demo]{.slide-title}
+
+<hr>
+
+```html
+<button id="incBtn">Increase</button>
+<p id="count">0</p>
+```
+
+```javascript
+let value = 0;
+document.getElementById("incBtn").addEventListener("click", () => {
+  value++;
+  document.getElementById("count").textContent = value;
+});
+```
+
+---
+
+## {data-menu-title="Live Demo"}
+
+[Live Classroom Demo: Functions & Events]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+Use this interactive page during class to demonstrate:
+
+- Function declaration and return values
+- Parameters and arguments with real input
+- `click`, `input`, and `submit` events
+- `event.preventDefault()` in form handling
+- Dynamic DOM updates based on function output
+:::
+
+::: {.body-text-l .center-text .topbr}
+[Open Demo: Functions & Events](../html/demos/lecture-13-demo.html){target="_blank"}
+:::
+
+::: {.fragment .body-text-s .center-text .topbr}
+Alternative site path: `/html/demos/lecture-13-demo.html`
+:::
+
+::: {.fragment .body-text-s .center-text}
+[Open app.js Source](../html/demos/lecture-13/app.js){target="_blank"}
+:::
+
+---
+
+## {data-menu-title="Best Practices"}
+
+[Best Practices]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Keep functions short and focused
+- Use descriptive names like `validateEmail()`
+- Avoid inline JS in HTML when possible
+- Prefer `addEventListener` over old event attributes
+- Handle errors and invalid input safely
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Questions?]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Lecture 14 - Conditions & Looping
+</div>
+</div>
+
+
+
+
+
+

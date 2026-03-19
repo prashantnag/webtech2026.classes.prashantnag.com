@@ -1,688 +1,258 @@
 ---
-title: "Lab 2: HTML Forms & Multimedia"
-date: "2026-02-03"
-due: "2026-02-11"
+title: "Lab 2: Lists, Frames, and Media Embedding"
+date: "2026-01-30"
+due: "2026-02-04"
 ---
 
-# Lab 2: HTML Forms & Multimedia {.page-break-before}
 
-In this lab, you'll create multi-page websites with forms, images, and multimedia content.
+This lab completes workbook experiments 3 and 4.
 
-## Lab Objectives {.objectives}
+## Workbook Alignment
+
+- Experiment 3: Display list items in different styles
+- Experiment 4: Use frames to include images and videos
+
+## Learning Objectives
 
 By the end of this lab, you will be able to:
 
-::: {.objectives-list}
-- ✓ Create semantic multi-page websites
-- ✓ Build and style HTML forms
-- ✓ Embed images, audio, and video
-- ✓ Create navigation menus
-- ✓ Implement form validation
-- ✓ Optimize multimedia content
-:::
+- create ordered, unordered, and description lists
+- customize list markers and nested list structures
+- understand frames and the modern iframe-based alternative
+- embed images, videos, and external pages safely
+- build a media-rich practice page using HTML and CSS
 
-## Pre-Lab Requirements
+## Software and Files Required
 
-::: {.callout-note}
-Before starting this lab, make sure you have:
+- completion of Lab 1
+- VS Code or any text editor
+- a modern browser
+- a folder named `Lab02`
+- one image named `campus.jpg`
+- one optional local video file named `sample.mp4`
 
-- VS Code installed with extensions from Lab 1
-- Basic understanding of HTML structure
-- Project folder from Lab 1 ready
-- Images or multimedia files to use
-:::
+## Experiment 3: Lists in Different Styles
 
----
+### Problem Statement
 
-## Part 1: Create Multi-Page Website Structure
+Write a program to display list items using multiple list styles.
 
-### Step 1: Create Lab 2 Folder
+### Folder Structure
 
-In your `BMC201-WebTech/Labs/` folder:
-1. Create a new folder: `Lab02`
-2. Inside Lab02, create these files:
-   - `index.html` (Home page)
-   - `about.html` (About page)
-   - `contact.html` (Contact page)
-   - `style.css` (Styling)
-
-3. Create these folders:
-   - `images/` (for images)
-   - `media/` (for audio/video)
-
-**Final structure:**
-```
+```text
 Lab02/
-├── index.html
-├── about.html
-├── contact.html
-├── style.css
-├── images/
-└── media/
+  lists.html
+  campus.jpg
+  sample.mp4
 ```
 
-### Step 2: Create Navigation Component
+### Procedure
 
-Each page will have the same navigation. Create this in all pages:
+1. Create the `Lab02` folder.
+2. Add a new file named `lists.html`.
+3. Create separate sections for unordered, ordered, alphabetic, and description lists.
+4. Apply CSS classes to change marker styles.
+5. Open the page in a browser and confirm that each list style is clearly visible.
 
-```html
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-```
-
----
-
-## Part 2: Home Page (index.html)
-
-### Complete Home Page Example
+### Solution Code
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC201 Lab 2 - List Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 24px auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .square-list { list-style-type: square; }
+    .roman-list { list-style-type: upper-roman; }
+    .alpha-list { list-style-type: lower-alpha; }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <h1>Different List Styles in HTML</h1>
 
-    <!-- Header -->
-    <header class="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Web Developer & Designer</p>
-    </header>
+  <div class="grid">
+    <section class="card">
+      <h2>Unordered List</h2>
+      <ul class="square-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </section>
 
-    <!-- Main Content -->
-    <main>
-        <section class="about-preview">
-            <h2>About Me</h2>
-            <p>I'm a student learning web development at GCET.</p>
-            <a href="about.html" class="button">Learn More</a>
-        </section>
+    <section class="card">
+      <h2>Ordered List</h2>
+      <ol class="roman-list">
+        <li>Requirement Analysis</li>
+        <li>Design</li>
+        <li>Implementation</li>
+      </ol>
+    </section>
 
-        <section class="skills">
-            <h2>My Skills</h2>
-            <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>Responsive Design</li>
-            </ul>
-        </section>
-    </main>
+    <section class="card">
+      <h2>Alphabetic List</h2>
+      <ol class="alpha-list">
+        <li>Frontend</li>
+        <li>Backend</li>
+        <li>Database</li>
+      </ol>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
-    </footer>
+    <section class="card">
+      <h2>Description List</h2>
+      <dl>
+        <dt>HTML</dt>
+        <dd>Structure of a web page</dd>
+        <dt>CSS</dt>
+        <dd>Presentation and styling</dd>
+        <dt>JavaScript</dt>
+        <dd>Interactivity and logic</dd>
+      </dl>
+    </section>
+  </div>
 </body>
 </html>
 ```
 
----
+### Expected Result
 
-## Part 3: About Page (about.html)
+The browser should display four separate blocks showing different list styles with readable spacing and clear visual distinction.
 
-### About Page with Images and Lists
+## Experiment 4: Frames and Embedded Media
+
+### Problem Statement
+
+Create a web page that demonstrates the traditional idea of frames by using a modern page layout with embedded images and videos.
+
+### Note on Current Practice
+
+Traditional HTML `<frameset>` is obsolete. In modern web development, the practical replacement is to use normal page layout plus `<iframe>`, `<img>`, and `<video>`.
+
+### Procedure
+
+1. Create a new file named `media.html` in the `Lab02` folder.
+2. Save `campus.jpg` in the same folder.
+3. Add a two-column layout using CSS Grid.
+4. Place an image in the left panel and embedded video content in the main area.
+5. Test the page in a browser and confirm that both local and online media are shown correctly.
+
+### Solution Code
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC201 Lab 2 - Embedded Media</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f1f5f9;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      min-height: 100vh;
+    }
+
+    aside, main {
+      padding: 20px;
+    }
+
+    aside {
+      background: #0f172a;
+      color: white;
+    }
+
+    img, iframe, video {
+      width: 100%;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 16px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation (same on all pages) -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <div class="container">
+    <aside>
+      <h2>Media Panel</h2>
+      <p>This section acts like a side frame for images and quick links.</p>
+      <img src="campus.jpg" alt="College campus">
+    </aside>
 
     <main>
-        <h1>About Me</h1>
+      <h1>Embedded Media Page</h1>
 
-        <!-- Profile Section -->
-        <section class="profile">
-            <img src="images/profile.jpg" alt="My Profile Photo" 
-                 width="200" style="max-width: 100%; height: auto;">
-            <h2>[Your Name]</h2>
-            <p>Passionate web developer learning modern technologies.</p>
-        </section>
+      <h2>YouTube Video</h2>
+      <iframe
+        height="315"
+        src="https://www.youtube.com/embed/dD2EISBDjWM"
+        title="Embedded video"
+        allowfullscreen>
+      </iframe>
 
-        <!-- Education Section -->
-        <section class="education">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>MCA</strong> - Galgotias College of Engineering & Technology
-                    <p>2025 - Present</p>
-                </li>
-                <li>
-                    <strong>B.Tech</strong> - [Your Engineering Branch]
-                    <p>Graduation Year</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="experience">
-            <h2>Experience</h2>
-            <h3>Intern at [Company Name]</h3>
-            <p>Duration: Jan 2025 - Present</p>
-            <p>Worked on web development projects using HTML, CSS, and JavaScript.</p>
-        </section>
+      <h2>Local Video</h2>
+      <video controls>
+        <source src="sample.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </main>
-
-    <footer>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
-    </footer>
+  </div>
 </body>
 </html>
 ```
 
----
+### Expected Result
 
-## Part 4: Contact Page with Form (contact.html)
+The browser should show a side media panel with an image and a main content area containing an embedded online video and a playable local video.
 
-### Contact Form with HTML5 Validation
+## Observation Questions
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-    </nav>
+1. What is the difference between `<ol>`, `<ul>`, and `<dl>`?
+2. Why is `<frameset>` considered obsolete in HTML5?
+3. Why should embedded media include titles or fallback text?
+4. What layout advantage does CSS Grid provide in this lab?
 
-    <main>
-        <h1>Get In Touch</h1>
-        <p>Have a question? Fill out the form below and I'll get back to you!</p>
+## Viva Questions
 
-        <!-- Contact Form -->
-        <form class="contact-form" action="mailto:your-email@example.com" method="POST">
-            
-            <!-- Name Field -->
-            <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required 
-                       placeholder="Enter your full name">
-            </div>
+1. What is the purpose of the `allowfullscreen` attribute in an iframe?
+2. What is the difference between embedding a local video and an online video?
+3. Why is the `alt` attribute important for images?
+4. How can nested lists improve page organization?
 
-            <!-- Email Field -->
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required 
-                       placeholder="Enter your email">
-            </div>
+## Submission Checklist
 
-            <!-- Phone Field -->
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" 
-                       placeholder="Enter your phone number">
-            </div>
+- `lists.html`
+- `media.html`
+- `campus.jpg`
+- optional local video file
+- screenshots of both pages
+- short answer file for observation and viva questions
 
-            <!-- Subject Field -->
-            <div class="form-group">
-                <label for="subject">Subject *</label>
-                <select id="subject" name="subject" required>
-                    <option value="">-- Select Subject --</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="job">Job Opportunity</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="feedback">Feedback</option>
-                </select>
-            </div>
+## Extension Task
 
-            <!-- Message Field -->
-            <div class="form-group">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" required 
-                          rows="6" placeholder="Enter your message"></textarea>
-            </div>
-
-            <!-- Checkbox -->
-            <div class="form-group">
-                <input type="checkbox" id="agree" name="agree" required>
-                <label for="agree">I agree to be contacted</label>
-            </div>
-
-            <!-- Buttons -->
-            <div class="form-buttons">
-                <button type="submit" class="btn-primary">Send Message</button>
-                <button type="reset" class="btn-secondary">Clear Form</button>
-            </div>
-        </form>
-
-        <!-- Contact Info -->
-        <section class="contact-info">
-            <h2>Other Ways to Connect</h2>
-            <ul>
-                <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
-                <li>Phone: <a href="tel:+919876543210">+91-9876-543-210</a></li>
-                <li>LinkedIn: <a href="https://linkedin.com" target="_blank">My LinkedIn</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
-    </footer>
-</body>
-</html>
-```
-
----
-
-## Part 5: Create Basic CSS Styling
-
-### Create style.css
-
-```css
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation Styles */
-.navbar {
-    background-color: #333;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-}
-
-.navbar a:hover,
-.navbar a.active {
-    background-color: #0066cc;
-    border-radius: 4px;
-}
-
-/* Form Styles */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #0066cc;
-    box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
-}
-
-/* Button Styles */
-.form-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.btn-primary,
-.btn-secondary {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: #0066cc;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #0052a3;
-}
-
-.btn-secondary {
-    background-color: #ccc;
-    color: #333;
-}
-
-.btn-secondary:hover {
-    background-color: #aaa;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .form-buttons {
-        flex-direction: column;
-    }
-
-    main {
-        margin: 10px;
-        padding: 10px;
-    }
-}
-```
-
----
-
-## Part 6: Add Multimedia Content
-
-### Adding Images
-
-1. Create an `images` folder in Lab02
-2. Add these image files:
-   - `profile.jpg` (your photo)
-   - `project1.jpg` (project image)
-   - `logo.png` (optional logo)
-
-3. In HTML, reference them:
-   ```html
-   <img src="images/profile.jpg" alt="My Profile" 
-        width="200" style="max-width: 100%; height: auto;">
-   ```
-
-### Adding Audio & Video
-
-Add multimedia to any page:
-
-```html
-<!-- Audio -->
-<audio controls width="300">
-    <source src="media/sample.mp3" type="audio/mpeg">
-    Your browser doesn't support HTML5 audio.
-</audio>
-
-<!-- Video -->
-<video width="400" controls>
-    <source src="media/sample.mp4" type="video/mp4">
-    Your browser doesn't support HTML5 video.
-</video>
-```
-
-::: {.callout-note}
-**Finding Free Media:**
-- [Pexels](https://www.pexels.com/) - Free images
-- [Pixabay](https://pixabay.com/) - Free images & videos
-- [Freesound](https://freesound.org/) - Free audio
-:::
-
----
-
-## Part 7: Lab Exercises
-
-### Exercise 1: Personal Portfolio
-
-Create a complete 3-page website with:
-
-::: {.callout-success}
-- ✓ Home page with introduction
-- ✓ About page with education/experience  
-- ✓ Contact page with functional form
-- ✓ Navigation menu on all pages
-- ✓ At least 2 images
-- ✓ Basic CSS styling
-- ✓ Form validation
-:::
-
-### Exercise 2: Multimedia Integration
-
-Add one of these to your website:
-
-- A photo gallery with 3+ images
-- A video about your projects
-- An audio clip introducing yourself
-- YouTube video embed (if available)
-
-### Exercise 3: Form Enhancement
-
-Enhance the contact form with:
-
-- Different input types (text, email, tel, date)
-- Dropdown select menu
-- Checkboxes or radio buttons
-- Textarea for longer messages
-- Submit and reset buttons
-- HTML5 validation
-
----
-
-## Part 8: Testing & Validation
-
-### Test Your Website
-
-::: {.lab-action}
-**Checklist:**
-- [ ] All links work (internal and external)
-- [ ] Navigation active states work
-- [ ] Form validation works (try submitting empty)
-- [ ] Images load properly
-- [ ] Responsive on mobile (test in browser DevTools)
-- [ ] CSS styling applies correctly
-:::
-
-### Validate HTML & CSS
-
-1. Validate HTML: [W3C HTML Validator](https://validator.w3.org/)
-2. Validate CSS: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-
-::: {.callout-warning}
-Fix any validation errors before submitting!
-:::
-
----
-
-## Part 9: Submission Requirements
-
-### Files to Submit
-
-Create a folder: `[RollNumber]_Lab02_[YourName]/`
-
-Include:
-```
-[RollNumber]_Lab02_[YourName]/
-├── index.html
-├── about.html
-├── contact.html
-├── style.css
-├── images/
-│   ├── profile.jpg
-│   └── (other images)
-├── media/
-│   └── (audio/video files if added)
-├── Screenshots/
-│   ├── 01-home-page.png
-│   ├── 02-about-page.png
-│   ├── 03-contact-form.png
-│   └── 04-devtools-responsive.png
-├── Validation-Reports/
-│   ├── html-validation.png
-│   └── css-validation.png
-└── README.txt
-```
-
-### README.txt Template
-
-```
-Lab 2: HTML Forms & Multimedia
-================================
-
-Student Name: [Your Full Name]
-Roll Number: [Your Roll Number]
-Date Completed: [MM/DD/2026]
-
-Features Implemented:
-- 3 pages with navigation
-- Contact form with validation
-- Images: [Number] images
-- Multimedia: [Audio/Video/Both]
-- Responsive design: [Yes/No]
-
-Special Features:
-[Any additional features you added]
-
-Issues Encountered:
-[Any problems and solutions]
-```
-
-### Create ZIP File
-
-Compress into: `[RollNumber]_Lab02_[YourName].zip`
-
-**Submit by: February 11, 2026, 11:59 PM**
-
----
-
-## Grading Rubric
-
-| Criteria | Points |
-|----------|--------|
-| **Multi-page structure (3+ pages)** | 15 |
-| **Navigation menu (functional)** | 10 |
-| **Contact form (working validation)** | 20 |
-| **Images integrated properly** | 10 |
-| **Multimedia (audio/video)** | 10 |
-| **CSS styling applied** | 15 |
-| **Responsive design** | 10 |
-| **Code quality & organization** | 5 |
-| **Testing & validation** | 5 |
-| **Total** | **100** |
-
----
-
-## Bonus Challenges
-
-For extra credit:
-
-::: {.challenge-section}
-
-**Challenge 1: Advanced Form Fields**
-- Add date picker for appointment
-- Add file upload field
-- Add color picker
-- Add range slider
-
-**Challenge 2: Advanced Styling**
-- Add hover effects on buttons
-- Create a sidebar menu
-- Style form inputs with custom designs  
-- Add CSS animations
-
-**Challenge 3: Multimedia Gallery**
-- Create an image gallery with multiple images
-- Add lightbox effect (shows full image on click)
-- Create carousel/slider (manual code or library)
-- Optimize images for web
-
-**Challenge 4: Accessibility**
-- Add aria-labels to all form fields
-- Ensure proper color contrast
-- Test with keyboard navigation
-- Add skip navigation link
-
-:::
-
----
-
-## Resources
-
-- [MDN: Forms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
-- [MDN: Audio & Video](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding)
-- [CSS Tricks: Forms](https://css-tricks.com/best-practices-for-form-design/)
-- [Week 2 Content](/content/week-02.qmd)
-
----
-
-## Questions & Support
-
-- Post in course forum
-- Email: [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
-- Office hours: [Schedule here]
-
-**Good luck! 🎉**
+Add a navigation bar linking `lists.html` and `media.html`, and include one nested list and one additional embedded educational resource.

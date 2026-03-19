@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 1: Jan 26 - Feb 1, 2026"
 subtitle: "Unit I: Web Page Designing - Introduction to HTML"
 ---
@@ -18,11 +18,11 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 1: Introduction to Web Designing
+## Lecture 1: Introduction to Web Designing {#lecture-1}
 
 ::: {.callout-note icon=false}
-## 🎯 Lecture Materials
-[{{< fa desktop >}} View Presentation](/presentations/lecture-01.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-01.pdf)
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/lecture-01.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-01.pdf)
 :::
 
 ### Learning Objectives
@@ -49,11 +49,11 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 2: History of Web & Internet
+## Lecture 2: History of Web & Internet {#lecture-2}
 
 ::: {.callout-note icon=false}
-## 🎯 Lecture Materials
-[{{< fa desktop >}} View Presentation](/presentations/lecture-02.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-02.pdf)
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/lecture-02.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-02.pdf)
 :::
 
 ### Learning Objectives
@@ -87,11 +87,11 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 3: HTML Basics & Structure
+## Lecture 3: HTML Basics & Structure {#lecture-3}
 
 ::: {.callout-note icon=false}
-## 🎯 Lecture Materials
-[{{< fa desktop >}} View Presentation](/presentations/lecture-03.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-03.pdf)
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/lecture-03.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-03.pdf)
 :::
 
 ### Learning Objectives
@@ -135,11 +135,11 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 4: HTML Grouping - Div & Span, Semantic HTML
+## Lecture 4: HTML Grouping - Div & Span, Semantic HTML {#lecture-4}
 
 ::: {.callout-note icon=false}
-## 🎯 Lecture Materials
-[{{< fa desktop >}} View Presentation](/presentations/lecture-04.qmd) | [{{< fa file-pdf >}} Download Slides](/presentations/lecture-04.pdf)
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/lecture-04.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-04.pdf)
 :::
 
 ### Learning Objectives
@@ -216,11 +216,11 @@ This week introduces you to web development fundamentals, covering the history o
 
 ## Key Takeaways
 
-✅ Web development consists of HTML (structure), CSS (styling), JavaScript (behavior)  
-✅ HTTP/HTTPS is the protocol for web communication  
-✅ HTML provides semantic structure to content  
-✅ Proper grouping and semantic elements improve accessibility and SEO  
-✅ Development environment setup is the foundation for all future work
+- Web development consists of HTML (structure), CSS (styling), JavaScript (behavior)  
+- HTTP/HTTPS is the protocol for web communication  
+- HTML provides semantic structure to content  
+- Proper grouping and semantic elements improve accessibility and SEO  
+- Development environment setup is the foundation for all future work
 
 ---
 

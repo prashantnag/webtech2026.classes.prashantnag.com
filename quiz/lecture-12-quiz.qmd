@@ -1,0 +1,56 @@
+---
+title: "Lecture 12 Quiz: JavaScript Variables & Data Types"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-12.qmd) | [Week 3 Content](/content/week-03.qmd) | [Lab 3](/labs/lab-03.qmd) | [Assignment 3](/assignment/03-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 12 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `var`", "B. `let`", "C. `const`", "D. `int`"]
+question = "Question 1: Which keyword should be preferred for values that should not be reassigned?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Number", "B. Boolean", "C. String", "D. Object"]
+question = "Question 2: Which JavaScript type represents textual data?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `==`", "B. `===`", "C. `=`", "D. `!=`"]
+question = "Question 3: Which operator checks strict equality (value and type)?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `push()`", "B. `trim()`", "C. `split()`", "D. `charAt()`"]
+question = "Question 4: Which method adds an element to the end of an array?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `let name = 'A'`", "B. `const my-name = 'A'`", "C. `const 2name = 'A'`", "D. `let if = 'A'`"]
+question = "Question 5: Which declaration follows JavaScript variable naming rules?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```

@@ -1,0 +1,56 @@
+---
+title: "Lecture 5 Quiz: HTML Lists & Images"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-05.qmd) | [Week 2 Content](/content/week-02.qmd) | [Lab 2](/labs/lab-02.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 5 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <ol>", "B. <ul>", "C. <dl>", "D. <li>"]
+question = "Question 1: Which tag creates an unordered list with bullet points?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. <li>", "B. <dd>", "C. <dt>", "D. <img>"]
+question = "Question 2: In a description list, which tag is used for the term itself?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `href`", "B. `src`", "C. `id`", "D. `class`"]
+question = "Question 3: Which attribute is required to specify the image file path in `<img>`?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. It sets the image size", "B. It adds animation", "C. It improves accessibility and fallback text", "D. It changes image format"]
+question = "Question 4: Why is the `alt` attribute important for images?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. JPG", "B. PNG", "C. SVG", "D. TXT"]
+question = "Question 5: Which format is a scalable vector image format?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```

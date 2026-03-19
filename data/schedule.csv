@@ -1,9 +1,58 @@
-group,session,title,date,end_date,content,assignment,note,deadline,flag
-Week 1,Lecture 1,Introduction to Web Designing,2026-01-26,,content/week-01,,,NA,FALSE
-Week 1,Lecture 2,History of Web & Internet,2026-01-27,,content/week-01,,,NA,FALSE
-Week 1,Lecture 3,HTML Basics & Structure,2026-01-29,,content/week-01,,,NA,FALSE
-Week 1,Lecture 4,HTML Grouping: Div & Span,2026-01-31,,content/week-01,,,NA,FALSE
-Week 2,Assignment 1,HTML Website with Forms,2026-02-11,,content/week-02,assignment/01-assignment,Submission deadline,23:59:00,FALSE
-Week 3,Assignment 2,Interactive Web Page,2026-02-25,,content/week-03,assignment/02-assignment,Submission deadline,23:59:00,FALSE
-Week 8,Assignment 3,Responsive Website,2026-03-18,,content/week-08,assignment/03-assignment,Submission deadline,23:59:00,FALSE
-Week 10,Assignment 4,Web App with Servlets & JSP,2026-04-08,,content/week-10,assignment/04-assignment,Submission deadline,23:59:00,FALSE
+group,session,date,end_date,title,flag,deadline,lecture,quiz,content,lab,assignment,note
+Week 1,Lecture 1,2026-01-26,,Introduction to Web Designing,,,lectures/lecture-01,quiz/lecture-01-quiz,content/week-01,,,
+Week 1,Lecture 2,2026-01-27,,History of Web & Internet,,,lectures/lecture-02,quiz/lecture-02-quiz,content/week-01,,,
+Week 1,Lab 1,2026-01-28,,Development Environment Setup,,23:59:00,,,,labs/lab-01,,Submit before next session
+Week 1,Lecture 3,2026-01-29,,HTML Basics & Structure,,,lectures/lecture-03,quiz/lecture-03-quiz,content/week-01,,,
+Week 1,Lecture 4,2026-01-31,,HTML Grouping: Div & Span,,,lectures/lecture-04,quiz/lecture-04-quiz,content/week-01,,,
+Week 2,Lecture 5,2026-02-02,,HTML Lists & Images,,,lectures/lecture-05,quiz/lecture-05-quiz,content/week-02,,,
+Week 2,Lecture 6,2026-02-03,,HTML Hyperlinks & Tables,,,lectures/lecture-06,quiz/lecture-06-quiz,content/week-02,,,
+Week 2,Lab 2,2026-02-04,,Lists and Frames and Media Embedding,,23:59:00,,,,labs/lab-02,,Submit before next session
+Week 2,Lecture 7,2026-02-05,,HTML Forms and Form Elements,,,lectures/lecture-07,quiz/lecture-07-quiz,content/week-02,,,
+Week 2,Lecture 8,2026-02-07,,Introduction to CSS,,,lectures/lecture-08,quiz/lecture-08-quiz,content/week-02,,,
+Week 2,Assignment 1,2026-02-11,,HTML Website with Forms,TRUE,23:59:00,,,,,assignment/01-assignment,Submission deadline
+Week 3,Lecture 9,2026-02-09,,CSS Units and Advanced Selectors,,,lectures/lecture-09,quiz/lecture-09-quiz,content/week-03,,,
+Week 3,Lecture 10,2026-02-10,,CSS Box Model and Positioning,,,lectures/lecture-10,quiz/lecture-10-quiz,content/week-03,,,
+Week 3,Lab 3,2026-02-11,,CSS Design and JavaScript Validation,,23:59:00,,,,labs/lab-03,,Submit before next session
+Week 3,Lecture 11,2026-02-12,,Bootstrap Framework,,,lectures/lecture-11,quiz/lecture-11-quiz,content/week-03,,,
+Week 3,Lecture 12,2026-02-14,,JavaScript Variables and Data Types,,,lectures/lecture-12,quiz/lecture-12-quiz,content/week-03,,,
+Week 4,Lecture 13,2026-02-16,,JavaScript Functions and Events,,,lectures/lecture-13,quiz/lecture-13-quiz,content/week-04,,,
+Week 4,Lecture 14,2026-02-17,,Conditions and Looping,,,lectures/lecture-14,quiz/lecture-14-quiz,content/week-04,,,
+Week 4,Lab 4,2026-02-18,,JavaScript Array Methods and Nested Functions,,23:59:00,,,,labs/lab-04,,Submit before next session
+Week 4,Lecture 15,2026-02-19,,Block Scope and Objects,,,lectures/lecture-15,quiz/lecture-15-quiz,content/week-04,,,
+Week 4,Lecture 16,2026-02-21,,Arrow Functions and Callbacks,,,lectures/lecture-16,quiz/lecture-16-quiz,content/week-04,,,
+Week 5,Lecture 17,2026-02-23,,DOM Manipulation and Array Methods,,,lectures/lecture-17,,content/week-05,,,
+Week 5,Lecture 18,2026-02-24,,Form Validation,,,lectures/lecture-18,,content/week-05,,,
+Week 5,Lab 5,2026-02-25,,Browser Information and Objects and Script Reuse,,23:59:00,,,,labs/lab-05,,Submit before next session
+Week 5,Assignment 2,2026-02-25,,Interactive Web Page,TRUE,23:59:00,,,,,assignment/02-assignment,Submission deadline
+Week 5,Lecture 19,2026-02-26,,ES6+ Features,,,lectures/lecture-19,,content/week-05,,,
+Week 5,Lecture 20,2026-02-28,,Revision Units I and II,,,lectures/lecture-20,,content/week-05,,,
+Weeks 6-7,Revision,2026-03-02,,Unit I Web Page Designing,,,lectures/revision-unit-1,,content/week-06,,,
+Weeks 6-7,Revision,2026-03-03,,Unit II JavaScript,,,lectures/revision-unit-2,,content/week-06,,,
+Weeks 6-7,Mid-Sem Exam,2026-03-10,2026-03-14,Written Test on Units I and II,TRUE,,,,,,,Exam window
+Week 8,Lecture 21,2026-03-16,,Servlet Architecture and Lifecycle,,,lectures/lecture-21,,content/week-08,,,
+Week 8,Lecture 22,2026-03-17,,HTTP GET and POST Requests,,,lectures/lecture-22,,content/week-08,,,
+Week 8,Lab 6,2026-03-18,,Servlet Authentication with Database Validation,,23:59:00,,,,labs/lab-06,,Submit before next session
+Week 8,Assignment 3,2026-03-18,,Responsive Website,TRUE,23:59:00,,,,,assignment/03-assignment,Submission deadline
+Week 8,Lecture 23,2026-03-19,,Session Tracking and Cookies,,,lectures/index,,content/week-08,,,
+Week 8,Lecture 24,2026-03-21,,Introduction to JSP,,,lectures/index,,content/week-08,,,
+Week 9,Lecture 25,2026-03-23,,JSP Implicit Objects and Directives,,,lectures/index,,content/week-09,,,
+Week 9,Lecture 26,2026-03-24,,JSP Standard Actions and JSTL,,,lectures/index,,content/week-09,,,
+Week 9,Lab 7,2026-03-25,,JSP Registration and CRUD with Session Management,,23:59:00,,,,labs/lab-07,,Submit before next session
+Week 9,Lecture 27,2026-03-26,,MVC Architecture,,,lectures/index,,content/week-09,,,
+Week 9,Lecture 28,2026-03-28,,Database Connectivity with JDBC,,,lectures/index,,content/week-09,,,
+Week 10,Lecture 29,2026-03-30,,Spring Framework and Dependency Injection,,,lectures/index,,content/week-10,,,
+Week 10,Lecture 30,2026-03-31,,Spring Beans and Application Context,,,lectures/index,,content/week-10,,,
+Week 10,Lab 8,2026-04-01,,JDBC Retrieval and Spring Fundamentals,,23:59:00,,,,labs/lab-08,,Submit before next session
+Week 10,Lecture 31,2026-04-02,,Aspect-Oriented Programming,,,lectures/index,,content/week-10,,,
+Week 10,Lecture 32,2026-04-04,,Spring MVC Overview,,,lectures/index,,content/week-10,,,
+Week 10,Assignment 4,2026-04-08,,Web App with Servlets and JSP,TRUE,23:59:00,,,,,assignment/04-assignment,Submission deadline
+Week 11,Lecture 33,2026-04-06,,Spring Data and ORM Integration,,,lectures/index,,content/week-11,,,
+Week 11,Lecture 34,2026-04-07,,Spring Security,,,lectures/index,,content/week-11,,,
+Week 11,Lab 9,2026-04-08,,REST Service and Spring Boot Web Application,,23:59:00,,,,labs/lab-09,,Submit before next session
+Week 11,Lecture 35,2026-04-09,,Introduction to Spring Boot,,,lectures/index,,content/week-11,,,
+Week 11,Lecture 36,2026-04-11,,Building REST APIs with Spring Boot,,,lectures/index,,content/week-11,,,
+Week 12,Lecture 37,2026-04-13,,REST API Best Practices,,,lectures/index,,content/week-12,,,
+Week 12,Lecture 38,2026-04-14,,Testing in Spring Boot,,,lectures/index,,content/week-12,,,
+Week 12,Lecture 39,2026-04-16,,Deployment and Production,,,lectures/index,,content/week-12,,,
+Week 12,Lecture 40,2026-04-18,,Final Project Discussion and Revision,,,lectures/index,,content/week-12,,,
+Week 12,Final Project,2026-04-19,,Complete Web Application,TRUE,23:59:00,,,,,assignment/index,Submission deadline

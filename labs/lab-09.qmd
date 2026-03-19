@@ -1,0 +1,197 @@
+---
+title: "Lab 9: REST Service and Spring Boot Web Application"
+date: "2026-04-04"
+due: "2026-04-08"
+---
+
+
+This lab covers workbook experiments 17 and 18.
+
+## Workbook Alignment
+
+- Experiment 17: Create a REST service for an education site
+- Experiment 18: Use Spring Boot Starter Web to create a web application
+
+## Learning Objectives
+
+By the end of this lab, you will be able to:
+
+- create REST endpoints using Spring Boot
+- return JSON data from a controller
+- build a server-rendered web page using Thymeleaf
+- understand the difference between `@RestController` and `@Controller`
+- test both API and web routes in a browser
+
+## Software and Files Required
+
+- completion of Lab 8
+- Java 17 or later
+- Maven
+- Spring Boot starter dependencies for web and Thymeleaf
+- a project folder for the education site application
+
+## Experiment 17: REST Service for an Education Site
+
+### Problem Statement
+
+Create a REST service that exposes course information through HTTP endpoints.
+
+### Folder Structure
+
+```text
+education-site/
+  src/main/java/com/gcet/education/CourseController.java
+  src/main/java/com/gcet/education/HomeController.java
+  src/main/resources/templates/home.html
+  pom.xml
+```
+
+### Procedure
+
+1. Create a Spring Boot project with web support.
+2. Add a `CourseController` class annotated with `@RestController`.
+3. Create a list of course records.
+4. Add endpoints for all courses and a single course by ID.
+5. Run the application and test the endpoints in the browser.
+
+### Use Case
+
+Expose course information through REST endpoints.
+
+### `CourseController.java`
+
+```java
+package com.gcet.education;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class CourseController {
+
+    private final List<Course> courses = List.of(
+            new Course(1, "BMC201", "Web Technology"),
+            new Course(2, "BMC202", "Data Analytics")
+    );
+
+    @GetMapping("/api/courses")
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    @GetMapping("/api/courses/{id}")
+    public Course getCourse(@PathVariable int id) {
+        return courses.stream()
+                .filter(course -> course.id() == id)
+                .findFirst()
+                .orElseThrow();
+    }
+}
+
+record Course(int id, String code, String title) {}
+```
+
+### Expected Result
+
+Opening `/api/courses` should return all course data as JSON, and opening `/api/courses/1` should return the selected course record.
+
+## Experiment 18: Spring Boot Web Application
+
+### Problem Statement
+
+Create a Spring Boot web page that renders HTML using Thymeleaf.
+
+### Procedure
+
+1. Add Thymeleaf support to the same Spring Boot project.
+2. Create a `HomeController` class annotated with `@Controller`.
+3. Add a route that passes a message to the view.
+4. Create a Thymeleaf template named `home.html`.
+5. Open the route in the browser and verify that the HTML page is rendered.
+
+### `HomeController.java`
+
+```java
+package com.gcet.education;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController {
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("message", "Welcome to the Education Site");
+        return "home";
+    }
+}
+```
+
+### `src/main/resources/templates/home.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Site</title>
+</head>
+<body>
+  <h1 th:text="${message}"></h1>
+  <p>This page is rendered by Spring Boot using Thymeleaf.</p>
+</body>
+</html>
+```
+
+### Dependencies
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+  </dependency>
+</dependencies>
+```
+
+### Expected Result
+
+Opening `/home` should render an HTML page with the message `Welcome to the Education Site`.
+
+## Observation Questions
+
+1. What is REST?
+2. What is the difference between `@RestController` and `@Controller`?
+3. Why is JSON commonly used in REST services?
+4. What does `spring-boot-starter-web` provide?
+
+## Viva Questions
+
+1. Why is Thymeleaf useful in Spring Boot web applications?
+2. What is the purpose of `@PathVariable`?
+3. How does Spring Boot simplify configuration?
+4. What happens when a requested course ID does not exist?
+
+## Submission Checklist
+
+- full Spring Boot project
+- `CourseController.java`
+- `HomeController.java`
+- `home.html`
+- screenshots of REST endpoint output
+- screenshot of `/home`
+- short write-up explaining controller flow
+
+## Extension Task
+
+Add a POST endpoint to insert new course data and extend the `/home` page to show a list of courses dynamically.

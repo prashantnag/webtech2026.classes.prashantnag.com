@@ -1,1110 +1,297 @@
 ---
-title: "Lab 3: CSS Styling & Responsive Design"
-date: "February 9-26, 2026"
-due-date: "February 26, 2026"
+title: "Lab 3: CSS Design and JavaScript Validation"
+date: "2026-02-06"
+due: "2026-02-11"
 ---
 
-# Lab 3: CSS Styling & Responsive Design
 
-## Objectives
+This lab covers workbook experiments 5 and 6.
 
-By completing this lab, you will:
+## Workbook Alignment
 
-:::{.callout-note}
-## Learning Outcomes
-- Master CSS selectors and apply advanced styling techniques
-- Create professional color schemes and typography
-- Build responsive layouts that adapt to different screen sizes
-- Implement responsive images and media
-- Practice Bootstrap framework integration
-- Create accessible and well-structured CSS
-:::
+- Experiment 5: Add a Cascading Style Sheet for designing the web page
+- Experiment 6: Design a dynamic web page with validation using JavaScript
 
----
+## Learning Objectives
 
-## Pre-Lab Preparation
+By the end of this lab, you will be able to:
 
-Before starting this lab, ensure you have:
+- connect an external stylesheet to an HTML page
+- use selectors, colors, spacing, and layout rules effectively
+- validate form inputs using JavaScript
+- show inline error messages for invalid input
+- create a complete static and dynamic front-end page
 
-:::{.callout-tip}
-## Required Setup
-- Completed Labs 1 and 2 (HTML foundation)
-- A code editor (VS Code recommended)
-- Knowledge of basic CSS (from Lectures 7-11)
-- Understanding of HTML structure
-- A local file server for testing
-:::
+## Software and Files Required
 
-**Test your setup:**
-```bash
-cd your-lab-folder
-python -m http.server 8000
-# Visit http://localhost:8000 in browser
+- completion of Lab 2
+- VS Code or any text editor
+- a modern browser
+- a folder named `Lab03`
+- files named `index.html`, `style.css`, and `validation.html`
+
+## Experiment 5: CSS Styling
+
+### Problem Statement
+
+Design a web page using an external CSS file.
+
+### Folder Structure
+
+```text
+Lab03/
+  index.html
+  style.css
+  validation.html
 ```
 
----
-
-## Part 1: Color Scheme & Typography
-
-### Objectives
-- Create a professional color palette
-- Implement custom fonts
-- Establish typography hierarchy
-
-### Step 1: Color Palette Definition
-
-Create a file `css/colors.css` with your color variables:
-
-```css
-:root {
-    /* Primary Colors */
-    --primary-color: #2563eb;
-    --primary-light: #3b82f6;
-    --primary-dark: #1e40af;
-    
-    /* Secondary Colors */
-    --secondary-color: #10b981;
-    --secondary-light: #34d399;
-    --secondary-dark: #059669;
-    
-    /* Neutrals */
-    --text-dark: #1f2937;
-    --text-light: #6b7280;
-    --bg-light: #f9fafb;
-    --bg-white: #ffffff;
-    --border-color: #e5e7eb;
-    
-    /* Status Colors */
-    --success: #10b981;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-    --info: #3b82f6;
-}
-```
-
-### Step 2: Typography System
-
-```css
-/* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-
-/* Base Typography */
-:root {
-    --font-primary: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    
-    --font-size-base: 1rem;
-    --font-size-sm: 0.875rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-}
-
-/* Heading Styles */
-h1 {
-    font-size: var(--font-size-4xl);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: var(--font-size-3xl);
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.75rem;
-}
-
-h3 {
-    font-size: var(--font-size-2xl);
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-/* Body Text */
-p {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-}
-
-/* Code */
-code {
-    font-family: var(--font-mono);
-    background-color: var(--bg-light);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    color: var(--danger);
-}
-
-pre {
-    background-color: #1f2937;
-    color: #f3f4f6;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin-bottom: 1.5rem;
-}
-
-pre code {
-    color: inherit;
-    background: none;
-    padding: 0;
-}
-```
-
-### Your Task: Part 1
-
-Create a color palette CSS file with:
-- ✅ At least 10 CSS color variables
-- ✅ Google Fonts integration (2+ font families)
-- ✅ Complete typography hierarchy (h1-h6, p, small)
-- ✅ Code snippet styling
-- ✅ Link styling
-
----
-
-## Part 2: Advanced Selectors & Styling
-
-### Objectives
-- Use complex CSS selectors
-- Create pseudo-class effects
-- Build styled components
-
-### Create `css/components.css`
-
-```css
-/* Buttons - Multiple States */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.btn-secondary:hover {
-    background-color: var(--secondary-dark);
-}
-
-/* Cards */
-.card {
-    background: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary-color);
-}
-
-.card-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--bg-light);
-}
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.card-footer {
-    padding: 1rem 1.5rem;
-    background-color: var(--bg-light);
-    border-top: 1px solid var(--border-color);
-}
-
-/* Forms */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--text-dark);
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.4rem;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.form-control::placeholder {
-    color: var(--text-light);
-}
-
-/* Alerts */
-.alert {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.alert-success {
-    background-color: #d1fae5;
-    color: #047857;
-    border-left: 4px solid var(--success);
-}
-
-.alert-danger {
-    background-color: #fee2e2;
-    color: #991b1b;
-    border-left: 4px solid var(--danger);
-}
-
-.alert-warning {
-    background-color: #fef3c7;
-    color: #92400e;
-    border-left: 4px solid var(--warning);
-}
-
-.alert-info {
-    background-color: #dbeafe;
-    color: #1e40af;
-    border-left: 4px solid var(--info);
-}
-
-/* Navigation */
-.nav {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-link {
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
-}
-
-.nav-link.active {
-    color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
-    font-weight: 600;
-}
-
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
-}
-
-thead {
-    background-color: var(--bg-light);
-}
-
-th {
-    padding: 1rem;
-    text-align: left;
-    font-weight: 600;
-    color: var(--text-dark);
-    border-bottom: 2px solid var(--border-color);
-}
-
-td {
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-tbody tr:hover {
-    background-color: var(--bg-light);
-}
-```
-
-### Your Task: Part 2
-
-Create `css/components.css` with styled components:
-- ✅ Button states (normal, hover, active, disabled)
-- ✅ Card component with hover effects
-- ✅ Form elements with focus states
-- ✅ Alert/notification styling (4 types)
-- ✅ Navigation with active states
-- ✅ Table styling
-
----
-
-## Part 3: Responsive Layout
-
-### Objectives
-- Create mobile-first responsive design
-- Implement flexible grid layouts
-- Use media queries effectively
-
-### Create `css/layout.css`
-
-```css
-/* Base Responsive Container */
-.container {
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-    .container {
-        max-width: 640px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1024px;
-    }
-}
-
-@media (min-width: 1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-
-/* Flexbox Grid System */
-.grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-/* Mobile-first spacing */
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
-
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
-
-.p-1 { padding: 0.5rem; }
-.p-2 { padding: 1rem; }
-.p-3 { padding: 1.5rem; }
-.p-4 { padding: 2rem; }
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-    h1 { font-size: var(--font-size-3xl); }
-    h2 { font-size: var(--font-size-2xl); }
-    h3 { font-size: var(--font-size-xl); }
-}
-
-/* Responsive Columns */
-.col-1 { grid-column: span 1; }
-.col-2 { grid-column: span 2; }
-.col-3 { grid-column: span 3; }
-
-@media (max-width: 768px) {
-    .col-1, .col-2, .col-3 { grid-column: span 1; }
-}
-
-/* Flexbox Utilities */
-.flex { display: flex; }
-.flex-center { display: flex; align-items: center; justify-content: center; }
-.flex-between { display: flex; justify-content: space-between; align-items: center; }
-.flex-col { display: flex; flex-direction: column; }
-.gap-1 { gap: 0.5rem; }
-.gap-2 { gap: 1rem; }
-.gap-3 { gap: 1.5rem; }
-```
-
-### Create `css/responsive.css`
-
-```css
-/* Header & Navbar */
-.header {
-    position: sticky;
-    top: 0;
-    background: var(--bg-white);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 100;
-    padding: 1rem 0;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-dark);
-}
-
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-    
-    .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: var(--bg-white);
-        padding: 1rem;
-        gap: 0;
-        border-bottom: 1px solid var(--border-color);
-    }
-    
-    .nav.active {
-        display: flex;
-    }
-    
-    .nav-link {
-        padding: 0.75rem;
-        border-bottom: none;
-        border-left: 3px solid transparent;
-        padding-left: 1rem;
-    }
-    
-    .nav-link.active {
-        border-left-color: var(--primary-color);
-    }
-}
-
-/* Responsive Images */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.img-responsive {
-    width: 100%;
-    height: auto;
-}
-
-/* Responsive Video/Embed */
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-}
-
-.video-container iframe,
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Responsive Tables */
-@media (max-width: 768px) {
-    table {
-        font-size: 0.875rem;
-    }
-    
-    th, td {
-        padding: 0.75rem 0.5rem;
-    }
-}
-
-/* Responsive Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    padding: 4rem 1rem;
-    text-align: center;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero h1 {
-    color: white;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: 2rem 1rem;
-    }
-}
-```
-
-### Your Task: Part 3
-
-Create responsive layout files:
-- ✅ Container with responsive max-widths
-- ✅ Mobile-first media queries (min-width)
-- ✅ Responsive grid system (auto-fit/auto-fill)
-- ✅ Flexible typography with clamp()
-- ✅ Responsive images (max-width: 100%)
-- ✅ Mobile navigation toggle
-- ✅ Responsive tables
-
----
-
-## Part 4: Build a Multi-Section Website
-
-Create `index.html`:
+### Procedure
+
+1. Create the `Lab03` folder.
+2. Add the files `index.html` and `style.css`.
+3. Link the stylesheet using the `<link>` tag.
+4. Apply colors, spacing, cards, and layout rules from the CSS file.
+5. Open the page in a browser and confirm that the styles load correctly.
+
+### `index.html`
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Responsive Portfolio</title>
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/colors.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC201 Lab 3 - Styled Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <h2>MyPortfolio</h2>
-                </div>
-                <button class="nav-toggle" id="navToggle">☰</button>
-                <ul class="nav" id="navMenu">
-                    <li><a class="nav-link active" href="#home">Home</a></li>
-                    <li><a class="nav-link" href="#about">About</a></li>
-                    <li><a class="nav-link" href="#projects">Projects</a></li>
-                    <li><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="banner">
+    <h1>Web Technology Course Portal</h1>
+    <p>Styled using an external CSS file</p>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Discover my work and let's create something amazing together</p>
-            <button class="btn btn-secondary">View My Work</button>
-        </div>
+  <main class="container">
+    <section class="card">
+      <h2>Topics Covered</h2>
+      <ul>
+        <li>HTML structure</li>
+        <li>CSS presentation</li>
+        <li>JavaScript interactivity</li>
+      </ul>
     </section>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- About Section -->
-        <section id="about" class="p-4">
-            <h2>About Me</h2>
-            <p>I'm a passionate web developer creating beautiful and functional websites.</p>
-            <p>With expertise in HTML, CSS, and JavaScript, I build responsive websites that work across all devices.</p>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="p-4">
-            <h2>Projects</h2>
-            <div class="grid">
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Project One</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>A responsive website portfolio using modern HTML, CSS, and JavaScript.</p>
-                        <button class="btn btn-primary">View Project</button>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Project Two</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>E-commerce site with advanced search and filter functionality.</p>
-                        <button class="btn btn-primary">View Project</button>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Project Three</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Blog platform with Markdown support and comment system.</p>
-                        <button class="btn btn-primary">View Project</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="p-4">
-            <h2>Contact Me</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label class="form-label" for="name">Full Name</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        class="form-control" 
-                        placeholder="John Doe"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        class="form-control" 
-                        placeholder="john@example.com"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea 
-                        id="message" 
-                        class="form-control" 
-                        rows="5" 
-                        placeholder="Your message here..."
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer style="background: var(--bg-light); padding: 2rem; text-align: center; margin-top: 2rem;">
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-    </footer>
-
-    <script src="js/navbar.js"></script>
+    <section class="card">
+      <h2>Why CSS Matters</h2>
+      <p>CSS controls color, spacing, alignment, responsive behavior, and overall user experience.</p>
+    </section>
+  </main>
 </body>
 </html>
 ```
 
-Create `js/navbar.js`:
-
-```javascript
-// Mobile Navigation Toggle
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-const navLinks = navMenu.querySelectorAll('.nav-link');
-
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-// Close menu when link clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-    });
-});
-
-// Update active link on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
-```
-
-### Your Task: Part 4
-
-Build the website with:
-- ✅ Complete responsive HTML structure
-- ✅ All CSS files properly linked
-- ✅ Header/navbar with mobile toggle
-- ✅ Hero section
-- ✅ About, Projects, Contact sections
-- ✅ Grid-based project cards
-- ✅ Contact form with validation
-- ✅ Footer
-- ✅ Mobile navigation JavaScript
-
----
-
-## Testing & Validation
-
-### Responsive Testing
-
-Test your site at these breakpoints:
-
-:::{.callout-warning}
-## Breakpoint Checklist
-- **Mobile (320px)** - Text readable, no horizontal scroll
-- **Tablet (768px)** - 2-column layouts work
-- **Desktop (1024px+)** - Full layout visible
-- **Large (1280px+)** - Max-width working
-:::
-
-**Browser DevTools:**
-1. Open DevTools (F12)
-2. Click Device Toggle (Ctrl+Shift+M)
-3. Test at different screen sizes
-4. Check touch interactions on mobile
-
-### Performance Testing
-
-```bash
-# Check file sizes
-du -sh css/
-du -sh js/
-
-# CSS Validation
-# Visit: https://jigsaw.w3.org/css-validator/
-
-# HTML Validation
-# Visit: https://validator.w3.org/
-```
-
-### Accessibility Checklist
-
-:::{.callout-tip}
-## A11y Testing
-- ✅ All images have alt text
-- ✅ Color contrast ratio ≥ 4.5:1 (text)
-- ✅ Keyboard navigation works
-- ✅ Forms are properly labeled
-- ✅ Focus states visible
-- ✅ Semantic HTML used
-:::
-
----
-
-## Exercise 1: Create Advanced Selector Styles
-
-**Task:** Create `css/advanced.css` with:
-
-1. **Attribute selectors:**
-   ```css
-   input[type="email"] { /* Style email inputs */ }
-   a[href^="https"] { /* External https links */ }
-   ```
-
-2. **Pseudo-classes:**
-   ```css
-   :nth-child(even) { /* Even items */ }
-   :first-type { /* First of type */ }
-   input:valid { /* Valid form input */ }
-   ```
-
-3. **Pseudo-elements:**
-   ```css
-   ::before /* Add content */ }
-   ::after { /* Add content */ }
-   ::selection { /* Highlight color */ }
-   ```
-
-**Submission:**
-- [ ] File: `css/advanced.css`
-- [ ] At least 10 advanced selectors
-- [ ] Properly tested
-
----
-
-## Exercise 2: Responsive Grid Variations
-
-**Task:** Create three different grid layouts:
-
-1. **2-Column layout** (desktop) → 1-column (mobile)
-2. **3-Column layout** (desktop) → 2-column (tablet) → 1-column (mobile)
-3. **4-Column layout** with auto-fit
-
-**Code:**
-```css
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-```
-
-**Submission:**
-- [ ] All three layouts working
-- [ ] Tested at 3+ breakpoints
-- [ ] Responsive images sized correctly
-
----
-
-## Exercise 3: Form Validation Styling
-
-**Task:** Create advanced form styling:
-
-```html
-<input type="email" required>
-<input type="text" minlength="5">
-<input type="password" pattern="[A-Za-z0-9]{8,}">
-```
-
-Style these states with CSS:
-- `:valid` - Green border/checkmark
-- `:invalid` - Red border/x
-- `:focus` - Custom focus color
-- `:disabled` - Grayed out
-
-**Submission:**
-- [ ] All input types tested
-- [ ] Validation states visible
-- [ ] Accessibility maintained
-
----
-
-## Bonus Challenges
-
-:::{.callout-success}
-## Extra Credit (5 points each)
-1. **Dark mode toggle:** Switch between light/dark themes
-2. **Animated components:** Add smooth transitions/animations
-3. **CSS animations:** Create keyframe animations for loaders
-4. **Print stylesheet:** Create `css/print.css` for printing
-5. **Font icon library:** Integrate Font Awesome icons
-6. **CSS grid advanced:** Create complex grid layouts
-7. **Flexbox mastery:** Build advanced flex layouts
-8. **Performance:** Minify CSS and optimize styling
-:::
-
-### Dark Mode Implementation
+### `style.css`
 
 ```css
-/* Light mode (default) */
-:root {
-    --bg: #ffffff;
-    --text: #000000;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #1f2937;
-        --text: #f3f4f6;
-    }
-}
-
-/* User toggle */
-[data-theme="dark"] {
-    --bg: #1f2937;
-    --text: #f3f4f6;
+* {
+  box-sizing: border-box;
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+.banner {
+  background: linear-gradient(135deg, #0f766e, #0ea5e9);
+  color: white;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+li {
+  margin-bottom: 8px;
 }
 ```
 
----
+### Expected Result
 
-## Grading Rubric
+The browser should display a styled course portal with a gradient banner, responsive card layout, and clean spacing loaded from an external CSS file.
 
-| Criteria | Points | Excellent | Good | Fair | Poor |
-|----------|--------|-----------|------|------|------|
-| **HTML Structure** | 15 | Semantic, valid, accessible | Good structure | Basic structure | Invalid |
-| **CSS Styling** | 20 | Professional, organized | Good styles | Limited styling | Minimal CSS |
-| **Responsive Design** | 25 | Works all breakpoints | 2-3 breakpoints | One breakpoint | Not responsive |
-| **Components** | 15 | 5+ styled components | 4 components | 2-3 components | 1 or fewer |
-| **JavaScript Functionality** | 10 | Multi-feature JS | Working JS | Basic JS | No JS |
-| **Testing & Validation** | 10 | Fully tested, validated | Mostly tested | Some testing | Not tested |
-| **Code Quality** | 5 | Clean, documented | Good quality | Adequate | Poor structure |
+## Experiment 6: JavaScript Form Validation
 
-**Total: 100 points**
+### Problem Statement
 
----
+Design a dynamic web page with validation using JavaScript.
 
-## Submission Requirements
+### Procedure
 
-:::{.callout-note}
-## What to Submit
-1. **File Structure:**
-   ```
-   lab-3/
-   ├── index.html
-   ├── css/
-   │   ├── reset.css
-   │   ├── colors.css
-   │   ├── layout.css
-   │   ├── components.css
-   │   ├── responsive.css
-   │   └── style.css
-   ├── js/
-   │   ├── navbar.js
-   │   └── form.js
-   └── README.md
-   ```
+1. Create a new file named `validation.html` in the `Lab03` folder.
+2. Add a form containing name, email, and password fields.
+3. Add error containers below each input.
+4. Use JavaScript to validate user input on form submission.
+5. Test the page with both valid and invalid values.
 
-2. **README.md should include:**
-   - Project description
-   - Features implemented
-   - How to run/test
-   - Browser compatibility notes
-   - Responsive breakpoints used
+### Solution Code
 
-3. **Testing Report:**
-   - Screenshot at 3 breakpoints
-   - List of browsers tested
-   - Validation results (HTML/CSS)
-
-4. **Submission:**
-   - Upload folder to course site
-   - Due: **February 26, 2026 11:59 PM**
-   - Format: ZIP file or GitHub repository link
-:::
-
----
-
-## Troubleshooting Guide
-
-:::{.callout-warning}
-## Common Issues
-:::
-
-### Issue: Responsive not working
-**Fix:**
 ```html
-<!-- Ensure viewport meta tag exists -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC201 Lab 3 - Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 680px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+    }
+
+    .error {
+      color: #dc2626;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .success {
+      color: #047857;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Registration Form</h1>
+
+  <form id="registrationForm" novalidate>
+    <div class="field">
+      <label for="name">Full Name</label>
+      <input id="name" type="text">
+      <div class="error" id="nameError"></div>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email">
+      <div class="error" id="emailError"></div>
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" type="password">
+      <div class="error" id="passwordError"></div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      let isValid = true;
+
+      document.getElementById("nameError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+      message.textContent = "";
+      message.className = "";
+
+      if (name.length < 3) {
+        document.getElementById("nameError").textContent = "Name must be at least 3 characters long.";
+        isValid = false;
+      }
+
+      if (!email.includes("@") || !email.includes(".")) {
+        document.getElementById("emailError").textContent = "Enter a valid email address.";
+        isValid = false;
+      }
+
+      if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters long.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        message.textContent = "Form submitted successfully.";
+        message.className = "success";
+      }
+    });
+  </script>
+</body>
+</html>
 ```
 
-### Issue: Grid layout not responsive
-**Fix:**
-```css
-/* Use auto-fit instead of repeat(3, 1fr) */
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-```
+### Expected Result
 
-### Issue: Images too large on mobile
-**Fix:**
-```css
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-```
+The form should display inline error messages for invalid input and show a success message only when all fields satisfy the validation rules.
 
-### Issue: Mobile menu not toggling
-**Check JavaScript:**
-```javascript
-// Verify navToggle and navMenu exist
-console.log(document.getElementById('navToggle'));
-console.log(document.getElementById('navMenu'));
-```
+## Observation Questions
 
----
+1. What is the difference between internal CSS and external CSS?
+2. Why is an external stylesheet useful when multiple pages share the same design?
+3. Why is `event.preventDefault()` used in form validation?
+4. What is the purpose of `trim()` in JavaScript?
 
-## Additional Resources
+## Viva Questions
 
-:::{.callout-tip}
-## Learning Materials
-- [MDN: CSS Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries)
-- [MDN: CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
-- [MDN: Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)
-- [CSS-Tricks: Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
-- [MDN: Responsive Design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
-- [Can I Use](https://caniuse.com/) - Browser compatibility
-- [WebAIM: Contrast Checker](https://webaim.org/resources/contrastchecker/)
-:::
+1. Why should validation be done both on the client and the server?
+2. What is the purpose of the `<link rel="stylesheet">` tag?
+3. What is the difference between a class selector and an element selector?
+4. How does JavaScript improve static HTML pages?
 
----
+## Submission Checklist
 
-## FAQ
+- `index.html`
+- `style.css`
+- `validation.html`
+- screenshots of styled page and validated form
+- short answer file for observation and viva questions
 
-**Q: Do I need to use Bootstrap?**
-A: No, this lab teaches you vanilla CSS. You can use Bootstrap concepts but code from scratch.
+## Extension Task
 
-**Q: What about older browser support?**
-A: Focus on modern browsers (Chrome, Firefox, Safari, Edge). Use fallbacks only if required.
-
-**Q: Can I use Sass/SCSS?**
-A: Yes! Compile to CSS and submit the CSS files.
-
-**Q: How do I host this online?**
-A: Use GitHub Pages, Netlify, or Vercel (covered in Week 4).
+Add mobile number validation, move the JavaScript into a separate `script.js` file, and add a reset button for the form.

@@ -1,0 +1,56 @@
+---
+title: "Lecture 10 Quiz: CSS Box Model & Positioning"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-10.qmd) | [Week 3 Content](/content/week-03.qmd) | [Lab 3](/labs/lab-03.qmd) | [Assignment 3](/assignment/03-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 10 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. content, border, padding, margin", "B. margin, border, padding, content", "C. padding, margin, border, content", "D. border, margin, content, padding"]
+question = "Question 1: What is the correct outside-to-inside order in the CSS box model?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. position: static", "B. position: relative", "C. position: fixed", "D. position: sticky"]
+question = "Question 2: Which position value keeps an element attached to the viewport while scrolling?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Space outside border", "B. Space inside border", "C. Border thickness", "D. Content alignment"]
+question = "Question 3: Padding controls which part of spacing?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. width includes content only", "B. width includes margin only", "C. width includes padding and border", "D. width is ignored"]
+question = "Question 4: With `box-sizing: border-box`, the declared width means:"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. To set text style", "B. To control overlap/layer order", "C. To define border color", "D. To align items in flexbox"]
+question = "Question 5: Why is `z-index` used in CSS positioning?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```

@@ -51,93 +51,84 @@ Contents:
 
 ## Lab Schedule
 
-### Lab 1: Development Environment Setup
+### Lab 1: HTML Page Foundation
 **Week 1 | Due: January 28, 2026**
 
-Set up your development environment and create your first HTML file.
+Create a simple HTML page and a paragraph-alignment page with an image.
 
 [**View Lab Manual →**](/labs/lab-01.qmd)
 
 ---
 
-### Lab 2: Creating Web Pages with HTML
+### Lab 2: Lists, Frames, and Media Embedding
 **Week 2 | Due: February 4, 2026**
 
-Build structured semantic HTML pages with text, images, and links.
+Create lists in multiple styles and build an iframe-based media page.
 
 [**View Lab Manual →**](/labs/lab-02.qmd)
 
 ---
 
-### Lab 3: HTML Forms and Multimedia
+### Lab 3: CSS Design and JavaScript Validation
 **Week 3 | Due: February 11, 2026**
 
-Create interactive forms and embed multimedia content.
+Design a page using external CSS and validate a form with JavaScript.
 
 [**View Lab Manual →**](/labs/lab-03.qmd)
 
 ---
 
-### Lab 4: Styling with CSS
+### Lab 4: JavaScript Array Methods and Nested Functions
 **Week 4 | Due: February 18, 2026**
 
-Apply CSS to style HTML pages with colors, fonts, and layouts.
+Practice array methods, nested functions, and JavaScript scope.
 
-**Lab Manual coming soon...**
+[**View Lab Manual →**](/labs/lab-04.qmd)
 
 ---
 
-### Lab 5: Responsive Design
+### Lab 5: Browser Information, Objects, and Script Reuse
 **Week 5 | Due: February 25, 2026**
 
-Build responsive layouts using Flexbox and CSS Grid.
+Use browser APIs, merge objects, and split reusable JavaScript across files.
 
-**Lab Manual coming soon...**
-
----
-
-### Lab 6: CSS Animations
-**Week 7 | Due: March 11, 2026**
-
-Create smooth transitions and engaging animations.
-
-**Lab Manual coming soon...**
+[**View Lab Manual →**](/labs/lab-05.qmd)
 
 ---
 
-### Lab 7: JavaScript Basics
+### Lab 6: Servlet Authentication with Database Validation
 **Week 8 | Due: March 18, 2026**
 
-Write your first JavaScript programs and manipulate data.
+Build a login servlet that validates credentials from a database.
 
-**Lab Manual coming soon...**
+[**View Lab Manual →**](/labs/lab-06.qmd)
 
 ---
 
-### Lab 8: DOM Manipulation
+### Lab 7: JSP Registration and CRUD with Session Management
 **Week 9 | Due: March 25, 2026**
 
-Use JavaScript to dynamically modify web page content.
+Create JSP and Servlet pages for registration, CRUD, and session-protected workflows.
 
-**Lab Manual coming soon...**
+[**View Lab Manual →**](/labs/lab-07.qmd)
 
 ---
 
-### Lab 9: Event Handling
+### Lab 8: JDBC Retrieval and Spring Fundamentals
 **Week 10 | Due: April 1, 2026**
 
-Handle user interactions with event listeners.
+Retrieve employee data with JDBC and build a basic Spring Boot application.
 
-**Lab Manual coming soon...**
+[**View Lab Manual →**](/labs/lab-08.qmd)
 
 ---
 
-### Lab 10: Server Configuration
+### Lab 9: REST Service and Spring Boot Web Application
 **Week 11 | Due: April 8, 2026**
 
-Set up and configure a local web server.
+Create REST endpoints and a simple Spring Boot web application.
 
-**Lab Manual coming soon...**
+[**View Lab Manual →**](/labs/lab-09.qmd)
 
 ---
 

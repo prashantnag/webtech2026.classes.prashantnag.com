@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 2: Feb 2 - Feb 8, 2026"
 subtitle: "Unit I: Web Page Designing - HTML Elements & CSS Introduction"
 ---
@@ -14,7 +14,14 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 5: HTML Lists & Images
+## Lecture 5: HTML Lists & Images {#lecture-5}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-05-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-05.qmd)
+:::
+
 
 ### Learning Objectives
 - Create ordered, unordered, and description lists
@@ -73,7 +80,14 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 6: HTML Hyperlinks & Tables
+## Lecture 6: HTML Hyperlinks & Tables {#lecture-6}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-06-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-06.qmd)
+:::
+
 
 ### Learning Objectives
 - Create and use hyperlinks effectively
@@ -135,7 +149,14 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 7: HTML Forms & Form Elements
+## Lecture 7: HTML Forms & Form Elements {#lecture-7}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-07-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-07.qmd)
+:::
+
 
 ### Learning Objectives
 - Create functional HTML forms
@@ -184,7 +205,14 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 8: Introduction to CSS
+## Lecture 8: Introduction to CSS {#lecture-8}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa list-check >}} Take Quiz](/quiz/lecture-08-quiz.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-08.qmd)
+:::
+
 
 ### Learning Objectives
 - Understand what CSS does
@@ -292,3 +320,4 @@ In the coming weeks, we'll:
 - Learn CSS Box Model and positioning
 - Introduction to Bootstrap responsive framework
 - Begin JavaScript for interactivity
+

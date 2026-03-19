@@ -1,5 +1,37 @@
 /* Additional custom styles */
 
+:root {
+  --site-link-hover: #1f5f93;
+  --site-focus: #e67e22;
+  --site-inline-code-bg: #fffacd;
+  --site-inline-code-color: #d9534f;
+  --site-inline-code-border: #f0ad4e;
+  --site-code-bg: #f0f0f0;
+  --site-code-color: #c7254e;
+  --site-code-border: #e0e0e0;
+  --site-pre-bg: #1e1e1e;
+  --site-pre-border: #444;
+  --site-pre-color: #e1e4e8;
+  --site-pre-shadow: rgba(0, 0, 0, 0.3);
+}
+
+body.quarto-dark,
+body[data-bs-theme="dark"],
+html.quarto-dark body {
+  --site-link-hover: #a9c9f5;
+  --site-focus: #f49b02;
+  --site-inline-code-bg: #25354d;
+  --site-inline-code-color: #ffd59a;
+  --site-inline-code-border: #49627f;
+  --site-code-bg: #1c2a3d;
+  --site-code-color: #ffd59a;
+  --site-code-border: #324760;
+  --site-pre-bg: #0f1724;
+  --site-pre-border: #2c405d;
+  --site-pre-color: #e6edf7;
+  --site-pre-shadow: rgba(0, 0, 0, 0.45);
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -9,6 +41,10 @@ html {
 a {
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--site-link-hover);
 }
 
 /* Image styling */
@@ -33,7 +69,7 @@ p {
 /* Better focus states for accessibility */
 a:focus,
 button:focus {
-  outline: 2px solid #e67e22;
+  outline: 2px solid var(--site-focus);
   outline-offset: 2px;
 }
 
@@ -43,14 +79,14 @@ button:focus {
 
 /* Inline code throughout document */
 code {
-  background-color: #f0f0f0 !important;
-  color: #c7254e !important;
+  background-color: var(--site-code-bg) !important;
+  color: var(--site-code-color) !important;
   padding: 0.3em 0.6em !important;
   border-radius: 4px !important;
   font-size: 0.9em !important;
   font-family: "Courier New", Courier, monospace !important;
   font-weight: 500 !important;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--site-code-border);
 }
 
 /* Inline code in paragraphs, lists, tables */
@@ -60,21 +96,21 @@ td code,
 th code,
 strong code,
 em code {
-  background-color: #fffacd !important;
-  color: #d9534f !important;
-  border: 1px solid #f0ad4e !important;
+  background-color: var(--site-inline-code-bg) !important;
+  color: var(--site-inline-code-color) !important;
+  border: 1px solid var(--site-inline-code-border) !important;
   padding: 2px 5px !important;
 }
 
 /* Code blocks (pre elements) */
 pre {
-  background-color: #1e1e1e !important;
-  border: 2px solid #444 !important;
+  background-color: var(--site-pre-bg) !important;
+  border: 2px solid var(--site-pre-border) !important;
   border-radius: 6px !important;
   padding: 15px !important;
   margin: 1.5em 0 !important;
   overflow-x: auto !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 12px var(--site-pre-shadow) !important;
   line-height: 1.6 !important;
   display: block !important;
 }
@@ -82,7 +118,7 @@ pre {
 /* Code inside pre */
 pre > code {
   background-color: transparent !important;
-  color: #e1e4e8 !important;
+  color: var(--site-pre-color) !important;
   padding: 0 !important;
   margin: 0 !important;
   border: none !important;
@@ -96,7 +132,7 @@ pre > code {
 
 /* Syntax highlighting for code blocks */
 .hljs {
-  background-color: #1e1e1e !important;
+  background-color: var(--site-pre-bg) !important;
   color: #d4d4d4 !important;
 }
 

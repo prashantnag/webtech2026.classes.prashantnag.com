@@ -1,0 +1,796 @@
+---
+title: "Revision: Unit I - Web Page Designing"
+subtitle: "{{< meta course.number >}} - {{< meta course.title >}}"
+author: "{{< meta instructor.name >}}"
+date: "March 3, 2026"
+code-annotations: below
+---
+
+
+## {#title-slide data-menu-title="Title Slide" background="#053660"}
+
+<div class="custom-title">
+[Revision Session]{.baby-blue-text}
+</div>
+
+<div class="custom-subtitle">
+[Unit I: Web Page Designing]{.white-text}
+</div>
+
+<div class="custom-subtitle3">
+Weeks 6-7 | Mid-Semester Exam Preparation<br>
+{{< meta course.number >}} - {{< meta course.title >}}<br>
+{{< meta instructor.name >}}, {{< meta instructor.title >}}
+</div>
+
+---
+
+## {data-menu-title="Unit I Coverage"}
+
+[Unit I: Complete Coverage]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**Topics Include:**
+
+1. Introduction to Web Designing & Internet History
+2. HTML Basics, Structure & Syntax
+3. HTML Grouping: Div & Span
+4. HTML Lists, Images, Hyperlinks & Tables
+5. HTML Forms & Form Elements
+6. CSS Introduction & Selectors
+7. CSS Box Model & Positioning
+8. Bootstrap Framework Basics
+:::
+
+---
+
+## {data-menu-title="Web History"}
+
+[Web & Internet Fundamentals]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- **WWW** invented by Tim Berners-Lee (1989)
+- **HTTP** protocol for communication
+- **URL** structure: protocol://domain:port/path
+- **Web 1.0** (static) → **Web 2.0** (interactive)
+- **Client-Server** architecture
+- **DNS** translates domain names to IP addresses
+:::
+
+---
+
+## {data-menu-title="HTML Document"}
+
+[HTML Document Structure]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3-6|7-13|14"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Web Page</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Site</h1>
+  </header>
+  <main>
+    <p>Content goes here.</p>
+  </main>
+</body>
+</html>
+```
+
+---
+
+## {data-menu-title="HTML Tags"}
+
+[Essential HTML Tags]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Text Formatting:**
+```html
+<h1> to <h6>  <!-- Headings -->
+<p>           <!-- Paragraph -->
+<strong>      <!-- Bold/Important -->
+<em>          <!-- Italic/Emphasis -->
+<br>          <!-- Line break -->
+<hr>          <!-- Horizontal rule -->
+```
+
+**Structure:**
+```html
+<div>         <!-- Block container -->
+<span>        <!-- Inline container -->
+<header>, <footer>, <nav>, <main>, <section>, <article>
+```
+:::
+
+---
+
+## {data-menu-title="HTML Lists"}
+
+[HTML Lists]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1-5|7-11"}
+<!-- Unordered List -->
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+<!-- Ordered List -->
+<ol type="1">
+  <li>First</li>
+  <li>Second</li>
+</ol>
+```
+
+`type` can be: 1, A, a, I, i
+
+---
+
+## {data-menu-title="HTML Images"}
+
+[HTML Images & Multimedia]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1-2|4-5|7-8"}
+<!-- Image -->
+<img src="photo.jpg" alt="Description" width="300">
+
+<!-- Audio -->
+<audio src="song.mp3" controls></audio>
+
+<!-- Video -->
+<video src="movie.mp4" controls width="640"></video>
+```
+
+::: {.body-text-m}
+- `src`: source path
+- `alt`: alternative text (accessibility)
+- `controls`: show play/pause controls
+:::
+
+---
+
+## {data-menu-title="HTML Links"}
+
+[HTML Hyperlinks]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4"}
+<a href="https://example.com">External Link</a>
+<a href="page.html">Internal Link</a>
+<a href="#section">Anchor Link</a>
+<a href="mailto:user@example.com">Email</a>
+```
+
+::: {.body-text-m}
+**Attributes:**
+- `target="_blank"`: open in new tab
+- `download`: download file instead of navigate
+:::
+
+---
+
+## {data-menu-title="HTML Tables"}
+
+[HTML Tables]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-6|3|4|5|7-11"}
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amit</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## {data-menu-title="HTML Forms Structure"}
+
+[HTML Forms Basics]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-3|4-5|6-7|8"}
+<form action="/submit" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+  
+  <button type="submit">Submit</button>
+</form>
+```
+
+---
+
+## {data-menu-title="Form Input Types"}
+
+[HTML Form Input Types]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4|5|6|7|8|9"}
+<input type="text">       <!-- Text input -->
+<input type="email">      <!-- Email validation -->
+<input type="password">   <!-- Hidden text -->
+<input type="number">     <!-- Numeric only -->
+<input type="date">       <!-- Date picker -->
+<input type="radio">      <!-- Single selection -->
+<input type="checkbox">   <!-- Multiple selection -->
+<input type="file">       <!-- File upload -->
+<input type="submit">     <!-- Submit button -->
+```
+
+---
+
+## {data-menu-title="Other Form Elements"}
+
+[Other Form Elements]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1-5|7-9|11-13"}
+<!-- Dropdown -->
+<select name="city">
+  <option value="delhi">Delhi</option>
+  <option value="mumbai">Mumbai</option>
+</select>
+
+<!-- Textarea -->
+<textarea name="message" rows="4" cols="50">
+</textarea>
+
+<!-- Button -->
+<button type="button">Click Me</button>
+<button type="submit">Submit Form</button>
+```
+
+---
+
+## {data-menu-title="Form Attributes"}
+
+[Important Form Attributes]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**Form Attributes:**
+- `action`: URL to submit form data
+- `method`: GET or POST
+- `enctype`: encoding type (use `multipart/form-data` for file uploads)
+
+**Input Attributes:**
+- `name`: identifier for form data
+- `value`: default or current value
+- `placeholder`: hint text
+- `required`: validation (cannot be empty)
+- `pattern`: regex validation
+- `min`, `max`, `step`: numeric constraints
+:::
+
+---
+
+## {data-menu-title="CSS Introduction"}
+
+[CSS: Cascading Style Sheets]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**Three Ways to Apply CSS:**
+
+1. **Inline:** `<p style="color: red;">Text</p>`
+2. **Internal:** `<style>` tag in `<head>`
+3. **External:** `<link rel="stylesheet" href="styles.css">`
+
+**Syntax:**
+```css
+selector {
+  property: value;
+}
+```
+:::
+
+---
+
+## {data-menu-title="CSS Selectors"}
+
+[CSS Selectors]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|3|5|7|9|11"}
+p { color: blue; }              /* Element */
+
+.highlight { background: yellow; } /* Class */
+
+#header { font-size: 24px; }    /* ID */
+
+div p { margin: 10px; }         /* Descendant */
+
+div > p { padding: 5px; }       /* Child */
+
+a:hover { color: red; }         /* Pseudo-class */
+```
+
+---
+
+## {data-menu-title="Selector Priority"}
+
+[CSS Selector Specificity]{.slide-title2}
+
+<hr>
+
+::: {.body-text-m}
+**Priority Order (highest to lowest):**
+
+1. `!important` (avoid using)
+2. Inline styles
+3. ID selectors (#id)
+4. Class selectors (.class)
+5. Element selectors (p, div)
+
+**More specific selectors override less specific ones**
+:::
+
+---
+
+## {data-menu-title="CSS Text Styling"}
+
+[CSS Text & Font Properties]{.slide-title2}
+
+<hr>
+
+```{.css code-line-numbers="|1-5|7-11"}
+.text-style {
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+```
+
+---
+
+## {data-menu-title="CSS Colors"}
+
+[CSS Color Systems]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4"}
+color: red;                    /* Named color */
+color: #FF0000;                /* Hexadecimal */
+color: rgb(255, 0, 0);         /* RGB */
+color: rgba(255, 0, 0, 0.5);   /* RGBA (with opacity) */
+```
+
+::: {.body-text-m}
+- **Hex:** #RRGGBB (00-FF)
+- **RGB:** 0-255 for each channel
+- **Alpha:** 0 (transparent) to 1 (opaque)
+:::
+
+---
+
+## {data-menu-title="Box Model"}
+
+[CSS Box Model]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1-7"}
+.box {
+  width: 300px;
+  height: 200px;
+  padding: 20px;      /* Inside spacing */
+  border: 2px solid black;
+  margin: 10px;       /* Outside spacing */
+}
+```
+
+::: {.body-text-m}
+**Total Width** = margin + border + padding + content width  
+**Total Height** = margin + border + padding + content height
+:::
+
+---
+
+## {data-menu-title="Box Sizing"}
+
+[Box Sizing Property]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1-3|5-7"}
+/* Default */
+.box1 {
+  box-sizing: content-box;  /* width applies to content only */
+}
+
+/* Better for layouts */
+.box2 {
+  box-sizing: border-box;   /* width includes padding and border */
+}
+```
+
+---
+
+## {data-menu-title="CSS Display"}
+
+[CSS Display Property]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|2|3|4|5"}
+display: block;        /* Full width, new line */
+display: inline;       /* Width of content, same line */
+display: inline-block; /* Width control, same line */
+display: none;         /* Hidden, no space */
+display: flex;         /* Flexbox layout */
+```
+
+---
+
+## {data-menu-title="CSS Position"}
+
+[CSS Positioning]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1|3-7|9-13"}
+position: static;      /* Default (normal flow) */
+
+position: relative;    /* Offset from normal position */
+.relative {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+position: absolute;    /* Relative to positioned ancestor */
+.absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+```
+
+---
+
+## {data-menu-title="Position Fixed Sticky"}
+
+[Fixed & Sticky Positioning]{.slide-title2}
+
+<hr>
+
+```{.css code-line-numbers="|1-5|7-11"}
+/* Fixed: relative to viewport */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Sticky: toggles between relative and fixed */
+.sidebar {
+  position: sticky;
+  top: 20px;
+}
+```
+
+---
+
+## {data-menu-title="CSS Flexbox"}
+
+[CSS Flexbox Basics]{.slide-title}
+
+<hr>
+
+```{.css code-line-numbers="|1-5|7-11"}
+.container {
+  display: flex;
+  justify-content: center;    /* Horizontal alignment */
+  align-items: center;        /* Vertical alignment */
+  gap: 10px;                  /* Space between items */
+}
+
+.item {
+  flex: 1;                    /* Grow to fill space */
+  flex-shrink: 0;             /* Don't shrink */
+}
+```
+
+---
+
+## {data-menu-title="Flexbox Properties"}
+
+[Flexbox Properties]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Container Properties:**
+- `flex-direction`: row | column
+- `justify-content`: flex-start | center | space-between | space-around
+- `align-items`: flex-start | center | flex-end | stretch
+- `flex-wrap`: nowrap | wrap
+
+**Item Properties:**
+- `flex-grow`: growth factor
+- `flex-shrink`: shrink factor
+- `order`: display order
+:::
+
+---
+
+## {data-menu-title="Bootstrap Intro"}
+
+[Bootstrap Framework]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**What is Bootstrap?**
+- Popular CSS framework
+- Pre-built responsive components
+- Grid system for layouts
+- Extensive utility classes
+
+**Including Bootstrap:**
+```html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+:::
+
+---
+
+## {data-menu-title="Bootstrap Grid"}
+
+[Bootstrap Grid System]{.slide-title}
+
+<hr>
+
+```{.html code-line-numbers="|1|2-5"}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Half width on medium+</div>
+    <div class="col-md-6">Half width on medium+</div>
+  </div>
+</div>
+```
+
+::: {.body-text-m}
+**12-column grid system**
+- `col-`: extra small (mobile)
+- `col-sm-`: small (≥576px)
+- `col-md-`: medium (≥768px)
+- `col-lg-`: large (≥992px)
+:::
+
+---
+
+## {data-menu-title="Bootstrap Components"}
+
+[Bootstrap Common Components]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1-3|5-7|9-13"}
+<!-- Buttons -->
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-success">Success</button>
+
+<!-- Alerts -->
+<div class="alert alert-warning">Warning message</div>
+<div class="alert alert-info">Info message</div>
+
+<!-- Cards -->
+<div class="card">
+  <div class="card-body">Card content</div>
+  <div class="card-footer">Footer</div>
+</div>
+```
+
+---
+
+## {data-menu-title="Bootstrap Utilities"}
+
+[Bootstrap Utility Classes]{.slide-title2}
+
+<hr>
+
+```{.html code-line-numbers="|1|2|3|4|5"}
+<div class="text-center">Centered text</div>
+<div class="bg-primary text-white">Colored background</div>
+<div class="p-3 m-2">Padding 3, Margin 2</div>
+<div class="d-flex justify-content-between">Flexbox</div>
+<div class="w-50">50% width</div>
+```
+
+---
+
+## {data-menu-title="Sample Question 1"}
+
+[Practice Question 1]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Create an HTML page with a registration form containing:
+- Full Name (text, required)
+- Email (email, required, pattern validation)
+- Password (password, min 8 characters)
+- Gender (radio buttons: Male/Female)
+- Country (dropdown with 3 options)
+- Terms checkbox (required)
+- Submit and Reset buttons
+
+Apply CSS to:
+- Center the form
+- Add padding and borders
+- Style buttons with hover effects
+:::
+
+---
+
+## {data-menu-title="Sample Question 2"}
+
+[Practice Question 2]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Create a webpage layout using CSS:
+
+```
++------------------+
+|     Header       |
++------------------+
+| Side | Main      |
+| bar  | Content   |
++------------------+
+|     Footer       |
++------------------+
+```
+
+Requirements:
+- Header: full width, fixed height 80px
+- Sidebar: 20% width, float left
+- Main: 80% width, float right
+- Footer: full width, clear floats
+:::
+
+---
+
+## {data-menu-title="Sample Question 3"}
+
+[Practice Question 3]{.slide-title}
+
+<hr>
+
+::: {.body-text-m}
+**Q:** Using Bootstrap, create a responsive card grid:
+- 4 cards in a row on large screens
+- 2 cards in a row on medium screens
+- 1 card in a row on small screens
+
+Each card should have:
+- Image at top
+- Title
+- Description text
+- "Read More" button
+:::
+
+---
+
+## {data-menu-title="Common Mistakes"}
+
+[Common Mistakes to Avoid]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+- Forgetting closing tags (`</div>`, `</p>`)
+- Missing `alt` attribute on images
+- Not using semantic HTML tags
+- Incorrect CSS selector syntax
+- Confusing `id` (unique) vs `class` (reusable)
+- Wrong box model calculations
+- Not testing responsive layouts
+- Forgetting to link CSS file
+:::
+
+---
+
+## {data-menu-title="Exam Topics"}
+
+[Key Exam Topics - Unit I]{.slide-title2}
+
+<hr>
+
+::: {.incremental .body-text-m}
+1. HTML document structure
+2. Forms with all input types
+3. Tables with proper structure
+4. CSS selectors and specificity
+5. Box model calculations
+6. CSS positioning types
+7. Flexbox layout
+8. Bootstrap grid system
+9. Responsive design concepts
+10. Semantic HTML
+:::
+
+---
+
+## {data-menu-title="Study Checklist"}
+
+[Study Checklist]{.slide-title}
+
+<hr>
+
+::: {.incremental .body-text-m}
+✓ Can write valid HTML structure from scratch  
+✓ Know all form input types and attributes  
+✓ Understand CSS selector priority  
+✓ Can calculate total box dimensions  
+✓ Know difference between position types  
+✓ Can create flexbox layouts  
+✓ Understand Bootstrap grid (col-md-6, etc.)  
+✓ Can style forms with CSS  
+✓ Know when to use semantic tags  
+✓ Practiced coding without references
+:::
+
+---
+
+## {#end-slide data-menu-title="End Slide" background="#053660"}
+
+<div class="page-center">
+<div class="custom-subtitle">
+[Review Unit II Tomorrow!]{.white-text}
+</div>
+<div class="custom-subtitle3">
+Next: Revision - Unit II (JavaScript)
+</div>
+</div>
+
+
+
+
+
+

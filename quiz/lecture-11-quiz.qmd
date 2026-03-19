@@ -1,0 +1,56 @@
+---
+title: "Lecture 11 Quiz: Bootstrap Framework"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-11.qmd) | [Week 3 Content](/content/week-03.qmd) | [Lab 3](/labs/lab-03.qmd) | [Assignment 3](/assignment/03-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 11 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. JavaScript runtime", "B. CSS framework", "C. Database engine", "D. Browser extension"]
+question = "Question 1: Bootstrap is best described as a:"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `.container`", "B. `.row`", "C. `.col-*`", "D. `.grid`"]
+question = "Question 2: In Bootstrap, which class creates a horizontal row for columns?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `col-12 col-md-6`", "B. `row-6 col-12`", "C. `container-md-6`", "D. `grid-md-half`"]
+question = "Question 3: Which class pattern makes a column full width on small screens and half width on medium screens?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `btn red`", "B. `button-primary`", "C. `btn btn-primary`", "D. `btn-primary-solid`"]
+question = "Question 4: Which Bootstrap classes create a standard primary button?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Writing custom CSS from scratch", "B. Faster responsive UI development", "C. Replacing HTML", "D. Disabling browser compatibility"]
+question = "Question 5: One key benefit of Bootstrap is:"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```

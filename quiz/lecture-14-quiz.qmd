@@ -1,0 +1,56 @@
+---
+title: "Lecture 14 Quiz: Conditional Statements & Looping"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-14.qmd) | [Week 4 Content](/content/week-04.qmd) | [Lab 4](/labs/lab-04.qmd) | [Assignment 2](/assignment/02-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 14 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `if`", "B. `switch`", "C. `for`", "D. `while`"]
+question = "Question 1: Which statement is specifically used to run code repeatedly?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `=`", "B. `==`", "C. `===`", "D. `=>`"]
+question = "Question 2: Which operator checks strict equality (value and type)?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Skip current iteration", "B. Exit the loop", "C. Restart the loop variable", "D. Create nested loop"]
+question = "Question 3: What does `break` do inside a loop?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `for...of`", "B. `for...in`", "C. `while`", "D. `switch`"]
+question = "Question 4: Which loop is commonly used to iterate over array values directly?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Executes at least once", "B. Executes only when condition is false", "C. Never needs a condition", "D. Can only run one iteration"]
+question = "Question 5: Which statement about `do...while` is correct?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```

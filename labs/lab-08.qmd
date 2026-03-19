@@ -1,0 +1,211 @@
+---
+title: "Lab 8: JDBC Retrieval and Spring Fundamentals"
+date: "2026-03-28"
+due: "2026-04-01"
+---
+
+
+This lab covers workbook experiments 15 and 16.
+
+## Workbook Alignment
+
+- Experiment 15: Retrieve employee information from a database and display it
+- Experiment 16: Demonstrate the concept of Spring and Spring Boot
+
+## Learning Objectives
+
+By the end of this lab, you will be able to:
+
+- retrieve data from a database using JDBC
+- display query output in a readable format
+- explain the role of Spring and Spring Boot
+- create a minimal Spring Boot web application
+- understand starter dependencies and auto-configuration
+
+## Software and Files Required
+
+- completion of Lab 7
+- Java 17 or later
+- MySQL 8 or later
+- Maven
+- an IDE or editor with Java support
+- project folders for JDBC and Spring examples
+
+## Experiment 15: JDBC Retrieval of Employee Data
+
+### Problem Statement
+
+Write a Java program that retrieves employee details from a database table and displays the result.
+
+### Folder Structure
+
+```text
+Lab08/
+  EmployeeViewer.java
+```
+
+### Procedure
+
+1. Use the existing `bmc201_lab` database.
+2. Create an `employees` table and insert sample records.
+3. Create a Java class named `EmployeeViewer`.
+4. Connect to the database using JDBC.
+5. Execute a `SELECT` query and print each row.
+6. Close the result set, statement, and connection.
+
+### Database Setup
+
+```sql
+USE bmc201_lab;
+
+CREATE TABLE employees (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100),
+  department VARCHAR(100),
+  salary DECIMAL(10, 2)
+);
+
+INSERT INTO employees(name, department, salary)
+VALUES ('Aman', 'IT', 45000.00), ('Riya', 'HR', 42000.00);
+```
+
+### Java Program
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class EmployeeViewer {
+    public static void main(String[] args) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/bmc201_lab", "root", "root");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM employees");
+
+            while (resultSet.next()) {
+                System.out.println(
+                        resultSet.getInt("id") + " | " +
+                        resultSet.getString("name") + " | " +
+                        resultSet.getString("department") + " | " +
+                        resultSet.getDouble("salary")
+                );
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+}
+```
+
+### Expected Result
+
+The program should print all employee records from the database in the console.
+
+## Experiment 16: Spring and Spring Boot Basics
+
+### Problem Statement
+
+Create a minimal Spring Boot application that runs a web server and responds to a request.
+
+### Procedure
+
+1. Create a Maven project named `spring-demo`.
+2. Add `spring-boot-starter-parent` and `spring-boot-starter-web` in `pom.xml`.
+3. Create the main Spring Boot application class.
+4. Add a `@RestController` with a `@GetMapping` method.
+5. Run the project and open the application in the browser.
+
+### Core Idea
+
+Spring provides dependency injection and application configuration. Spring Boot simplifies project setup and production-ready defaults.
+
+### Example Spring Boot Application
+
+```java
+package com.gcet.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+
+@RestController
+class HomeController {
+    @GetMapping("/")
+    public String home() {
+        return "Spring Boot application is running";
+    }
+}
+```
+
+### `pom.xml`
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.2</version>
+  </parent>
+
+  <groupId>com.gcet</groupId>
+  <artifactId>spring-demo</artifactId>
+  <version>1.0.0</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+### Expected Result
+
+When the application starts successfully, opening `http://localhost:8080/` should display the text `Spring Boot application is running`.
+
+## Observation Questions
+
+1. What is JDBC?
+2. Why should JDBC resources be closed after use?
+3. What is inversion of control in Spring?
+4. How is Spring Boot different from the Spring Framework?
+
+## Viva Questions
+
+1. Why is a starter dependency useful in Spring Boot?
+2. What is the purpose of `@SpringBootApplication`?
+3. What is the role of `@RestController`?
+4. Why is Maven helpful in Java projects?
+
+## Submission Checklist
+
+- `EmployeeViewer.java`
+- SQL commands used to create and populate the employees table
+- Spring Boot project with `DemoApplication.java` and `pom.xml`
+- screenshots of JDBC console output and Spring Boot browser output
+- short answer file for observation and viva questions
+
+## Extension Task
+
+Modify the Spring Boot example so it returns JSON instead of plain text, and add a JDBC query that filters employees by department.

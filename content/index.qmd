@@ -4,6 +4,22 @@ title: "Course Content"
 
 Each class session has lecture materials, readings, and videos covering the week's topics. Work through these materials before attempting the assignments and lab exercises.
 
+## Quick Access
+
+| Week | Content Page | Lectures |
+|------|--------------|--------|
+| Week 1-2 | [HTML & Introduction](/content/week-01.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 2-3 | [HTML Elements & CSS](/content/week-02.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 3-5 | [CSS Styling & JavaScript](/content/week-03.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 4 | [JavaScript Functions & Events](/content/week-04.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 5 | [DOM & ES6+](/content/week-05.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 6-7 | [Revision & Mid-Sem](/content/week-06.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 8 | [Servlets & JSP Intro](/content/week-08.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 9 | [JSP Advanced & MVC](/content/week-09.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 10 | [Spring Framework](/content/week-10.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 11 | [Spring Boot & Data](/content/week-11.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+| Week 12 | [REST & Final Project](/content/week-12.qmd) | [{{< fa desktop >}}](/lectures/index.qmd) |
+
 ## How to Use This Section
 
 For each week:

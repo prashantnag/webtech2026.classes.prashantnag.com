@@ -15,7 +15,6 @@ $dark-blue: #003660;
 $white: #ffffff;
 $green: #78a540;
 $magenta: #900c3f;
-$white: #ffffff;
 $off-white: #f7f7f7;
 $gray: #adadad;
 $dark-gray: #373a3e;
@@ -35,6 +34,20 @@ $presentation-font-size-root: 25px;
 
 body {
   line-height: 2em;
+}
+
+.reveal {
+  color: $dark-blue;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: $font-family-serif;
+  color: $teal;
 }
 
 // bold styling

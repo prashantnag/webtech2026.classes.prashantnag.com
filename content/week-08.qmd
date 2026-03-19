@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 8: Mar 16 - Mar 22, 2026"
 subtitle: "Unit III: Servlets & JSP Introduction"
 ---
@@ -12,9 +12,25 @@ This week introduces server-side programming with Servlets and Java Server Pages
 **Lab:** Servlet Development  
 **Assignment 3 Due:** Mar 18
 
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Lectures 21-24)
+Planned for this week. Use the [Quiz Hub](/quiz/index.qmd) for currently available quizzes.
+:::
+
+::: {.callout-note icon=false}
+## Lecture Materials
+This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.qmd) for all available slides.
+:::
+
 ---
 
-## Lecture 21: Servlet Architecture & Lifecycle
+## Lecture 21: Servlet Architecture & Lifecycle {#lecture-21}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### What is a Servlet?
 - Java program that runs on web server
@@ -77,7 +93,13 @@ public class FirstServlet extends HttpServlet {
 
 ---
 
-## Lecture 22: HTTP GET & POST Requests
+## Lecture 22: HTTP GET & POST Requests {#lecture-22}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Request/Response Cycle
 ```
@@ -143,7 +165,13 @@ out.println("Response content");
 
 ---
 
-## Lecture 23: Session Tracking & Cookies
+## Lecture 23: Session Tracking & Cookies {#lecture-23}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Sessions
 ```java
@@ -195,7 +223,13 @@ response.addCookie(cookie);
 
 ---
 
-## Lecture 24: Introduction to JSP
+## Lecture 24: Introduction to JSP {#lecture-24}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### What is JSP?
 - Java Server Pages
@@ -284,3 +318,4 @@ Unit III continues:
 - JSTL (JSP Standard Tag Library)
 - MVC architecture
 - Database connectivity
+

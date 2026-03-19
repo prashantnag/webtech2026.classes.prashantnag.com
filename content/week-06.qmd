@@ -11,6 +11,16 @@ These are revision weeks focused on consolidating understanding of Units I and I
 **Duration:** 2 weeks (revision + exam)  
 **Mid-Semester Exam:** Mar 10-14
 
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Revision Weeks)
+Use the [Quiz Hub](/quiz/index.qmd) to re-attempt available quizzes before the mid-sem exam.
+:::
+
+::: {.callout-note icon=false}
+## Lecture Materials
+Use the [Lectures Index](/lectures/index.qmd) and [Week 1 Content](/content/week-01.qmd) to [Week 5 Content](/content/week-05.qmd) for revision.
+:::
+
 ---
 
 ## Week 6: Mar 2 - Mar 8, 2026 - Revision Week

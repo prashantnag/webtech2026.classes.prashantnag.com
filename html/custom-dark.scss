@@ -1,0 +1,345 @@
+/*-- scss:defaults --*/
+
+$orange: #f49b3f;
+$darkblue: #0f1724;
+$midblue: #162235;
+$lightblue: #7cc4ff;
+$green: #46c37b;
+$purple: #c3a6ff;
+$red: #ff8f8f;
+$yellow: #f6c453;
+$gray: #9aa8bc;
+
+$body-bg: #0f1724;
+$body-color: #e6edf7;
+$link-color: #8fc3ff;
+$primary: $orange;
+$navbar-bg: #101826;
+$navbar-fg: #f7fbff;
+$footer-bg: #0b1320;
+$border-color: #2c405d;
+$code-bg: #1c2a3d;
+$code-color: #ffd59a;
+
+// Typography – Litera Bootswatch theme
+$font-size-base: 1.1rem;
+$headings-font-weight: 700;
+$font-family-sans-serif:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+  Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
+
+/*-- scss:rules --*/
+
+body {
+  line-height: 1.65;
+  background:
+    radial-gradient(circle at top, rgba(124, 196, 255, 0.08), transparent 26%),
+    linear-gradient(180deg, #101826 0%, #0f1724 100%);
+  color: $body-color;
+}
+
+p {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: lighten($link-color, 8%);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar,
+.nav-footer,
+.sidebar,
+.quarto-title-meta,
+.listing-category,
+.quarto-category,
+.btn,
+.dropdown-menu,
+.lead {
+  font-family: $font-family-sans-serif;
+  color: #f3f7fd;
+}
+
+.navbar,
+.nav-footer,
+footer,
+table,
+.table,
+.nav,
+.breadcrumb,
+.pagination,
+.dropdown-menu,
+.list-group {
+  font-size: 0.9625rem;
+}
+
+.navbar {
+  min-height: 3.25rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  background-color: $navbar-bg;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+
+  .navbar-brand,
+  .nav-link {
+    color: $navbar-fg !important;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+    line-height: 1.25;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-weight: 700;
+  }
+
+  .nav-link {
+    font-size: 0.9625rem;
+    line-height: 1.25;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .dropdown-menu {
+    font-size: 0.9625rem;
+  }
+
+  .dropdown-item {
+    line-height: 1.25;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+}
+
+.sidebar,
+#quarto-sidebar {
+  background-color: $midblue;
+  border-right: 1px solid $border-color;
+}
+
+.sidebar .sidebar-item-container .sidebar-item-text,
+#quarto-sidebar .sidebar-item-text,
+#quarto-sidebar .sidebar-link {
+  color: #d7e3f3;
+}
+
+.sidebar .sidebar-item-container .active,
+#quarto-sidebar .active,
+.sidebar .sidebar-link.active {
+  background-color: rgba(244, 155, 63, 0.18);
+  color: #fff !important;
+  border-left: 3px solid $orange;
+}
+
+#quarto-margin-sidebar,
+#TOC {
+  background-color: transparent !important;
+  color: #d7e3f3;
+}
+
+#TOC .nav-link,
+#quarto-margin-sidebar .toc-actions a {
+  color: #d7e3f3;
+}
+
+#TOC .nav-link.active {
+  color: #fff;
+  border-left: 3px solid $orange;
+  background-color: rgba(244, 155, 63, 0.18);
+}
+
+#TOC .nav-link:hover,
+#quarto-margin-sidebar .toc-actions a:hover {
+  color: lighten($orange, 8%);
+}
+
+.home .course-details,
+.home .landing-hero,
+.callout,
+.quarto-title-meta,
+.card,
+.panel-tabset .tab-content,
+div.sourceCode,
+pre {
+  background-color: rgba(18, 29, 45, 0.95);
+  border-color: $border-color;
+}
+
+.home .course-details {
+  border: 1px solid $border-color;
+
+  h3 {
+    color: #f3f7fd;
+    border-bottom-color: $orange;
+  }
+}
+
+.home {
+  .profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .profile-photo {
+    max-width: 220px;
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid rgba(143, 195, 255, 0.25);
+  }
+
+  .profile-details h2 {
+    color: #f3f7fd;
+    border-bottom: 2px solid $orange;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+blockquote {
+  background-color: rgba(124, 196, 255, 0.08);
+  border-left: 6px solid rgba(124, 196, 255, 0.35);
+  color: #d8e4f2;
+}
+
+table {
+  color: $body-color;
+
+  thead {
+    background-color: #15263d;
+    color: #f7fbff;
+  }
+
+  th,
+  td {
+    background-color: rgba(22, 34, 53, 0.88) !important;
+    border-color: $border-color !important;
+  }
+
+  tbody tr:nth-child(odd) td {
+    background-color: rgba(18, 29, 45, 0.92) !important;
+  }
+}
+
+.btn-primary {
+  background-color: $orange;
+  border-color: $orange;
+
+  &:hover {
+    background-color: darken($orange, 8%);
+    border-color: darken($orange, 8%);
+  }
+}
+
+.callout {
+  border-left-width: 5px;
+
+  &.callout-tip {
+    border-left-color: $green;
+  }
+
+  &.callout-warning {
+    border-left-color: $yellow;
+  }
+
+  &.callout-important {
+    border-left-color: $red;
+  }
+
+  &.callout-note {
+    border-left-color: $lightblue;
+  }
+}
+
+code,
+kbd,
+pre code {
+  background-color: $code-bg;
+  color: $code-color;
+}
+
+.nav-footer {
+  background-color: $footer-bg;
+  color: #d7e3f3;
+
+  a {
+    color: $orange;
+
+    &:hover {
+      color: lighten($orange, 10%);
+    }
+  }
+}
+
+.content-title,
+.fa-book-open-reader,
+.fa-flask,
+.fa-pen-ruler,
+.fa-books {
+  color: $orange;
+}
+
+.lab-page main.content,
+.assignment-page main.content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.lab-page main.content p,
+.lab-page main.content li,
+.assignment-page main.content p,
+.assignment-page main.content li {
+  margin-bottom: 0.7rem;
+}
+
+.lab-page main.content h1,
+.assignment-page main.content h1 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.lab-page main.content h2,
+.lab-page main.content h3,
+.lab-page main.content h4,
+.assignment-page main.content h2,
+.assignment-page main.content h3,
+.assignment-page main.content h4 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.lab-page main.content .callout,
+.lab-page main.content .panel-tabset .tab-content,
+.assignment-page main.content .callout,
+.assignment-page main.content .panel-tabset .tab-content {
+  background-color: rgba(18, 29, 45, 0.82);
+  margin: 1rem 0;
+}
+
+.lab-page main.content .callout .callout-body,
+.lab-page main.content .panel-tabset .tab-content,
+.assignment-page main.content .callout .callout-body,
+.assignment-page main.content .panel-tabset .tab-content {
+  padding: 0.9rem 1rem;
+}
+
+.lab-page main.content pre,
+.lab-page main.content div.sourceCode,
+.assignment-page main.content pre,
+.assignment-page main.content div.sourceCode {
+  margin: 1rem 0 !important;
+}

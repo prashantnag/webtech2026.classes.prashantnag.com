@@ -1,0 +1,56 @@
+---
+title: "Lecture 6 Quiz: HTML Hyperlinks & Tables"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-06.qmd) | [Week 2 Content](/content/week-02.qmd) | [Lab 2](/labs/lab-02.qmd) | [Assignment 1](/assignment/01-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 6 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `<link>`", "B. `<a>`", "C. `<href>`", "D. `<nav>`"]
+question = "Question 1: Which HTML element is used to create a hyperlink?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `src`", "B. `name`", "C. `href`", "D. `action`"]
+question = "Question 2: Which attribute specifies the destination URL of a link?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `target=\"_new\"`", "B. `target=\"_blank\"`", "C. `open=\"tab\"`", "D. `window=\"new\"`"]
+question = "Question 3: Which attribute value opens a hyperlink in a new browser tab?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `<td>`", "B. `<tr>`", "C. `<th>`", "D. `<table>`"]
+question = "Question 4: Which table tag represents a row in an HTML table?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `<thead>`", "B. `<tbody>`", "C. `<tfoot>`", "D. `<caption>`"]
+question = "Question 5: Which element is used to provide a title/description for a table?"
+answer = 4
+radioq(choices, answer; label=question, keep_order=true)
+```

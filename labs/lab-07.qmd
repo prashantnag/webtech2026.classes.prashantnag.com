@@ -1,0 +1,226 @@
+---
+title: "Lab 7: JSP Registration and CRUD with Session Management"
+date: "2026-03-20"
+due: "2026-03-25"
+---
+
+
+This lab covers workbook experiments 13 and 14.
+
+## Workbook Alignment
+
+- Experiment 13: Store student registration details in a database using JSP and Servlet
+- Experiment 14: Insert, update, and delete student records using linked JSP pages and session management
+
+## Learning Objectives
+
+By the end of this lab, you will be able to:
+
+- create a registration form using JSP
+- insert student data into a database through a servlet
+- implement basic CRUD flow for student records
+- protect pages using session validation
+- understand redirect-based workflow in Java web applications
+
+## Software and Files Required
+
+- completion of Lab 6
+- Java 17 or later
+- Apache Tomcat 10 or later
+- MySQL 8 or later
+- Maven or a Dynamic Web Project setup
+- a project folder for JSP, servlet, and CRUD pages
+
+## Experiment 13: Registration Form with Database Insert
+
+### Problem Statement
+
+Create a student registration form using JSP and Servlet, and store submitted data in a database.
+
+### Folder Structure
+
+```text
+Lab07-StudentCRUD/
+  src/main/java/com/gcet/RegisterServlet.java
+  src/main/webapp/register.jsp
+  src/main/webapp/success.jsp
+```
+
+### Procedure
+
+1. Use the same `bmc201_lab` database created in the previous lab.
+2. Create a `students` table to store registration data.
+3. Create `register.jsp` to collect student information.
+4. Write `RegisterServlet.java` to receive the form submission.
+5. Insert the submitted values into the database using `PreparedStatement`.
+6. Redirect the user to a success page after insertion.
+
+### Database Setup
+
+```sql
+USE bmc201_lab;
+
+CREATE TABLE students (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  course VARCHAR(30) NOT NULL
+);
+```
+
+### `register.jsp`
+
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration</title>
+</head>
+<body>
+  <h1>Student Registration</h1>
+  <form action="register" method="post">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="course" placeholder="Course" required>
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>
+```
+
+### `RegisterServlet.java`
+
+```java
+package com.gcet;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+@WebServlet("/register")
+public class RegisterServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String course = request.getParameter("course");
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/bmc201_lab", "root", "root");
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO students(name, email, course) VALUES (?, ?, ?)");
+            statement.setString(1, name);
+            statement.setString(2, email);
+            statement.setString(3, course);
+            statement.executeUpdate();
+
+            statement.close();
+            connection.close();
+            response.sendRedirect("success.jsp");
+        } catch (Exception exception) {
+            response.getWriter().println("Error: " + exception.getMessage());
+        }
+    }
+}
+```
+
+### Expected Result
+
+After submitting the registration form, the student record should be inserted into the database and the browser should open a success page.
+
+## Experiment 14: CRUD with Session Management
+
+### Problem Statement
+
+Create linked JSP pages that allow insert, update, delete, and view operations only for authenticated users.
+
+### Procedure
+
+1. Create a login mechanism that stores `username` in the session.
+2. Add a session check at the top of each protected JSP page.
+3. Create navigation links for insert, update, delete, and view operations.
+4. Write the JDBC code for each operation using prepared statements.
+5. Test the pages with and without an active session.
+
+### Session Logic
+
+Use an authenticated session before allowing CRUD operations:
+
+```jsp
+<%
+  if (session.getAttribute("username") == null) {
+      response.sendRedirect("login.jsp");
+      return;
+  }
+%>
+```
+
+### CRUD Navigation Page
+
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+</head>
+<body>
+  <h1>Student Management</h1>
+  <ul>
+    <li><a href="insert.jsp">Insert Record</a></li>
+    <li><a href="update.jsp">Update Record</a></li>
+    <li><a href="delete.jsp">Delete Record</a></li>
+    <li><a href="view.jsp">View Records</a></li>
+  </ul>
+</body>
+</html>
+```
+
+### Example Delete Query
+
+```java
+PreparedStatement statement = connection.prepareStatement(
+    "DELETE FROM students WHERE id = ?"
+);
+statement.setInt(1, Integer.parseInt(request.getParameter("id")));
+statement.executeUpdate();
+```
+
+### Expected Result
+
+Only authenticated users should be able to open the CRUD pages, and each database operation should update the student records correctly.
+
+## Observation Questions
+
+1. What is session management in JSP and Servlet applications?
+2. Why is a redirect used after successful insert?
+3. What is the difference between forward and redirect?
+4. How can SQL injection be prevented in CRUD applications?
+
+## Viva Questions
+
+1. Why is session checking required on every protected page?
+2. What will happen if the session expires?
+3. Why is `PreparedStatement` preferred in insert, update, and delete queries?
+4. How can you display all student records in `view.jsp`?
+
+## Submission Checklist
+
+- `register.jsp`
+- `RegisterServlet.java`
+- `login.jsp`
+- `dashboard.jsp`
+- `insert.jsp`, `update.jsp`, `delete.jsp`, and `view.jsp`
+- screenshots of registration success and CRUD operations
+- short answer file for observation and viva questions
+
+## Extension Task
+
+Add logout support that invalidates the session and returns the user to the login page.

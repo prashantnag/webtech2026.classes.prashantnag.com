@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 11: Apr 6 - Apr 12, 2026"
 subtitle: "Unit IV-V: Spring Data, Security, and Spring Boot"
 ---
@@ -11,9 +11,25 @@ This week covers Spring Data JPA, Spring Security, and introduces Spring Boot as
 **Duration:** 1 week (4 lectures + 1 lab)  
 **Lab:** Spring Boot Application Development
 
+::: {.callout-tip icon=false}
+## Quick Practice Quizzes (Lectures 33-36)
+Planned for this week. Use the [Quiz Hub](/quiz/index.qmd) for currently available quizzes.
+:::
+
+::: {.callout-note icon=false}
+## Lecture Materials
+This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.qmd) for all available slides.
+:::
+
 ---
 
-## Lecture 33: Spring Data JPA & ORM Integration
+## Lecture 33: Spring Data JPA & ORM Integration {#lecture-33}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### What is ORM?
 - Object-Relational Mapping
@@ -107,7 +123,13 @@ private Set<Permission> permissions;
 
 ---
 
-## Lecture 34: Spring Security
+## Lecture 34: Spring Security {#lecture-34}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Authentication & Authorization
 - **Authentication**: Verify user identity (login)
@@ -166,7 +188,13 @@ public class UserService {
 
 ---
 
-## Lecture 35: Introduction to Spring Boot
+## Lecture 35: Introduction to Spring Boot {#lecture-35}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### Benefits of Spring Boot
 - Eliminates boilerplate configuration
@@ -243,7 +271,13 @@ logging.level.com.example=DEBUG
 
 ---
 
-## Lecture 36: Building REST APIs with Spring Boot
+## Lecture 36: Building REST APIs with Spring Boot {#lecture-36}
+
+::: {.callout-note icon=false}
+## Lecture Materials
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+:::
+
 
 ### REST Principles
 - HTTP methods: GET, POST, PUT, DELETE
@@ -354,3 +388,4 @@ Unit V final topics:
 - REST API best practices
 - Testing strategies
 - Deployment and production
+

@@ -1,0 +1,56 @@
+---
+title: "Lecture 16 Quiz: Arrow Functions & Callbacks"
+jupyter: julia-1.12
+---
+
+::: {.callout-note}
+Review before quiz:
+[Lectures](/lectures/lecture-16.qmd) | [Week 4 Content](/content/week-04.qmd) | [Lab 4](/labs/lab-04.qmd) | [Assignment 2](/assignment/02-assignment.qmd)
+:::
+
+```{julia cache=true}
+#| echo: false
+using QuizQuestions
+```
+
+## Lecture 16 Self-Check
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `const f = (x) => x * 2;`", "B. `const f => x * 2;`", "C. `function => (x) x*2;`", "D. `const f = > (x) x*2;`"]
+question = "Question 1: Which option is valid arrow function syntax?"
+answer = 1
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Function called only by browser", "B. Function passed to another function", "C. Function that returns object", "D. Function without parameters"]
+question = "Question 2: A callback is:"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `map`", "B. `filter`", "C. `reduce`", "D. All of these"]
+question = "Question 3: Which array methods commonly accept callback functions?"
+answer = 4
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. `forEach` returns transformed array", "B. `map` returns transformed array", "C. `map` always mutates original array", "D. `filter` returns a number"]
+question = "Question 4: Which statement about `map` is correct?"
+answer = 2
+radioq(choices, answer; label=question, keep_order=true)
+```
+
+```{julia cache=true}
+#| echo: false
+choices = ["A. Use arrow functions for every possible case", "B. Avoid callbacks entirely", "C. Keep callbacks small and readable", "D. Never use array methods"]
+question = "Question 5: Which is a good practice when using callbacks?"
+answer = 3
+radioq(choices, answer; label=question, keep_order=true)
+```
