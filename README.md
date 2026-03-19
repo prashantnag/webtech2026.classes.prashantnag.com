@@ -3,7 +3,7 @@
 Course website for BMC201 Web Technology (MCA Semester 2) at Galgotias College of Engineering & Technology.
 
 **Instructor**: Prashant Kumar Nag  
-**Website**: [webtech2025.classes.prashantnag.com](https://webtech2025.classes.prashantnag.com)
+**Website**: [webtech2026.classes.prashantnag.com](https://webtech2026.classes.prashantnag.com)
 
 ## Quick Start
 

@@ -6,12 +6,12 @@ library(tarchetypes)
 #   source("_config_python.R")
 #
 # On every subsequent pipeline run, activate the environment:
-if (reticulate::virtualenv_exists("webtech2025_env")) {
-  reticulate::use_virtualenv("webtech2025_env", required = TRUE)
+if (reticulate::virtualenv_exists("webtech2026_env")) {
+  reticulate::use_virtualenv("webtech2026_env", required = TRUE)
 }
 
 class_number <- "BMC201"
-base_url <- "https://webtech2025.classes.prashantnag.com/"
+base_url <- "https://webtech2026.classes.prashantnag.com/"
 page_suffix <- ".html"
 
 options(

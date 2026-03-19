@@ -21,9 +21,9 @@ website:
   bread-crumbs: false
   title: "Web Technology - BMC201"
   description: "Website for BMC201 Web Technology course (MCA Semester 2) at GCET, following AKTU curriculum"
-  site-url: "https://webtech2025.classes.prashantnag.com"
+  site-url: "https://webtech2026.classes.prashantnag.com"
 
-  repo-url: "https://github.com/prashantnag/webtech2025.classes.prashantnag.com"
+  repo-url: "https://github.com/prashantnag/webtech2026.classes.prashantnag.com"
   repo-actions: [edit, issue]
 
   open-graph: true
@@ -104,7 +104,7 @@ website:
       All content licensed under a [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
     right: |
       Made with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/)<br>
-      [View the source on GitHub](https://github.com/prashantnag/webtech2025.classes.prashantnag.com)
+      [View the source on GitHub](https://github.com/prashantnag/webtech2026.classes.prashantnag.com)
 
 format:
   html:
@@ -135,7 +135,7 @@ course:
   credits: "4 (3-1-0)"
   curriculum: "AKTU MCA Model Curriculum 2020-21"
   copyright_year: "2026"
-  github: "https://github.com/prashantnag/webtech2025.classes.prashantnag.com"
+  github: "https://github.com/prashantnag/webtech2026.classes.prashantnag.com"
   institution: "Galgotias College of Engineering & Technology"
 
 instructor:
