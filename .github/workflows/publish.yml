@@ -53,6 +53,7 @@ jobs:
             any::yaml
             any::targets
             any::tarchetypes
+            any::quarto
             any::fs
             any::reticulate
             any::lubridate
