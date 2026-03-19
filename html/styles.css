@@ -3,16 +3,6 @@
 :root {
   --site-link-hover: #1f5f93;
   --site-focus: #e67e22;
-  --site-inline-code-bg: #f6f8fa;
-  --site-inline-code-color: #24292f;
-  --site-inline-code-border: #d0d7de;
-  --site-code-bg: #f6f8fa;
-  --site-code-color: #24292f;
-  --site-code-border: #d0d7de;
-  --site-pre-bg: #1e1e1e;
-  --site-pre-border: #444;
-  --site-pre-color: #e1e4e8;
-  --site-pre-shadow: rgba(0, 0, 0, 0.3);
 }
 
 body.quarto-dark,
@@ -20,16 +10,6 @@ body[data-bs-theme="dark"],
 html.quarto-dark body {
   --site-link-hover: #a9c9f5;
   --site-focus: #f49b02;
-  --site-inline-code-bg: #1f2937;
-  --site-inline-code-color: #e6edf3;
-  --site-inline-code-border: #30363d;
-  --site-code-bg: #1f2937;
-  --site-code-color: #e6edf3;
-  --site-code-border: #30363d;
-  --site-pre-bg: #0f1724;
-  --site-pre-border: #2c405d;
-  --site-pre-color: #e6edf7;
-  --site-pre-shadow: rgba(0, 0, 0, 0.45);
 }
 
 /* Smooth scrolling */
@@ -73,159 +53,6 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* ======================== */
-/* CODE BLOCK STYLING       */
-/* ======================== */
-
-/* Inline code throughout document */
-code {
-  background-color: var(--site-code-bg) !important;
-  color: var(--site-code-color) !important;
-  padding: 0.3em 0.6em !important;
-  border-radius: 4px !important;
-  font-size: 0.9em !important;
-  font-family: "Courier New", Courier, monospace !important;
-  font-weight: 500 !important;
-  border: 1px solid var(--site-code-border);
-}
-
-/* Inline code in paragraphs, lists, tables */
-p code,
-li code,
-td code,
-th code,
-strong code,
-em code {
-  background-color: var(--site-inline-code-bg) !important;
-  color: var(--site-inline-code-color) !important;
-  border: 1px solid var(--site-inline-code-border) !important;
-  padding: 2px 5px !important;
-}
-
-/* Code blocks (pre elements) */
-pre {
-  background-color: var(--site-pre-bg) !important;
-  border: 2px solid var(--site-pre-border) !important;
-  border-radius: 6px !important;
-  padding: 15px !important;
-  margin: 1.5em 0 !important;
-  overflow-x: auto !important;
-  box-shadow: 0 4px 12px var(--site-pre-shadow) !important;
-  line-height: 1.6 !important;
-  display: block !important;
-}
-
-/* Code inside pre */
-pre > code {
-  background-color: transparent !important;
-  color: var(--site-pre-color) !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  border-radius: 0 !important;
-  font-family: "Courier New", Courier, monospace !important;
-  font-size: 0.95em !important;
-  display: block !important;
-  white-space: pre !important;
-  overflow-x: auto !important;
-}
-
-/* Syntax highlighting for code blocks */
-.hljs {
-  background-color: var(--site-pre-bg) !important;
-  color: #d4d4d4 !important;
-}
-
-.hljs-string {
-  color: #ce9178 !important;
-}
-
-.hljs-number {
-  color: #b5cea8 !important;
-}
-
-.hljs-literal {
-  color: #569cd6 !important;
-}
-
-.hljs-attr {
-  color: #9cdcfe !important;
-}
-
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #569cd6 !important;
-  font-weight: bold !important;
-}
-
-.hljs-builtin-name {
-  color: #9cdcfe !important;
-}
-
-.hljs-name {
-  color: #dcdcaa !important;
-}
-
-.hljs-title {
-  color: #4ec9b0 !important;
-}
-
-.hljs-tag {
-  color: #569cd6 !important;
-}
-
-.hljs-comment {
-  color: #6a9955 !important;
-  font-style: italic !important;
-}
-
-.hljs-function {
-  color: #dcdcaa !important;
-}
-
-.hljs-params {
-  color: #d4d4d4 !important;
-}
-
-.hljs-punctuation {
-  color: #d4d4d4 !important;
-}
-
-/* HTML Tags highlighting */
-.hljs-tag .hljs-name {
-  color: #569cd6 !important;
-}
-
-.hljs-attr {
-  color: #9cdcfe !important;
-}
-
-.hljs-string {
-  color: #ce9178 !important;
-}
-
-/* CSS highlighting */
-.hljs-selector-class {
-  color: #dcdcaa !important;
-}
-
-.hljs-selector-id {
-  color: #dcdcaa !important;
-}
-
-.hljs-attribute {
-  color: #9cdcfe !important;
-}
-
-/* JavaScript highlighting */
-.hljs-variable {
-  color: #9cdcfe !important;
-}
-
-.hljs-literal {
-  color: #4ec9b0 !important;
-}
-
 /* Print styles */
 @media print {
   .navbar,
@@ -238,8 +65,4 @@ pre > code {
     font-size: 12pt;
   }
 
-  pre {
-    page-break-inside: avoid;
-    border: 1px solid #ddd;
-  }
 }

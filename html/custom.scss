@@ -188,117 +188,6 @@ table,
   }
 }
 
-// Code blocks - ENHANCED FOR VISIBILITY
-code {
-  background-color: #f0f0f0;
-  color: #c7254e;
-  padding: 0.3em 0.6em;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 500;
-}
-
-// Inline code styling
-p code,
-li code,
-td code,
-th code {
-  background-color: #f6f8fa;
-  color: #24292f;
-  padding: 0.3em 0.6em;
-  border-radius: 3px;
-  border: 1px solid #d0d7de;
-}
-
-// Code blocks with proper syntax highlighting
-pre {
-  background-color: #1e1e1e !important;
-  border: 2px solid #333 !important;
-  border-radius: 6px !important;
-  padding: 1.2em !important;
-  margin: 1.5em 0 !important;
-  overflow-x: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  line-height: 1.6;
-}
-
-pre code {
-  background-color: transparent !important;
-  color: #e1e4e8 !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  border: none !important;
-  display: block;
-  font-size: 0.95em;
-  font-family: "Courier New", Courier, monospace;
-}
-
-// Syntax highlighting colors for different elements
-pre {
-  // Keywords - blue
-  .kn,
-  .kt,
-  .k {
-    color: #569cd6 !important;
-    font-weight: bold;
-  }
-
-  // Strings - red/orange
-  .s,
-  .sb,
-  .sc,
-  .s1,
-  .s2 {
-    color: #ce9178 !important;
-  }
-
-  // Comments - green
-  .c,
-  .cm,
-  .c1 {
-    color: #6a9955 !important;
-    font-style: italic;
-  }
-
-  // Numbers and constants
-  .m,
-  .mf,
-  .mh,
-  .mi,
-  .mo,
-  .il {
-    color: #b5cea8 !important;
-  }
-
-  // Class names - light blue
-  .nc,
-  .ni {
-    color: #4ec9b0 !important;
-  }
-
-  // Function names - yellow/gold
-  .nf,
-  .fn {
-    color: #dcdcaa !important;
-  }
-
-  // Attributes/parameters
-  .na {
-    color: #9cdcfe !important;
-  }
-
-  // Tags (HTML)
-  .nt {
-    color: #569cd6 !important;
-  }
-
-  // Operators
-  .o {
-    color: #d4d4d4 !important;
-  }
-}
-
 // Footer styling
 .nav-footer {
   background-color: $darkblue;
@@ -354,13 +243,6 @@ pre {
 .assignment-page main.content .callout .callout-body,
 .assignment-page main.content .panel-tabset .tab-content {
   padding: 0.9rem 1rem;
-}
-
-.lab-page main.content pre,
-.lab-page main.content div.sourceCode,
-.assignment-page main.content pre,
-.assignment-page main.content div.sourceCode {
-  margin: 1rem 0 !important;
 }
 
 // Sidebar styling

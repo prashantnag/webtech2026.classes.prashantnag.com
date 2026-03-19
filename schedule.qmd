@@ -3,6 +3,7 @@ title: "Course Schedule"
 subtitle: "BMC201 - Web Technology"
 sidebar: false
 toc: false
+freeze: false
 format:
   html:
     page-layout: full
@@ -14,17 +15,10 @@ library(tidyverse)
 library(knitr)
 library(kableExtra)
 
-if (requireNamespace("targets", quietly = TRUE)) {
-	withr::with_dir(here::here(), {
-		schedule_nested <- targets::tar_read(schedule_page_data)
-		targets::tar_load(schedule_ical_file)
-	})
-} else {
-	source(here::here("R", "tar_calendar.R"))
-	schedule_nested <- build_schedule_for_page(here::here("data", "schedule.csv"))
-
-	schedule_ical_file <- "files/schedule.ics"
-}
+withr::with_dir(here::here(), {
+	schedule_nested <- targets::tar_read(schedule_page_data)
+	targets::tar_load(schedule_ical_file)
+})
 
 base_url <- yaml::read_yaml(here::here("_quarto.yml"))$website$`site-url`
 ical_url_absolute <- paste0(base_url, "/", schedule_ical_file)

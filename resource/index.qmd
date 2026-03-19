@@ -34,12 +34,6 @@ This page contains additional learning materials, tools, references, and useful 
 - [**The Odin Project**](https://www.theodinproject.com/) - Free full-stack curriculum
 - [**W3Schools**](https://www.w3schools.com/) - Web development tutorials and reference
 
-### Video Courses
-
-- [**Traversy Media**](https://www.youtube.com/user/TechGuyWeb) - Free web development tutorials
-- [**Net Ninja**](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg) - YouTube channel with quality tutorials
-- [**Kevin Powell**](https://www.youtube.com/kepowob) - CSS specialist tutorials
-- [**Web Dev Simplified**](https://www.youtube.com/c/WebDevSimplified) - Simplified web development concepts
 
 ## Development Tools
 
@@ -239,7 +233,7 @@ Web development changes rapidly. Stay current with:
 
 - Follow key developers and influencers on Twitter
 - Subscribe to newsletters (JavaScript Weekly, CSS Weekly)
-- Join Discord communities
+- Join Discord communities (will be introduced in class)
 - Read blogs regularly
 - Attend local meetups or webinars
 
