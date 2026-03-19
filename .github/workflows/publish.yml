@@ -6,10 +6,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,9 +22,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Fetch gh-pages branch
-        run: git fetch origin gh-pages:refs/remotes/origin/gh-pages
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -30,21 +32,38 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: '.github/requirements-ci.txt'
 
       - name: Install Jupyter
-        run: python -m pip install --upgrade pip jupyter
+        run: python -m pip install --upgrade pip -r .github/requirements-ci.txt
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
 
       - name: Install R dependencies
-        run: |
-          Rscript -e 'install.packages(c("tidyverse", "knitr", "kableExtra", "withr", "here", "yaml", "targets", "lubridate", "glue", "calendar", "rmarkdown"), repos = "https://cloud.r-project.org")'
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::tidyverse
+            any::knitr
+            any::kableExtra
+            any::withr
+            any::here
+            any::yaml
+            any::targets
+            any::lubridate
+            any::glue
+            any::calendar
+            any::rmarkdown
 
       - name: Set up Julia
-        uses: julia-actions/setup-julia@v2
+        uses: julia-actions/setup-julia@v3
         with:
           version: '1.12'
+
+      - name: Cache Julia dependencies
+        uses: julia-actions/cache@v2
 
       - name: Install Julia Jupyter kernel and quiz dependencies
         run: |
@@ -55,9 +74,28 @@ jobs:
           quarto check jupyter
           jupyter kernelspec list
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Render Quarto site
+        run: quarto render
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
