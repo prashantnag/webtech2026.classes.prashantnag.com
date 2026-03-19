@@ -38,11 +38,14 @@ Develop a servlet that validates username and password values stored in a databa
 
 ### Folder Structure
 
-```text
+```bash
 Lab06-ServletLogin/
-  pom.xml
-  src/main/java/com/gcet/LoginServlet.java
-  src/main/webapp/index.jsp
+│
+├── pom.xml
+└── src/
+    └── main/
+        ├── java/com/gcet/LoginServlet.java
+        └── webapp/index.jsp
 ```
 
 ### Procedure

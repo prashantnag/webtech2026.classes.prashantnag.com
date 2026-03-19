@@ -39,9 +39,10 @@ Write a Java program that retrieves employee details from a database table and d
 
 ### Folder Structure
 
-```text
+```bash
 Lab08/
-  EmployeeViewer.java
+│
+└── EmployeeViewer.java
 ```
 
 ### Procedure

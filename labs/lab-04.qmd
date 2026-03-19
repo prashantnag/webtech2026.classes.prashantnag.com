@@ -50,10 +50,11 @@ Study this table before writing the code so you know what result to expect from 
 
 ### Folder Structure
 
-```text
+```bash
 Lab04/
-  array-methods.html
-  nested-functions.html
+│
+├── array-methods.html
+└── nested-functions.html
 ```
 
 ### Procedure

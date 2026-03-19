@@ -37,11 +37,12 @@ Design a web page using an external CSS file that applies colors, spacing, and a
 
 ### Folder Structure
 
-```text
+```bash
 Lab03/
-  index.html
-  style.css
-  validation.html
+│
+├── index.html
+├── style.css
+└── validation.html
 ```
 
 ### Procedure

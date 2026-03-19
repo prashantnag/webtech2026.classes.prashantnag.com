@@ -126,9 +126,10 @@ format:
       - html/styles.css
     toc: true
     code-copy: true
-    code-overflow: wrap
+    code-overflow: scroll
     # mainfont: "Atkinson Hyperlegible"
     highlight-style: github
+    code-line-numbers: true
 
 execute:
   freeze: auto

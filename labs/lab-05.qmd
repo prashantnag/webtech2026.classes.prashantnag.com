@@ -32,13 +32,14 @@ By the end of this lab, you will be able to:
 
 ## Folder Structure
 
-```text
+```bash
 Lab05/
-  browser-info.html
-  merge-objects.html
-  index.html
-  math-utils.js
-  app.js
+│
+├── browser-info.html
+├── merge-objects.html
+├── index.html
+├── math-utils.js
+└── app.js
 ```
 
 ## Experiment 9: Display Browser Information

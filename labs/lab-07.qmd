@@ -39,11 +39,15 @@ Create a student registration form using JSP and Servlet, and store submitted da
 
 ### Folder Structure
 
-```text
+```bash
 Lab07-StudentCRUD/
-  src/main/java/com/gcet/RegisterServlet.java
-  src/main/webapp/register.jsp
-  src/main/webapp/success.jsp
+│
+└── src/
+    └── main/
+        ├── java/com/gcet/RegisterServlet.java
+        └── webapp/
+            ├── register.jsp
+            └── success.jsp
 ```
 
 ### Procedure

@@ -38,12 +38,16 @@ Create a REST service that exposes course information through HTTP endpoints.
 
 ### Folder Structure
 
-```text
+```bash
 education-site/
-  src/main/java/com/gcet/education/CourseController.java
-  src/main/java/com/gcet/education/HomeController.java
-  src/main/resources/templates/home.html
-  pom.xml
+│
+├── pom.xml
+└── src/
+    └── main/
+        ├── java/com/gcet/education/
+        │   ├── CourseController.java
+        │   └── HomeController.java
+        └── resources/templates/home.html
 ```
 
 ### Procedure

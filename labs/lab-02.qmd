@@ -39,11 +39,12 @@ Write a program to display list items using multiple list styles.
 
 ### Folder Structure
 
-```text
+```bash
 Lab02/
-  lists.html
-  campus.jpg
-  sample.mp4
+│
+├── lists.html
+├── campus.jpg
+└── sample.mp4
 ```
 
 ### Procedure

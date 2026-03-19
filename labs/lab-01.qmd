@@ -140,17 +140,17 @@ Proper file organization is crucial for successful web development. Let's create
 Create a folder on your computer for this course. Choose an appropriate location like your Documents folder:
 
 **Windows:**
-```
+```bash
 C:\Users\[YourUsername]\Documents\BMC201-WebTech\
 ```
 
 **macOS:**
-```
+```bash
 /Users/[YourUsername]/Documents/BMC201-WebTech/
 ```
 
 **Linux:**
-```
+```bash
 /home/[username]/Documents/BMC201-WebTech/
 ```
 
@@ -158,7 +158,7 @@ C:\Users\[YourUsername]\Documents\BMC201-WebTech\
 
 Inside `BMC201-WebTech`, create these subfolders:
 
-```
+```bash
 BMC201-WebTech/
 │
 ├── Labs/
@@ -517,7 +517,7 @@ Copy this template for your next HTML file:
 
 Create a folder structure and include all the following:
 
-```
+```bash
 [YourRollNumber]_Lab01_[YourName]/
 │
 ├── index.html                    # Your HTML file
@@ -549,7 +549,7 @@ Use the `Print Screen` key or `Shift+Print Screen` to capture screenshots, then 
 
 ### README.txt Template
 
-```
+```bash
 Lab 1: Development Environment Setup
 =====================================
 

@@ -34,7 +34,7 @@ For each lab, you must submit:
 
 ### Submission Format
 
-```
+```bash
 RollNumber_LabNumber_Name.zip
 
 Example: MCA2345_Lab01_JohnDoe.zip
