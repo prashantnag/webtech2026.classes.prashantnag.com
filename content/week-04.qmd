@@ -13,12 +13,17 @@ This week covers JavaScript functions, event handling, and begins control flow s
 
 ---
 
-## Lecture 13: JavaScript Functions & Event Handling {#lecture-13}
+## Lecture 13: JavaScript Functions & Event Handling {#lecture-13}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-13-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-13.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-13.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-13.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 [{{< fa flask >}} Open Demo](/html/demos/lecture-13-demo.html)
 [{{< fa code >}} Demo JS (app.js)](/html/demos/lecture-13/app.js)
 :::
@@ -70,12 +75,17 @@ button.addEventListener('click', function(event) {
 
 ---
 
-## Lecture 14: Conditional Statements & Looping {#lecture-14}
+## Lecture 14: Conditional Statements & Looping {#lecture-14}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-14-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-14.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-14.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-14.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -131,12 +141,17 @@ for (const key in object) {
 
 ---
 
-## Lecture 15: Objects & Scope {#lecture-15}
+## Lecture 15: Objects & Scope {#lecture-15}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-15-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-15.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-15.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-15.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -184,12 +199,17 @@ console.log(blockVar);      // Error: not defined
 
 ---
 
-## Lecture 16: Arrow Functions & Callbacks {#lecture-16}
+## Lecture 16: Arrow Functions & Callbacks {#lecture-16}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-16-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-16.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-16.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-16.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -278,4 +298,5 @@ We'll continue with:
 - Advanced DOM manipulation
 - More array methods
 - ES6+ features
+
 

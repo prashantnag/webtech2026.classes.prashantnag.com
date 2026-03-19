@@ -18,11 +18,16 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 1: Introduction to Web Designing {#lecture-1}
+## Lecture 1: Introduction to Web Designing {#lecture-1}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/lecture-01.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-01.pdf)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-01.qmd){target="_blank" rel="noopener noreferrer"} | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-01.pdf)
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-01.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 ### Learning Objectives
@@ -49,11 +54,16 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 2: History of Web & Internet {#lecture-2}
+## Lecture 2: History of Web & Internet {#lecture-2}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/lecture-02.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-02.pdf)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-02.qmd){target="_blank" rel="noopener noreferrer"} | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-02.pdf)
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-02.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 ### Learning Objectives
@@ -87,11 +97,16 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 3: HTML Basics & Structure {#lecture-3}
+## Lecture 3: HTML Basics & Structure {#lecture-3}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/lecture-03.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-03.pdf)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-03.qmd){target="_blank" rel="noopener noreferrer"} | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-03.pdf)
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-03.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 ### Learning Objectives
@@ -135,11 +150,16 @@ This week introduces you to web development fundamentals, covering the history o
 
 ---
 
-## Lecture 4: HTML Grouping - Div & Span, Semantic HTML {#lecture-4}
+## Lecture 4: HTML Grouping - Div & Span, Semantic HTML {#lecture-4}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/lecture-04.qmd) | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-04.pdf)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-04.qmd){target="_blank" rel="noopener noreferrer"} | [{{< fa file-pdf >}} Download Lecture PDF](/lectures/lecture-04.pdf)
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-04.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 ### Learning Objectives
@@ -233,3 +253,4 @@ By the end of this week, you should be ready to:
 - Set up a basic development environment
 
 Next week, we'll add more HTML elements (lists, images, tables, forms) and introduce CSS for styling!
+

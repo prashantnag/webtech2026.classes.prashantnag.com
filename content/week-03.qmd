@@ -13,12 +13,17 @@ This week covers CSS fundamentals including selectors, properties, and the Box M
 
 ---
 
-## Lecture 9: CSS Units, Selectors & Advanced Styling {#lecture-9}
+## Lecture 9: CSS Units, Selectors & Advanced Styling {#lecture-9}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-09-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-09.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-09.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-09.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -70,12 +75,17 @@ p {
 
 ---
 
-## Lecture 10: CSS Box Model & Positioning {#lecture-10}
+## Lecture 10: CSS Box Model & Positioning {#lecture-10}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-10-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-10.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-10.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-10.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -126,12 +136,17 @@ div {
 
 ---
 
-## Lecture 11: Bootstrap Framework Basics {#lecture-11}
+## Lecture 11: Bootstrap Framework Basics {#lecture-11}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-11-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-11.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-11.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-11.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -171,12 +186,17 @@ div {
 
 ---
 
-## Lecture 12: JavaScript - Introduction & Variables {#lecture-12}
+## Lecture 12: JavaScript - Introduction & Variables {#lecture-12}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-12-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-12.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-12.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-12.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 [{{< fa flask >}} Open Demo](/html/demos/lecture-12-demo.html)
 [{{< fa code >}} Demo JS (app.js)](/html/demos/lecture-12/app.js)
 :::
@@ -284,4 +304,5 @@ We'll dive deeper into JavaScript:
 - Functions and events
 - Control flow (if/else, loops)
 - Working with the DOM
+
 

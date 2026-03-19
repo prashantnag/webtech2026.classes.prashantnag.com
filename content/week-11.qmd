@@ -23,11 +23,16 @@ This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.
 
 ---
 
-## Lecture 33: Spring Data JPA & ORM Integration {#lecture-33}
+## Lecture 33: Spring Data JPA & ORM Integration {#lecture-33}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -123,11 +128,16 @@ private Set<Permission> permissions;
 
 ---
 
-## Lecture 34: Spring Security {#lecture-34}
+## Lecture 34: Spring Security {#lecture-34}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -188,11 +198,16 @@ public class UserService {
 
 ---
 
-## Lecture 35: Introduction to Spring Boot {#lecture-35}
+## Lecture 35: Introduction to Spring Boot {#lecture-35}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -271,11 +286,16 @@ logging.level.com.example=DEBUG
 
 ---
 
-## Lecture 36: Building REST APIs with Spring Boot {#lecture-36}
+## Lecture 36: Building REST APIs with Spring Boot {#lecture-36}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -388,4 +408,5 @@ Unit V final topics:
 - REST API best practices
 - Testing strategies
 - Deployment and production
+
 

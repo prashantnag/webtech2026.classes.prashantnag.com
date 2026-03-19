@@ -24,11 +24,16 @@ This week uses upcoming lecture decks. Use the [Lectures Index](/lectures/index.
 
 ---
 
-## Lecture 21: Servlet Architecture & Lifecycle {#lecture-21}
+## Lecture 21: Servlet Architecture & Lifecycle {#lecture-21}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -93,11 +98,16 @@ public class FirstServlet extends HttpServlet {
 
 ---
 
-## Lecture 22: HTTP GET & POST Requests {#lecture-22}
+## Lecture 22: HTTP GET & POST Requests {#lecture-22}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -165,11 +175,16 @@ out.println("Response content");
 
 ---
 
-## Lecture 23: Session Tracking & Cookies {#lecture-23}
+## Lecture 23: Session Tracking & Cookies {#lecture-23}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -223,11 +238,16 @@ response.addCookie(cookie);
 
 ---
 
-## Lecture 24: Introduction to JSP {#lecture-24}
+## Lecture 24: Introduction to JSP {#lecture-24}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
-[{{< fa desktop >}} View Lecture](/lectures/index.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/index.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/index.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -318,4 +338,5 @@ Unit III continues:
 - JSTL (JSP Standard Tag Library)
 - MVC architecture
 - Database connectivity
+
 

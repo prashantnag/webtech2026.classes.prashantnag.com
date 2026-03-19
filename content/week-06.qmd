@@ -1,4 +1,4 @@
----
+﻿---
 title: "Weeks 6-7: Mar 2 - Mar 14, 2026"
 subtitle: "Revision & Mid-Semester Examination"
 ---
@@ -215,3 +215,4 @@ Office hours available for:
 - Last-minute questions
 - Concept clarification
 - Exam strategy discussion
+

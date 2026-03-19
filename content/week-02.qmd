@@ -14,12 +14,17 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 5: HTML Lists & Images {#lecture-5}
+## Lecture 5: HTML Lists & Images {#lecture-5}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-05-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-05.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-05.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-05.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -80,12 +85,17 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 6: HTML Hyperlinks & Tables {#lecture-6}
+## Lecture 6: HTML Hyperlinks & Tables {#lecture-6}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-06-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-06.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-06.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-06.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -149,12 +159,17 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 7: HTML Forms & Form Elements {#lecture-7}
+## Lecture 7: HTML Forms & Form Elements {#lecture-7}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-07-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-07.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-07.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-07.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -205,12 +220,17 @@ This week covers essential HTML elements (lists, images, tables, forms) and intr
 
 ---
 
-## Lecture 8: Introduction to CSS {#lecture-8}
+## Lecture 8: Introduction to CSS {#lecture-8}
 
 ::: {.callout-note icon=false}
 ## Lecture Materials
 [{{< fa list-check >}} Take Quiz](/quiz/lecture-08-quiz.qmd)
-[{{< fa desktop >}} View Lecture](/lectures/lecture-08.qmd)
+[{{< fa desktop >}} View Lecture](/lectures/lecture-08.qmd){target="_blank" rel="noopener noreferrer"}
+```{=html}
+<div class="ratio ratio-16x9 mb-3">
+  <iframe class="lecture-preview-frame" src="/lectures/lecture-08.html" title="Lecture presentation preview" loading="lazy" style="border: 1px solid #343a40;" allowfullscreen></iframe>
+</div>
+```
 :::
 
 
@@ -320,4 +340,5 @@ In the coming weeks, we'll:
 - Learn CSS Box Model and positioning
 - Introduction to Bootstrap responsive framework
 - Begin JavaScript for interactivity
+
 

@@ -26,7 +26,14 @@ website:
   repo-url: "https://github.com/prashantnag/webtech2026.classes.prashantnag.com"
   repo-actions: [edit, issue]
 
-  open-graph: true
+  open-graph:
+    title: "Web Technology - BMC201"
+    description: "Course website for BMC201 Web Technology (MCA Semester 2) at GCET, following AKTU curriculum. Covers HTML, CSS, JavaScript, and modern web frameworks."
+    image: "files/og-image.png"
+    image-width: 1200
+    image-height: 630
+    locale: "en_US"
+    site-name: "BMC201 Web Technology — GCET"
   twitter-card:
     creator: "@prashantnag"
     site: "@prashantnag"
@@ -36,7 +43,7 @@ website:
   cookie-consent:
     type: implied
     style: simple
-    palette: dark
+    palette: light
 
   navbar:
     background: "#2C3E50"
