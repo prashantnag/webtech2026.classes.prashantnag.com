@@ -52,12 +52,13 @@ website:
   sidebar:
     style: docked
     background: "#2C3E50"
-    logo: files/favicon.svg
+    logo: files/wt_favicon.png
     tools:
       - icon: github
         href: "https://github.com/prashantnag/webtech2026.classes.prashantnag.com"
         text: "GitHub"
     search: true
+    collapse-level: 1
     contents:
       - section: "Course information"
         contents:
@@ -67,14 +68,12 @@ website:
             file: index.qmd
           - resource/index.qmd
       - section: "Assignments"
-        collapsed: true
         contents:
           - assignment/01-assignment.qmd
           - assignment/02-assignment.qmd
           - assignment/03-assignment.qmd
           - assignment/04-assignment.qmd
       - section: "Labs"
-        collapsed: true
         contents:
           - labs/lab-01.qmd
           - labs/lab-02.qmd
@@ -91,11 +90,7 @@ website:
 
   page-footer:
     left: |
-      Content © 2026 by [Prashant Kumar Nag](https://prashantnag.com) <br>
-      All content licensed under a [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
-    right: |
-      Made with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/)<br>
-      [View the source on GitHub](https://github.com/prashantnag/webtech2026.classes.prashantnag.com)
+      Content © 2026 by [Prashant Kumar Nag](https://prashantnag.com)
 
 format:
   html:
@@ -111,7 +106,7 @@ format:
     toc: true
     code-copy: true
     code-overflow: scroll
-    # mainfont: "Atkinson Hyperlegible"
+    mainfont: "Open Sans"
     highlight-style: github
     code-line-numbers: true
 

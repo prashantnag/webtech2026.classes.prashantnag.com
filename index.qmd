@@ -12,20 +12,6 @@ format:
 
 *This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.*
 
-Here's your roadmap for the semester!
-
-- [**Lectures**](/lectures/index.qmd) ({{< fa desktop >}}): Lecture materials for each class session.
-
-- [**Content**](/content/index.qmd) ({{< fa book-open-reader >}}): This page contains lecture materials, readings, and videos for each topic. Read and watch these.
-
-- [**Labs**](/labs/index.qmd) ({{< fa flask >}}): Hands-on lab exercises with step-by-step instructions (3-hour sessions weekly).
-
-- [**Assignments**](/assignment/index.qmd) ({{< fa pen-ruler >}}): Regular assignments with due dates. Complete these to practice what you've learned.
-
-- [**Quizzes**](/quiz/index.qmd) ({{< fa list-check >}}): Use pre-class quizzes to quickly check understanding before lecture delivery.
-
-- [**Resources**](/resource/index.qmd) ({{< fa books >}}): Additional learning materials and references.
-
 ```{r packages-data, include=FALSE}
 library(tidyverse)
 library(knitr)
