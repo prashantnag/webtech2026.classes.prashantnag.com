@@ -1,54 +1,66 @@
 ---
-title: "Web Technology"
-subtitle: "BMC201 • MCA Semester 2 • 2025-26"
-details: |
-  Prashant Kumar Nag<br>Galgotias College of Engineering & Technology
+title: "Web Technology — BMC201"
+subtitle: "Mr. Prashant Kumar Nag"
+navbar: false
+toc: false
+freeze: false
 format:
   html:
+    page-layout: full
     toc: false
-    template-partials:
-      - html/home/title-block.html
-course-logo: /files/favicon-512.png
 ---
 
-::: {.home}
-## Instructor & Course
+*This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.*
 
-:::: {.columns}
+```{r packages-data, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
 
-::: {.column width="25%"}
-![](files/nagpk.jpg){width="180"}
+withr::with_dir(here::here(), {
+  schedule_nested <- targets::tar_read(schedule_page_data)
+  targets::tar_load(schedule_ical_file)
+})
+
+base_url <- yaml::read_yaml(here::here("_quarto.yml"))$website$`site-url`
+ical_url_absolute <- paste0(base_url, "/", schedule_ical_file)
+```
+
+::: {.callout-tip}
+## Subscribe to Calendar
+
+You can subscribe to this calendar URL in Outlook, Google Calendar, or Apple Calendar.
+
+::: {.grid .align-items-center}
+
+::: {.g-col-12 .g-col-md-3}
+<p class="download-btn"><a class="btn btn-danger" href="/`r schedule_ical_file`" role="button">{{< fa calendar-alt >}} Download ICS</a></p>
 :::
 
-::: {.column width="75%"}
-- [Mr. Prashant Kumar Nag](https://prashantnag.com)
-- Email: [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
-- Department: Department of Computer Applications
-- Institution: Galgotias College of Engineering and Technology
-- Course: Web Technology (BMC201)
-- Program: MCA Semester 2 (2025-26)
+::: {.g-col-12 .g-col-md-9 .subscribe-url}
+<p><input class="form-control" type="text" value="`r ical_url_absolute`" onclick="this.select()" readonly></p>
 :::
 
-::::
-
-## Course Overview
-
-This course introduces modern web development with both front-end and back-end technologies. You will learn HTML, CSS, JavaScript, JSP/Servlets, Spring, and REST APIs through lectures, labs, and assignments.
-
-## What You Will Learn
-
-- Build responsive web pages using HTML5, CSS3, and Bootstrap.
-- Create interactive UI behavior with JavaScript and DOM manipulation.
-- Develop server-side applications using JSP, Servlets, and Spring Boot.
-- Work with databases and web server deployment basics.
-- Apply web standards, architecture principles, and debugging practices.
-
-
-## Getting Help
-
-- Email: [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
-- Office: Room A06, Department of Computer Applications, Galgotias College of Engineering and Technology
-- Typical response time: 24-48 hours on weekdays
-
 :::
+:::
+
+```{r build-table, include=FALSE}
+show_table <- function(group_id) {
+  cat(glue::glue("\n\n<div class=\"schedule-group\"><div class=\"schedule-group-title\"><h3>{schedule_nested$group[[group_id]]}</h3></div>\n"))
+
+  tbl <- schedule_nested$data[[group_id]] |>
+    kbl(escape = FALSE, align = "rlccccc", table.attr = 'class="schedule-table"') |>
+    kable_styling() |>
+    column_spec(1, width = "18%", extra_css = "padding-right: 20px; white-space: nowrap;") |>
+    column_spec(2, width = "42%") |>
+    column_spec(3:7, width = "8%")
+
+  cat(tbl)
+  cat("</div>")
+}
+```
+
+```{r show-table, echo=FALSE, results="asis"}
+walk(seq_len(nrow(schedule_nested)), ~show_table(.x))
+```
 

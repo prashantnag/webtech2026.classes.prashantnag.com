@@ -1,0 +1,47 @@
+---
+title: "Course overview"
+navbar: false
+---
+
+## Overview
+
+BMC201 Web Technology is a 4-credit course (3-1-0) for MCA Semester 2 students at Galgotias College of Engineering & Technology, following the AKTU MCA Model Curriculum 2020-21.
+
+This course introduces modern web development with both front-end and back-end technologies. Students will learn HTML, CSS, JavaScript, JSP/Servlets, Spring, and REST APIs through lectures, labs, and assignments.
+
+## Learning Outcomes
+
+By the end of this course, students will be able to:
+
+- Build responsive web pages using HTML5, CSS3, and Bootstrap.
+- Create interactive UI behaviour with JavaScript and DOM manipulation.
+- Develop server-side applications using JSP, Servlets, and Spring Boot.
+- Work with databases and web server deployment basics.
+- Apply web standards, architecture principles, and debugging practices.
+
+## Class meetings
+
+| | Day | Time | Location |
+|---|---|---|---|
+| Lecture | TBA | TBA | TBA |
+| Lab | TBA | TBA | TBA |
+
+## Teaching team
+
+| Role | Name | Office hours | Location |
+|---|---|---|---|
+| Instructor | [Mr. Prashant Kumar Nag](https://prashantnag.com) | By appointment | Room A06, Dept. of Computer Applications |
+
+**Email:** [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
+
+Typical response time: 24–48 hours on weekdays.
+
+## Course materials
+
+All required materials (lecture notes, lab sheets, assignment instructions) will be posted on this website. Official announcements and submission links are on Moodle.
+
+## Getting help
+
+- **Email** the instructor for individual questions.
+- **Office hours** — see the table above.
+- Check the [Resources](/resource/index.qmd) page for additional references and tools.
