@@ -18,7 +18,7 @@ extensions:
 
 website:
   page-navigation: true
-  bread-crumbs: false
+  bread-crumbs: true
   title: "Web Technology - BMC201"
   description: "Website for BMC201 Web Technology course (MCA Semester 2) at GCET, following AKTU curriculum"
   site-url: "https://webtech2026.classes.prashantnag.com"
@@ -49,80 +49,48 @@ website:
     type: primary
     position: below-navbar
 
-  navbar:
+  sidebar:
+    style: docked
     background: "#2C3E50"
-    logo: files/favicon.svg
-    # logo-alt: "BMC201 Web Technology logo"
-    collapse-below: lg
-    left:
-      - text: "Home"
-        file: index.qmd
-      - text: "Syllabus"
-        file: syllabus.qmd
-      - text: "Schedule"
-        menu:
-          - text: "Course Schedule Overview"
-            file: schedule.qmd
-          - text: "Week 01"
-            file: content/week-01.qmd
-          - text: "Week 02"
-            file: content/week-02.qmd
-          - text: "Week 03"
-            file: content/week-03.qmd
-          - text: "Week 04"
-            file: content/week-04.qmd
-          - text: "Week 05"
-            file: content/week-05.qmd
-          - text: "Week 06-07 (Mid-Sem)"
-            file: content/week-06.qmd
-          - text: "Week 08"
-            file: content/week-08.qmd
-          - text: "Week 09"
-            file: content/week-09.qmd
-          - text: "Week 10"
-            file: content/week-10.qmd
-          - text: "Week 11"
-            file: content/week-11.qmd
-          - text: "Week 12"
-            file: content/week-12.qmd
-      - text: "Materials"
-        menu:
-          - text: "Labs Overview"
-            file: labs/index.qmd
-          - text: "Lab 01"
-            file: labs/lab-01.qmd
-          - text: "Lab 02"
-            file: labs/lab-02.qmd
-          - text: "Lab 03"
-            file: labs/lab-03.qmd
-          - text: "Lab 04"
-            file: labs/lab-04.qmd
-          - text: "Lab 05"
-            file: labs/lab-05.qmd
-          - text: "Lab 06"
-            file: labs/lab-06.qmd
-          - text: "Lab 07"
-            file: labs/lab-07.qmd
-          - text: "Lab 08"
-            file: labs/lab-08.qmd
-          - text: "Lab 09"
-            file: labs/lab-09.qmd
-          - text: "Quizzes"
-            file: quiz/index.qmd
-          - text: "Resources"
-            file: resource/index.qmd
-      - text: "Assessments"
-        menu:
-          - text: "Assignments"
-            file: assignment/index.qmd
+    logo: files/wt_favicon.png
+    tools:
+      - icon: github
+        href: "https://github.com/prashantnag/webtech2026.classes.prashantnag.com"
+        text: "GitHub"
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Course information"
+        contents:
+          - course-overview.qmd
+          - syllabus.qmd
+          - text: "Schedule"
+            file: index.qmd
+          - resource/index.qmd
+      - section: "Assignments"
+        contents:
+          - assignment/01-assignment.qmd
+          - assignment/02-assignment.qmd
+          - assignment/03-assignment.qmd
+          - assignment/04-assignment.qmd
+      - section: "Labs"
+        contents:
+          - labs/lab-01.qmd
+          - labs/lab-02.qmd
+          - labs/lab-03.qmd
+          - labs/lab-04.qmd
+          - labs/lab-05.qmd
+          - labs/lab-06.qmd
+          - labs/lab-07.qmd
+          - labs/lab-08.qmd
+          - labs/lab-09.qmd
+      - section: "Quizzes"
+        contents:
+          - quiz/index.qmd
 
   page-footer:
     left: |
-      Content © 2026 by [Prashant Kumar Nag](https://prashantnag.com) <br>
-      All content licensed under a [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
-    right: |
-      Made with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/)<br>
-      [View the source on GitHub](https://github.com/prashantnag/webtech2026.classes.prashantnag.com)
+      Content © 2026 by [Prashant Kumar Nag](https://prashantnag.com)
 
 format:
   html:
@@ -138,7 +106,7 @@ format:
     toc: true
     code-copy: true
     code-overflow: scroll
-    # mainfont: "Atkinson Hyperlegible"
+    mainfont: "Open Sans"
     highlight-style: github
     code-line-numbers: true
 
