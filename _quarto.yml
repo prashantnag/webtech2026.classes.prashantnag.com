@@ -67,12 +67,14 @@ website:
             file: index.qmd
           - resource/index.qmd
       - section: "Assignments"
+        collapsed: true
         contents:
           - assignment/01-assignment.qmd
           - assignment/02-assignment.qmd
           - assignment/03-assignment.qmd
           - assignment/04-assignment.qmd
       - section: "Labs"
+        collapsed: true
         contents:
           - labs/lab-01.qmd
           - labs/lab-02.qmd
