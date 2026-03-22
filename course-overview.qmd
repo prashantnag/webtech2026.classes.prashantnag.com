@@ -21,13 +21,27 @@ By the end of this course, students will be able to:
 
 ## Class meetings
 
-| | Day | Time | Location |
-|---|---|---|---|
-| Lecture | TBA | TBA | TBA |
-| Lab | TBA | TBA | TBA |
+| Day | Time | Course | Section | Location |
+|---|---|---|---|---|
+| Tuesday | 09:50 - 10:40 | Web Technology (BMC201) | SEM 2, SEC-C | GBS-101 |
+| Tuesday | 10:45 - 11:35 | Web Technology (BMC201) | SEM 2, SEC-C | GBS-101 |
+| Tuesday | 03:00 - 04:40 | Web Technology Lab (BMC251) | SEM 2, SEC-A1 | GBS-104 |
+| Wednesday | 09:50 - 10:40 | Web Technology (BMC201) | SEM 2, SEC-C | GBS-101 |
+| Wednesday | 02:05 - 02:55 | Project (BMC452) | SEM 4, SEC-A2 | GBS-105 |
+| Wednesday | 03:00 - 03:50 | Project (BMC452) | SEM 4, SEC-A1 | GBS-105 |
+| Thursday | 11:35 - 12:25 | Web Technology (BMC201) | SEM 2, SEC-C | GBS-101 |
+| Thursday | 03:00 - 04:40 | Web Technology Lab (BMC251) | SEM 2, SEC-C2 | GBS-103 |
+| Friday | 10:45 - 12:25 | Web Technology Lab (BMC251) | SEM 2, SEC-C1 | GBS-104 |
 
-## Teaching team
+## Teacher
 
+:::: {.columns .align-items-center}
+
+::: {.column width="25%"}
+![](files/nagpk.jpg){fig-alt="Mr. Prashant Kumar Nag" width=180}
+:::
+
+::: {.column width="75%"}
 | Role | Name | Office hours | Location |
 |---|---|---|---|
 | Instructor | [Mr. Prashant Kumar Nag](https://prashantnag.com) | By appointment | Room A06, Dept. of Computer Applications |
@@ -35,13 +49,10 @@ By the end of this course, students will be able to:
 **Email:** [prashantkumar.nag@galgotiacollege.edu](mailto:prashantkumar.nag@galgotiacollege.edu)
 
 Typical response time: 24–48 hours on weekdays.
+:::
+
+::::
 
 ## Course materials
 
 All required materials (lecture notes, lab sheets, assignment instructions) will be posted on this website. Official announcements and submission links are on Moodle.
-
-## Getting help
-
-- **Email** the instructor for individual questions.
-- **Office hours** — see the table above.
-- Check the [Resources](/resource/index.qmd) page for additional references and tools.
